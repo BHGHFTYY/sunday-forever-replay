@@ -1,7 +1,15 @@
 {
   "league_name": "Sunday Forever",
-  "my_roster_id": null,
-  "generated_at": null,
-  "latest_week": null,
-  "weeks": {}
+  "my_roster_id": 2,
+  "generated_at": "2026-09-09T13:05:46+00:00",
+  "latest_week": 1,
+  "weeks": {
+    "1": {
+      "my_team_name": "The Heart of The Sahara",
+      "opponent_team_name": "The Busy Boys ",
+      "opponent_roster_id": 1,
+      "snapshot_count": 1,
+      "file": "data/snapshots_week1.json"
+    }
+  }
 }
