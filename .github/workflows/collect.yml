@@ -28,6 +28,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: TEMP probe ESPN scoreboard reachability
+        run: |
+          curl -s -o /tmp/espn.json -w "HTTP %{http_code}\n" -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36" "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
+          head -c 500 /tmp/espn.json || true
+
       - name: Run collector
         run: python scripts/collector.py
 
