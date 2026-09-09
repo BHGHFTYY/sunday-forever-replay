@@ -94,24 +94,51 @@
   .timeline-block {
     margin-bottom: 16px;
   }
-  .progress-track {
-    height: 8px;
-    background: var(--border);
-    border-radius: 999px;
-    overflow: hidden;
+  input[type="range"].scrubber {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 28px;
+    background: transparent;
+    accent-color: var(--accent2);
+    cursor: pointer;
+    touch-action: pan-x;
   }
-  .progress-fill {
-    height: 100%;
+  input[type="range"].scrubber::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: 999px;
+    background: var(--border);
+  }
+  input[type="range"].scrubber::-moz-range-track {
+    height: 8px;
+    border-radius: 999px;
+    background: var(--border);
+  }
+  input[type="range"].scrubber::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    margin-top: -7px;
+    border-radius: 50%;
     background: var(--accent2);
-    width: 0%;
-    transition: width 0.2s ease;
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--accent2);
+  }
+  input[type="range"].scrubber::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent2);
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--accent2);
   }
   .timeline-meta {
     display: flex;
     justify-content: space-between;
     font-size: 0.75rem;
     color: var(--muted);
-    margin-top: 6px;
+    margin-top: 2px;
   }
   .controls {
     display: flex;
@@ -240,7 +267,7 @@
     </div>
 
     <div class="timeline-block">
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <input type="range" class="scrubber" id="scrubber" min="0" max="0" step="1" value="0">
       <div class="timeline-meta">
         <span id="posLabel">Snapshot 1</span>
         <span id="timeLabel">--</span>
@@ -248,9 +275,7 @@
     </div>
 
     <div class="controls">
-      <button class="ctrl" id="btnBack" title="Step back">⏮ Back</button>
       <button class="ctrl play" id="btnPlay">▶ Play</button>
-      <button class="ctrl" id="btnFwd" title="Step forward">Fwd ⏭</button>
     </div>
     <div class="speed-row">
       <button class="speed-btn" data-speed="2000">Slow</button>
@@ -297,11 +322,9 @@
     oppName: document.getElementById("oppName"),
     myScore: document.getElementById("myScore"),
     oppScore: document.getElementById("oppScore"),
-    progressFill: document.getElementById("progressFill"),
+    scrubber: document.getElementById("scrubber"),
     posLabel: document.getElementById("posLabel"),
     timeLabel: document.getElementById("timeLabel"),
-    btnBack: document.getElementById("btnBack"),
-    btnFwd: document.getElementById("btnFwd"),
     btnPlay: document.getElementById("btnPlay"),
     myLineupTitle: document.getElementById("myLineupTitle"),
     oppLineupTitle: document.getElementById("oppLineupTitle"),
@@ -329,6 +352,16 @@
     } catch (e) {
       return iso;
     }
+  }
+
+  function fmtElapsed(snap) {
+    var first = state.snapshots[0];
+    if (!first) return "";
+    var ms = new Date(snap.timestamp) - new Date(first.timestamp);
+    var mins = Math.max(0, Math.round(ms / 60000));
+    if (mins < 60) return mins + " min in";
+    var h = Math.floor(mins / 60), m = mins % 60;
+    return h + "h " + m + "m in";
   }
 
   function renderLineup(tbody, lineup) {
@@ -363,13 +396,11 @@
     renderLineup(el.myLineupBody, snap.my.lineup);
     renderLineup(el.oppLineupBody, snap.opp.lineup);
 
-    var pct = state.snapshots.length <= 1 ? 100 : (state.index / (state.snapshots.length - 1)) * 100;
-    el.progressFill.style.width = pct + "%";
+    el.scrubber.max = Math.max(0, state.snapshots.length - 1);
+    el.scrubber.value = state.index;
     el.posLabel.textContent = "Snapshot " + (state.index + 1) + " of " + state.snapshots.length;
-    el.timeLabel.textContent = fmtTime(snap.timestamp);
+    el.timeLabel.textContent = fmtTime(snap.timestamp) + " · " + fmtElapsed(snap);
 
-    el.btnBack.disabled = state.index <= 0;
-    el.btnFwd.disabled = state.index >= state.snapshots.length - 1;
     if (state.index >= state.snapshots.length - 1) {
       stopPlaying();
     }
@@ -409,9 +440,15 @@
     if (state.playing) stopPlaying(); else startPlaying();
   }
 
-  el.btnBack.addEventListener("click", function () { stopPlaying(); step(-1); });
-  el.btnFwd.addEventListener("click", function () { stopPlaying(); step(1); });
   el.btnPlay.addEventListener("click", togglePlay);
+
+  el.scrubber.addEventListener("input", function () {
+    stopPlaying();
+    var v = parseInt(el.scrubber.value, 10);
+    if (v < 0 || v >= state.snapshots.length) return;
+    state.index = v;
+    render();
+  });
 
   Array.prototype.forEach.call(document.querySelectorAll(".speed-btn"), function (btn) {
     btn.addEventListener("click", function () {
