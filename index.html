@@ -85,6 +85,14 @@
     font-weight: 700;
     font-variant-numeric: tabular-nums;
     margin-top: 4px;
+    border-radius: 8px;
+  }
+  .team .score.flash {
+    animation: scoreFlash 1s ease-out;
+  }
+  @keyframes scoreFlash {
+    0% { color: var(--accent); text-shadow: 0 0 14px var(--accent); }
+    100% { color: var(--text); text-shadow: none; }
   }
   .vs {
     color: var(--muted);
@@ -231,6 +239,19 @@
     font-weight: 600;
     white-space: nowrap;
   }
+  .delta {
+    display: block;
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+  tr.row-changed {
+    animation: rowFlash 1.8s ease-out;
+  }
+  @keyframes rowFlash {
+    0% { background: rgba(63, 185, 80, 0.18); }
+    100% { background: transparent; }
+  }
   footer {
     text-align: center;
     color: var(--muted);
@@ -364,17 +385,40 @@
     return h + "h " + m + "m in";
   }
 
-  function renderLineup(tbody, lineup) {
+  function renderLineup(tbody, lineup, prevLineup) {
+    var prevById = {};
+    (prevLineup || []).forEach(function (p) { prevById[p.player_id] = p.points; });
+
     tbody.innerHTML = "";
     lineup.forEach(function (p) {
+      var prevPts = prevById.hasOwnProperty(p.player_id) ? prevById[p.player_id] : p.points;
+      var delta = p.points - prevPts;
+      var deltaHtml = delta > 0.004 ? '<span class="delta">+' + fmtPts(delta) + '</span>' : '';
       var tr = document.createElement("tr");
+      if (delta > 0.004) tr.className = "row-changed";
       tr.innerHTML =
         '<td class="slot">' + p.slot + '</td>' +
         '<td><div class="pname">' + escapeHtml(p.name) + '</div>' +
         '<div class="pmeta">' + escapeHtml([p.position, p.team].filter(Boolean).join(" · ")) + '</div></td>' +
-        '<td class="ppts">' + fmtPts(p.points) + '</td>';
+        '<td class="ppts">' + fmtPts(p.points) + deltaHtml + '</td>';
       tbody.appendChild(tr);
     });
+  }
+
+  function totalPoints(lineup) {
+    return (lineup || []).reduce(function (sum, p) { return sum + (p.points || 0); }, 0);
+  }
+
+  function hasChange(a, b) {
+    if (!a || !b) return true;
+    return totalPoints(a.my.lineup) !== totalPoints(b.my.lineup) ||
+           totalPoints(a.opp.lineup) !== totalPoints(b.opp.lineup);
+  }
+
+  function flash(el2) {
+    el2.classList.remove("flash");
+    void el2.offsetWidth;
+    el2.classList.add("flash");
   }
 
   function escapeHtml(s) {
@@ -383,9 +427,10 @@
     });
   }
 
-  function render() {
+  function render(prevIndex) {
     var snap = state.snapshots[state.index];
     if (!snap) return;
+    var prev = (prevIndex != null) ? state.snapshots[prevIndex] : null;
 
     el.myName.textContent = snap.my.team_name;
     el.oppName.textContent = snap.opp.team_name;
@@ -393,8 +438,11 @@
     el.oppScore.textContent = fmtPts(snap.opp.points);
     el.myLineupTitle.textContent = snap.my.team_name;
     el.oppLineupTitle.textContent = snap.opp.team_name;
-    renderLineup(el.myLineupBody, snap.my.lineup);
-    renderLineup(el.oppLineupBody, snap.opp.lineup);
+    renderLineup(el.myLineupBody, snap.my.lineup, prev ? prev.my.lineup : null);
+    renderLineup(el.oppLineupBody, snap.opp.lineup, prev ? prev.opp.lineup : null);
+
+    if (prev && snap.my.points > prev.my.points) flash(el.myScore);
+    if (prev && snap.opp.points > prev.opp.points) flash(el.oppScore);
 
     el.scrubber.max = Math.max(0, state.snapshots.length - 1);
     el.scrubber.value = state.index;
@@ -407,10 +455,25 @@
   }
 
   function step(delta) {
+    var prevIndex = state.index;
     var next = state.index + delta;
     if (next < 0 || next >= state.snapshots.length) return;
     state.index = next;
-    render();
+    render(delta > 0 ? prevIndex : null);
+  }
+
+  var SKIP_DELAY = 120; // ms — how fast we zip through snapshots where nothing changed
+
+  function scheduleNextStep() {
+    if (!state.playing) return;
+    if (state.index >= state.snapshots.length - 1) { stopPlaying(); return; }
+    var a = state.snapshots[state.index];
+    var b = state.snapshots[state.index + 1];
+    var delay = hasChange(a, b) ? state.speed : SKIP_DELAY;
+    state.timer = setTimeout(function () {
+      step(1);
+      scheduleNextStep();
+    }, delay);
   }
 
   function startPlaying() {
@@ -418,21 +481,15 @@
     state.playing = true;
     el.btnPlay.textContent = "⏸ Pause";
     el.btnPlay.classList.add("playing");
-    clearInterval(state.timer);
-    state.timer = setInterval(function () {
-      if (state.index >= state.snapshots.length - 1) {
-        stopPlaying();
-        return;
-      }
-      step(1);
-    }, state.speed);
+    clearTimeout(state.timer);
+    scheduleNextStep();
   }
 
   function stopPlaying() {
     state.playing = false;
     el.btnPlay.textContent = "▶ Play";
     el.btnPlay.classList.remove("playing");
-    clearInterval(state.timer);
+    clearTimeout(state.timer);
     state.timer = null;
   }
 
