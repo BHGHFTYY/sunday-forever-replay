@@ -161,10 +161,21 @@ def main():
 
     snapshots_path = os.path.join(DATA_DIR, f"snapshots_week{week}.json")
     snapshots = load_json(snapshots_path, [])
-    snapshots.append(snapshot)
-    save_json(snapshots_path, snapshots)
-    print(f"Appended snapshot #{len(snapshots)} for week {week}: "
-          f"{my_team_name} {snapshot['my']['points']} vs {opp_team_name} {snapshot['opp']['points']}")
+
+    def lineup_points(entry):
+        return [p["points"] for p in entry["lineup"]]
+
+    is_duplicate = bool(snapshots) and (
+        lineup_points(snapshots[-1]["my"]) == lineup_points(snapshot["my"])
+        and lineup_points(snapshots[-1]["opp"]) == lineup_points(snapshot["opp"])
+    )
+    if is_duplicate:
+        print(f"No change since last snapshot for week {week} — not appending (avoids unbounded growth "
+              f"now that the collector polls almost around the clock).")
+    else:
+        snapshots.append(snapshot)
+        save_json(snapshots_path, snapshots)
+        print(f"Appended snapshot #{len(snapshots)} for week {week} (score changed since last snapshot).")
 
     current = load_json(CURRENT_PATH, {"league_name": league.get("name"), "my_roster_id": my_roster_id, "weeks": {}})
     current["league_name"] = league.get("name")
