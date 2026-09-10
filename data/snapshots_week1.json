@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2026-09-09T13:05:46+00:00",
+    "timestamp": "2026-09-10T00:23:21.297Z",
     "week": 1,
     "my": {
       "roster_id": 2,
@@ -136,10 +136,10 @@
         },
         {
           "slot": "RB",
-          "player_id": "7543",
-          "name": "Travis Etienne",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
           "position": "RB",
-          "team": "NO",
+          "team": "LV",
           "points": 0.0
         },
         {
@@ -242,12 +242,12 @@
     }
   },
   {
-    "timestamp": "2026-09-09T13:11:37+00:00",
+    "timestamp": "2026-09-10T00:24:45.233Z",
     "week": 1,
     "my": {
       "roster_id": 2,
       "team_name": "The Heart of The Sahara",
-      "points": 0.0,
+      "points": 3.3,
       "lineup": [
         {
           "slot": "QB",
@@ -279,7 +279,7 @@
           "name": "Jaxon Smith-Njigba",
           "position": "WR",
           "team": "SEA",
-          "points": 0.0
+          "points": 2.3
         },
         {
           "slot": "WR",
@@ -343,7 +343,7 @@
           "name": "Robert Spillane",
           "position": "LB",
           "team": "NE",
-          "points": 0.0
+          "points": 1.0
         },
         {
           "slot": "DB",
@@ -378,10 +378,10 @@
         },
         {
           "slot": "RB",
-          "player_id": "7543",
-          "name": "Travis Etienne",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
           "position": "RB",
-          "team": "NO",
+          "team": "LV",
           "points": 0.0
         },
         {
@@ -484,12 +484,12 @@
     }
   },
   {
-    "timestamp": "2026-09-09T13:12:10+00:00",
+    "timestamp": "2026-09-10T00:26:08.637Z",
     "week": 1,
     "my": {
       "roster_id": 2,
       "team_name": "The Heart of The Sahara",
-      "points": 0.0,
+      "points": 4.3,
       "lineup": [
         {
           "slot": "QB",
@@ -521,7 +521,7 @@
           "name": "Jaxon Smith-Njigba",
           "position": "WR",
           "team": "SEA",
-          "points": 0.0
+          "points": 2.3
         },
         {
           "slot": "WR",
@@ -585,7 +585,7 @@
           "name": "Robert Spillane",
           "position": "LB",
           "team": "NE",
-          "points": 0.0
+          "points": 2.0
         },
         {
           "slot": "DB",
@@ -620,10 +620,2914 @@
         },
         {
           "slot": "RB",
-          "player_id": "7543",
-          "name": "Travis Etienne",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
           "position": "RB",
-          "team": "NO",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T00:41:23.760Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 7.1,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 4.1
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 3.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T00:43:36.830Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 8.1,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 4.1
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 4.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T00:55:00.553Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 9.1,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 4.1
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 5.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T01:13:56.450Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 10.6,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 5.6
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 5.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T01:15:39.673Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 13.7,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 8.7
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 5.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T01:34:17.393Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 15.3,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 10.3
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 5.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T02:07:29.237Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 16.3,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 10.3
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 6.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T02:10:26.203Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 17.3,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 10.3
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 7.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T02:21:59.117Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 18.3,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 10.3
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 8.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T02:40:08.423Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 20.6,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 12.6
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 8.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T02:42:50.483Z",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 32.1,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 24.1
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 8.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "7588",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "7547",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8112",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6801",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12517",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6794",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "3451",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "6183",
+          "name": "Andrew Van Ginkel",
+          "position": "LB",
+          "team": "MIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "11687",
+          "name": "Edgerrin Cooper",
+          "position": "LB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "6815",
+          "name": "Zack Baun",
+          "position": "LB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "7811",
+          "name": "Talanoa Hufanga",
+          "position": "DB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "6949",
+          "name": "Jordyn Brooks",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-10T08:48:14+00:00",
+    "week": 1,
+    "my": {
+      "roster_id": 2,
+      "team_name": "The Heart of The Sahara",
+      "points": 34.2,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11566",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WAS",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 26.2
+        },
+        {
+          "slot": "WR",
+          "player_id": "7526",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "12506",
+          "name": "Harold Fannin",
+          "position": "TE",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8280",
+          "name": "Nik Bonitto",
+          "position": "LB",
+          "team": "DEN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5726",
+          "name": "Robert Spillane",
+          "position": "LB",
+          "team": "NE",
+          "points": 8.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 1,
+      "team_name": "The Busy Boys ",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6797",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "team": "LAC",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12527",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
           "points": 0.0
         },
         {
