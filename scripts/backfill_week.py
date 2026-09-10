@@ -287,6 +287,27 @@ def sort_key(row):
     return (1, qtr, -secs)
 
 
+def format_clock(row):
+    try:
+        qtr = int(row.get("qtr") or 0)
+    except ValueError:
+        qtr = 0
+    try:
+        secs = int(f(row, "game_seconds_remaining"))
+    except ValueError:
+        secs = None
+    qlabel = "OT" if qtr > 4 else f"Q{qtr}" if qtr else ""
+    if secs is None or not qtr:
+        return qlabel
+    # game_seconds_remaining counts down the whole regulation game (3600s);
+    # convert to time remaining within just this quarter. OT periods count
+    # down on their own from their own start.
+    remaining = secs if qtr > 4 else secs - 900 * (4 - qtr)
+    remaining = max(0, remaining)
+    m, s = divmod(remaining, 60)
+    return f"{qlabel} {m}:{s:02d}".strip()
+
+
 def build_lineup_snapshot(starters, points_by_id, sleeper_info, roster_positions):
     slots = [p for p in roster_positions if p != "BN"]
     lineup = []
@@ -340,10 +361,10 @@ def main():
     running = {pid: 0.0 for pid in relevant_ids}
     snapshots = []
 
-    def make_snapshot(ts):
+    def make_snapshot(ts, play_info=None):
         my_lineup = build_lineup_snapshot(my_starters, running, sleeper_info, roster_positions)
         opp_lineup = build_lineup_snapshot(opp_starters, running, sleeper_info, roster_positions)
-        return {
+        snap = {
             "timestamp": ts,
             "week": week,
             "my": {"roster_id": my_roster_id, "team_name": my_team_name,
@@ -351,19 +372,27 @@ def main():
             "opp": {"roster_id": opp_roster["roster_id"], "team_name": opp_team_name,
                     "points": round(sum(p["points"] for p in opp_lineup), 2), "lineup": opp_lineup},
         }
+        if play_info:
+            snap["play"] = play_info
+        return snap
 
-    # Opening snapshot: kickoff, everyone at 0.
+    # Opening snapshot: kickoff, everyone at 0, no play description yet.
     first_ts = next((r["time_of_day"] for r in plays if r.get("time_of_day")), datetime.now(timezone.utc).isoformat())
     snapshots.append(make_snapshot(first_ts))
 
+    # Emit one snapshot per actual play (not just scoring ones), so the
+    # replay is literally play-by-play -- non-scoring plays will just get
+    # skipped through fast by the frontend's "no change" auto-skip, while
+    # the description is still there if you pause on one.
     for row in plays:
-        deltas = score_play(row, scoring, gsis_to_sleeper, relevant_ids)
-        if not deltas:
+        if not row.get("desc") or row.get("desc") == "GAME":
             continue
+        deltas = score_play(row, scoring, gsis_to_sleeper, relevant_ids)
         for pid, delta in deltas.items():
             running[pid] = running.get(pid, 0.0) + delta
         ts = row.get("time_of_day") or snapshots[-1]["timestamp"]
-        snapshots.append(make_snapshot(ts))
+        play_info = {"clock": format_clock(row), "desc": row["desc"].strip()}
+        snapshots.append(make_snapshot(ts, play_info))
 
     # Anchor the final snapshot to Sleeper's own authoritative numbers, so the
     # ending is always correct even if some interior IDP math is approximate.

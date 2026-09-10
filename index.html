@@ -148,6 +148,21 @@
     color: var(--muted);
     margin-top: 2px;
   }
+  .play-desc {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent2);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  .play-desc .clock {
+    color: var(--accent2);
+    font-weight: 700;
+    margin-right: 6px;
+  }
   .controls {
     display: flex;
     gap: 8px;
@@ -304,6 +319,7 @@
         <span id="posLabel">Snapshot 1</span>
         <span id="timeLabel">--</span>
       </div>
+      <div id="playDesc" class="play-desc hidden"></div>
     </div>
 
     <div class="controls">
@@ -364,6 +380,7 @@
     timeLabel: document.getElementById("timeLabel"),
     btnPlay: document.getElementById("btnPlay"),
     noActionNotice: document.getElementById("noActionNotice"),
+    playDesc: document.getElementById("playDesc"),
     myLineupTitle: document.getElementById("myLineupTitle"),
     oppLineupTitle: document.getElementById("oppLineupTitle"),
     myLineupBody: document.getElementById("myLineupBody"),
@@ -465,6 +482,13 @@
     el.scrubber.value = state.index;
     el.posLabel.textContent = "Snapshot " + (state.index + 1) + " of " + state.snapshots.length;
     el.timeLabel.textContent = fmtTime(snap.timestamp) + " · " + fmtElapsed(snap);
+
+    if (snap.play && snap.play.desc) {
+      el.playDesc.innerHTML = '<span class="clock">' + escapeHtml(snap.play.clock || "") + '</span>' + escapeHtml(snap.play.desc);
+      el.playDesc.classList.remove("hidden");
+    } else {
+      el.playDesc.classList.add("hidden");
+    }
 
     if (state.index >= state.snapshots.length - 1) {
       stopPlaying();
