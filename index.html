@@ -167,7 +167,10 @@
     display: flex;
     gap: 8px;
     justify-content: center;
-    margin: 14px 0 22px;
+    margin: 14px 0 10px;
+  }
+  .controls-secondary {
+    margin: 0 0 22px;
   }
   button.ctrl {
     background: var(--panel);
@@ -180,8 +183,21 @@
     min-width: 64px;
   }
   button.ctrl:active { transform: scale(0.97); }
-  button.ctrl.play { background: var(--accent); border-color: var(--accent); color: #04240f; font-weight: 700; }
+  button.ctrl.play { background: var(--panel); border-color: var(--border); color: var(--muted); font-size: 0.8rem; padding: 6px 12px; }
   button.ctrl.play.playing { background: var(--danger); border-color: var(--danger); color: #2b0705; }
+  button.ctrl.next-play {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #04240f;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 14px 28px;
+    flex: 1;
+    max-width: 220px;
+  }
+  button.ctrl#btnPrevPlay {
+    flex: 0 0 auto;
+  }
   button.ctrl:disabled { opacity: 0.4; cursor: not-allowed; }
   .speed-row {
     display: flex;
@@ -323,7 +339,11 @@
     </div>
 
     <div class="controls">
-      <button class="ctrl play" id="btnPlay">▶ Play</button>
+      <button class="ctrl" id="btnPrevPlay" title="Previous play">◀ Prev Play</button>
+      <button class="ctrl next-play" id="btnNextPlay" title="Next play">Next Play ▶</button>
+    </div>
+    <div class="controls controls-secondary">
+      <button class="ctrl play" id="btnPlay">▶ Auto-play</button>
     </div>
     <div class="speed-row">
       <button class="speed-btn" data-speed="2000">Slow</button>
@@ -379,6 +399,8 @@
     posLabel: document.getElementById("posLabel"),
     timeLabel: document.getElementById("timeLabel"),
     btnPlay: document.getElementById("btnPlay"),
+    btnNextPlay: document.getElementById("btnNextPlay"),
+    btnPrevPlay: document.getElementById("btnPrevPlay"),
     noActionNotice: document.getElementById("noActionNotice"),
     playDesc: document.getElementById("playDesc"),
     myLineupTitle: document.getElementById("myLineupTitle"),
@@ -490,6 +512,9 @@
       el.playDesc.classList.add("hidden");
     }
 
+    el.btnNextPlay.disabled = state.index >= state.snapshots.length - 1;
+    el.btnPrevPlay.disabled = state.index <= 0;
+
     if (state.index >= state.snapshots.length - 1) {
       stopPlaying();
     }
@@ -520,7 +545,7 @@
   function startPlaying() {
     if (state.snapshots.length === 0 || state.index >= state.snapshots.length - 1) return;
     state.playing = true;
-    el.btnPlay.textContent = "⏸ Pause";
+    el.btnPlay.textContent = "⏸ Pause auto-play";
     el.btnPlay.classList.add("playing");
     clearTimeout(state.timer);
     scheduleNextStep();
@@ -528,7 +553,7 @@
 
   function stopPlaying() {
     state.playing = false;
-    el.btnPlay.textContent = "▶ Play";
+    el.btnPlay.textContent = "▶ Auto-play";
     el.btnPlay.classList.remove("playing");
     clearTimeout(state.timer);
     state.timer = null;
@@ -539,6 +564,9 @@
   }
 
   el.btnPlay.addEventListener("click", togglePlay);
+
+  el.btnNextPlay.addEventListener("click", function () { stopPlaying(); step(1); });
+  el.btnPrevPlay.addEventListener("click", function () { stopPlaying(); step(-1); });
 
   el.scrubber.addEventListener("input", function () {
     stopPlaying();
