@@ -252,6 +252,17 @@
     0% { background: rgba(63, 185, 80, 0.18); }
     100% { background: transparent; }
   }
+  .notice {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.4;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin: -8px 0 20px;
+  }
   footer {
     text-align: center;
     color: var(--muted);
@@ -303,6 +314,11 @@
       <button class="speed-btn active" data-speed="900">Normal</button>
       <button class="speed-btn" data-speed="350">Fast</button>
     </div>
+    <div id="noActionNotice" class="notice hidden">
+      Nothing's happened in this matchup yet — every snapshot so far is still 0-0.
+      Play will just flash through instantly until the game actually kicks off and
+      the collector starts recording real score changes.
+    </div>
 
     <div class="lineups">
       <div class="lineup-card">
@@ -347,6 +363,7 @@
     posLabel: document.getElementById("posLabel"),
     timeLabel: document.getElementById("timeLabel"),
     btnPlay: document.getElementById("btnPlay"),
+    noActionNotice: document.getElementById("noActionNotice"),
     myLineupTitle: document.getElementById("myLineupTitle"),
     oppLineupTitle: document.getElementById("oppLineupTitle"),
     myLineupBody: document.getElementById("myLineupBody"),
@@ -533,6 +550,13 @@
       }
       el.noData.classList.add("hidden");
       el.content.classList.remove("hidden");
+
+      var anyAction = false;
+      for (var i = 0; i < state.snapshots.length - 1; i++) {
+        if (hasChange(state.snapshots[i], state.snapshots[i + 1])) { anyAction = true; break; }
+      }
+      el.noActionNotice.classList.toggle("hidden", anyAction || state.snapshots.length < 2);
+
       render();
     }).catch(function (err) {
       el.loading.classList.add("hidden");
