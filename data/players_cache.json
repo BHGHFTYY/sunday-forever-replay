@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-10T14:11:26.745077+00:00",
+  "fetched_at": "2026-09-11T17:47:09.721146+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -4994,7 +4994,7 @@
     "6045": {
       "name": "Gary Jennings",
       "position": "WR",
-      "team": null
+      "team": "LAC"
     },
     "13133": {
       "name": "Mason Narcisse",
@@ -5939,7 +5939,7 @@
     "11972": {
       "name": "Isaiah Iton",
       "position": "DL",
-      "team": "NE"
+      "team": null
     },
     "1168": {
       "name": "Adam Gettis",
@@ -10364,7 +10364,7 @@
     "14086": {
       "name": "Terrelle Smith",
       "position": "FB",
-      "team": "WAS"
+      "team": null
     },
     "11507": {
       "name": "D'Angelo Mandell",
@@ -13159,7 +13159,7 @@
     "13202": {
       "name": "Dalevon Campbell",
       "position": "WR",
-      "team": "LAC"
+      "team": null
     },
     "6093": {
       "name": "Jake Bailey",
@@ -13434,7 +13434,7 @@
     "12941": {
       "name": "Bryson Nesbit",
       "position": "TE",
-      "team": "MIN"
+      "team": null
     },
     "759": {
       "name": "Chris Scott",
@@ -14322,9 +14322,9 @@
       "team": null
     },
     "12897": {
-      "name": "Nathan Carter",
+      "name": "Nate Carter",
       "position": "RB",
-      "team": null
+      "team": "KC"
     },
     "55": {
       "name": "Visanthe Shiancoe",
@@ -14804,7 +14804,7 @@
     "11905": {
       "name": "Dwight McGlothern",
       "position": "DB",
-      "team": "MIN"
+      "team": null
     },
     "11458": {
       "name": "Matthew Jackson",
@@ -20084,7 +20084,7 @@
     "8143": {
       "name": "Jerome Ford",
       "position": "RB",
-      "team": "WAS"
+      "team": null
     },
     "6645": {
       "name": "Anthony Chesley",
@@ -20104,7 +20104,7 @@
     "11468": {
       "name": "Kilian Zierer",
       "position": "T",
-      "team": null
+      "team": "JAX"
     },
     "12104": {
       "name": "Alec Mock",
@@ -23239,7 +23239,7 @@
     "10987": {
       "name": "Atonio Mafi",
       "position": "OL",
-      "team": "LV"
+      "team": null
     },
     "11893": {
       "name": "Isaiah Stalbird",
@@ -23429,7 +23429,7 @@
     "11860": {
       "name": "Beanie Bishop",
       "position": "CB",
-      "team": "CHI"
+      "team": null
     },
     "87": {
       "name": "Jeff King",
@@ -23444,7 +23444,7 @@
     "6964": {
       "name": "Sean McKeon",
       "position": "TE",
-      "team": "IND"
+      "team": null
     },
     "2048": {
       "name": "Marion Grice",
@@ -24499,7 +24499,7 @@
     "8833": {
       "name": "Dallis Flowers",
       "position": "CB",
-      "team": "CHI"
+      "team": null
     },
     "6333": {
       "name": "Keisean Nixon",
@@ -26219,7 +26219,7 @@
     "11082": {
       "name": "Ben Sims",
       "position": "TE",
-      "team": "MIA"
+      "team": null
     },
     "12085": {
       "name": "Alec Holler",
@@ -27429,7 +27429,7 @@
     "12685": {
       "name": "Bryce Cabeldue",
       "position": "OT",
-      "team": "SEA"
+      "team": "LV"
     },
     "6563": {
       "name": "Tyler Newsome",
@@ -30499,7 +30499,7 @@
     "13701": {
       "name": "Carlos Allen",
       "position": "DT",
-      "team": "ATL"
+      "team": null
     },
     "4207": {
       "name": "Davon Godchaux",
@@ -33894,7 +33894,7 @@
     "11036": {
       "name": "Anthony Johnson",
       "position": "DB",
-      "team": null
+      "team": "CHI"
     },
     "13812": {
       "name": "Eddie Walls",
@@ -35319,7 +35319,7 @@
     "13118": {
       "name": "Melvin Smith",
       "position": "DB",
-      "team": "TEN"
+      "team": null
     },
     "2501": {
       "name": "Quandre Diggs",
@@ -38849,7 +38849,7 @@
     "6876": {
       "name": "A.J. Green",
       "position": "CB",
-      "team": "MIA"
+      "team": null
     },
     "4344": {
       "name": "C.J. Board",
@@ -39279,7 +39279,7 @@
     "6965": {
       "name": "Jonathan Garvin",
       "position": "LB",
-      "team": "CHI"
+      "team": null
     },
     "868": {
       "name": "Virgil Green",
@@ -42607,7 +42607,7 @@
       "team": "ARI"
     },
     "13784": {
-      "name": "Cameron Ball",
+      "name": "Cam Ball",
       "position": "DT",
       "team": "IND"
     },
@@ -45304,7 +45304,7 @@
     "11052": {
       "name": "Jaylon Jones",
       "position": "DB",
-      "team": null
+      "team": "TEN"
     },
     "8739": {
       "name": "Keir Thomas",
@@ -46489,7 +46489,7 @@
     "11194": {
       "name": "Keshawn Banks",
       "position": "LB",
-      "team": "ATL"
+      "team": null
     },
     "2638": {
       "name": "Reggie Bell",
@@ -48404,7 +48404,7 @@
     "8801": {
       "name": "Dennis Houston",
       "position": "WR",
-      "team": "TB"
+      "team": null
     },
     "13565": {
       "name": "Andre Fuller",
@@ -48454,7 +48454,7 @@
     "13131": {
       "name": "Isas Waxter",
       "position": "DB",
-      "team": "LAC"
+      "team": null
     },
     "1735": {
       "name": "Andy Mulumba",
@@ -51877,7 +51877,7 @@
       "team": null
     },
     "12594": {
-      "name": "JT Tuimoloau",
+      "name": "Jaylahn Tuimoloau",
       "position": "DL",
       "team": "IND"
     },
@@ -52519,7 +52519,7 @@
     "13863": {
       "name": "Murvin Kenion",
       "position": "DB",
-      "team": "GB"
+      "team": null
     },
     "3626": {
       "name": "Lars Hanson",
@@ -52754,7 +52754,7 @@
     "7344": {
       "name": "Jonah Williams",
       "position": "DE",
-      "team": "NO"
+      "team": null
     },
     "2228": {
       "name": "E.J. Gaines",
@@ -53984,7 +53984,7 @@
     "11481": {
       "name": "Natrone Brooks",
       "position": "CB",
-      "team": null
+      "team": "DET"
     },
     "11364": {
       "name": "Jaquan Amos",
@@ -55969,7 +55969,7 @@
     "12637": {
       "name": "Ruben Hyppolite",
       "position": "LB",
-      "team": "CHI"
+      "team": null
     },
     "362": {
       "name": "David Johnson",
@@ -58104,7 +58104,7 @@
     "13917": {
       "name": "Marlen Sewell",
       "position": "DB",
-      "team": "CHI"
+      "team": null
     },
     "368": {
       "name": "Jason McCourty",
