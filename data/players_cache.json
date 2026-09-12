@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-11T17:47:09.721146+00:00",
+  "fetched_at": "2026-09-12T18:40:26.055478+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -6589,7 +6589,7 @@
     "13310": {
       "name": "Miller Moss",
       "position": "QB",
-      "team": null
+      "team": "CHI"
     },
     "7295": {
       "name": "Ross Matiscik",
@@ -7024,7 +7024,7 @@
     "11795": {
       "name": "Jaden Crumedy",
       "position": "DT",
-      "team": "GB"
+      "team": "HOU"
     },
     "2087": {
       "name": "Jordan Stanton",
@@ -10109,7 +10109,7 @@
     "1932": {
       "name": "DaQuan Jones",
       "position": "DT",
-      "team": null
+      "team": "NE"
     },
     "3263": {
       "name": "Charles Tapper",
@@ -11879,7 +11879,7 @@
     "11633": {
       "name": "Jamari Thrash",
       "position": "WR",
-      "team": "CLE"
+      "team": null
     },
     "12137": {
       "name": "Charles Woods",
@@ -14289,7 +14289,7 @@
     "7599": {
       "name": "Jermar Jefferson",
       "position": "RB",
-      "team": "MIN"
+      "team": null
     },
     "2346": {
       "name": "Devin Funchess",
@@ -16239,7 +16239,7 @@
     "12895": {
       "name": "Malik Verdon",
       "position": "DB",
-      "team": "ATL"
+      "team": null
     },
     "13902": {
       "name": "Damon Payne",
@@ -19729,7 +19729,7 @@
     "12741": {
       "name": "Garrett Dellinger",
       "position": "OG",
-      "team": "TEN"
+      "team": null
     },
     "8724": {
       "name": "Devin Hafford",
@@ -23239,7 +23239,7 @@
     "10987": {
       "name": "Atonio Mafi",
       "position": "OL",
-      "team": null
+      "team": "TEN"
     },
     "11893": {
       "name": "Isaiah Stalbird",
@@ -33049,7 +33049,7 @@
     "13575": {
       "name": "Tyre West",
       "position": "DT",
-      "team": "DET"
+      "team": null
     },
     "13958": {
       "name": "Aidan Laros",
@@ -41224,7 +41224,7 @@
     "11306": {
       "name": "Xavier Gipson",
       "position": "WR",
-      "team": null
+      "team": "PHI"
     },
     "1600": {
       "name": "Jared Smith",
@@ -42359,7 +42359,7 @@
     "2329": {
       "name": "D.J. Humphries",
       "position": "OL",
-      "team": "WAS"
+      "team": null
     },
     "8094": {
       "name": "Michael Jacobson",
@@ -44519,7 +44519,7 @@
     "8204": {
       "name": "Bo Melton",
       "position": "WR",
-      "team": "GB"
+      "team": null
     },
     "7851": {
       "name": "Chandon Herring",
@@ -53914,7 +53914,7 @@
     "7661": {
       "name": "Levi Onwuzurike",
       "position": "DE",
-      "team": "DET"
+      "team": null
     },
     "7388": {
       "name": "Jared Hilbers",
@@ -57899,7 +57899,7 @@
     "13752": {
       "name": "Tyreak Sapp",
       "position": "DE",
-      "team": "CLE"
+      "team": null
     },
     "1796": {
       "name": "Taylor Hart",
