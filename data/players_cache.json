@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-12T18:40:26.055478+00:00",
+  "fetched_at": "2026-09-13T19:41:49.347384+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -3339,7 +3339,7 @@
     "13727": {
       "name": "Lardarius Webb",
       "position": "DB",
-      "team": "BAL"
+      "team": null
     },
     "13385": {
       "name": "Mansoor Delane",
@@ -43304,7 +43304,7 @@
     "12607": {
       "name": "Jamon Johnson",
       "position": "LB",
-      "team": null
+      "team": "BAL"
     },
     "8602": {
       "name": "Danny Davis",
@@ -44519,7 +44519,7 @@
     "8204": {
       "name": "Bo Melton",
       "position": "WR",
-      "team": null
+      "team": "GB"
     },
     "7851": {
       "name": "Chandon Herring",
@@ -53914,7 +53914,7 @@
     "7661": {
       "name": "Levi Onwuzurike",
       "position": "DE",
-      "team": null
+      "team": "DET"
     },
     "7388": {
       "name": "Jared Hilbers",
@@ -60089,7 +60089,7 @@
     "11395": {
       "name": "Keidron Smith",
       "position": "DB",
-      "team": "CHI"
+      "team": null
     },
     "13231": {
       "name": "Luke Felix-Fualalo",
