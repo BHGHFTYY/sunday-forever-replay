@@ -126,8 +126,12 @@ img,svg{display:block;max-width:100%} input,select{font:inherit}
 .mnav .hot{color:var(--org-t);font-weight:700}
 
 /* ---- layout: persistent sidebar + content ------------------------------- */
-.shell{display:grid;gap:18px;padding-block:18px}
+.shell{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;padding-block:18px}
 @media(min-width:1100px){.shell{grid-template-columns:232px minmax(0,1fr);gap:22px}}
+/* Belt and braces: a single horizontal overflow anywhere makes every page
+   on a phone scroll sideways, which is the most-reported mobile defect
+   there is. Nothing in this design is meant to scroll the page across. */
+html,body{overflow-x:hidden;max-width:100%}
 .side{display:none}
 @media(min-width:1100px){.side{display:block;position:sticky;top:130px;align-self:start;max-height:calc(100vh - 150px);overflow:auto}}
 .side-card{background:var(--w);border:1px solid var(--line);border-radius:var(--r2);overflow:hidden}
