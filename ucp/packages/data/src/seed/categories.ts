@@ -97,7 +97,7 @@ export const categories: Category[] = [
   sub("cat-medicines-digestive", "digestive", "الجهاز الهضمي", "Digestive", "cat-medicines", "pill"),
 
   // Makeup stays, minus lenses.
-  top("cat-makeup", "makeup", "المكياج", "Makeup", "makeup", false),
+  top("cat-makeup", "makeup", "المكياج", "Makeup", "makeup"),
   sub("cat-makeup-face", "face-makeup", "مكياج الوجه", "Face Makeup", "cat-makeup", "makeup"),
   sub("cat-makeup-eyes", "eye-makeup", "مكياج العيون", "Eye Makeup", "cat-makeup", "makeup"),
   sub("cat-makeup-lips", "lip-makeup", "مكياج الشفاه", "Lip Makeup", "cat-makeup", "makeup"),

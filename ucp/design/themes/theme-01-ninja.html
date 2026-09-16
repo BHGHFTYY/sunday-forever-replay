@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — THEME 01 NINJA</title>
+<meta name="description" content="UCP homepage design prototype — Ninja direction. Placeholder content.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================================
+   THEME 01 — NINJA
+   ---------------------------------------------------------------------------
+   Concept: PRECISION RETAIL. Sharp, fast, confident.
+
+   The defining decision is the orange. UCP orange at full saturation
+   (#FF6A00) only reaches 2.87:1 against white — which is why so many orange
+   brands end up with illegible buttons and a cheap feel. So this theme never
+   puts white on orange. It puts INK on orange (6.72:1), which is both
+   accessible AND the sharpest, most confident thing orange can do. Black on
+   electric orange is the whole personality.
+
+   Structure: dark chrome, asymmetric diagonal hero, numbered sections,
+   rectangular category tiles (not circles), hard 2px corners everywhere,
+   fast easing. Nothing is round. Nothing is soft.
+   =========================================================================== */
+
+:root {
+  --ink:      #0E0E10;
+  --ink-2:    #16161A;
+  --ink-3:    #1E1E24;
+  --line-ink: #2C2C34;
+  --paper:    #FFFFFF;
+  --paper-2:  #F5F5F3;
+  --line:     #E3E3DF;
+
+  --orange:      #FF6A00;   /* signature — ALWAYS with ink text */
+  --orange-lift: #FF8534;
+  --orange-deep: #A63504;   /* the only orange allowed as text on white */
+
+  --text:      #1A1A1E;
+  --muted:     #5C5C66;
+  --on-ink:    #FFFFFF;
+  --on-ink-mut:#A8A8AD;
+
+  --r: 2px;                  /* the theme's entire radius budget */
+  --fast: 110ms cubic-bezier(.2,.8,.2,1);
+  --mid:  200ms cubic-bezier(.16,1,.3,1);
+  --wrap: 1320px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--text);
+  font-family: "Alexandria", system-ui, sans-serif;
+  font-size: 16px; line-height: 1.6; font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+:lang(ar) { line-height: 1.75; }
+h1,h2,h3,h4 { margin:0; line-height:1.1; font-weight:800; letter-spacing:-.02em; }
+:lang(ar) h1, :lang(ar) h2, :lang(ar) h3 { line-height:1.3; letter-spacing:0; }
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+img,svg{display:block;max-width:100%}
+input{font:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.num{font-family:"JetBrains Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:20px}
+@media(min-width:900px){.wrap{padding-inline:32px}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;inset-block-start:-999px;inset-inline-start:16px;z-index:999;background:var(--orange);color:var(--ink);padding:12px 20px;font-weight:700}
+.skip:focus{inset-block-start:12px}
+
+/* ---- prototype ribbon ---------------------------------------------------- */
+.proto{background:var(--ink-3);color:var(--on-ink-mut);font-size:11px;letter-spacing:.06em;text-align:center;padding:6px 12px;border-bottom:1px solid var(--line-ink)}
+.proto b{color:var(--orange);font-weight:700}
+
+/* ---- header -------------------------------------------------------------- */
+.hd{position:sticky;top:0;z-index:100;background:var(--ink);color:var(--on-ink)}
+.hd-util{border-bottom:1px solid var(--line-ink);font-size:12px;color:var(--on-ink-mut)}
+.hd-util .wrap{display:flex;align-items:center;justify-content:space-between;height:34px;gap:16px}
+.hd-util span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.hd-util .dot{width:5px;height:5px;background:var(--orange)}
+.hd-util-l{display:none;gap:22px}
+@media(min-width:900px){.hd-util-l{display:flex}}
+
+.hd-main .wrap{display:flex;align-items:center;gap:14px;height:64px}
+@media(min-width:900px){.hd-main .wrap{height:76px;gap:28px}}
+
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mk{width:38px;height:38px;background:var(--orange);display:grid;place-items:center;flex:none;
+  clip-path:polygon(0 0,100% 0,100% 74%,74% 100%,0 100%)}
+.logo-mk b{font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.04em}
+.logo-tx b{display:block;font-size:19px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.logo-tx i{display:none;font-style:normal;font-size:10.5px;color:var(--on-ink-mut);letter-spacing:.08em}
+@media(min-width:600px){.logo-tx i{display:block;margin-top:3px}}
+
+/* search — a hard rectangle with an orange action slab */
+.srch{position:relative;flex:1;min-width:0;display:none}
+@media(min-width:900px){.srch{display:block}}
+/* Specificity: this sits inside `.hd-main .wrap` (0,2,0), so the hide rule
+   has to match that weight or the mobile field shows on desktop too. */
+.hd-main .wrap.srch-mob{display:block;padding-bottom:12px;height:auto}
+@media(min-width:900px){.hd-main .wrap.srch-mob{display:none}}
+.srch-box{display:flex;height:48px;background:var(--ink-2);border:1px solid var(--line-ink);transition:border-color var(--fast)}
+.srch-box:focus-within{border-color:var(--orange)}
+.srch-box input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--on-ink);padding-inline:16px;font-size:15px}
+.srch-box input::placeholder{color:#74747E}
+.srch-go{width:52px;background:var(--orange);color:var(--ink);display:grid;place-items:center;transition:background var(--fast)}
+.srch-go:hover{background:var(--orange-lift)}
+
+.sug{position:absolute;inset-inline:0;top:calc(100% + 8px);background:var(--paper);color:var(--text);
+  border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.35);max-height:66vh;overflow:auto;display:none;z-index:120}
+.sug.on{display:block}
+.sug-h{font-size:10.5px;font-weight:700;letter-spacing:.12em;color:var(--muted);padding:12px 16px 5px}
+.sug-i{display:flex;align-items:center;gap:12px;padding:9px 16px;width:100%;text-align:start;border-inline-start:3px solid transparent}
+.sug-i:hover,.sug-i.act{background:var(--paper-2);border-inline-start-color:var(--orange)}
+.sug-i svg{width:40px;height:40px;flex:none;background:var(--ink)}
+.sug-i .t{flex:1;min-width:0;font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sug-i .s{font-size:11.5px;color:var(--muted);font-weight:400}
+.sug-i .p{font-size:13px;font-weight:700;display:inline-flex;gap:3px;align-items:baseline;flex:none}
+.sug-i .p .num{font-family:"JetBrains Mono",monospace}
+.sug-i .p .cur{font-size:10px;opacity:.7}
+.sug-empty{padding:28px 16px;text-align:center;color:var(--muted);font-size:14px}
+
+.hd-act{display:flex;align-items:center;gap:6px;margin-inline-start:auto;flex-shrink:0}
+.ico-btn{width:44px;height:44px;display:grid;place-items:center;position:relative;color:var(--on-ink);transition:background var(--fast)}
+.ico-btn:hover{background:var(--ink-3)}
+.rx-btn{display:none;align-items:center;gap:8px;height:44px;padding-inline:16px;background:var(--orange);color:var(--ink);font-weight:700;font-size:14px;transition:background var(--fast)}
+.rx-btn:hover{background:var(--orange-lift)}
+@media(min-width:1100px){.rx-btn{display:inline-flex}}
+.badge{position:absolute;top:4px;inset-inline-end:4px;min-width:18px;height:18px;background:var(--orange);color:var(--ink);
+  font-size:11px;font-weight:700;display:grid;place-items:center;padding-inline:4px;font-family:"JetBrains Mono",monospace}
+
+/* nav — below search, with a fast slide underline */
+.nav{border-top:1px solid var(--line-ink);background:var(--ink);display:none}
+@media(min-width:900px){.nav{display:block}}
+.nav ul{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0;overflow-x:auto}
+.nav a{position:relative;display:block;padding:13px 14px;font-size:13.5px;font-weight:500;color:var(--on-ink-mut);white-space:nowrap;transition:color var(--fast)}
+.nav a::after{content:"";position:absolute;inset-inline-start:14px;inset-inline-end:14px;bottom:8px;height:2px;background:var(--orange);
+  transform:scaleX(0);transform-origin:var(--o,right);transition:transform var(--fast)}
+html[dir=ltr] .nav a::after{--o:left}
+.nav a:hover{color:var(--on-ink)}
+.nav a:hover::after{transform:scaleX(1)}
+.nav .hot{color:var(--orange);font-weight:700}
+
+/* ---- hero — asymmetric, diagonal ---------------------------------------- */
+.hero{position:relative;background:var(--ink);color:var(--on-ink);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 90% at 78% 20%,rgba(255,106,0,.20),transparent 70%)}
+.hero-stripes{position:absolute;inset-block:0;inset-inline-end:-10%;width:60%;opacity:.5;
+  background:repeating-linear-gradient(74deg,transparent 0 46px,rgba(255,106,0,.30) 46px 48px)}
+.hero .wrap{position:relative;display:grid;gap:28px;padding-block:44px 64px}
+@media(min-width:1000px){.hero .wrap{grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-block:60px 84px}}
+.hero-kick{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.14em;
+  color:var(--orange);border:1px solid rgba(255,106,0,.45);padding:6px 12px;margin-bottom:18px}
+.hero h1{font-size:clamp(34px,7vw,66px);font-weight:800}
+.hero h1 mark{background:var(--orange);color:var(--ink);padding:0 10px;
+  clip-path:polygon(0 0,100% 0,96% 100%,4% 100%)}
+.hero-sub{margin-top:16px;font-size:16px;color:var(--on-ink-mut);max-width:44ch}
+@media(min-width:900px){.hero-sub{font-size:18px}}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:9px;height:52px;padding-inline:26px;font-weight:700;font-size:15px;transition:all var(--fast)}
+.btn-o{background:var(--orange);color:var(--ink)}
+.btn-o:hover{background:var(--orange-lift);transform:translateY(-1px)}
+.btn-g{border:1px solid var(--line-ink);color:var(--on-ink);background:var(--ink-2)}
+.btn-g:hover{border-color:var(--orange);background:var(--ink-3)}
+
+/* speed cards — the hero's right column */
+.speed{display:grid;gap:10px}
+.speed-i{display:flex;gap:14px;align-items:flex-start;background:var(--ink-2);border:1px solid var(--line-ink);
+  padding:16px;transition:all var(--fast);position:relative;overflow:hidden}
+.speed-i::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:3px;background:var(--orange);
+  transform:scaleY(0);transform-origin:top;transition:transform var(--mid)}
+.speed-i:hover{border-color:#3A3A44;background:var(--ink-3)}
+.speed-i:hover::before{transform:scaleY(1)}
+.speed-i svg{color:var(--orange);flex:none;margin-top:2px}
+.speed-i b{display:block;font-size:15px;font-weight:700;margin-bottom:2px}
+.speed-i span{font-size:12.5px;color:var(--on-ink-mut);line-height:1.5}
+.speed-i .big{font-family:"JetBrains Mono",monospace;font-size:22px;font-weight:700;color:var(--orange);line-height:1}
+
+/* diagonal cut into the next section */
+.hero-cut{position:absolute;bottom:-1px;inset-inline:0;height:42px;background:var(--paper);
+  clip-path:polygon(0 100%,100% 0,100% 100%)}
+html[dir=ltr] .hero-cut{clip-path:polygon(0 0,100% 100%,0 100%)}
+
+/* ---- section heading — numbered, bladed ---------------------------------- */
+.sec{padding-block:44px}
+@media(min-width:900px){.sec{padding-block:60px}}
+.sec-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:22px}
+.sec-t{display:flex;align-items:baseline;gap:14px;min-width:0}
+.sec-n{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--orange);flex:none}
+.sec-t h2{font-size:clamp(21px,3.4vw,32px)}
+.sec-t h2::after{content:"";display:block;width:44px;height:3px;background:var(--orange);margin-top:10px;
+  transform:skewX(-22deg)}
+.sec-all{flex:none;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--orange-deep);
+  border-bottom:2px solid transparent;transition:border-color var(--fast)}
+.sec-all:hover{border-color:var(--orange)}
+
+/* ---- category tiles — rectangles, not circles ---------------------------- */
+.cats{display:grid;grid-auto-flow:column;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;
+  scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+@media(min-width:1100px){.cats{grid-auto-flow:row;grid-template-columns:repeat(6,1fr);overflow:visible}}
+.cat{position:relative;width:132px;scroll-snap-align:start;background:var(--ink);color:var(--on-ink);
+  padding:14px 14px 13px;overflow:hidden;transition:transform var(--fast);min-height:118px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  clip-path:polygon(0 0,100% 0,100% 100%,18px 100%,0 calc(100% - 18px))}
+html[dir=ltr] .cat{clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)}
+@media(min-width:1100px){.cat{width:auto}}
+.cat:hover{transform:translateY(-3px)}
+.cat::after{content:"";position:absolute;inset-block-start:0;inset-inline-end:0;width:0;height:3px;background:var(--orange);
+  transition:width var(--mid)}
+.cat:hover::after{width:100%}
+.cat-n{position:absolute;inset-block-start:10px;inset-inline-end:12px;font-family:"JetBrains Mono",monospace;
+  font-size:10px;color:#565660}
+.cat svg{color:var(--orange);margin-bottom:auto}
+.cat b{display:block;font-size:13.5px;font-weight:600;line-height:1.35}
+.cat-all{background:var(--orange);color:var(--ink)}
+.cat-all svg,.cat-all .cat-n{color:var(--ink);opacity:.6}
+.cat-all svg{opacity:1}
+
+/* ---- product card — sharp, dark image well ------------------------------ */
+.rail{display:grid;grid-auto-flow:column;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{width:200px;scroll-snap-align:start}
+@media(min-width:700px){.rail>*{width:230px}}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1100px){.grid{grid-template-columns:repeat(5,1fr)}}
+
+.pc{position:relative;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);
+  transition:border-color var(--fast),transform var(--fast)}
+.pc:hover{border-color:var(--ink);transform:translateY(-2px)}
+.pc-img{position:relative;aspect-ratio:1;background:var(--ink);overflow:hidden}
+.pc-img svg{width:100%;height:100%;transition:transform var(--mid)}
+.pc:hover .pc-img svg{transform:scale(1.06)}
+.pc-off{position:absolute;top:0;inset-inline-start:0;background:var(--orange);color:var(--ink);
+  font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;padding:4px 9px;
+  clip-path:polygon(0 0,100% 0,100% 100%,10px 100%,0 calc(100% - 10px))}
+html[dir=ltr] .pc-off{clip-path:polygon(0 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%)}
+.pc-flag{position:absolute;bottom:0;inset-inline:0;background:rgba(14,14,16,.9);color:#fff;font-size:11.5px;
+  font-weight:600;text-align:center;padding:5px}
+.pc-b{padding:12px;display:flex;flex-direction:column;gap:5px;flex:1}
+.pc-br{font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.pc-n{font-size:13.5px;font-weight:600;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pc-sz{font-size:11px;color:var(--muted)}
+.pc-pr{display:flex;align-items:baseline;gap:8px;margin-top:auto;padding-top:6px}
+.pc-pr b{font-size:17px;font-weight:700;display:inline-flex;align-items:baseline;gap:3px}
+.pc-pr b .num{font-family:"JetBrains Mono",monospace;font-size:18px}
+.pc-pr b .cur{font-size:12px;font-weight:600;opacity:.75}
+.was{display:inline-flex;align-items:baseline;gap:2px;color:var(--muted);font-size:12px;text-decoration:line-through}
+.was .num{font-family:"JetBrains Mono",monospace}
+.was .cur{font-size:10px}
+.pc-add{margin-top:10px;height:42px;width:100%;background:var(--orange);color:var(--ink);font-weight:700;font-size:13.5px;
+  display:flex;align-items:center;justify-content:center;gap:7px;transition:background var(--fast)}
+.pc-add:hover{background:var(--orange-lift)}
+.pc-add:disabled{background:var(--paper-2);color:var(--muted);cursor:not-allowed}
+.pc-add.ok{background:var(--ink);color:#fff}
+
+/* ---- offers strip — orange slab ----------------------------------------- */
+.slab{background:var(--orange);color:var(--ink);position:relative;overflow:hidden}
+.slab::before{content:"";position:absolute;inset-block:0;inset-inline-end:-6%;width:46%;
+  background:repeating-linear-gradient(74deg,transparent 0 30px,rgba(14,14,16,.10) 30px 32px)}
+.slab .wrap{position:relative;padding-block:34px}
+.slab h2{font-size:clamp(22px,4vw,38px)}
+.slab p{margin-top:8px;font-weight:500;max-width:48ch;opacity:.86}
+.slab-row{display:grid;gap:20px;align-items:center}
+@media(min-width:900px){.slab-row{grid-template-columns:1fr auto}}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:var(--ink-3);transform:translateY(-1px)}
+
+/* ---- brand ticker -------------------------------------------------------- */
+.brands{background:var(--ink);padding-block:30px;overflow:hidden}
+.brands-h{color:var(--on-ink);margin-bottom:18px}
+.bticker{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.bticker::-webkit-scrollbar{display:none}
+.bcard{flex:none;width:150px;background:var(--ink-2);border:1px solid var(--line-ink);padding:14px 10px;
+  display:grid;place-items:center;gap:6px;transition:all var(--fast)}
+.bcard:hover{border-color:var(--orange);background:var(--ink-3)}
+.bcard svg{width:100%;height:38px}
+.bcard span{font-size:11px;color:var(--on-ink-mut)}
+
+/* ---- bundles ------------------------------------------------------------- */
+.bundles{display:grid;gap:12px}
+@media(min-width:800px){.bundles{grid-template-columns:repeat(3,1fr)}}
+.bn{position:relative;border:1px solid var(--line);background:var(--paper);padding:20px;display:flex;flex-direction:column;gap:10px;
+  transition:all var(--fast)}
+.bn:hover{border-color:var(--ink);transform:translateY(-2px)}
+.bn-tag{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--ink);background:var(--orange);
+  padding:3px 8px;align-self:flex-start}
+.bn h3{font-size:18px}
+.bn p{font-size:13px;color:var(--muted)}
+.bn-pr{display:flex;align-items:baseline;gap:10px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+.bn-pr b{display:inline-flex;align-items:baseline;gap:4px;font-size:24px}
+.bn-pr b .num{font-family:"JetBrains Mono",monospace}
+.bn-pr b .cur{font-size:13px;opacity:.7}
+.bn-save{font-size:12px;font-weight:700;color:var(--orange-deep)}
+
+/* ---- prescription band --------------------------------------------------- */
+.rxband{background:var(--ink-2);color:var(--on-ink);position:relative;overflow:hidden;border-block:1px solid var(--line-ink)}
+.rxband::before{content:"";position:absolute;inset-block:0;inset-inline-start:-4%;width:40%;
+  background:repeating-linear-gradient(74deg,transparent 0 40px,rgba(255,106,0,.13) 40px 42px)}
+.rxband .wrap{position:relative;display:grid;gap:24px;padding-block:44px}
+@media(min-width:900px){.rxband .wrap{grid-template-columns:1fr 1fr;gap:48px;align-items:center}}
+.rxband h2{font-size:clamp(24px,4vw,40px)}
+.rxsteps{display:grid;gap:10px}
+.rxstep{display:flex;gap:14px;align-items:flex-start;background:var(--ink);border:1px solid var(--line-ink);padding:14px 16px}
+.rxstep .n{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--ink);background:var(--orange);
+  width:26px;height:26px;display:grid;place-items:center;flex:none}
+.rxstep b{display:block;font-size:14.5px;margin-bottom:2px}
+.rxstep span{font-size:12.5px;color:var(--on-ink-mut)}
+
+/* ---- loyalty ------------------------------------------------------------- */
+.loy{display:grid;gap:16px;background:var(--ink);color:var(--on-ink);padding:26px;position:relative;overflow:hidden}
+@media(min-width:900px){.loy{grid-template-columns:1.1fr .9fr;gap:44px;padding:40px;align-items:center}}
+.loy::after{content:"";position:absolute;inset-block-start:-30%;inset-inline-end:-8%;width:320px;height:320px;
+  background:radial-gradient(circle,rgba(255,106,0,.30),transparent 68%)}
+.loy-in{position:relative}
+.loy h2{font-size:clamp(22px,3.6vw,34px)}
+.loy p{color:var(--on-ink-mut);margin-top:8px;font-size:14.5px}
+.loy-card{position:relative;background:var(--orange);color:var(--ink);padding:22px;
+  clip-path:polygon(0 0,100% 0,100% 100%,26px 100%,0 calc(100% - 26px))}
+html[dir=ltr] .loy-card{clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%)}
+.loy-card small{font-size:11.5px;font-weight:700;letter-spacing:.1em;opacity:.75}
+.loy-pts{font-family:"JetBrains Mono",monospace;font-size:46px;font-weight:700;line-height:1;margin:6px 0 4px}
+.loy-tier{font-size:13px;font-weight:700}
+.loy-bar{height:6px;background:rgba(14,14,16,.24);margin-top:16px}
+.loy-bar i{display:block;height:100%;background:var(--ink)}
+.loy-next{font-size:12px;margin-top:8px;font-weight:600}
+
+/* ---- footer -------------------------------------------------------------- */
+.ft{background:var(--ink);color:var(--on-ink);margin-top:50px}
+.ft-trust{border-bottom:1px solid var(--line-ink)}
+.ft-trust .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding-block:22px}
+@media(min-width:800px){.ft-trust .wrap{grid-template-columns:repeat(4,1fr)}}
+.ft-trust div{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600}
+.ft-trust svg{color:var(--orange);flex:none}
+.ft-cols{display:grid;gap:26px;padding-block:38px}
+@media(min-width:700px){.ft-cols{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1050px){.ft-cols{grid-template-columns:1.3fr repeat(4,1fr)}}
+.ft h3{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--orange);margin-bottom:12px;font-weight:700}
+.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ft a{font-size:13.5px;color:var(--on-ink-mut);transition:color var(--fast)}
+.ft a:hover{color:var(--on-ink)}
+.ft-bot{border-top:1px solid var(--line-ink)}
+.ft-bot .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-block:16px;
+  font-size:11.5px;color:var(--on-ink-mut)}
+.pay{display:flex;gap:6px}
+.pay i{font-style:normal;border:1px solid var(--line-ink);padding:3px 8px;font-size:10px;font-weight:700;letter-spacing:.06em}
+
+/* ---- cart drawer --------------------------------------------------------- */
+.scrim{position:fixed;inset:0;background:rgba(14,14,16,.6);z-index:290;opacity:0;pointer-events:none;transition:opacity var(--mid)}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;inset-block:0;inset-inline-end:0;width:min(400px,92vw);background:var(--paper);z-index:300;
+  display:flex;flex-direction:column;transform:translateX(var(--out,100%));transition:transform var(--mid);box-shadow:-20px 0 60px rgba(0,0,0,.3)}
+html[dir=ltr] .drawer{--out:100%}
+html[dir=rtl] .drawer{--out:-100%}
+.drawer.on{transform:translateX(0)}
+.dr-h{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:var(--ink);color:#fff}
+.dr-h b{font-size:16px;font-weight:700}
+.dr-body{flex:1;overflow:auto;padding:14px 18px;display:grid;gap:10px;align-content:start}
+.dr-empty{text-align:center;color:var(--muted);padding:56px 0;font-size:14px}
+.dr-i{display:flex;gap:12px;border:1px solid var(--line);padding:10px}
+.dr-i svg{width:56px;height:56px;flex:none;background:var(--ink)}
+.dr-i .t{flex:1;min-width:0}
+.dr-i .t b{display:block;font-size:13px;font-weight:600;line-height:1.35}
+.dr-i .t .pr{font-size:13px;font-weight:700;display:inline-flex;gap:3px;align-items:baseline}
+.dr-i .t .pr .num{font-family:"JetBrains Mono",monospace}
+.dr-i .t .pr .cur{font-size:10px;opacity:.7}
+.dr-qty{display:flex;align-items:center;border:1px solid var(--line);height:30px;margin-top:6px;width:fit-content}
+.dr-qty button{width:30px;height:28px;display:grid;place-items:center}
+.dr-qty span{font-family:"JetBrains Mono",monospace;width:30px;text-align:center;font-size:13px;font-weight:700}
+.dr-f{border-top:1px solid var(--line);padding:16px 18px;display:grid;gap:12px}
+.dr-tot{display:flex;justify-content:space-between;align-items:baseline;font-weight:700}
+.dr-tot b{font-size:24px;display:inline-flex;gap:4px;align-items:baseline}
+.dr-tot b .num{font-family:"JetBrains Mono",monospace}
+.dr-tot b .cur{font-size:13px;opacity:.7}
+.dr-note{font-size:11.5px;color:var(--muted)}
+
+/* mobile menu */
+.mm{position:fixed;inset-block:0;inset-inline-start:0;width:min(330px,88vw);background:var(--ink);color:#fff;z-index:300;
+  transform:translateX(var(--mout));transition:transform var(--mid);overflow:auto;padding-bottom:30px}
+html[dir=rtl] .mm{--mout:100%}
+html[dir=ltr] .mm{--mout:-100%}
+.mm.on{transform:translateX(0)}
+.mm-h{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line-ink)}
+.mm a{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line-ink);font-size:14px;font-weight:500}
+.mm a svg{color:var(--orange)}
+.mm a:hover{background:var(--ink-3)}
+.mm-t{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;color:#6C6C76;padding:16px 18px 6px}
+
+.toast{position:fixed;inset-block-end:22px;inset-inline-start:50%;transform:translate(50%,120%);background:var(--ink);color:#fff;
+  padding:13px 22px;font-size:14px;font-weight:600;z-index:400;transition:transform var(--mid);display:flex;align-items:center;gap:10px}
+html[dir=ltr] .toast{transform:translate(-50%,120%)}
+.toast.on{transform:translate(50%,0)}
+html[dir=ltr] .toast.on{transform:translate(-50%,0)}
+.toast svg{color:var(--orange)}
+.mob-only{display:flex}
+@media(min-width:900px){.mob-only{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+<div class="proto" id="proto"></div>
+
+<header class="hd">
+  <div class="hd-util">
+    <div class="wrap">
+      <div class="hd-util-l">
+        <span><i class="dot"></i><span id="u1"></span></span>
+        <span id="u2"></span>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;margin-inline-start:auto">
+        <button id="lang" style="font-weight:700;color:var(--orange)">English</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hd-main">
+    <div class="wrap">
+      <button class="ico-btn mob-only" id="mmOpen" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <a href="#" class="logo">
+        <span class="logo-mk"><b>U</b></span>
+        <span class="logo-tx"><b>UCP</b><i id="tagline"></i></span>
+      </a>
+
+      <div class="srch">
+        <div class="srch-box">
+          <input id="q" type="search" autocomplete="off" aria-label="Search">
+          <button class="srch-go" aria-label="Search">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </button>
+        </div>
+        <div class="sug" id="sug"></div>
+      </div>
+
+      <div class="hd-act">
+        <a href="#rx" class="rx-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 20V5a1 1 0 0 1 1-1h5l4 4v3M7 9h6M7 13h3M14 20l6-6M20 20l-6-6"/></svg>
+          <span id="rxBtn"></span>
+        </a>
+        <a href="#loyalty" class="ico-btn" aria-label="Loyalty">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 11h18v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zM3 7h18v4H3zM12 7v14M12 7S10 3 7.5 3a2.5 2.5 0 0 0 0 5M12 7s2-4 4.5-4a2.5 2.5 0 0 1 0 5"/></svg>
+        </a>
+        <button class="ico-btn" aria-label="Account">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+        </button>
+        <button class="ico-btn" id="cartBtn" aria-label="Cart">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2m9 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/></svg>
+          <span class="badge" id="cnt" hidden>0</span>
+        </button>
+      </div>
+    </div>
+    <div class="wrap srch-mob">
+      <div class="srch" style="display:block">
+        <div class="srch-box">
+          <input id="qm" type="search" autocomplete="off" aria-label="Search">
+          <button class="srch-go" aria-label="Search">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </button>
+        </div>
+        <div class="sug" id="sugm"></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav" aria-label="Categories"><div class="wrap"><ul id="nav"></ul></div></nav>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="hero-stripes" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <span class="hero-kick" id="kick"></span>
+        <h1 id="heroH"></h1>
+        <p class="hero-sub" id="heroP"></p>
+        <div class="hero-cta">
+          <a href="#pop" class="btn btn-o" id="heroB1"></a>
+          <a href="#rx" class="btn btn-g" id="heroB2"></a>
+        </div>
+      </div>
+      <div class="speed" id="speed"></div>
+    </div>
+    <div class="hero-cut" aria-hidden="true"></div>
+  </section>
+
+  <section class="sec wrap" id="cats-sec">
+    <div class="sec-hd">
+      <div class="sec-t"><span class="sec-n">01</span><h2 id="catsH"></h2></div>
+      <a href="#" class="sec-all" id="catsAll"></a>
+    </div>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <section class="sec wrap" id="pop" style="padding-top:0">
+    <div class="sec-hd">
+      <div class="sec-t"><span class="sec-n">02</span><h2 id="popH"></h2></div>
+      <a href="#" class="sec-all" id="popAll"></a>
+    </div>
+    <div class="rail" id="popRail"></div>
+  </section>
+
+  <section class="slab">
+    <div class="wrap slab-row">
+      <div>
+        <h2 id="offH"></h2>
+        <p id="offP"></p>
+      </div>
+      <a href="#offers" class="btn btn-ink" id="offB"></a>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="offers">
+    <div class="sec-hd">
+      <div class="sec-t"><span class="sec-n">03</span><h2 id="off2H"></h2></div>
+      <a href="#" class="sec-all" id="off2All"></a>
+    </div>
+    <div class="grid" id="offGrid"></div>
+  </section>
+
+  <section class="brands">
+    <div class="wrap">
+      <div class="sec-hd brands-h">
+        <div class="sec-t"><span class="sec-n">04</span><h2 id="brH" style="color:#fff"></h2></div>
+        <a href="#" class="sec-all" id="brAll" style="color:var(--orange)"></a>
+      </div>
+      <div class="bticker" id="bticker"></div>
+    </div>
+  </section>
+
+  <section class="sec wrap">
+    <div class="sec-hd">
+      <div class="sec-t"><span class="sec-n">05</span><h2 id="bnH"></h2></div>
+      <a href="#" class="sec-all" id="bnAll"></a>
+    </div>
+    <div class="bundles" id="bundles"></div>
+  </section>
+
+  <section class="rxband" id="rx">
+    <div class="wrap">
+      <div>
+        <span class="hero-kick" id="rxKick"></span>
+        <h2 id="rxH"></h2>
+        <p class="hero-sub" id="rxP"></p>
+        <div class="hero-cta"><button class="btn btn-o" id="rxB"></button></div>
+      </div>
+      <div class="rxsteps" id="rxSteps"></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="loyalty">
+    <div class="loy">
+      <div class="loy-in">
+        <h2 id="loyH"></h2>
+        <p id="loyP"></p>
+        <div class="hero-cta"><a href="#" class="btn btn-o" id="loyB"></a></div>
+      </div>
+      <div class="loy-card">
+        <small id="loyBal"></small>
+        <div class="loy-pts" id="loyPts"></div>
+        <div class="loy-tier" id="loyTier"></div>
+        <div class="loy-bar"><i id="loyBar"></i></div>
+        <div class="loy-next" id="loyNext"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="ft-trust"><div class="wrap" id="trust"></div></div>
+  <div class="wrap"><div class="ft-cols" id="ftCols"></div></div>
+  <div class="ft-bot"><div class="wrap">
+    <span id="ftRights"></span>
+    <div class="pay"><i>mada</i><i>VISA</i><i>Apple&nbsp;Pay</i></div>
+  </div></div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="dr-h"><b id="drT"></b><button id="drX" aria-label="Close">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button></div>
+  <div class="dr-body" id="drBody"></div>
+  <div class="dr-f">
+    <div class="dr-tot"><span id="drTot"></span><b id="drSum"></b></div>
+    <button class="btn btn-o" style="width:100%;justify-content:center" id="drGo"></button>
+    <p class="dr-note" id="drNote"></p>
+  </div>
+</aside>
+
+<nav class="mm" id="mm" aria-label="Menu">
+  <div class="mm-h"><b style="font-size:17px">UCP</b><button id="mmX" aria-label="Close">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button></div>
+  <div id="mmBody"></div>
+</nav>
+
+<div class="toast" id="toast">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5 9 17.5 20 6.5"/></svg>
+  <span id="toastT"></span>
+</div>
+
+<script src="data.js"></script>
+<script>
+/* ===========================================================================
+   THEME 01 behaviour.
+   Prototype-grade: state lives in memory, nothing persists, no network.
+   The point is to judge interaction feel, not architecture.
+   =========================================================================== */
+const ICONS = {
+  face:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M9 10h.01M15 10h.01M8.5 14.5a4.5 4.5 0 0 0 7 0',
+  hair:'M5 20v-7a7 7 0 0 1 14 0v7M5 13c1.5-1 2.5-3 2.5-5M19 13c-1.5-1-2.5-3-2.5-5',
+  body:'M12 5.5a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5M12 7v7M12 7 7.5 9M12 7l4.5 2M12 14l-2.5 8M12 14l2.5 8',
+  feminine:'M12 14a5 5 0 1 0 0-10 5 5 0 0 0 0 10M12 14v7M9 18h6',
+  lens:'M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16M12 16.5a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9',
+  oral:'M4 7c0-2 2-3 4-3s3 1 4 1 2-1 4-1 4 1 4 3c0 4-1.5 5-2.5 8S16 20 15 20s-1.5-3-3-3-2 3-3 3-1.5-2-2.5-5S4 11 4 7',
+  vitamin:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M12 7.5v9M7.5 12h9',
+  baby:'M9 9h6v10a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2zM10 9V6.5h4V9M11 6.5V4.5a1 1 0 0 1 2 0v2M9 13h6',
+  device:'M7 3h10a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1M9 8h6M9 11.5h6M10.5 15h3',
+  pill:'M10.5 3.5 3.5 10.5a5 5 0 0 0 7 7l7-7a5 5 0 0 0-7-7M7 7l7 7',
+  makeup:'M9 3h6v4H9zM8 7h8l-1 13a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z',
+  truck:'M3 7h11v9H3zM14 10h3.5l2.5 3v3h-6M6.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m10 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3',
+  store:'M4 10v9a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-9M3 10l1.5-5a1 1 0 0 1 1-.8h13a1 1 0 0 1 1 .8L21 10a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0',
+  rx:'M7 20V5a1 1 0 0 1 1-1h5l4 4v3M7 9h6M7 13h3M14 20l6-6M20 20l-6-6',
+  chat:'M4 5h16v11H9l-5 4z',
+  shield:'M12 3l7 3v5.5c0 4.2-2.9 8-7 9.5-4.1-1.5-7-5.3-7-9.5V6z',
+  lock:'M6 11h12v9H6zM9 11V7.5a3 3 0 0 1 6 0V11',
+  clock:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M12 7v5l3.5 2',
+  bell:'M6 16V10a6 6 0 1 1 12 0v6l2 3H4zM10 21h4',
+  gift:'M3 11h18v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zM3 7h18v4H3zM12 7v14M12 7S10 3 7.5 3a2.5 2.5 0 0 0 0 5M12 7s2-4 4.5-4a2.5 2.5 0 0 1 0 5',
+};
+const ic = (n, s) => '<svg width="'+(s||22)+'" height="'+(s||22)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="'+ICONS[n]+'"/></svg>';
+
+let lang = "ar";
+let cart = [];
+const $ = (s) => document.querySelector(s);
+const T = () => UCP.copy[lang];
+const nm = (o) => o[lang];
+
+function render() {
+  const t = T();
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  $("#lang").textContent = lang === "ar" ? "English" : "العربية";
+  $("#proto").innerHTML = "<b>THEME 01 — NINJA</b> · " + t.proto;
+  $("#tagline").textContent = t.tag;
+  $("#q").placeholder = $("#qm").placeholder = t.searchPh;
+  $("#u1").textContent = t.etaTitle + " " + t.etaValue;
+  $("#u2").textContent = t.pickupDesc;
+  $("#rxBtn").textContent = t.rx;
+
+  // nav
+  $("#nav").innerHTML =
+    '<li><a href="#cats-sec" class="hot">' + t.allCats + '</a></li>' +
+    UCP.categories.slice(0, 7).map((c) => '<li><a href="#cats-sec">' + nm(c) + '</a></li>').join("") +
+    '<li style="margin-inline-start:auto"><a href="#offers" class="hot">' + t.offers + '</a></li>' +
+    '<li><a href="#rx">' + t.tele + '</a></li>';
+
+  // hero
+  $("#kick").textContent = lang === "ar" ? "سرعة · دقة · ثقة" : "FAST · PRECISE · SURE";
+  $("#heroH").innerHTML = lang === "ar"
+    ? 'كل ما تحتاجه<br>من صيدليتك، <mark>أسرع</mark>'
+    : 'Everything from<br>your pharmacy, <mark>faster</mark>';
+  $("#heroP").textContent = lang === "ar"
+    ? "وصفات، عناية، وفيتامينات — تصل إليك أو جاهزة للاستلام من أقرب فرع."
+    : "Prescriptions, care and vitamins — delivered to you, or ready to collect.";
+  $("#heroB1").textContent = t.shopNow;
+  $("#heroB2").innerHTML = ic("rx", 18) + "<span>" + t.rx + "</span>";
+
+  $("#speed").innerHTML = [
+    { i: "clock", b: t.etaTitle, big: t.etaValue, s: t.etaNote },
+    { i: "rx", b: t.rx, s: t.rxDesc },
+    { i: "store", b: t.pickup, s: t.pickupDesc },
+  ].map((x) =>
+    '<div class="speed-i">' + ic(x.i, 22) +
+    '<div><b>' + x.b + '</b>' + (x.big ? '<div class="big num">' + x.big + '</div>' : "") +
+    '<span>' + x.s + '</span></div></div>'
+  ).join("");
+
+  // sections
+  $("#catsH").textContent = t.cats;  $("#catsAll").textContent = t.allCats;
+  $("#popH").textContent = t.popular; $("#popAll").textContent = t.viewAll;
+  $("#off2H").textContent = t.offers; $("#off2All").textContent = t.viewAll;
+  $("#brH").textContent = t.brands;   $("#brAll").textContent = t.viewAll;
+  $("#bnH").textContent = t.packages; $("#bnAll").textContent = t.viewAll;
+
+  // 11 categories in a 6-column grid would leave a ragged hole, so the
+  // twelfth cell is the "all categories" entry — it fills the grid AND
+  // gives the section a second, more useful exit.
+  $("#cats").innerHTML = UCP.categories.map((c, i) =>
+    '<a class="cat" href="#pop"><span class="cat-n">' + String(i + 1).padStart(2, "0") + '</span>' +
+    ic(c.icon, 32) + '<b>' + nm(c) + '</b></a>'
+  ).join("") +
+  '<a class="cat cat-all" href="#">' + ic("store", 32) + '<b>' + t.allCats + '</b></a>';
+
+  const pop = [...UCP.products].sort((a, b) => a.rank - b.rank).slice(0, 8);
+  $("#popRail").innerHTML = pop.map((p) => card(p)).join("");
+
+  $("#offH").textContent = lang === "ar" ? "عروض حقيقية، بدون عدّاد تنازلي" : "Real offers, no countdown timers";
+  $("#offP").textContent = lang === "ar"
+    ? "كل خصم هنا مقارنة بسعر بيع فعلي سابق. لا ندّعي ندرة ولا نضغط عليك بمؤقّت."
+    : "Every discount is against a price we genuinely sold at. No fake scarcity, no pressure timer.";
+  $("#offB").textContent = t.offers;
+  $("#offGrid").innerHTML = UCP.products.filter((p) => p.was).slice(0, 10).map((p) => card(p)).join("");
+
+  $("#bticker").innerHTML = UCP.brands.map((b) =>
+    '<a class="bcard" href="#">' + brandMark(b, lang, "#FFFFFF") + '<span>' + nm(b) + '</span></a>'
+  ).join("");
+
+  $("#bundles").innerHTML = UCP.bundles.map((b, i) =>
+    '<a class="bn" href="#"><span class="bn-tag">PACK ' + String(i + 1).padStart(2, "0") + '</span>' +
+    '<h3>' + nm(b) + '</h3><p>' + nm(b.note) + '</p>' +
+    '<div class="bn-pr"><b>' + priceHTML(b.price, lang) + '</b>' +
+    wasHTML(b.parts, lang) +
+    '<span class="bn-save">' + t.save + " " + (b.parts - b.price) + '</span></div></a>'
+  ).join("");
+
+  // prescription
+  $("#rxKick").textContent = lang === "ar" ? "خدمة صيدلية" : "PHARMACY SERVICE";
+  $("#rxH").textContent = t.rx;
+  $("#rxP").textContent = t.rxDesc;
+  $("#rxB").innerHTML = ic("rx", 18) + "<span>" + t.rx + "</span>";
+  const steps = lang === "ar"
+    ? [["ارفع صورة الوصفة", "من جوالك أو من ملفاتك."], ["يراجعها صيدلي مرخّص", "نتواصل معك إذا احتجنا توضيحًا."], ["نجهّز طلبك", "توصيل لعنوانك أو استلام من الفرع."]]
+    : [["Upload your prescription", "From your phone or your files."], ["A licensed pharmacist reviews it", "We contact you if anything needs clarifying."], ["We prepare your order", "Delivered, or ready at your branch."]];
+  $("#rxSteps").innerHTML = steps.map((s, i) =>
+    '<div class="rxstep"><span class="n">' + (i + 1) + '</span><div><b>' + s[0] + '</b><span>' + s[1] + '</span></div></div>'
+  ).join("");
+
+  // loyalty
+  const L = UCP.loyalty;
+  $("#loyH").textContent = t.loyalty;
+  $("#loyP").textContent = t.loyaltyDesc;
+  $("#loyB").textContent = lang === "ar" ? "اعرف المزيد" : "Learn more";
+  $("#loyBal").textContent = t.balance.toUpperCase();
+  $("#loyPts").textContent = L.points.toLocaleString("en-US");
+  $("#loyTier").textContent = (lang === "ar" ? L.tierAr : L.tierEn) + " · " + t.points;
+  $("#loyBar").style.width = (L.progress * 100) + "%";
+  $("#loyNext").textContent = L.toNext + " " + t.toNext + " " + (lang === "ar" ? L.nextAr : L.nextEn);
+
+  // footer
+  $("#trust").innerHTML = [
+    ["shield", lang === "ar" ? "صيدلية · معلومة تجريبية" : "Pharmacy · placeholder claim"],
+    ["lock", lang === "ar" ? "دفع آمن" : "Secure payment"],
+    ["truck", lang === "ar" ? "توصيل لكل الطلبات" : "Delivery on every order"],
+    ["chat", lang === "ar" ? "دعم العملاء" : "Customer support"],
+  ].map((x) => '<div>' + ic(x[0], 20) + '<span>' + x[1] + '</span></div>').join("");
+
+  const cols = lang === "ar"
+    ? [[t.footerAbout, ["من نحن", "فروعنا", "الوظائف", "تواصل معنا"]],
+       [t.footerService, ["المساعدة", "التوصيل", "الإرجاع والاستبدال", "الأسئلة الشائعة"]],
+       [t.footerShop, ["كل الفئات", "العلامات التجارية", "العروض", "الباقات"]],
+       [t.footerPharmacy, ["طلب الوصفات", "استشارة صيدلي", "متابعة الفيتامينات", "الاستلام من الفرع"]],
+       [t.footerLegal, ["سياسة الخصوصية", "الشروط والأحكام", "سياسة الإرجاع", "ملفات الارتباط"]]]
+    : [[t.footerAbout, ["About us", "Our branches", "Careers", "Contact us"]],
+       [t.footerService, ["Help", "Delivery", "Returns", "FAQ"]],
+       [t.footerShop, ["All categories", "Brands", "Offers", "Packages"]],
+       [t.footerPharmacy, ["Prescriptions", "Pharmacist consultation", "Vitamin follow-up", "Branch pickup"]],
+       [t.footerLegal, ["Privacy policy", "Terms", "Return policy", "Cookies"]]];
+
+  $("#ftCols").innerHTML =
+    '<div><div class="logo" style="margin-bottom:14px"><span class="logo-mk"><b>U</b></span>' +
+    '<span class="logo-tx"><b>UCP</b></span></div>' +
+    '<p style="font-size:13px;color:var(--on-ink-mut);max-width:30ch">' + t.brand + '</p>' +
+    '<p style="font-size:11.5px;color:#6C6C76;margin-top:12px">' + t.placeholderNote + '</p></div>' +
+    cols.map((c) => '<div><h3>' + c[0] + '</h3><ul>' + c[1].map((l) => '<li><a href="#">' + l + '</a></li>').join("") + '</ul></div>').join("");
+
+  $("#ftRights").textContent = "© 2026 " + t.brand + ". " + t.rights + ".";
+
+  // drawer chrome
+  $("#drT").textContent = t.cart;
+  $("#drTot").textContent = t.total;
+  $("#drGo").textContent = t.checkout;
+  $("#drNote").textContent = t.vat + " · " + t.placeholderNote;
+  renderMenu();
+  renderCart();
+}
+
+function card(p) {
+  const t = T(), b = byId(UCP.brands, p.brand);
+  const off = pct(p.price, p.was);
+  const low = p.tags.includes("low");
+  return '<article class="pc" data-id="' + p.id + '">' +
+    '<div class="pc-img">' + productArt(p, "ninja") +
+      (off ? '<span class="pc-off num">−' + off + '%</span>' : "") +
+      (low ? '<span class="pc-flag">' + t.lowStock + '</span>' : "") +
+    '</div>' +
+    '<div class="pc-b">' +
+      '<span class="pc-br">' + nm(b) + '</span>' +
+      '<h3 class="pc-n">' + nm(p) + '</h3>' +
+      '<span class="pc-sz num">' + p.size + '</span>' +
+      '<div class="pc-pr"><b>' + priceHTML(p.price, lang) + '</b>' +
+        (p.was ? wasHTML(p.was, lang) : "") + '</div>' +
+      '<button class="pc-add" data-add="' + p.id + '">' +
+        '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M12 5v14M5 12h14"/></svg>' +
+        '<span>' + t.add + '</span></button>' +
+    '</div></article>';
+}
+
+/* ---- cart ---------------------------------------------------------------- */
+function addToCart(id) {
+  const line = cart.find((l) => l.id === id);
+  if (line) line.q++; else cart.push({ id, q: 1 });
+  renderCart();
+  const p = byId(UCP.products, id);
+  showToast(nm(p) + " — " + T().added);
+  const btn = document.querySelector('[data-add="' + id + '"]');
+  if (btn) {
+    btn.classList.add("ok");
+    btn.querySelector("span").textContent = T().added;
+    setTimeout(() => { btn.classList.remove("ok"); btn.querySelector("span").textContent = T().add; }, 1600);
+  }
+}
+
+function renderCart() {
+  const t = T();
+  const n = cart.reduce((s, l) => s + l.q, 0);
+  const c = $("#cnt");
+  c.hidden = n === 0; c.textContent = n;
+  const total = cart.reduce((s, l) => s + byId(UCP.products, l.id).price * l.q, 0);
+  $("#drSum").innerHTML = priceHTML(total, lang);
+  $("#drBody").innerHTML = cart.length === 0
+    ? '<p class="dr-empty">' + t.emptyCart + '</p>'
+    : cart.map((l) => {
+        const p = byId(UCP.products, l.id);
+        return '<div class="dr-i">' + productArt(p, "ninja") +
+          '<div class="t"><b>' + nm(p) + '</b><span class="pr">' + priceHTML(p.price * l.q, lang) + '</span>' +
+          '<div class="dr-qty"><button data-q="-1" data-id="' + l.id + '">−</button>' +
+          '<span class="num">' + l.q + '</span><button data-q="1" data-id="' + l.id + '">+</button></div></div></div>';
+      }).join("");
+}
+
+function showToast(msg) {
+  $("#toastT").textContent = msg;
+  $("#toast").classList.add("on");
+  clearTimeout(window._tt);
+  window._tt = setTimeout(() => $("#toast").classList.remove("on"), 2200);
+}
+
+function renderMenu() {
+  const t = T();
+  $("#mmBody").innerHTML =
+    '<div class="mm-t">' + t.services + '</div>' +
+    [["rx", t.rx], ["chat", t.tele], ["store", t.pickup], ["gift", t.loyalty], ["bell", t.vitamins]]
+      .map((x) => '<a href="#">' + ic(x[0], 20) + '<span>' + x[1] + '</span></a>').join("") +
+    '<div class="mm-t">' + t.cats + '</div>' +
+    UCP.categories.map((c) => '<a href="#cats-sec">' + ic(c.icon, 20) + '<span>' + nm(c) + '</span></a>').join("");
+}
+
+/* ---- search -------------------------------------------------------------- */
+function searchItems(q) {
+  const s = q.trim().toLowerCase();
+  if (s.length < 2) return [];
+  const out = [];
+  UCP.categories.forEach((c) => {
+    if ((c.ar + c.en).toLowerCase().includes(s)) out.push({ k: "cat", o: c });
+  });
+  UCP.brands.forEach((b) => {
+    if ((b.ar + b.en).toLowerCase().includes(s)) out.push({ k: "brand", o: b });
+  });
+  UCP.products.forEach((p) => {
+    if ((p.ar + p.en + byId(UCP.brands, p.brand).en).toLowerCase().includes(s)) out.push({ k: "prod", o: p });
+  });
+  return out.slice(0, 9);
+}
+
+function wireSearch(inputId, panelId) {
+  const input = $(inputId), panel = $(panelId);
+  input.addEventListener("input", () => {
+    const res = searchItems(input.value);
+    if (input.value.trim().length < 2) { panel.classList.remove("on"); return; }
+    const t = T();
+    if (res.length === 0) {
+      panel.innerHTML = '<p class="sug-empty">' + t.noResults + '</p>';
+    } else {
+      let html = "";
+      const cats = res.filter((r) => r.k === "cat"), brs = res.filter((r) => r.k === "brand"), pr = res.filter((r) => r.k === "prod");
+      if (cats.length) html += '<div class="sug-h">' + t.cats + '</div>' + cats.map((r) =>
+        '<a class="sug-i" href="#cats-sec">' + '<span style="width:40px;height:40px;display:grid;place-items:center;background:var(--ink);color:var(--orange)">' + ic(r.o.icon, 20) + '</span><span class="t">' + nm(r.o) + '</span></a>').join("");
+      if (brs.length) html += '<div class="sug-h">' + t.brands + '</div>' + brs.map((r) =>
+        '<a class="sug-i" href="#"><span style="width:40px;height:40px;display:grid;place-items:center;background:var(--ink)">' + brandMark(r.o, lang, "#FF6A00") + '</span><span class="t">' + nm(r.o) + '</span></a>').join("");
+      if (pr.length) html += '<div class="sug-h">' + t.popular + '</div>' + pr.map((r) => {
+        const b = byId(UCP.brands, r.o.brand);
+        return '<a class="sug-i" href="#pop">' + productArt(r.o, "ninja") +
+          '<span class="t">' + nm(r.o) + '<span class="s"> · ' + nm(b) + '</span></span>' +
+          '<span class="p">' + priceHTML(r.o.price, lang) + '</span></a>';
+      }).join("");
+      panel.innerHTML = html;
+    }
+    panel.classList.add("on");
+  });
+  input.addEventListener("focus", () => { if (input.value.trim().length >= 2) panel.classList.add("on"); });
+  document.addEventListener("click", (e) => {
+    if (!panel.parentElement.contains(e.target)) panel.classList.remove("on");
+  });
+  input.addEventListener("keydown", (e) => { if (e.key === "Escape") panel.classList.remove("on"); });
+}
+
+/* ---- wiring -------------------------------------------------------------- */
+document.addEventListener("click", (e) => {
+  const add = e.target.closest("[data-add]");
+  if (add) { addToCart(add.dataset.add); return; }
+  const q = e.target.closest("[data-q]");
+  if (q) {
+    const line = cart.find((l) => l.id === q.dataset.id);
+    if (line) { line.q += Number(q.dataset.q); if (line.q <= 0) cart = cart.filter((l) => l !== line); }
+    renderCart();
+  }
+});
+
+const openDrawer = (on) => { $("#drawer").classList.toggle("on", on); $("#scrim").classList.toggle("on", on); };
+const openMenu = (on) => { $("#mm").classList.toggle("on", on); $("#scrim").classList.toggle("on", on); };
+$("#cartBtn").onclick = () => openDrawer(true);
+$("#drX").onclick = () => openDrawer(false);
+$("#mmOpen").onclick = () => openMenu(true);
+$("#mmX").onclick = () => openMenu(false);
+$("#scrim").onclick = () => { openDrawer(false); openMenu(false); };
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") { openDrawer(false); openMenu(false); } });
+$("#lang").onclick = () => { lang = lang === "ar" ? "en" : "ar"; render(); };
+$("#rxB").onclick = () => showToast(T().rx + " — " + (lang === "ar" ? "نموذج تصميم فقط" : "design prototype only"));
+
+render();
+wireSearch("#q", "#sug");
+wireSearch("#qm", "#sugm");
+</script>
+</body>
+</html>

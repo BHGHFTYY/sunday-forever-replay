@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UCP — Theme Directions</title>
+<meta name="description" content="Four homepage design directions for UCP. Design prototypes with placeholder content.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Deliberately neutral chrome — grey, no orange, no personality. The
+   chooser must not put a thumb on the scale for any of the four. */
+:root{
+  --bg:#121417; --panel:#1A1D21; --panel2:#22262B; --line:#2E333A;
+  --tx:#F2F4F6; --mut:#A6AEB8; --faint:#6F7986;
+  --f:160ms cubic-bezier(.2,.7,.3,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+  font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;font-size:15px;line-height:1.7;
+  -webkit-font-smoothing:antialiased}
+:lang(ar),:lang(ar) *{letter-spacing:normal !important}
+h1,h2,h3{margin:0;line-height:1.3}
+p{margin:0} a{color:inherit;text-decoration:none}
+.mono{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:20px}
+@media(min-width:900px){.wrap{padding-inline:32px}}
+:focus-visible{outline:2px solid #6F7986;outline-offset:3px}
+
+header{padding-block:40px 28px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.18em;color:var(--faint);
+  text-transform:uppercase;margin-bottom:14px}
+h1{font-size:clamp(26px,4vw,40px);font-weight:700}
+.lede{margin-top:14px;color:var(--mut);max-width:62ch;font-size:16px}
+.note{margin-top:20px;background:var(--panel);border:1px solid var(--line);border-inline-start:3px solid #6F7986;
+  border-radius:10px;padding:14px 16px;font-size:13.5px;color:var(--mut);max-width:80ch}
+.note b{color:var(--tx)}
+
+.grid{display:grid;gap:18px;padding-block:32px 60px}
+@media(min-width:840px){.grid{grid-template-columns:repeat(2,1fr);gap:22px}}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  display:flex;flex-direction:column;transition:border-color var(--f),transform var(--f)}
+.card:hover{border-color:#3E444C;transform:translateY(-3px)}
+
+/* Each preview is a tiny, honest reduction of that theme's real chrome:
+   its ground, its typeface feel, its shape language and its orange. */
+.prev{aspect-ratio:16/9;position:relative;overflow:hidden;border-bottom:1px solid var(--line);padding:14px}
+.prev .bar{height:9px;border-radius:2px;margin-bottom:8px}
+.prev .row{display:flex;gap:6px;margin-bottom:8px}
+.prev .sq{flex:1;height:34px}
+.prev .cta{height:14px;width:42%;margin-top:auto}
+.prev .in{position:absolute;inset:14px;display:flex;flex-direction:column}
+
+.p1{background:#0E0E10}
+.p1 .bar{background:#2C2C34;border-radius:0}
+.p1 .sq{background:#16161A;border-radius:0;clip-path:polygon(0 0,100% 0,100% 100%,8px 100%,0 calc(100% - 8px))}
+.p1 .sq:first-child{background:#FF6A00}
+.p1 .cta{background:#FF6A00;border-radius:0}
+.p1 .tt{color:#fff;font-weight:700;font-size:13px;margin-bottom:8px}
+.p1 .tt i{font-style:normal;background:#FF6A00;color:#0E0E10;padding:0 5px}
+
+.p2{background:#FAF7F2}
+.p2 .bar{background:#DCD2C4;height:1px;border-radius:0}
+.p2 .sq{background:#EFE9E0;border-radius:0}
+.p2 .sq:nth-child(2){background:#E7DFD4}
+.p2 .cta{background:#B83D06;border-radius:0;width:34%}
+.p2 .tt{color:#1C1815;font-size:15px;margin-bottom:10px;font-family:Georgia,serif}
+
+.p3{background:#F7F9FA}
+.p3 .bar{background:#111418;border-radius:4px;height:11px}
+.p3 .sq{background:#fff;border:1px solid #DDE3E9;border-radius:6px}
+.p3 .cta{background:#C9450A;border-radius:6px}
+.p3 .tt{color:#111418;font-weight:700;font-size:12px;margin-bottom:6px}
+.p3 .side{position:absolute;inset-block:14px;inset-inline-end:14px;width:26%;background:#fff;
+  border:1px solid #DDE3E9;border-radius:6px}
+
+.p4{background:#FFF8F2}
+.p4 .bar{background:#fff;border:2px solid #F0E0D2;border-radius:20px;height:16px}
+.p4 .sq{border-radius:14px}
+.p4 .sq:nth-child(1){background:#FFE3D1}
+.p4 .sq:nth-child(2){background:#DCEAF7}
+.p4 .sq:nth-child(3){background:#E2F0EA}
+.p4 .cta{background:#C9450A;border-radius:20px}
+.p4 .tt{color:#2A1E16;font-weight:700;font-size:14px;margin-bottom:8px}
+
+.body{padding:20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.num{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;color:var(--faint)}
+.card h2{font-size:20px;font-weight:700}
+.concept{color:var(--mut);font-size:14.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11.5px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+  padding:3px 10px;color:var(--mut)}
+.diff{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:5px}
+.diff li{font-size:13px;color:var(--mut);display:flex;gap:8px}
+.diff li::before{content:"—";color:var(--faint);flex:none}
+.open{margin-top:auto;display:flex;gap:8px;padding-top:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:44px;padding-inline:18px;
+  border-radius:9px;font-weight:600;font-size:14px;transition:all var(--f)}
+.btn-p{background:var(--tx);color:var(--bg);flex:1}
+.btn-p:hover{background:#fff}
+.btn-s{background:var(--panel2);color:var(--tx);border:1px solid var(--line)}
+.btn-s:hover{border-color:#4A515A}
+
+.swatches{display:flex;gap:4px;margin-top:2px}
+.sw{width:22px;height:22px;border-radius:5px;border:1px solid rgba(255,255,255,.12)}
+
+footer{border-top:1px solid var(--line);padding-block:26px 46px;color:var(--faint);font-size:13px}
+.how{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:26px}
+.how h3{font-size:15px;margin-bottom:10px}
+.how ol{margin:0;padding-inline-start:18px;color:var(--mut);font-size:13.5px;display:grid;gap:5px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="eyebrow">UCP · Design review</div>
+  <h1>أربعة اتجاهات تصميم للصفحة الرئيسية</h1>
+  <p class="lede">
+    أربعة نماذج تفاعلية، كل واحد باتجاه بصري مختلف جذريًا — ليس نفس التصميم بألوان مختلفة.
+    يختلف كل نموذج في بنية الصفحة، ونظام الخطوط، وشكل البطاقات، وطريقة التنقل، وأسلوب استخدام اللون البرتقالي.
+    افتح كل واحد، جرّب البحث وأضف منتجًا للسلة، ثم اختر الاتجاه.
+  </p>
+  <div class="note">
+    <b>محتوى تجريبي.</b>
+    الأسعار والمنتجات والفروع وأرصدة النقاط في هذه النماذج بيانات تعبئة للتصميم فقط — ليست بيانات UCP الحقيقية،
+    ولا تتضمن أي ادعاء أو ترخيص أو شهادة كحقيقة. ستُستبدل ببيانات الكتالوج الفعلية عند بناء الاتجاه المختار.
+    <br><br>
+    <b>Placeholder content.</b> Prices, products, branches and point balances are design filler, not UCP data,
+    and no claim, licence or certification here is presented as fact.
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="grid" id="grid"></div>
+
+  <div class="how">
+    <h3>ما الذي يستحق الحكم عليه</h3>
+    <ol>
+      <li>هل تصل بسرعة إلى ما تبحث عنه — بالبحث أو بالفئات؟</li>
+      <li>هل تبدو بطاقة المنتج واضحة: العلامة، الاسم، السعر، الإضافة للسلة؟</li>
+      <li>هل «اطلب وصفتك» ظاهرة بما يكفي دون أن تزاحم التسوّق؟</li>
+      <li>هل يناسب الاتجاه عميلًا مستعجلًا من الجوال، وعميلًا يتصفّح على سطح المكتب؟</li>
+      <li>هل يبدو مميّزًا لـ UCP — لا يشبه أي صيدلية أخرى؟</li>
+    </ol>
+  </div>
+</main>
+
+<footer><div class="wrap">
+  نماذج تصميم · لا تتضمن خلفية برمجية أو دفعًا حقيقيًا · Design prototypes only
+</div></footer>
+
+<script>
+const THEMES = [
+  {
+    n: "01", key: "p1", file: "theme-01-ninja.html",
+    name: "NINJA",
+    nameAr: "نينجا",
+    concept: "حاد، سريع، واثق. أسود حبري مع برتقالي كهربائي، وزوايا قاطعة.",
+    conceptEn: "Sharp, fast, confident. Ink black with electric orange and cut corners.",
+    tags: ["Alexandria + JetBrains Mono", "زوايا 2px", "أقسام مرقّمة", "كروم داكن"],
+    diffs: [
+      "نص أسود على برتقالي ساطع — الوحيد الذي يستخدم البرتقالي بأقصى تشبّع",
+      "بطاقات منتج بخلفية داكنة وإضاءة حافة برتقالية",
+      "فئات مستطيلة بقصّة زاوية، لا دوائر",
+      "عناوين أقسام مرقّمة ٠١ ٠٢ ٠٣ مع خط مائل",
+    ],
+    sw: ["#0E0E10", "#FF6A00", "#FFFFFF", "#A63504"],
+  },
+  {
+    n: "02", key: "p2", file: "theme-02-premium.html",
+    name: "PREMIUM",
+    nameAr: "بريميوم",
+    concept: "هادئ، تحريري، فاخر. ورق دافئ، خط رقعي، مساحات بيضاء واسعة.",
+    conceptEn: "Quiet, editorial, expensive. Warm paper, serif display, wide whitespace.",
+    tags: ["Amiri + Cormorant", "بدون حدود للبطاقات", "خطوط شعرية", "بحث بملء الشاشة"],
+    diffs: [
+      "البرتقالي مستخدم بأقل قدر — خط رفيع وتعبئة واحدة عميقة فقط",
+      "المنتجات تطفو على الورق بلا إطارات",
+      "فئات بترتيب فسيفسائي غير متماثل بأحجام مختلفة",
+      "البحث مخفي خلف أيقونة ويفتح بملء الشاشة",
+    ],
+    sw: ["#FAF7F2", "#B83D06", "#1C1815", "#E8A87C"],
+  },
+  {
+    n: "03", key: "p3", file: "theme-03-modern.html",
+    name: "MODERN E-COMMERCE",
+    nameAr: "متجر حديث",
+    concept: "كثافة وسرعة وأقل عدد نقرات للسلة. شريط جانبي دائم وتبويبات.",
+    conceptEn: "Density, speed, fewest taps to basket. Persistent sidebar and tabs.",
+    tags: ["Noto Sans Arabic + Inter", "شريط جانبي", "تبويبات", "عدّاد داخل البطاقة"],
+    diffs: [
+      "الوحيد بشريط فئات جانبي دائم على سطح المكتب",
+      "وحدة تسوّق بتبويبات: الأكثر طلبًا · عروض · أعد الطلب · مختارات",
+      "بعد أول إضافة يتحوّل الزر إلى − ١ + داخل البطاقة نفسها",
+      "أزرق للخدمات الصيدلية وبرتقالي للشراء — لا تختلط الوظيفتان",
+    ],
+    sw: ["#FFFFFF", "#C9450A", "#1D4ED8", "#0B1220"],
+  },
+  {
+    n: "04", key: "p4", file: "theme-04-friendly.html",
+    name: "FRIENDLY",
+    nameAr: "ودّي",
+    concept: "دافئ وبسيط وللعائلة. يبدأ بسؤال بدل شعار، وحواف دائرية كبيرة.",
+    conceptEn: "Warm, simple, for families. Opens with a question, big soft radii.",
+    tags: ["Rubik + Baloo", "حواف 22-28px", "ألوان دافئة للفئات", "شريط سفلي للجوال"],
+    diffs: [
+      "يفتح بسؤال «كيف نقدر نساعدك اليوم؟» مع اختيارات حسب الحاجة لا حسب التصنيف",
+      "لون دافئ مميز لكل فئة — تُميَّز باللون كما تُميَّز بالاسم",
+      "حجم خط أكبر (١٦px) وحواف دائرية وظلال ناعمة بدل الحدود",
+      "شريط تنقّل سفلي ثابت على الجوال",
+    ],
+    sw: ["#FFF8F2", "#C9450A", "#FF8A3D", "#2A1E16"],
+  },
+];
+
+document.getElementById("grid").innerHTML = THEMES.map((t) => `
+  <article class="card">
+    <div class="prev ${t.key}">
+      <div class="in">
+        <div class="bar"></div>
+        <div class="tt">${t.key === "p1" ? 'UCP <i>أسرع</i>' : t.key === "p2" ? "العناية التي تختارها" : t.key === "p3" ? "اطلب، وخلّه يوصلك اليوم" : "كيف نقدر نساعدك؟"}</div>
+        <div class="row"><span class="sq"></span><span class="sq"></span><span class="sq"></span></div>
+        <div class="cta"></div>
+      </div>
+      ${t.key === "p3" ? '<span class="side"></span>' : ""}
+    </div>
+    <div class="body">
+      <div>
+        <div class="num">THEME ${t.n}</div>
+        <h2>${t.name} — ${t.nameAr}</h2>
+      </div>
+      <p class="concept">${t.concept}</p>
+      <div class="swatches">${t.sw.map((c) => `<span class="sw" style="background:${c}"></span>`).join("")}</div>
+      <div class="tags">${t.tags.map((x) => `<span class="tag">${x}</span>`).join("")}</div>
+      <ul class="diff">${t.diffs.map((d) => `<li>${d}</li>`).join("")}</ul>
+      <div class="open">
+        <a class="btn btn-p" href="${t.file}">افتح النموذج</a>
+        <a class="btn btn-s" href="${t.file}" target="_blank" rel="noopener">نافذة جديدة</a>
+      </div>
+    </div>
+  </article>
+`).join("");
+</script>
+</body>
+</html>
