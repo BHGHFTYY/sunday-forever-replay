@@ -1,0 +1,181 @@
+/*
+ * UCP design tokens — GENERATED FILE, DO NOT EDIT BY HAND.
+ * Source: packages/design/src/*.ts
+ * Regenerate: npm run build:css --workspace @ucp/design
+ *
+ * Emitted as a Tailwind v4 @theme block, so every token is available
+ * both as a utility class (bg-primary, rounded-lg, text-2xl) and as a
+ * raw custom property (var(--color-primary)) for hand-written CSS.
+ */
+
+@theme {
+
+  /* Colour ramps */
+  --color-jade-50: #E9FBF4;
+  --color-jade-100: #C8F5E6;
+  --color-jade-200: #93EACC;
+  --color-jade-300: #55DAAE;
+  --color-jade-400: #17C08C;
+  --color-jade-500: #00A878;
+  --color-jade-600: #00875F;
+  --color-jade-700: #007752;
+  --color-jade-800: #005E41;
+  --color-jade-900: #00402C;
+  --color-ember-50: #FFF0EC;
+  --color-ember-100: #FFDCD2;
+  --color-ember-300: #FF9C83;
+  --color-ember-400: #FF7A5C;
+  --color-ember-500: #FF5A36;
+  --color-ember-600: #E8461F;
+  --color-ember-700: #C7350F;
+  --color-lapis-50: #EAF1FE;
+  --color-lapis-100: #D2E2FD;
+  --color-lapis-300: #7CA6F7;
+  --color-lapis-500: #2B6CF0;
+  --color-lapis-600: #1F57CC;
+  --color-lapis-700: #1B4FBF;
+  --color-ink-700: #22303D;
+  --color-ink-800: #16212B;
+  --color-ink-900: #0D141A;
+  --color-ink-950: #080C10;
+  --color-neutral-0: #FFFFFF;
+  --color-neutral-50: #F7F8F9;
+  --color-neutral-100: #EEF1F3;
+  --color-neutral-200: #E1E6EA;
+  --color-neutral-300: #C9D1D8;
+  --color-neutral-400: #9AA6B1;
+  --color-neutral-500: #6E7C89;
+  --color-neutral-600: #51606D;
+  --color-neutral-700: #3B4954;
+  --color-neutral-800: #283440;
+  --color-neutral-900: #16212B;
+  --color-sand-50: #FAF8F5;
+  --color-sand-100: #F4F1EC;
+  --color-sand-200: #E8E3DA;
+  --color-sand-300: #D9D2C5;
+  --color-danger-50: #FEF3F2;
+  --color-danger-100: #FEE4E2;
+  --color-danger-500: #D92D20;
+  --color-danger-600: #B42318;
+  --color-danger-700: #912018;
+  --color-amber-50: #FEF6E7;
+  --color-amber-100: #FCEAC4;
+  --color-amber-500: #F0A81E;
+  --color-amber-700: #7A4A03;
+
+  /* Semantic colours — components reference these, never the ramps */
+  --color-brand: #00A878;
+  --color-brand-soft: #E9FBF4;
+  --color-primary: #007752;
+  --color-primary-hover: #005E41;
+  --color-primary-active: #00402C;
+  --color-primary-on: #FFFFFF;
+  --color-primary-soft: #E9FBF4;
+  --color-primary-text: #005E41;
+  --color-surface: #FFFFFF;
+  --color-surface-sunken: #FAF8F5;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-ink: #0D141A;
+  --color-surface-ink-raised: #16212B;
+  --color-border: #E1E6EA;
+  --color-border-strong: #C9D1D8;
+  --color-border-ink: #243140;
+  --color-text: #16212B;
+  --color-text-muted: #51606D;
+  --color-text-faint: #6E7C89;
+  --color-text-on-ink: #FFFFFF;
+  --color-text-on-ink-muted: #C9D1D8;
+  --color-offer: #FF5A36;
+  --color-offer-on: #0D141A;
+  --color-offer-solid: #C7350F;
+  --color-offer-soft: #FFF0EC;
+  --color-offer-text: #B62F12;
+  --color-service: #2B6CF0;
+  --color-service-soft: #EAF1FE;
+  --color-service-text: #1B4FBF;
+  --color-success: #007752;
+  --color-success-soft: #E9FBF4;
+  --color-success-text: #00402C;
+  --color-warning: #F0A81E;
+  --color-warning-soft: #FEF6E7;
+  --color-warning-text: #7A4A03;
+  --color-danger: #B42318;
+  --color-danger-soft: #FEF3F2;
+  --color-danger-text: #B42318;
+  --color-focus: #007752;
+  --color-focus-ring: rgba(0, 119, 82, 0.28);
+
+  /* Typography */
+  --font-sans: "IBM Plex Sans Arabic", "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-numeric: "IBM Plex Sans Arabic", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.55;
+  --leading-body: 1.7;
+  --leading-arabic-body: 1.8;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+
+  /* Spacing — 4px base grid drives every numeric spacing utility */
+  --spacing: 0.25rem;
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-xs: 0 1px 2px rgba(13, 20, 26, 0.06);
+  --shadow-sm: 0 2px 6px rgba(13, 20, 26, 0.07);
+  --shadow-md: 0 6px 16px -4px rgba(13, 20, 26, 0.10);
+  --shadow-lg: 0 16px 32px -8px rgba(13, 20, 26, 0.14);
+  --shadow-xl: 0 28px 56px -12px rgba(13, 20, 26, 0.20);
+  --shadow-focus: 0 0 0 3px rgba(0, 119, 82, 0.28);
+
+  /* Motion */
+  --duration-instant: 80ms;
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 280ms;
+  --ease-standard: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ease-emphasis: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Breakpoints */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Layout */
+  --container-max: 1280px;
+  --tap-target: 44px;
+  --header-h-mobile: 56px;
+  --header-h-desktop: 64px;
+
+  /* Stacking order */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-drawer: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+}

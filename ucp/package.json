@@ -1,0 +1,27 @@
+{
+  "name": "ucp-platform",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Urgent Care Pharmacy — digital pharmacy commerce platform",
+  "workspaces": [
+    "packages/*",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @ucp/web",
+    "build": "npm run build --workspace @ucp/web",
+    "start": "npm run start --workspace @ucp/web",
+    "lint": "npm run lint --workspace @ucp/web",
+    "typecheck": "tsc -b packages/design packages/core packages/data && npm run typecheck --workspace @ucp/web",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.1",
+    "@types/node": "^22.10.0"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
