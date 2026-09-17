@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — NINJA / B · GRID</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ucp.css">
+<style>
+/* ===========================================================================
+   NINJA / B — GRID
+   ---------------------------------------------------------------------------
+   Execution idea: THE INDEX. No hero image, no banner, no picture of a
+   lifestyle. The page opens with a typographic masthead and a live status
+   line, then becomes a strict modular index of the catalogue.
+
+   Where BLADE sells with scale contrast, GRID sells with SYSTEM: everything
+   snaps to a visible 12-column rhythm, products are separated by hairlines
+   rather than wrapped in cards, and a numbered category rail runs down the
+   leading edge as a permanent table of contents.
+
+   This is the execution for the customer who already knows what a pharmacy
+   sells and wants to see all of it at once. It is deliberately the densest
+   and quietest of the four — amber appears perhaps eight times on the whole
+   page, and each time it means "act here".
+   =========================================================================== */
+
+body { background: var(--paper-2); }
+.wrap { width:100%; max-width:1420px; margin-inline:auto; padding-inline:18px; }
+@media (min-width:900px) { .wrap { padding-inline:30px; } }
+
+/* --- masthead: type only --------------------------------------------------- */
+.mast { background:var(--ink); color:var(--on-ink); }
+.mast-bar { border-bottom:1px solid var(--line-ink); }
+.mast-bar .wrap { display:flex; align-items:center; gap:16px; height:38px; font-size:var(--t-12);
+  color:var(--on-ink-mut); }
+.tick { display:flex; gap:26px; overflow:hidden; white-space:nowrap; flex:1; min-width:0; }
+.tick span { display:inline-flex; align-items:center; gap:7px; }
+.tick .dot { width:6px; height:6px; background:var(--amber); flex:none; }
+.tick b { color:var(--on-ink); font-weight:600; }
+
+.mast-main .wrap { display:grid; gap:22px; padding-block:26px 30px; }
+@media (min-width:1000px) { .mast-main .wrap { grid-template-columns:auto 1fr auto; align-items:center;
+  gap:40px; padding-block:30px; } }
+.brandline { display:flex; align-items:center; gap:14px; }
+.brandline img { height:46px; width:auto; flex:none; }
+@media (min-width:900px) { .brandline img { height:58px; } }
+.brandline h1 { font-size:clamp(34px,5vw,58px); font-weight:900; line-height:.95; }
+.brandline .sub { font-size:var(--t-13); color:var(--on-ink-mut); margin-top:4px; }
+
+/* search is the masthead's centre of gravity */
+.msearch { position:relative; }
+.msearch-box { display:flex; height:54px; background:var(--ink-850); border:1px solid var(--line-ink); }
+.msearch-box:focus-within { border-color:var(--amber); }
+.msearch-box input { flex:1; min-width:0; background:none; border:0; outline:0; color:var(--on-ink);
+  padding-inline:18px; font-size:var(--t-16); }
+.msearch-box input::placeholder { color:#7A736A; }
+.msearch-go { width:58px; background:var(--amber); color:var(--on-amber); display:grid; place-items:center; }
+.msearch-go:hover { background:var(--amber-400); }
+.mast-act { display:flex; align-items:center; gap:6px; }
+.ib { width:48px; height:48px; display:grid; place-items:center; position:relative; color:var(--on-ink);
+  border:1px solid var(--line-ink); }
+.ib:hover { border-color:var(--amber); color:var(--amber); }
+.cnt { position:absolute; top:-1px; inset-inline-end:-1px; min-width:19px; height:19px; background:var(--amber);
+  color:var(--on-amber); font-size:var(--t-11); font-weight:700; display:grid; place-items:center; padding-inline:4px; }
+.rxb { display:inline-flex; align-items:center; gap:8px; height:48px; padding-inline:18px; background:var(--amber);
+  color:var(--on-amber); font-weight:700; font-size:var(--t-14); }
+.rxb:hover { background:var(--amber-400); }
+
+.sug { position:absolute; inset-inline:0; top:calc(100% + 8px); background:var(--paper); color:var(--tx);
+  border:1px solid var(--line); box-shadow:0 26px 60px rgba(0,0,0,.4); max-height:62vh; overflow:auto;
+  display:none; z-index:200; }
+.sug.on { display:block; }
+.sug-h { font-size:var(--t-11); font-weight:700; color:var(--tx-faint); padding:12px 16px 5px; }
+.sug-i { display:flex; align-items:center; gap:12px; padding:9px 16px; width:100%; text-align:start; }
+.sug-i:hover { background:var(--paper-3); }
+.sug-i .av { width:40px; height:40px; flex:none; overflow:hidden; }
+.sug-i .t { flex:1; min-width:0; font-size:var(--t-14); font-weight:600; }
+.sug-i .t span { display:block; font-size:var(--t-12); color:var(--tx-faint); font-weight:400; }
+
+/* --- the shell: permanent index rail + content ---------------------------- */
+.shell { display:grid; grid-template-columns:minmax(0,1fr); gap:0; }
+@media (min-width:1080px) { .shell { grid-template-columns:230px minmax(0,1fr); } }
+.rail { display:none; border-inline-end:1px solid var(--line); background:var(--paper); }
+@media (min-width:1080px) { .rail { display:block; position:sticky; top:0; align-self:start;
+  max-height:100vh; overflow:auto; } }
+.rail-h { font-size:var(--t-11); font-weight:700; color:var(--tx-faint); padding:16px 18px 8px; }
+.rail a { display:flex; align-items:center; gap:12px; padding:10px 18px; border-bottom:1px solid var(--paper-3);
+  font-size:var(--t-14); transition:background var(--fast), color var(--fast); }
+.rail a:last-child { border-bottom:0; }
+.rail a:hover { background:var(--ink); color:var(--on-ink); }
+.rail a:hover .n { color:var(--amber); }
+.rail .n { font-family:var(--disp); font-size:var(--t-12); font-weight:700; color:var(--tx-faint); flex:none; width:18px; }
+.rail .nm { flex:1; min-width:0; font-weight:500; }
+.rail .c { font-size:var(--t-11); color:var(--tx-faint); }
+.rail-svc a:hover { background:var(--jade); }
+.rail-svc a:hover .n { color:#fff; }
+
+.body { background:var(--paper-2); }
+
+/* --- section: a rule, a number, a name ------------------------------------ */
+.sec { border-bottom:1px solid var(--line); }
+.sec-hd { display:flex; align-items:baseline; gap:14px; padding:22px 20px 14px; }
+@media (min-width:900px) { .sec-hd { padding:28px 26px 16px; } }
+.sec-hd .n { font-family:var(--disp); font-size:var(--t-12); font-weight:700; color:var(--amber-800); flex:none; }
+.sec-hd h2 { font-size:clamp(21px,2.6vw,30px); }
+.sec-hd .all { margin-inline-start:auto; font-size:var(--t-13); font-weight:700; color:var(--amber-800);
+  display:inline-flex; align-items:center; gap:5px; }
+.sec-hd .all:hover { color:var(--tx); }
+.sec-body { padding:0 20px 26px; }
+@media (min-width:900px) { .sec-body { padding:0 26px 30px; } }
+
+/* --- categories: strict modular squares ---------------------------------- */
+.cgrid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line);
+  border-inline-start:1px solid var(--line); }
+@media (min-width:640px) { .cgrid { grid-template-columns:repeat(4,1fr); } }
+@media (min-width:1000px) { .cgrid { grid-template-columns:repeat(6,1fr); } }
+.cgrid a { aspect-ratio:1; border-bottom:1px solid var(--line); border-inline-end:1px solid var(--line);
+  background:var(--paper); display:flex; flex-direction:column; justify-content:space-between; padding:14px;
+  transition:background var(--fast), color var(--fast); position:relative; }
+.cgrid a:hover { background:var(--ink); color:var(--on-ink); }
+.cgrid a:hover .g, .cgrid a:hover .n { color:var(--amber); }
+.cgrid .n { font-family:var(--disp); font-size:var(--t-12); font-weight:700; color:var(--tx-faint); }
+.cgrid .g { color:var(--amber-800); }
+.cgrid b { font-size:var(--t-13); font-weight:600; line-height:1.35; }
+@media (min-width:900px) { .cgrid b { font-size:var(--t-14); } }
+
+/* --- products: hairline-separated, no cards ------------------------------ */
+.plist { display:grid; grid-template-columns:repeat(2,1fr); background:var(--line);
+  gap:1px; border:1px solid var(--line); }
+@media (min-width:700px) { .plist { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:1000px) { .plist { grid-template-columns:repeat(4,1fr); } }
+@media (min-width:1360px) { .plist { grid-template-columns:repeat(5,1fr); } }
+.pi { background:var(--paper); display:flex; flex-direction:column; padding:14px;
+  transition:background var(--fast); position:relative; }
+.pi:hover { background:var(--paper); box-shadow:inset 0 0 0 2px var(--ink); z-index:1; }
+.pi .im { aspect-ratio:1; position:relative; margin:-14px -14px 12px; }
+.pi .im svg { width:100%; height:100%; }
+.pi .off { position:absolute; top:0; inset-inline-start:0; background:var(--amber); color:var(--on-amber);
+  font-family:var(--disp); font-size:var(--t-13); font-weight:800; padding:3px 9px; }
+.pi .flag { position:absolute; inset-inline:0; bottom:0; background:rgba(18,16,12,.9); color:#fff;
+  font-size:var(--t-11); font-weight:600; text-align:center; padding:4px; }
+.pi .br { font-size:var(--t-11); font-weight:700; color:var(--tx-faint); }
+.pi h3 { font-family:var(--text); font-size:var(--t-14); font-weight:500; line-height:1.45; margin:3px 0 0;
+  min-height:2.9em; }
+.pi .sz { font-size:var(--t-11); color:var(--tx-faint); margin-top:2px; }
+.pi .foot { margin-top:auto; padding-top:10px; display:flex; align-items:flex-end; justify-content:space-between; gap:8px; }
+.pi .qa { width:40px; height:40px; background:var(--amber); color:var(--on-amber); display:grid; place-items:center;
+  flex:none; transition:background var(--fast); }
+.pi .qa:hover { background:var(--amber-400); }
+.pi .qa.ok { background:var(--ink); color:var(--on-ink); }
+
+/* --- split band: offers ledger + packages -------------------------------- */
+.split { display:grid; }
+@media (min-width:1000px) { .split { grid-template-columns:1.15fr .85fr; } }
+.split > * { border-bottom:1px solid var(--line); }
+@media (min-width:1000px) { .split > *:first-child { border-inline-end:1px solid var(--line); } }
+
+.ledger { background:var(--paper); }
+.ledger a { display:flex; align-items:center; gap:14px; padding:12px 20px; border-bottom:1px solid var(--paper-3); }
+@media (min-width:900px) { .ledger a { padding:12px 26px; } }
+.ledger a:last-child { border-bottom:0; }
+.ledger a:hover { background:var(--paper-2); }
+.ledger .av { width:52px; height:52px; flex:none; overflow:hidden; border:1px solid var(--line); }
+.ledger .t { flex:1; min-width:0; }
+.ledger .t b { display:block; font-size:var(--t-14); font-weight:500; line-height:1.4; }
+.ledger .t span { font-size:var(--t-11); color:var(--tx-faint); }
+.ledger .pc2 { flex:none; text-align:end; }
+.ledger .qa { width:38px; height:38px; background:var(--ink); color:var(--on-ink); display:grid; place-items:center; flex:none; }
+.ledger .qa:hover { background:var(--amber); color:var(--on-amber); }
+
+.pkcol { background:var(--paper-2); }
+.pk { display:block; border-bottom:1px solid var(--line); padding:18px 20px; }
+@media (min-width:900px) { .pk { padding:18px 26px; } }
+.pk:last-child { border-bottom:0; }
+.pk:hover { background:var(--paper); }
+.pk-top { display:flex; gap:14px; align-items:center; }
+.pk .av { width:78px; height:52px; flex:none; overflow:hidden; border:1px solid var(--line); }
+.pk h3 { font-size:var(--t-18); }
+.pk .note { font-size:var(--t-12); color:var(--tx-mut); margin-top:2px; }
+.pk .row { display:flex; align-items:baseline; gap:10px; margin-top:10px; }
+.pk .save { font-size:var(--t-11); font-weight:700; color:var(--on-amber); background:var(--amber); padding:2px 7px; }
+
+/* --- services strip: jade, not amber ------------------------------------- */
+.svc { display:grid; background:var(--line); gap:1px; border-bottom:1px solid var(--line); }
+@media (min-width:640px) { .svc { grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1100px) { .svc { grid-template-columns:repeat(4,1fr); } }
+.svc a { background:var(--paper); padding:20px; display:flex; gap:13px; align-items:flex-start;
+  transition:background var(--fast), color var(--fast); }
+.svc a:hover { background:var(--jade); color:#fff; }
+.svc a:hover .i { color:#fff; }
+.svc .i { color:var(--jade); flex:none; }
+.svc b { display:block; font-size:var(--t-15); font-weight:600; margin-bottom:3px; }
+.svc span { font-size:var(--t-13); opacity:.8; line-height:1.55; }
+
+/* --- loyalty strip -------------------------------------------------------- */
+.loy { background:var(--ink); color:var(--on-ink); display:grid; gap:18px; padding:26px 20px; }
+@media (min-width:900px) { .loy { grid-template-columns:auto 1fr auto; align-items:center; gap:36px; padding:30px 26px; } }
+.loy-n { display:flex; align-items:baseline; gap:10px; }
+.loy-n b { font-family:var(--disp); font-size:46px; font-weight:900; color:var(--amber); line-height:1; }
+.loy-n span { font-size:var(--t-14); color:var(--on-ink-mut); }
+.loy-bar { height:6px; background:var(--ink-800); }
+.loy-bar i { display:block; height:100%; background:var(--amber); }
+.loy-t { font-size:var(--t-13); color:var(--on-ink-mut); margin-top:9px; }
+
+/* --- footer --------------------------------------------------------------- */
+.ft { background:var(--ink); color:var(--on-ink); border-top:1px solid var(--line-ink); }
+.ft-cols { display:grid; gap:28px; padding-block:40px; }
+@media (min-width:700px) { .ft-cols { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:1050px) { .ft-cols { grid-template-columns:1.4fr repeat(4,1fr); } }
+.ft h3 { font-family:var(--text); font-size:var(--t-13); color:var(--amber); margin-bottom:13px; font-weight:700; }
+.ft li { margin-bottom:9px; }
+.ft a { font-size:var(--t-14); color:var(--on-ink-mut); }
+.ft a:hover { color:var(--on-ink); }
+.ft-bot { border-top:1px solid var(--line-ink); }
+.ft-bot .wrap { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;
+  padding-block:18px; font-size:var(--t-12); color:var(--on-ink-mut); }
+.pay { display:flex; gap:6px; }
+.pay i { font-style:normal; border:1px solid var(--line-ink); padding:4px 9px; font-size:var(--t-11); font-weight:600; }
+
+/* --- drawer / menu / toast (shared chrome) -------------------------------- */
+.scrim { position:fixed; inset:0; width:100%; height:100%; background:rgba(11,10,7,.62); z-index:290;
+  opacity:0; pointer-events:none; transition:opacity var(--mid); }
+.scrim.on { opacity:1; pointer-events:auto; }
+.drawer { position:fixed; inset-block:0; inset-inline-end:0; width:min(410px,94vw); background:var(--paper);
+  z-index:300; display:flex; flex-direction:column; transform:translateX(var(--o)); transition:transform var(--mid); }
+html[dir=rtl] .drawer { --o:-100%; } html[dir=ltr] .drawer { --o:100%; }
+.drawer.on { transform:translateX(0); }
+.dr-h { display:flex; align-items:center; justify-content:space-between; padding:17px 20px;
+  background:var(--ink); color:var(--on-ink); }
+.dr-h b { font-family:var(--disp); font-size:var(--t-18); font-weight:800; }
+.dr-b { flex:1; overflow:auto; padding:16px 20px; display:grid; gap:10px; align-content:start; }
+.dr-empty { text-align:center; color:var(--tx-faint); padding:60px 0; }
+.dr-i { display:flex; gap:12px; border:1px solid var(--line); padding:11px; }
+.dr-i .av { width:58px; height:58px; flex:none; overflow:hidden; }
+.dr-i .t { flex:1; min-width:0; }
+.dr-i .t b { display:block; font-size:var(--t-13); font-weight:600; line-height:1.4; }
+.dr-q { display:flex; align-items:center; border:1px solid var(--line); height:32px; margin-top:7px; width:fit-content; }
+.dr-q button { width:32px; height:30px; display:grid; place-items:center; }
+.dr-q span { width:32px; text-align:center; font-size:var(--t-13); font-weight:700; }
+.dr-f { border-top:1px solid var(--line); padding:18px 20px; display:grid; gap:13px; }
+.dr-tot { display:flex; justify-content:space-between; align-items:baseline; font-weight:700; }
+.dr-tot .price b { font-size:28px; }
+.dr-note { font-size:var(--t-11); color:var(--tx-faint); }
+.mm { position:fixed; inset-block:0; inset-inline-start:0; width:min(340px,88vw); background:var(--ink);
+  color:var(--on-ink); z-index:300; transform:translateX(var(--m)); transition:transform var(--mid); overflow:auto; }
+html[dir=rtl] .mm { --m:100%; } html[dir=ltr] .mm { --m:-100%; }
+.mm.on { transform:translateX(0); }
+.mm-h { display:flex; align-items:center; justify-content:space-between; padding:17px 20px;
+  border-bottom:1px solid var(--line-ink); }
+.mm a { display:flex; align-items:center; gap:13px; padding:14px 20px; border-bottom:1px solid var(--line-ink);
+  font-size:var(--t-14); font-weight:500; }
+.mm a svg { color:var(--amber); }
+.mm-t { font-size:var(--t-11); font-weight:700; color:#6E675D; padding:18px 20px 7px; }
+.ucp-toast { position:fixed; inset-block-end:24px; inset-inline-start:50%; transform:translate(50%,150%);
+  background:var(--ink); color:var(--on-ink); padding:14px 22px; font-size:var(--t-14); font-weight:600;
+  z-index:400; transition:transform var(--mid); display:flex; align-items:center; gap:10px;
+  border-inline-start:4px solid var(--amber); }
+html[dir=ltr] .ucp-toast { transform:translate(-50%,150%); }
+.ucp-toast.on { transform:translate(50%,0); }
+html[dir=ltr] .ucp-toast.on { transform:translate(-50%,0); }
+.ucp-toast .i { color:var(--amber); display:flex; }
+.only-m { display:grid; } @media (min-width:1080px) { .only-m { display:none; } }
+</style>
+</head>
+<body>
+<a class="u-skip" href="#main">تخطَّ إلى المحتوى</a>
+<div class="proto" id="proto"></div>
+
+<header class="mast">
+  <div class="mast-bar"><div class="wrap">
+    <div class="tick u-scroll" id="tick"></div>
+    <button data-lang style="color:var(--amber);font-weight:700;flex:none">English</button>
+  </div></div>
+  <div class="mast-main"><div class="wrap">
+    <div class="brandline">
+      <button class="ib only-m" id="mmOpen" aria-label="Menu" style="border:0"></button>
+      <img src="../brand/ucp-mark.png" alt="UCP">
+      <div><h1 id="mastH">UCP</h1><div class="sub" id="mastSub"></div></div>
+    </div>
+    <div class="msearch">
+      <div class="msearch-box"><input id="q" type="search" autocomplete="off" aria-label="Search">
+        <button class="msearch-go" aria-label="Search"></button></div>
+      <div class="sug" id="sug"></div>
+    </div>
+    <div class="mast-act" id="acts"></div>
+  </div></div>
+</header>
+
+<main id="main"><div class="wrap" style="padding-inline:0">
+  <div class="shell">
+    <aside class="rail" aria-label="Index">
+      <div class="rail-h" id="railH"></div><div id="railCats"></div>
+      <div class="rail-h" id="railH2"></div><div class="rail-svc" id="railSvc"></div>
+    </aside>
+
+    <div class="body">
+      <section class="sec"><div class="sec-hd" id="hdCats"></div>
+        <div class="cgrid" id="cats"></div></section>
+
+      <section class="sec"><div class="sec-hd" id="hdPop"></div>
+        <div class="sec-body"><div class="plist" id="pop"></div></div></section>
+
+      <div class="split">
+        <section class="ledger"><div class="sec-hd" id="hdOff"></div><div id="off"></div></section>
+        <section class="pkcol"><div class="sec-hd" id="hdPk"></div><div id="pks"></div></section>
+      </div>
+
+      <section class="svc" id="svc"></section>
+
+      <section class="loy">
+        <div class="loy-n"><b class="num" id="loyPts"></b><span id="loyLbl"></span></div>
+        <div><div class="loy-bar"><i id="loyBar"></i></div><div class="loy-t" id="loyNext"></div></div>
+        <a href="#" class="btn btn--amber" id="loyB"></a>
+      </section>
+
+      <section class="sec"><div class="sec-hd" id="hdBr"></div>
+        <div class="cgrid" id="brands" style="grid-template-columns:repeat(4,1fr)"></div></section>
+    </div>
+  </div>
+</div></main>
+
+<footer class="ft">
+  <div class="wrap"><div class="ft-cols" id="ftCols"></div></div>
+  <div class="ft-bot"><div class="wrap"><span id="rights"></span>
+    <div class="pay"><i>mada</i><i>VISA</i><i>Apple&nbsp;Pay</i></div></div></div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="dr-h"><b id="drT"></b><button id="drX" aria-label="Close"></button></div>
+  <div class="dr-b" id="drB"></div>
+  <div class="dr-f"><div class="dr-tot"><span id="drTot"></span><span class="price" id="drSum"></span></div>
+    <button class="btn btn--amber btn--block btn--lg" id="drGo"></button>
+    <p class="dr-note" id="drNote"></p></div>
+</aside>
+<nav class="mm" id="mm" aria-label="Menu">
+  <div class="mm-h"><b style="font-family:var(--disp);font-size:21px;font-weight:800">UCP</b>
+    <button id="mmX" aria-label="Close"></button></div><div id="mmB"></div>
+</nav>
+
+<script src="ucp.js"></script>
+<script>
+const $ = (s) => document.querySelector(s);
+const T = () => Shell.T(), nm = (o) => Shell.nm(o), L = () => Shell.lang;
+
+function render() {
+  const t = T(), lang = L();
+  $("#proto").innerHTML = "<b>NINJA / B — GRID</b> · " + t.proto;
+  $("#q").placeholder = t.searchPh;
+  $(".msearch-go").innerHTML = ic("search", 20);
+  $("#mmOpen").innerHTML = ic("menu", 22);
+  $("#drX").innerHTML = $("#mmX").innerHTML = ic("close", 21);
+  document.querySelector("[data-lang]").textContent = lang === "ar" ? "English" : "العربية";
+
+  // The masthead's only moving part: a live status line, not a slogan.
+  $("#tick").innerHTML = [
+    '<span><i class="dot"></i>' + t.etaTitle + ' <b>' + t.etaValue + '</b></span>',
+    '<span>' + (lang==="ar" ? "فرع العليا" : "Olaya") + ' <b>' + t.openNow + '</b></span>',
+    '<span>' + (lang==="ar" ? "فروع مفتوحة الآن" : "Branches open now") + ' <b class="num">'
+      + UCP.branches.filter((b) => b.open).length + '</b></span>',
+    '<span>' + (lang==="ar" ? "الاستلام من الفرع متاح" : "Branch pickup available") + '</span>',
+  ].join("");
+
+  $("#mastSub").textContent = t.brand + " · " + t.tag;
+  $("#acts").innerHTML =
+    '<a href="#svc" class="rxb">' + ic("rx",18) + '<span>' + t.rx + '</span></a>'
+    + '<button class="ib" aria-label="'+t.account+'">' + ic("user",21) + '</button>'
+    + '<button class="ib" id="cartBtn" aria-label="'+t.cart+'">' + ic("cart",21)
+      + '<span class="cnt num" id="cnt" hidden>0</span></button>';
+  $("#cartBtn").onclick = () => drawer(true);
+
+  // index rail
+  $("#railH").textContent = t.cats; $("#railH2").textContent = t.services;
+  $("#railCats").innerHTML = UCP.categories.map((c,i) =>
+    '<a href="#cats"><span class="n num">' + String(i+1).padStart(2,"0") + '</span>'
+    + '<span class="nm">' + nm(c) + '</span><span class="c num">'
+    + UCP.products.filter((p) => p.cat === c.id).length + '</span></a>').join("");
+  $("#railSvc").innerHTML = [["rx",t.rx],["chat",t.tele],["store",t.pickup],["bell",t.vitamins]]
+    .map((x,i) => '<a href="#svc"><span class="n">' + ic(x[0],16) + '</span>'
+      + '<span class="nm">' + x[1] + '</span></a>').join("");
+
+  secHd("#hdCats","01",t.cats,t.allCats);
+  secHd("#hdPop","02",t.popular,t.viewAll);
+  secHd("#hdOff","03",t.offers,t.viewAll);
+  secHd("#hdPk","04",t.packages,t.viewAll);
+  secHd("#hdBr","05",t.brands,t.viewAll);
+
+  $("#cats").innerHTML = UCP.categories.map((c,i) =>
+    '<a href="#pop"><span class="n num">' + String(i+1).padStart(2,"0") + '</span>'
+    + '<span class="g">' + ic(c.icon,30) + '</span><b>' + nm(c) + '</b></a>').join("")
+    + '<a href="#" style="background:var(--amber);color:var(--on-amber)">'
+    + '<span class="n" style="color:var(--on-amber);opacity:.6">12</span>'
+    + '<span class="g" style="color:var(--on-amber)">' + ic("arrow",30) + '</span>'
+    + '<b>' + t.allCats + '</b></a>';
+
+  $("#pop").innerHTML = Shell.list("popular").slice(0,10).map(item).join("");
+
+  $("#off").innerHTML = Shell.list("offers").slice(0,7).map((p) => {
+    const b = byId(UCP.brands,p.brand), off = offLabel(p,lang);
+    return '<a href="#"><span class="av">' + art(p,{light:true}) + '</span>'
+      + '<span class="t"><b>' + nm(p) + '</b><span>' + nm(b) + ' · ' + p.size + '</span></span>'
+      + '<span class="pc2"><span class="price">' + priceHTML(p.price,lang) + '</span><br>'
+      + (p.was ? '<span class="badge badge--tint">' + off + '</span>' : "") + '</span>'
+      + '<button class="qa" data-add="' + p.id + '" aria-label="' + t.add + '">' + ic("plus",17) + '</button></a>';
+  }).join("");
+
+  $("#pks").innerHTML = UCP.bundles.map((b) =>
+    '<a class="pk" href="#"><span class="pk-top"><span class="av">' + bundleArt(b,{light:true}) + '</span>'
+    + '<span><h3>' + nm(b) + '</h3><span class="note">' + (lang==="ar"?b.noteAr:b.noteEn) + '</span></span></span>'
+    + '<span class="row"><span class="price">' + priceHTML(b.price,lang) + wasHTML(b.parts,lang) + '</span>'
+    + '<span class="save">' + t.save + " " + (b.parts-b.price) + '</span></span></a>').join("");
+
+  $("#svc").innerHTML = [
+    {i:"rx",b:t.rx,s:t.rxDesc},{i:"store",b:t.pickup,s:t.pickupDesc},
+    {i:"chat",b:t.tele,s:t.teleDesc},{i:"bell",b:t.vitamins,s:t.vitaminsDesc},
+  ].map((x) => '<a href="#"><span class="i">' + ic(x.i,24) + '</span>'
+    + '<span><b>' + x.b + '</b><span>' + x.s + '</span></span></a>').join("");
+
+  const Ly = UCP.loyalty;
+  $("#loyPts").textContent = Ly.points.toLocaleString("en-US");
+  $("#loyLbl").textContent = t.points + " · " + t.loyalty + " · " + (lang==="ar"?Ly.tierAr:Ly.tierEn);
+  $("#loyBar").style.width = (Ly.progress*100) + "%";
+  $("#loyNext").textContent = Ly.toNext + " " + t.toNext + " " + (lang==="ar"?Ly.nextAr:Ly.nextEn);
+  $("#loyB").textContent = t.more;
+
+  $("#brands").innerHTML = UCP.brands.map((b) =>
+    '<a href="#" style="aspect-ratio:2/1;justify-content:center;align-items:center">'
+    + brandMark(b,"#12100C") + '<b style="text-align:center;font-size:var(--t-12);color:var(--tx-faint)">'
+    + nm(b) + '</b></a>').join("");
+
+  $("#ftCols").innerHTML = footerCols();
+  $("#rights").textContent = "© 2026 " + t.brand + ". " + t.rights + ".";
+  $("#drT").textContent = t.cart; $("#drTot").textContent = t.total;
+  $("#drGo").textContent = t.checkout; $("#drNote").textContent = t.vat + " · " + t.phNote;
+  $("#mmB").innerHTML = '<div class="mm-t">' + t.services + '</div>'
+    + [["rx",t.rx],["chat",t.tele],["store",t.pickup],["gift",t.loyalty],["bell",t.vitamins]]
+      .map((x) => '<a href="#">' + ic(x[0],20) + '<span>' + x[1] + '</span></a>').join("")
+    + '<div class="mm-t">' + t.cats + '</div>'
+    + UCP.categories.map((c) => '<a href="#cats">' + ic(c.icon,20) + '<span>' + nm(c) + '</span></a>').join("");
+  renderCart();
+}
+
+function secHd(sel,n,title,all) {
+  $(sel).innerHTML = '<span class="n num">' + n + '</span><h2>' + title + '</h2>'
+    + '<a href="#" class="all">' + all + ic("next",15) + '</a>';
+}
+
+function item(p) {
+  const t = T(), lang = L(), b = byId(UCP.brands,p.brand), off = offLabel(p,lang);
+  return '<article class="pi"><div class="im">' + art(p,{light:true})
+    + (off ? '<span class="off">' + off + '</span>' : "")
+    + (p.tags.includes("low") ? '<span class="flag">' + t.lowStock + '</span>' : "")
+    + '</div><span class="br">' + nm(b) + '</span><h3>' + nm(p) + '</h3>'
+    + '<span class="sz num">' + p.size + '</span>'
+    + '<div class="foot"><span class="price">' + priceHTML(p.price,lang)
+    + (p.was ? wasHTML(p.was,lang) : "") + '</span>'
+    + '<button class="qa" data-add="' + p.id + '" aria-label="' + t.add + '">' + ic("plus",18) + '</button></div>'
+    + '</article>';
+}
+
+function footerCols() {
+  const t = T(), lang = L();
+  const cols = lang==="ar"
+    ? [[t.ftAbout,["من نحن","فروعنا","الوظائف","تواصل معنا"]],
+       [t.ftService,["المساعدة","التوصيل","الإرجاع والاستبدال","الأسئلة الشائعة"]],
+       [t.ftShop,["كل الفئات","العلامات التجارية","العروض","الباقات"]],
+       [t.ftPharmacy,["طلب الوصفات","استشارة صيدلي","متابعة الفيتامينات","الاستلام من الفرع"]],
+       [t.ftLegal,["سياسة الخصوصية","الشروط والأحكام","سياسة الإرجاع","ملفات الارتباط"]]]
+    : [[t.ftAbout,["About us","Our branches","Careers","Contact us"]],
+       [t.ftService,["Help","Delivery","Returns","FAQ"]],
+       [t.ftShop,["All categories","Brands","Offers","Packages"]],
+       [t.ftPharmacy,["Prescriptions","Pharmacist consultation","Vitamin follow-up","Branch pickup"]],
+       [t.ftLegal,["Privacy policy","Terms","Return policy","Cookies"]]];
+  return '<div><img src="../brand/ucp-lockup.png" alt="UCP" style="height:76px;width:auto;margin-bottom:14px">'
+    + '<p style="font-size:var(--t-13);color:var(--on-ink-mut);max-width:30ch">' + t.brand + '</p>'
+    + '<p style="font-size:var(--t-11);color:#6E675D;margin-top:12px">' + t.phNote + '</p></div>'
+    + cols.map((c) => '<div><h3>' + c[0] + '</h3><ul>'
+      + c[1].map((l) => '<li><a href="#">' + l + '</a></li>').join("") + '</ul></div>').join("");
+}
+
+function renderCart() {
+  const t = T(), lang = L(), n = Shell.count(), c = $("#cnt");
+  if (c) { c.hidden = n === 0; c.textContent = n; if (n) c.classList.add("pop"); }
+  $("#drSum").innerHTML = priceHTML(Shell.subtotal(), lang);
+  $("#drB").innerHTML = Shell.cart.length === 0
+    ? '<p class="dr-empty">' + t.emptyCart + '</p>'
+    : Shell.cart.map((l) => { const p = byId(UCP.products,l.id);
+        return '<div class="dr-i"><span class="av">' + art(p,{light:true}) + '</span>'
+          + '<div class="t"><b>' + nm(p) + '</b><span class="price">' + priceHTML(p.price*l.q,lang) + '</span>'
+          + '<div class="dr-q"><button data-q="-1" data-id="'+l.id+'" aria-label="−">'+ic("minus",15)+'</button>'
+          + '<span class="num">' + l.q + '</span>'
+          + '<button data-q="1" data-id="'+l.id+'" aria-label="+">'+ic("plus",15)+'</button></div></div></div>'; }).join("");
+}
+
+(function wireSearch(){
+  const input = $("#q"), panel = $("#sug");
+  input.addEventListener("input", () => {
+    const t = T(), lang = L(), r = Shell.search(input.value);
+    if (input.value.trim().length < 2) { panel.classList.remove("on"); return; }
+    const none = !r.cats.length && !r.brands.length && !r.products.length;
+    panel.innerHTML = none
+      ? '<p style="padding:30px;text-align:center;color:var(--tx-faint)">' + t.noResults + '</p>'
+      : (r.cats.length ? '<div class="sug-h">' + t.cats + '</div>' + r.cats.map((c) =>
+          '<a class="sug-i" href="#cats"><span class="av" style="display:grid;place-items:center;background:var(--ink);color:var(--amber)">'
+          + ic(c.icon,19) + '</span><span class="t">' + nm(c) + '</span></a>').join("") : "")
+      + (r.products.length ? '<div class="sug-h">' + t.popular + '</div>' + r.products.map((p) =>
+          '<a class="sug-i" href="#pop"><span class="av">' + art(p,{light:true}) + '</span>'
+          + '<span class="t">' + nm(p) + '<span>' + nm(byId(UCP.brands,p.brand)) + '</span></span>'
+          + '<span class="price">' + priceHTML(p.price,lang) + '</span></a>').join("") : "");
+    panel.classList.add("on");
+  });
+  input.addEventListener("keydown",(e)=>{ if(e.key==="Escape") panel.classList.remove("on"); });
+  document.addEventListener("click",(e)=>{ if(!panel.parentElement.contains(e.target)) panel.classList.remove("on"); });
+})();
+
+const drawer = (on) => { $("#drawer").classList.toggle("on",on); $("#scrim").classList.toggle("on",on); };
+const menu   = (on) => { $("#mm").classList.toggle("on",on); $("#scrim").classList.toggle("on",on); };
+$("#drX").onclick = () => drawer(false);
+$("#mmOpen").onclick = () => menu(true);
+$("#mmX").onclick = () => menu(false);
+$("#scrim").onclick = () => { drawer(false); menu(false); };
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ drawer(false); menu(false); } });
+
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+</script>
+</body>
+</html>

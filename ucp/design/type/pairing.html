@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UCP — type pairing test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700;800&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--amber:#FFA300;--ink:#12100C;--ink2:#1A1712;--ink3:#241F18;--line:#332C23;
+ --paper:#FAF8F4;--mut:#A8A29A;--txmut:#5F594F;--amber-t:#A66600}
+*{box-sizing:border-box}
+body{margin:0;background:#0A0907;color:#fff;font-family:system-ui;padding:24px}
+:lang(ar),[dir=rtl] *{letter-spacing:normal!important}
+h1{font-size:20px;margin:0 0 4px;font-family:system-ui}
+.sub{color:var(--mut);font-size:13px;margin-bottom:22px;font-family:system-ui}
+.tests{display:grid;gap:20px}
+@media(min-width:1150px){.tests{grid-template-columns:repeat(3,1fr)}}
+.t{background:var(--ink);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.t-h{padding:10px 14px;background:var(--ink3);font-family:ui-monospace,monospace;font-size:11px;color:var(--amber);
+ display:flex;justify-content:space-between}
+.t-b{padding:18px}
+/* the pairing under test */
+.d,.h2,.nav,.pn,.pr,.bd,.btn,.brand{font-family:var(--text),system-ui}
+.d,.h2,.brand{font-family:var(--disp),system-ui}
+.brand{font-size:24px;font-weight:800;letter-spacing:-.01em}
+.d{font-size:38px;font-weight:800;line-height:1.3;margin:14px 0 6px}
+.d mark{background:var(--amber);color:var(--ink);padding:0 8px}
+.h2{font-size:24px;font-weight:700;margin:20px 0 10px}
+.nav{font-size:13.5px;font-weight:500;color:var(--mut);line-height:2}
+.card{margin-top:16px;background:var(--ink2);border:1px solid var(--line);border-radius:6px;overflow:hidden;width:220px}
+.card .im{height:150px;background:linear-gradient(135deg,#2A241C,#15120E);position:relative}
+.card .off{position:absolute;top:0;inset-inline-start:0;background:var(--amber);color:var(--ink);
+ font-size:11.5px;font-weight:700;padding:3px 8px;font-family:var(--text)}
+.card .bd2{padding:11px}
+.brnd{font-size:10.5px;font-weight:600;color:var(--mut);text-transform:uppercase}
+.pn{font-size:14.5px;font-weight:500;line-height:1.5;margin:4px 0 8px;
+ display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pr{display:flex;align-items:baseline;gap:6px;font-variant-numeric:tabular-nums}
+.pr b{font-size:19px;font-weight:700}
+.pr .c{font-size:11px;color:var(--mut);font-weight:500}
+.pr s{font-size:12px;color:#6E675D}
+.btn{margin-top:10px;width:100%;height:38px;background:var(--amber);color:var(--ink);border:0;border-radius:4px;
+ font-size:13.5px;font-weight:700;font-family:var(--text)}
+.bd{font-size:14px;line-height:1.85;color:#CFCAC2;margin-top:18px}
+.en{direction:ltr;text-align:start}
+</style></head><body>
+<h1>Type pairing — display / text</h1>
+<p class="sub">Same UCP content, three candidate systems, real UI at real sizes. Brand amber #FFA300 with ink labels throughout.</p>
+<div class="tests">
+
+<div class="t" style="--disp:'Zain';--text:'IBM Plex Sans Arabic'">
+  <div class="t-h"><span>A · Zain 800 display</span><span>IBM Plex Sans Arabic text</span></div>
+  <div class="t-b">
+    <div class="brand">UCP · صيدلية</div>
+    <div class="d">صيدليتك، <mark>أسرع</mark></div>
+    <div class="nav">الوجه · الشعر · الجسم · العدسات · الفيتامينات والمكملات</div>
+    <div class="h2">تسوّق حسب الفئة</div>
+    <div class="card"><div class="im"><span class="off">−17%</span></div>
+      <div class="bd2"><div class="brnd">سيرافي</div>
+      <div class="pn">سيرافي غسول رغوي للبشرة الدهنية والمختلطة</div>
+      <div class="pr"><b>149</b><span class="c">ر.س</span><s>175</s></div>
+      <button class="btn">أضف للسلة</button></div></div>
+    <p class="bd">ارفع صورة وصفتك ويراجعها صيدلي مرخّص، ثم نجهّز طلبك للتوصيل أو الاستلام من أقرب فرع.</p>
+    <p class="bd en">Upload your prescription and a licensed pharmacist reviews it.</p>
+  </div>
+</div>
+
+<div class="t" style="--disp:'Zain';--text:'Vazirmatn'">
+  <div class="t-h"><span>B · Zain 800 display</span><span>Vazirmatn text</span></div>
+  <div class="t-b">
+    <div class="brand">UCP · صيدلية</div>
+    <div class="d">صيدليتك، <mark>أسرع</mark></div>
+    <div class="nav">الوجه · الشعر · الجسم · العدسات · الفيتامينات والمكملات</div>
+    <div class="h2">تسوّق حسب الفئة</div>
+    <div class="card"><div class="im"><span class="off">−17%</span></div>
+      <div class="bd2"><div class="brnd">سيرافي</div>
+      <div class="pn">سيرافي غسول رغوي للبشرة الدهنية والمختلطة</div>
+      <div class="pr"><b>149</b><span class="c">ر.س</span><s>175</s></div>
+      <button class="btn">أضف للسلة</button></div></div>
+    <p class="bd">ارفع صورة وصفتك ويراجعها صيدلي مرخّص، ثم نجهّز طلبك للتوصيل أو الاستلام من أقرب فرع.</p>
+    <p class="bd en">Upload your prescription and a licensed pharmacist reviews it.</p>
+  </div>
+</div>
+
+<div class="t" style="--disp:'IBM Plex Sans Arabic';--text:'IBM Plex Sans Arabic'">
+  <div class="t-h"><span>C · IBM Plex Sans Arabic</span><span>single family</span></div>
+  <div class="t-b">
+    <div class="brand">UCP · صيدلية</div>
+    <div class="d">صيدليتك، <mark>أسرع</mark></div>
+    <div class="nav">الوجه · الشعر · الجسم · العدسات · الفيتامينات والمكملات</div>
+    <div class="h2">تسوّق حسب الفئة</div>
+    <div class="card"><div class="im"><span class="off">−17%</span></div>
+      <div class="bd2"><div class="brnd">سيرافي</div>
+      <div class="pn">سيرافي غسول رغوي للبشرة الدهنية والمختلطة</div>
+      <div class="pr"><b>149</b><span class="c">ر.س</span><s>175</s></div>
+      <button class="btn">أضف للسلة</button></div></div>
+    <p class="bd">ارفع صورة وصفتك ويراجعها صيدلي مرخّص، ثم نجهّز طلبك للتوصيل أو الاستلام من أقرب فرع.</p>
+    <p class="bd en">Upload your prescription and a licensed pharmacist reviews it.</p>
+  </div>
+</div>
+
+</div></body></html>

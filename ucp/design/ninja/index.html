@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UCP — NINJA · four executions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ucp.css">
+<style>
+body { background:var(--ink-950); color:var(--on-ink); }
+.wrap { width:100%; max-width:1240px; margin-inline:auto; padding-inline:20px; }
+@media (min-width:900px) { .wrap { padding-inline:32px; } }
+header { padding-block:36px 26px; border-bottom:1px solid var(--line-ink); }
+.lock { display:flex; align-items:center; gap:16px; margin-bottom:22px; }
+.lock img { height:64px; width:auto; }
+.lock .k { font-size:var(--t-12); font-weight:700; color:var(--amber); }
+h1 { font-size:clamp(28px,4.4vw,44px); font-weight:900; }
+.lede { margin-top:14px; color:var(--on-ink-mut); max-width:66ch; }
+.note { margin-top:20px; background:var(--ink-850); border:1px solid var(--line-ink);
+  border-inline-start:4px solid var(--amber); padding:16px 18px; font-size:var(--t-13);
+  color:var(--on-ink-mut); max-width:82ch; }
+.note b { color:var(--on-ink); }
+
+.sys { display:grid; gap:14px; padding-block:30px; border-bottom:1px solid var(--line-ink); }
+@media (min-width:860px) { .sys { grid-template-columns:repeat(3,1fr); } }
+.syscard { background:var(--ink-850); border:1px solid var(--line-ink); padding:18px; }
+.syscard h3 { font-family:var(--text); font-size:var(--t-13); color:var(--amber); font-weight:700; margin-bottom:12px; }
+.swatches { display:flex; gap:0; margin-bottom:10px; }
+.sw { flex:1; height:46px; display:grid; place-items:end center; padding-bottom:4px;
+  font-size:9.5px; font-weight:700; }
+.typerow { display:flex; align-items:baseline; gap:10px; margin-bottom:6px; }
+.typerow .lbl { font-size:var(--t-11); color:#6E675D; flex:none; width:58px; }
+.sysnote { font-size:var(--t-12); color:var(--on-ink-mut); line-height:1.65; margin-top:10px; }
+
+.grid { display:grid; gap:16px; padding-block:30px 60px; }
+@media (min-width:900px) { .grid { grid-template-columns:repeat(2,1fr); gap:20px; } }
+.card { background:var(--ink-850); border:1px solid var(--line-ink); display:flex; flex-direction:column;
+  transition:border-color var(--fast), transform var(--fast); }
+.card:hover { border-color:var(--amber); transform:translateY(-3px); }
+.prev { aspect-ratio:16/9; position:relative; overflow:hidden; border-bottom:1px solid var(--line-ink);
+  padding:14px; display:flex; flex-direction:column; gap:7px; }
+.prev .r { display:flex; gap:6px; }
+.prev .b { height:9px; }
+.body { padding:20px; display:flex; flex-direction:column; gap:11px; flex:1; }
+.num2 { font-family:var(--disp); font-size:var(--t-12); font-weight:700; color:var(--amber); }
+.card h2 { font-size:var(--t-26); }
+.idea { color:var(--on-ink-mut); font-size:var(--t-14); }
+.diffs { display:grid; gap:6px; margin-top:2px; }
+.diffs li { font-size:var(--t-13); color:var(--on-ink-mut); display:flex; gap:9px; }
+.diffs li::before { content:"—"; color:var(--amber); flex:none; }
+.open { margin-top:auto; padding-top:8px; display:flex; gap:9px; }
+.judge { background:var(--ink-850); border:1px solid var(--line-ink); padding:20px; margin-bottom:26px; }
+.judge h3 { font-family:var(--text); font-size:var(--t-15); margin-bottom:11px; font-weight:700; }
+.judge ol { display:grid; gap:7px; padding-inline-start:20px; color:var(--on-ink-mut); font-size:var(--t-14); }
+.judge li { list-style:decimal; }
+footer { border-top:1px solid var(--line-ink); padding-block:24px 50px; color:#6E675D; font-size:var(--t-12); }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="lock">
+    <img src="../brand/ucp-lockup.png" alt="UCP">
+    <div><div class="k">NINJA · 2026</div>
+      <h1>أربع تنفيذات للاتجاه نفسه</h1></div>
+  </div>
+  <p class="lede">
+    نفس المفهوم ونفس الهوية ونفس اللون والخط — لكن أربع بُنى مختلفة للصفحة:
+    تخطيط مختلف، وتنقّل مختلف، وطريقة مختلفة لعرض الفئات والمنتجات، وإيقاع مختلف للمسافات.
+    الهدف هو المقارنة بين التنفيذات لا بين الأنماط.
+  </p>
+  <div class="note">
+    <b>محتوى تجريبي.</b> الأسعار والمنتجات والفروع وأرصدة النقاط بيانات تعبئة للتصميم فقط،
+    وليست بيانات UCP، ولا يتضمّن أي نموذج ادعاءً أو ترخيصًا أو شهادة كحقيقة.
+    <br><br>
+    <b>Placeholder content.</b> Prices, products, branches and point balances are design filler,
+    not UCP data. No claim, licence or certification here is presented as fact.
+  </div>
+</div></header>
+
+<section class="wrap sys">
+  <div class="syscard">
+    <h3>اللون · مأخوذ من الشعار</h3>
+    <div class="swatches">
+      <span class="sw" style="background:#FFA300;color:#12100C">FFA300</span>
+      <span class="sw" style="background:#12100C;color:#FFA300">12100C</span>
+      <span class="sw" style="background:#FAF8F4;color:#12100C">FAF8F4</span>
+      <span class="sw" style="background:#0B5D4E;color:#fff">0B5D4E</span>
+    </div>
+    <p class="sysnote">
+      برتقالي UCP من الشعار نفسه (#FFA300). النص الأبيض عليه يعطي تبايُنًا ٢٫٠٠:١ فقط — غير صالح.
+      النص الأسود عليه يعطي ٩٫٤٩:١. لذلك القاعدة الثابتة: البرتقالي يحمل نصًا داكنًا دائمًا، ولا يحمل الأبيض أبدًا.
+    </p>
+  </div>
+
+  <div class="syscard">
+    <h3>الخط · Zain + IBM Plex Sans Arabic</h3>
+    <div class="typerow"><span class="lbl">Display</span>
+      <span style="font-family:var(--disp);font-size:26px;font-weight:800">صيدليتك، أسرع</span></div>
+    <div class="typerow"><span class="lbl">Text 15</span>
+      <span style="font-size:15px;font-weight:500">سيرافي غسول رغوي للبشرة الدهنية</span></div>
+    <div class="typerow"><span class="lbl">Price</span>
+      <span class="price" style="color:var(--on-ink)"><b style="font-family:var(--disp);font-size:21px">149</b>
+      <span class="cur" style="color:var(--on-ink-mut)">ر.س</span></span></div>
+    <p class="sysnote">
+      اختيرا بعرض ١٦ عائلة عربية بأحجام الواجهة الحقيقية. Zain للعناوين: حاد ومعاصر وواثق.
+      Plex Arabic للنصوص: يتماسك عند ١٣–١٥ بكسل حيث تتفكك معظم الخطوط العربية على الويب.
+    </p>
+  </div>
+
+  <div class="syscard">
+    <h3>الشكل · حاد</h3>
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+      <span style="width:52px;height:34px;background:var(--amber);border-radius:0"></span>
+      <span style="width:52px;height:34px;background:var(--amber);border-radius:2px"></span>
+      <span style="width:52px;height:34px;background:var(--amber);border-radius:4px"></span>
+    </div>
+    <p class="sysnote">
+      ميزانية الزوايا كلها ٠ و٢ و٤ بكسل. لا زوايا دائرية كبيرة، ولا ظلال ناعمة —
+      الفصل بين العناصر يأتي من التباين والخطوط الرفيعة، لا من الحواف.
+      الحركة سريعة: ١١٠ مللي ثانية بتباطؤ حاد.
+    </p>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="judge">
+    <h3>ما الذي يستحق الحكم عليه</h3>
+    <ol>
+      <li>أيّ تنفيذ يوصلك أسرع إلى منتج محدد؟ وأيّها أفضل للتصفّح بلا هدف؟</li>
+      <li>هل بطاقة المنتج / صف المنتج واضحة: العلامة، الاسم، السعر، الإضافة؟</li>
+      <li>هل «اطلب وصفتك» ظاهرة بما يكفي دون أن تزاحم التسوّق؟</li>
+      <li>أيّها يبدو أفضل على الجوال؟ (جرّب تصغير النافذة)</li>
+      <li>أيّها يبدو مميّزًا لـ UCP ولا يشبه أي صيدلية أخرى؟</li>
+    </ol>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer><div class="wrap">نماذج تصميم · لا تتضمن خلفية برمجية أو دفعًا حقيقيًا · Design prototypes only</div></footer>
+
+<script>
+const EX = [
+  { n:"A", file:"a-blade.html", name:"BLADE", ar:"النصل",
+    idea:"انقسام تحريري: عبارة ضخمة على جهة، ومنتج واحد حقيقي يبيع على الجهة الأخرى.",
+    prev:["#12100C","#FFA300","#1A1712","#1A1712"],
+    diffs:[
+      "الهرمية من تباين الأحجام: عنوان ٧٤ بكسل بجانب تفاصيل ١٣ بكسل",
+      "المنتجات في شبكة «بينتو»: بطاقة بطل ٢×٢ وثماني بطاقات عادية",
+      "الفئات شريط أفقي مرقّم يمتد إلى حافة الشاشة",
+      "خط القسم يمتد بلا انقطاع حتى طرف الصفحة",
+    ]},
+  { n:"B", file:"b-grid.html", name:"GRID", ar:"الشبكة",
+    idea:"فهرس منهجي: لا صورة بطل إطلاقًا — ترويسة نصية وشريط حالة، ثم شبكة صارمة.",
+    prev:["#FAF8F4","#12100C","#FFFFFF","#FFFFFF"],
+    diffs:[
+      "الوحيد بشريط فهرس جانبي دائم مرقّم ٠١–١١",
+      "المنتجات مفصولة بخطوط شعرية بلا بطاقات ولا ظلال",
+      "الفئات مربّعات متساوية على شبكة ١٢ عمودًا",
+      "البرتقالي يظهر ٨ مرات في الصفحة كلها — كل مرة تعني «تصرّف هنا»",
+    ]},
+  { n:"C", file:"c-stack.html", name:"STACK", ar:"الطبقات",
+    idea:"أشرطة ممتدة بعرض الشاشة تتبادل الأسود والبرتقالي والورقي — كل شريط بمهمة واحدة.",
+    prev:["#FFA300","#12100C","#FAF8F4","#12100C"],
+    diffs:[
+      "التنفيذ الوحيد الذي يقود فيه البرتقالي: الواجهة حقل برتقالي بنص أسود",
+      "الفئات دليل بصفوف كاملة العرض بأرقام ضخمة، لا مربعات",
+      "المنتجات في شرائط تمرير تنزلق خارج حافة الشاشة",
+      "شريط تنقّل سفلي ثابت على الجوال · أهداف لمس ٤٨ بكسل",
+    ]},
+  { n:"D", file:"d-command.html", name:"COMMAND", ar:"الأمر",
+    idea:"البحث هو الصفحة: حقل بحث ضخم بدل الواجهة، وكل ما تحته مبني كأداة سريعة.",
+    prev:["#12100C","#FFFFFF","#FFFFFF","#FFA300"],
+    diffs:[
+      "لا واجهة تسويقية — حقل بحث واحد بعرض ٨٢٠ بكسل هو أول ما تراه",
+      "المنتجات صفوف جدول بترقيم وإضافة فورية: ١٢ منتجًا حيث تتسع ٦ بطاقات",
+      "تبويبات تبدّل محتوى الجدول في مكانه بدل تكديس أقسام جديدة",
+      "عمود جانبي ثابت: التوصيل/الاستلام، الوصفة، النقاط، الباقات",
+    ]},
+];
+
+document.getElementById("grid").innerHTML = EX.map((e) => `
+  <article class="card">
+    <div class="prev" style="background:${e.prev[0]}">
+      <div class="b" style="background:${e.prev[1]};width:46%"></div>
+      <div class="r">
+        <span class="b" style="background:${e.prev[2]};flex:1;height:38px"></span>
+        <span class="b" style="background:${e.prev[3]};flex:1;height:38px"></span>
+        <span class="b" style="background:${e.prev[2]};flex:1;height:38px"></span>
+      </div>
+      <div class="b" style="background:${e.prev[1]};width:30%;margin-top:auto"></div>
+    </div>
+    <div class="body">
+      <div><div class="num2">NINJA / ${e.n}</div><h2>${e.name} — ${e.ar}</h2></div>
+      <p class="idea">${e.idea}</p>
+      <ul class="diffs">${e.diffs.map((d) => `<li>${d}</li>`).join("")}</ul>
+      <div class="open">
+        <a class="btn btn--amber" href="${e.file}" style="flex:1">افتح النموذج</a>
+        <a class="btn btn--line-ink" href="${e.file}" target="_blank" rel="noopener">نافذة جديدة</a>
+      </div>
+    </div>
+  </article>`).join("");
+</script>
+</body>
+</html>

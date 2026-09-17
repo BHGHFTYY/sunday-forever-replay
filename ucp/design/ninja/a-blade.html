@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — NINJA / A · BLADE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ucp.css">
+<style>
+/* ===========================================================================
+   NINJA / A — BLADE
+   ---------------------------------------------------------------------------
+   Execution idea: EDITORIAL SPLIT. One enormous typographic statement holds
+   the leading half of the screen; a single real product does the selling on
+   the trailing half. Nothing is centred, nothing is symmetrical.
+
+   Hierarchy comes from scale contrast — a 60px headline next to 13px meta —
+   rather than from boxes. Sections open with a heading whose rule runs
+   unbroken to the edge of the viewport, which is what gives the page its
+   horizontal speed.
+
+   Products are a BENTO: one hero tile at 2×2 and four at 1×1, so the eye has
+   somewhere to land instead of scanning a uniform grid.
+   =========================================================================== */
+
+.wrap { width:100%; max-width:1340px; margin-inline:auto; padding-inline:20px; }
+@media (min-width:900px) { .wrap { padding-inline:36px; } }
+
+/* --- header --------------------------------------------------------------- */
+.hd { position:sticky; top:0; z-index:100; background:var(--ink); color:var(--on-ink); }
+.hd-top { border-bottom:1px solid var(--line-ink); font-size:var(--t-12); color:var(--on-ink-mut); }
+.hd-top .wrap { display:flex; align-items:center; justify-content:space-between; height:36px; gap:16px; }
+.hd-top .l { display:none; gap:22px; }
+@media (min-width:860px) { .hd-top .l { display:flex; } }
+.hd-top span { display:inline-flex; align-items:center; gap:6px; white-space:nowrap; }
+.hd-top .amber { color:var(--amber); font-weight:600; }
+
+.hd-main .wrap { display:flex; align-items:center; gap:16px; height:68px; }
+@media (min-width:900px) { .hd-main .wrap { height:82px; gap:30px; } }
+.logo { display:flex; align-items:center; gap:11px; flex:none; }
+.logo img { height:34px; width:auto; }
+@media (min-width:900px) { .logo img { height:40px; } }
+.logo .tx { display:flex; flex-direction:column; line-height:1.05; }
+.logo .tx b { font-family:var(--disp); font-size:22px; font-weight:800; }
+.logo .tx i { font-style:normal; font-size:10.5px; color:var(--on-ink-mut); display:none; }
+@media (min-width:600px) { .logo .tx i { display:block; margin-top:2px; } }
+
+.srch { position:relative; flex:1; min-width:0; display:none; }
+@media (min-width:900px) { .srch { display:block; } }
+.hd .wrap.srch-m { display:flex; height:auto; padding-bottom:14px; }
+@media (min-width:900px) { .hd .wrap.srch-m { display:none; } }
+.srch-box { display:flex; height:50px; background:var(--ink-850); border:1px solid var(--line-ink); width:100%; }
+.srch-box:focus-within { border-color:var(--amber); }
+.srch-box input { flex:1; min-width:0; background:none; border:0; outline:0; color:var(--on-ink);
+  padding-inline:16px; font-size:var(--t-15); }
+.srch-box input::placeholder { color:#7A736A; }
+.srch-go { width:54px; background:var(--amber); color:var(--on-amber); display:grid; place-items:center; }
+.srch-go:hover { background:var(--amber-400); }
+
+.sug { position:absolute; inset-inline:0; top:calc(100% + 8px); background:var(--paper); color:var(--tx);
+  border:1px solid var(--line); box-shadow:0 26px 60px rgba(0,0,0,.4); max-height:66vh; overflow:auto;
+  display:none; z-index:120; }
+.sug.on { display:block; }
+.sug-h { font-size:var(--t-11); font-weight:700; color:var(--tx-faint); padding:12px 16px 5px; }
+.sug-i { display:flex; align-items:center; gap:12px; padding:9px 16px; width:100%; text-align:start;
+  border-inline-start:3px solid transparent; }
+.sug-i:hover { background:var(--paper-3); border-inline-start-color:var(--amber); }
+.sug-i .av { width:42px; height:42px; flex:none; overflow:hidden; }
+.sug-i .t { flex:1; min-width:0; font-size:var(--t-14); font-weight:600; }
+.sug-i .t span { display:block; font-size:var(--t-12); color:var(--tx-faint); font-weight:400; }
+
+.acts { display:flex; align-items:center; gap:4px; margin-inline-start:auto; flex:none; }
+.ib { width:46px; height:46px; display:grid; place-items:center; position:relative; color:var(--on-ink); }
+.ib:hover { background:var(--ink-800); }
+.rxb { display:none; align-items:center; gap:8px; height:46px; padding-inline:18px;
+  background:var(--amber); color:var(--on-amber); font-weight:700; font-size:var(--t-14); }
+.rxb:hover { background:var(--amber-400); }
+@media (min-width:1120px) { .rxb { display:inline-flex; } }
+.cnt { position:absolute; top:5px; inset-inline-end:5px; min-width:19px; height:19px; background:var(--amber);
+  color:var(--on-amber); font-size:var(--t-11); font-weight:700; display:grid; place-items:center; padding-inline:4px; }
+
+.nav { border-top:1px solid var(--line-ink); display:none; }
+@media (min-width:900px) { .nav { display:block; } }
+.nav ul { display:flex; align-items:center; gap:0; }
+.nav a { position:relative; display:block; padding:14px 15px; font-size:var(--t-14); font-weight:500;
+  color:var(--on-ink-mut); white-space:nowrap; }
+.nav a::after { content:""; position:absolute; inset-inline:15px; bottom:9px; height:3px; background:var(--amber);
+  transform:scaleX(0); transform-origin:var(--o,right); transition:transform var(--fast); }
+html[dir=ltr] .nav a::after { --o:left; }
+.nav a:hover { color:var(--on-ink); }
+.nav a:hover::after { transform:scaleX(1); }
+.nav .hot { color:var(--amber); font-weight:700; }
+
+/* --- hero: the editorial split -------------------------------------------- */
+.hero { background:var(--ink); color:var(--on-ink); position:relative; overflow:hidden; }
+.hero::after { content:""; position:absolute; inset-block:0; inset-inline-end:-14%; width:52%;
+  background:repeating-linear-gradient(72deg, transparent 0 54px, rgba(255,163,0,.14) 54px 56px); }
+.hero .wrap { position:relative; display:grid; gap:30px; padding-block:40px 56px; }
+@media (min-width:1000px) { .hero .wrap { grid-template-columns:1.25fr .75fr; gap:56px;
+  align-items:center; padding-block:60px 84px; } }
+.eyebrow { display:inline-flex; align-items:center; gap:9px; font-size:var(--t-12); font-weight:600;
+  color:var(--amber); border:1px solid rgba(255,163,0,.4); padding:6px 13px; margin-bottom:22px; }
+.hero h1 { font-size:clamp(38px,7.4vw,74px); font-weight:900; }
+.hero h1 mark { background:var(--amber); color:var(--on-amber); padding:0 12px; }
+.hero .sub { margin-top:18px; font-size:var(--t-16); color:var(--on-ink-mut); max-width:46ch; }
+@media (min-width:900px) { .hero .sub { font-size:var(--t-18); } }
+.hero-cta { display:flex; flex-wrap:wrap; gap:11px; margin-top:28px; }
+.hero-stats { display:flex; gap:28px; margin-top:34px; padding-top:24px; border-top:1px solid var(--line-ink); }
+.hero-stats div b { display:block; font-family:var(--disp); font-size:26px; font-weight:800; color:var(--amber); line-height:1; }
+.hero-stats div span { font-size:var(--t-12); color:var(--on-ink-mut); }
+
+/* the single product doing the selling */
+.hero-card { background:var(--ink-850); border:1px solid var(--line-ink); position:relative; }
+.hero-card .im { aspect-ratio:1; position:relative; }
+.hero-card .im svg { width:100%; height:100%; }
+.hero-card .tag { position:absolute; top:0; inset-inline-start:0; background:var(--amber);
+  color:var(--on-amber); font-size:var(--t-12); font-weight:700; padding:5px 11px; }
+.hero-card .bd { padding:18px; }
+.hero-card .br { font-size:var(--t-11); font-weight:700; color:var(--on-ink-mut); }
+.hero-card h3 { font-family:var(--text); font-size:var(--t-16); font-weight:600; line-height:1.5; margin:5px 0 12px; }
+.hero-card .row { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+
+/* --- section heading: rule runs to the viewport edge ---------------------- */
+.sec { padding-block:44px; }
+@media (min-width:900px) { .sec { padding-block:62px; } }
+.sec-hd { display:flex; align-items:flex-end; gap:18px; margin-bottom:24px; }
+.sec-hd .n { font-family:var(--disp); font-size:var(--t-13); font-weight:700; color:var(--amber); flex:none;
+  padding-bottom:6px; }
+.sec-hd h2 { font-size:clamp(24px,3.8vw,38px); flex:none; }
+.sec-hd .rule { flex:1; height:1px; background:var(--line); margin-bottom:11px; }
+.sec-hd .all { flex:none; font-size:var(--t-13); font-weight:700; color:var(--amber-800);
+  display:inline-flex; align-items:center; gap:5px; padding-bottom:8px; }
+.sec-hd .all:hover { color:var(--tx); }
+
+/* --- categories: numbered marquee, edge to edge --------------------------- */
+.cmarq { display:flex; gap:0; border-block:1px solid var(--line); }
+.cmarq a { flex:none; width:152px; padding:20px 16px; border-inline-end:1px solid var(--line);
+  display:flex; flex-direction:column; gap:14px; transition:background var(--fast), color var(--fast); }
+.cmarq a:last-child { border-inline-end:0; }
+.cmarq a:hover { background:var(--ink); color:var(--on-ink); }
+.cmarq a:hover .n { color:var(--amber); }
+.cmarq .n { font-family:var(--disp); font-size:var(--t-12); font-weight:700; color:var(--tx-faint); }
+.cmarq .g { color:var(--amber-800); }
+.cmarq a:hover .g { color:var(--amber); }
+.cmarq b { font-size:var(--t-14); font-weight:600; line-height:1.4; }
+
+/* --- bento product block --------------------------------------------------- */
+.bento { display:grid; gap:12px; grid-template-columns:repeat(2,1fr); }
+@media (min-width:760px) { .bento { grid-template-columns:repeat(4,1fr); grid-auto-rows:minmax(0,1fr); } }
+.pc { position:relative; display:flex; flex-direction:column; background:var(--paper);
+  border:1px solid var(--line); transition:border-color var(--fast), transform var(--fast); }
+.pc:hover { border-color:var(--ink); transform:translateY(-3px); }
+.pc .im { position:relative; aspect-ratio:1; background:var(--paper-3); overflow:hidden; }
+.pc .im svg { width:100%; height:100%; transition:transform var(--slow); }
+.pc:hover .im svg { transform:scale(1.05); }
+.pc .off { position:absolute; top:0; inset-inline-start:0; background:var(--amber); color:var(--on-amber);
+  font-family:var(--disp); font-size:var(--t-13); font-weight:800; padding:3px 9px; }
+.pc .flag { position:absolute; inset-inline:0; bottom:0; background:rgba(18,16,12,.9); color:#fff;
+  font-size:var(--t-11); font-weight:600; text-align:center; padding:5px; }
+.pc .bd { padding:12px; display:flex; flex-direction:column; gap:4px; flex:1; }
+.pc .br { font-size:var(--t-11); font-weight:700; color:var(--tx-faint); }
+.pc h3 { font-family:var(--text); font-size:var(--t-14); font-weight:500; line-height:1.45; min-height:2.9em; }
+.pc .pr { margin-top:auto; padding-top:6px; }
+.pc .add { margin-top:10px; height:42px; background:var(--amber); color:var(--on-amber);
+  font-size:var(--t-13); font-weight:700; display:flex; align-items:center; justify-content:center; gap:7px; }
+.pc .add:hover { background:var(--amber-400); }
+.pc .add.ok { background:var(--ink); color:var(--on-ink); }
+
+/* the hero tile: 2x2, dark, sells one thing hard */
+.pc--hero { grid-column:span 2; background:var(--ink); border-color:var(--ink); color:var(--on-ink); }
+@media (min-width:760px) { .pc--hero { grid-row:span 2; } }
+/* The hero tile is twice as tall as a normal card. Letting the image flex
+   to fill left a dead black band under the product; a square image with the
+   copy centred in the remaining space distributes the height properly. */
+.pc--hero .im { background:var(--ink-850); aspect-ratio:1; flex:none; }
+.pc--hero h3 { font-size:var(--t-21); min-height:0; }
+.pc--hero .br { color:var(--on-ink-mut); font-size:var(--t-12); }
+.pc--hero .bd { padding:22px; gap:8px; flex:1; justify-content:center; }
+.pc--hero .add { height:48px; font-size:var(--t-15); }
+
+/* --- offers slab ----------------------------------------------------------- */
+.slab { background:var(--amber); color:var(--on-amber); position:relative; overflow:hidden; }
+.slab::before { content:""; position:absolute; inset-block:0; inset-inline-end:-6%; width:44%;
+  background:repeating-linear-gradient(72deg, transparent 0 34px, rgba(18,16,12,.10) 34px 36px); }
+.slab .wrap { position:relative; display:grid; gap:20px; padding-block:38px; }
+@media (min-width:900px) { .slab .wrap { grid-template-columns:1fr auto; align-items:center; } }
+.slab h2 { font-size:clamp(25px,4.2vw,42px); }
+.slab p { margin-top:9px; font-weight:500; max-width:52ch; opacity:.82; }
+
+/* --- brands: dark ticker --------------------------------------------------- */
+.brands { background:var(--paper-3); color:var(--tx); padding-block:38px; }
+.brands .sec-hd .rule { background:var(--line-2); }
+.brands .sec-hd .all { color:var(--amber-800); }
+.bstrip { display:flex; gap:10px; }
+.bcard { flex:none; width:158px; background:var(--paper); border:1px solid var(--line); padding:16px 12px;
+  display:grid; place-items:center; gap:7px; transition:border-color var(--fast), background var(--fast); }
+.bcard:hover { border-color:var(--ink); }
+.bcard svg { width:100%; height:36px; opacity:.92; }
+.bcard:hover svg { opacity:1; }
+.bcard span { font-size:var(--t-12); color:var(--tx-faint); }
+
+/* --- packages -------------------------------------------------------------- */
+.pks { display:grid; gap:12px; }
+@media (min-width:820px) { .pks { grid-template-columns:repeat(3,1fr); } }
+.pk { border:1px solid var(--line); background:var(--paper); display:flex; flex-direction:column;
+  transition:border-color var(--fast), transform var(--fast); }
+.pk:hover { border-color:var(--ink); transform:translateY(-3px); }
+.pk .im { aspect-ratio:16/9; position:relative; }
+.pk .save { position:absolute; top:0; inset-inline-start:0; background:var(--amber); color:var(--on-amber);
+  font-size:var(--t-12); font-weight:700; padding:4px 10px; }
+.pk .bd { padding:18px; display:flex; flex-direction:column; gap:7px; flex:1; }
+.pk h3 { font-size:var(--t-21); }
+.pk .note { font-size:var(--t-13); color:var(--tx-mut); }
+.pk .row { display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-top:auto; padding-top:12px;
+  border-top:1px solid var(--line); }
+
+/* --- prescription band ------------------------------------------------------ */
+.rxband { background:var(--ink-850); color:var(--on-ink); border-block:1px solid var(--line-ink);
+  position:relative; overflow:hidden; }
+.rxband .wrap { position:relative; display:grid; gap:28px; padding-block:50px; }
+@media (min-width:900px) { .rxband .wrap { grid-template-columns:1fr 1fr; gap:54px; align-items:center; } }
+.rxband h2 { font-size:clamp(26px,4.2vw,42px); }
+.rxsteps { display:grid; gap:10px; }
+.rxstep { display:flex; gap:15px; align-items:flex-start; background:var(--ink); border:1px solid var(--line-ink);
+  padding:16px 18px; }
+.rxstep .n { font-family:var(--disp); font-size:var(--t-14); font-weight:800; color:var(--on-amber);
+  background:var(--amber); width:28px; height:28px; display:grid; place-items:center; flex:none; }
+.rxstep b { display:block; font-size:var(--t-15); margin-bottom:2px; }
+.rxstep span { font-size:var(--t-13); color:var(--on-ink-mut); line-height:1.6; }
+
+/* --- loyalty ---------------------------------------------------------------- */
+.loy { display:grid; gap:20px; background:var(--ink); color:var(--on-ink); padding:28px; position:relative; overflow:hidden; }
+@media (min-width:900px) { .loy { grid-template-columns:1.1fr .9fr; gap:48px; padding:44px; align-items:center; } }
+.loy::after { content:""; position:absolute; top:-32%; inset-inline-end:-8%; width:340px; height:340px;
+  background:radial-gradient(circle, rgba(255,163,0,.26), transparent 68%); }
+.loy-in { position:relative; }
+.loy h2 { font-size:clamp(24px,3.8vw,36px); }
+.loy p { color:var(--on-ink-mut); margin-top:9px; }
+.loy-card { position:relative; background:var(--amber); color:var(--on-amber); padding:26px; }
+.loy-card small { font-size:var(--t-12); font-weight:700; opacity:.72; }
+.loy-pts { font-family:var(--disp); font-size:54px; font-weight:900; line-height:1; margin:6px 0 4px; }
+.loy-bar { height:7px; background:rgba(18,16,12,.22); margin-top:18px; }
+.loy-bar i { display:block; height:100%; background:var(--ink); }
+.loy-next { font-size:var(--t-13); font-weight:600; margin-top:9px; }
+
+/* --- footer ------------------------------------------------------------------ */
+.ft { background:var(--ink); color:var(--on-ink); margin-top:0; }
+.ft-trust { border-bottom:1px solid var(--line-ink); }
+.ft-trust .wrap { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; padding-block:24px; }
+@media (min-width:820px) { .ft-trust .wrap { grid-template-columns:repeat(4,1fr); } }
+.ft-trust div { display:flex; align-items:center; gap:11px; font-size:var(--t-13); font-weight:600; }
+.ft-trust svg { color:var(--amber); flex:none; }
+.ft-cols { display:grid; gap:28px; padding-block:42px; }
+@media (min-width:700px) { .ft-cols { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:1050px) { .ft-cols { grid-template-columns:1.4fr repeat(4,1fr); } }
+.ft h3 { font-family:var(--text); font-size:var(--t-13); color:var(--amber); margin-bottom:13px; font-weight:700; }
+.ft li { margin-bottom:9px; }
+.ft a { font-size:var(--t-14); color:var(--on-ink-mut); }
+.ft a:hover { color:var(--on-ink); }
+.ft-bot { border-top:1px solid var(--line-ink); }
+.ft-bot .wrap { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;
+  padding-block:18px; font-size:var(--t-12); color:var(--on-ink-mut); }
+.pay { display:flex; gap:6px; }
+.pay i { font-style:normal; border:1px solid var(--line-ink); padding:4px 9px; font-size:var(--t-11); font-weight:600; }
+
+/* --- drawer / menu / toast ---------------------------------------------------- */
+.scrim { position:fixed; inset:0; width:100%; height:100%; background:rgba(11,10,7,.62); z-index:290;
+  opacity:0; pointer-events:none; transition:opacity var(--mid); }
+.scrim.on { opacity:1; pointer-events:auto; }
+.drawer { position:fixed; inset-block:0; inset-inline-end:0; width:min(410px,94vw); background:var(--paper);
+  z-index:300; display:flex; flex-direction:column; transform:translateX(var(--o)); transition:transform var(--mid);
+  box-shadow:-24px 0 70px rgba(0,0,0,.4); }
+html[dir=rtl] .drawer { --o:-100%; } html[dir=ltr] .drawer { --o:100%; }
+.drawer.on { transform:translateX(0); }
+.dr-h { display:flex; align-items:center; justify-content:space-between; padding:17px 20px;
+  background:var(--ink); color:var(--on-ink); }
+.dr-h b { font-family:var(--disp); font-size:var(--t-18); font-weight:800; }
+.dr-b { flex:1; overflow:auto; padding:16px 20px; display:grid; gap:10px; align-content:start; }
+.dr-empty { text-align:center; color:var(--tx-faint); padding:60px 0; }
+.dr-i { display:flex; gap:12px; border:1px solid var(--line); padding:11px; }
+.dr-i .av { width:58px; height:58px; flex:none; overflow:hidden; }
+.dr-i .t { flex:1; min-width:0; }
+.dr-i .t b { display:block; font-size:var(--t-13); font-weight:600; line-height:1.4; }
+.dr-q { display:flex; align-items:center; border:1px solid var(--line); height:32px; margin-top:7px; width:fit-content; }
+.dr-q button { width:32px; height:30px; display:grid; place-items:center; }
+.dr-q button:hover { background:var(--paper-3); }
+.dr-q span { width:32px; text-align:center; font-size:var(--t-13); font-weight:700; }
+.dr-f { border-top:1px solid var(--line); padding:18px 20px; display:grid; gap:13px; }
+.dr-tot { display:flex; justify-content:space-between; align-items:baseline; font-weight:700; }
+.dr-tot .price b { font-size:28px; }
+.dr-note { font-size:var(--t-11); color:var(--tx-faint); }
+
+.mm { position:fixed; inset-block:0; inset-inline-start:0; width:min(340px,88vw); background:var(--ink);
+  color:var(--on-ink); z-index:300; transform:translateX(var(--m)); transition:transform var(--mid); overflow:auto; }
+html[dir=rtl] .mm { --m:100%; } html[dir=ltr] .mm { --m:-100%; }
+.mm.on { transform:translateX(0); }
+.mm-h { display:flex; align-items:center; justify-content:space-between; padding:17px 20px;
+  border-bottom:1px solid var(--line-ink); }
+.mm a { display:flex; align-items:center; gap:13px; padding:14px 20px; border-bottom:1px solid var(--line-ink);
+  font-size:var(--t-14); font-weight:500; }
+.mm a svg { color:var(--amber); }
+.mm a:hover { background:var(--ink-800); }
+.mm-t { font-size:var(--t-11); font-weight:700; color:#6E675D; padding:18px 20px 7px; }
+
+.ucp-toast { position:fixed; inset-block-end:24px; inset-inline-start:50%; transform:translate(50%,150%);
+  background:var(--ink); color:var(--on-ink); padding:14px 22px; font-size:var(--t-14); font-weight:600;
+  z-index:400; transition:transform var(--mid); display:flex; align-items:center; gap:10px;
+  border-inline-start:4px solid var(--amber); }
+html[dir=ltr] .ucp-toast { transform:translate(-50%,150%); }
+.ucp-toast.on { transform:translate(50%,0); }
+html[dir=ltr] .ucp-toast.on { transform:translate(-50%,0); }
+.ucp-toast .i { color:var(--amber); display:flex; }
+.only-m { display:grid; } @media (min-width:900px) { .only-m { display:none; } }
+</style>
+</head>
+<body>
+<a class="u-skip" href="#main">تخطَّ إلى المحتوى</a>
+<div class="proto" id="proto"></div>
+
+<header class="hd">
+  <div class="hd-top"><div class="wrap">
+    <div class="l">
+    </div>
+    <div style="display:flex;gap:18px;align-items:center;margin-inline-start:auto">
+      <button data-lang style="color:var(--amber);font-weight:700">English</button>
+    </div>
+  </div></div>
+
+  <div class="hd-main">
+    <div class="wrap">
+      <button class="ib only-m" id="mmOpen" aria-label="Menu"></button>
+      <a href="#" class="logo"><img src="../brand/ucp-mark.png" alt="UCP">
+        <span class="tx"><b>UCP</b><i id="tag"></i></span></a>
+      <div class="srch">
+        <div class="srch-box"><input id="q" type="search" autocomplete="off" aria-label="Search">
+          <button class="srch-go" aria-label="Search"></button></div>
+        <div class="sug" id="sug"></div>
+      </div>
+      <div class="acts" id="acts"></div>
+    </div>
+    <div class="wrap srch-m">
+      <div class="srch" style="display:block;width:100%">
+        <div class="srch-box"><input id="qm" type="search" autocomplete="off" aria-label="Search">
+          <button class="srch-go" aria-label="Search"></button></div>
+        <div class="sug" id="sugm"></div>
+      </div>
+    </div>
+  </div>
+  <nav class="nav" aria-label="Categories"><div class="wrap"><ul id="nav" class="u-scroll"></ul></div></nav>
+</header>
+
+<main id="main">
+  <section class="hero"><div class="wrap">
+    <div>
+      <span class="eyebrow" id="eyebrow"></span>
+      <h1 id="h1"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="hero-cta" id="heroCta"></div>
+      <div class="hero-stats" id="stats"></div>
+    </div>
+    <div class="hero-card" id="heroCard"></div>
+  </div></section>
+
+  <section class="sec"><div class="wrap"><div class="sec-hd" id="hdCats"></div></div>
+    <div class="cmarq u-scroll" id="cats"></div></section>
+
+  <section class="sec wrap" style="padding-top:0"><div class="sec-hd" id="hdPop"></div>
+    <div class="bento" id="bento"></div></section>
+
+  <section class="slab"><div class="wrap">
+    <div><h2 id="slabH"></h2><p id="slabP"></p></div>
+    <a href="#offers" class="btn btn--ink btn--lg" id="slabB"></a>
+  </div></section>
+
+  <section class="sec wrap" id="offers"><div class="sec-hd" id="hdOff"></div>
+    <div class="bento" id="offGrid"></div></section>
+
+  <section class="brands"><div class="wrap"><div class="sec-hd" id="hdBr"></div>
+    <div class="bstrip u-scroll" id="brands"></div></div></section>
+
+  <section class="sec wrap"><div class="sec-hd" id="hdPk"></div>
+    <div class="pks" id="pks"></div></section>
+
+  <section class="rxband" id="rx"><div class="wrap">
+    <div><span class="eyebrow" id="rxEye"></span><h2 id="rxH"></h2>
+      <p class="sub" id="rxP" style="color:var(--on-ink-mut)"></p>
+      <div class="hero-cta"><button class="btn btn--amber btn--lg" id="rxB"></button></div></div>
+    <div class="rxsteps" id="rxSteps"></div>
+  </div></section>
+
+  <section class="sec wrap"><div class="loy">
+    <div class="loy-in"><h2 id="loyH"></h2><p id="loyP"></p>
+      <div class="hero-cta"><a href="#" class="btn btn--amber" id="loyB"></a></div></div>
+    <div class="loy-card"><small id="loyBal"></small><div class="loy-pts num" id="loyPts"></div>
+      <div style="font-size:var(--t-14);font-weight:700" id="loyTier"></div>
+      <div class="loy-bar"><i id="loyBar"></i></div><div class="loy-next" id="loyNext"></div></div>
+  </div></section>
+</main>
+
+<footer class="ft">
+  <div class="ft-trust"><div class="wrap" id="trust"></div></div>
+  <div class="wrap"><div class="ft-cols" id="ftCols"></div></div>
+  <div class="ft-bot"><div class="wrap"><span id="rights"></span>
+    <div class="pay"><i>mada</i><i>VISA</i><i>Apple&nbsp;Pay</i></div></div></div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="dr-h"><b id="drT"></b><button id="drX" aria-label="Close"></button></div>
+  <div class="dr-b" id="drB"></div>
+  <div class="dr-f"><div class="dr-tot"><span id="drTot"></span><span class="price" id="drSum"></span></div>
+    <button class="btn btn--amber btn--block btn--lg" id="drGo"></button>
+    <p class="dr-note" id="drNote"></p></div>
+</aside>
+<nav class="mm" id="mm" aria-label="Menu">
+  <div class="mm-h"><b style="font-family:var(--disp);font-size:21px;font-weight:800">UCP</b>
+    <button id="mmX" aria-label="Close"></button></div>
+  <div id="mmB"></div>
+</nav>
+
+<script src="ucp.js"></script>
+<script>
+const $ = (s) => document.querySelector(s);
+const T = () => Shell.T(), nm = (o) => Shell.nm(o), L = () => Shell.lang;
+
+function render() {
+  const t = T(), lang = L();
+  $("#proto").innerHTML = "<b>NINJA / A — BLADE</b> · " + t.proto;
+  $("#tag").textContent = t.tag;
+  $("#q").placeholder = $("#qm").placeholder = t.searchPh;
+  document.querySelectorAll(".srch-go").forEach((b) => b.innerHTML = ic("search", 19));
+  $("#mmOpen").innerHTML = ic("menu", 22);
+  $("#drX").innerHTML = $("#mmX").innerHTML = ic("close", 21);
+  document.querySelector("[data-lang]").textContent = lang === "ar" ? "English" : "العربية";
+
+  $(".hd-top .l").innerHTML =
+    '<span class="amber">' + ic("truck",14) + t.etaTitle + " " + t.etaValue + '</span>'
+    + '<span>' + ic("store",14) + t.pickupDesc + '</span>'
+    + '<span>' + ic("shield",14) + (lang==="ar" ? "صيادلة مرخّصون" : "Licensed pharmacists") + '</span>';
+
+  $("#acts").innerHTML =
+    '<a href="#rx" class="rxb">' + ic("rx",18) + '<span>' + t.rx + '</span></a>'
+    + '<a href="#" class="ib" aria-label="'+t.loyalty+'">' + ic("gift",21) + '</a>'
+    + '<button class="ib" aria-label="'+t.account+'">' + ic("user",21) + '</button>'
+    + '<button class="ib" id="cartBtn" aria-label="'+t.cart+'">' + ic("cart",21)
+      + '<span class="cnt num" id="cnt" hidden>0</span></button>';
+  $("#cartBtn").onclick = () => drawer(true);
+
+  $("#nav").innerHTML =
+    '<li><a href="#cats" class="hot">' + t.allCats + '</a></li>'
+    + UCP.categories.slice(0,7).map((c) => '<li><a href="#cats">' + nm(c) + '</a></li>').join("")
+    + '<li style="margin-inline-start:auto"><a href="#offers" class="hot">' + t.offers + '</a></li>'
+    + '<li><a href="#rx">' + t.tele + '</a></li>';
+
+  // hero
+  $("#eyebrow").innerHTML = ic("clock",14) + (lang==="ar" ? "سرعة · دقة · ثقة" : "Fast · Precise · Sure");
+  $("#h1").innerHTML = lang==="ar"
+    ? 'كل ما تحتاجه<br>من صيدليتك، <mark>أسرع</mark>'
+    : 'Everything from<br>your pharmacy, <mark>faster</mark>';
+  $("#sub").textContent = lang==="ar"
+    ? "وصفات، عناية، وفيتامينات — تصل إليك أو جاهزة للاستلام من أقرب فرع."
+    : "Prescriptions, care and vitamins — delivered to you, or ready to collect.";
+  $("#heroCta").innerHTML =
+    '<a href="#cats" class="btn btn--amber btn--lg">' + t.shopNow + ic("arrow",18) + '</a>'
+    + '<a href="#rx" class="btn btn--line-ink btn--lg">' + ic("rx",18) + t.rx + '</a>';
+  $("#stats").innerHTML = [
+    [t.etaValue, t.etaTitle],
+    [String(UCP.branches.length), lang==="ar" ? "فروع" : "Branches"],
+    ["24h", lang==="ar" ? "فرع العليا" : "Olaya branch"],
+  ].map((s) => '<div><b class="num">' + s[0] + '</b><span>' + s[1] + '</span></div>').join("");
+
+  const star = Shell.list("popular")[1];
+  $("#heroCard").innerHTML =
+    '<div class="im">' + art(star) + '<span class="tag">' + t.popular + '</span></div>'
+    + '<div class="bd on-ink"><div class="br">' + nm(byId(UCP.brands, star.brand)) + '</div>'
+    + '<h3>' + nm(star) + '</h3><div class="row"><span class="price">' + priceHTML(star.price, lang)
+    + (star.was ? wasHTML(star.was, lang) : "") + '</span>'
+    + '<button class="btn btn--amber btn--sm" data-add="' + star.id + '">' + t.add + '</button></div></div>';
+
+  secHd("#hdCats", "01", t.cats, t.allCats);
+  secHd("#hdPop",  "02", t.popular, t.viewAll);
+  secHd("#hdOff",  "03", t.offers, t.viewAll);
+  secHd("#hdBr",   "04", t.brands, t.viewAll);
+  secHd("#hdPk",   "05", t.packages, t.viewAll);
+
+  $("#cats").innerHTML = UCP.categories.map((c,i) =>
+    '<a href="#pop"><span class="n num">' + String(i+1).padStart(2,"0") + '</span>'
+    + '<span class="g">' + ic(c.icon, 30) + '</span><b>' + nm(c) + '</b></a>').join("");
+
+  // bento: one hero tile + the rest
+  const pop = Shell.list("popular").slice(0, 9); // 1 hero (2x2) + 8 smalls = 12 cells
+  $("#bento").innerHTML = card(pop[0], true) + pop.slice(1, 9).map((p) => card(p)).join("");
+  $("#offGrid").innerHTML = Shell.list("offers").slice(0, 8).map((p) => card(p)).join("");
+
+  $("#slabH").textContent = lang==="ar" ? "عروض حقيقية، بدون عدّاد تنازلي" : "Real offers, no countdown timers";
+  $("#slabP").textContent = lang==="ar"
+    ? "كل خصم هنا مقارنة بسعر بيع فعلي سابق. لا ندّعي ندرة ولا نضغط عليك بمؤقّت."
+    : "Every discount is against a price we genuinely sold at. No fake scarcity, no pressure timer.";
+  $("#slabB").textContent = t.offers;
+
+  $("#brands").innerHTML = UCP.brands.map((b) =>
+    '<a class="bcard" href="#">' + brandMark(b, "#2A1E14") + '<span>' + nm(b) + '</span></a>').join("");
+
+  $("#pks").innerHTML = UCP.bundles.map((b) =>
+    '<a class="pk" href="#"><span class="im">' + bundleArt(b, {light:true})
+    + '<span class="save">' + t.save + " " + (b.parts - b.price) + " " + t.riyal + '</span></span>'
+    + '<span class="bd"><h3>' + nm(b) + '</h3>'
+    + '<span class="note">' + (lang==="ar" ? b.noteAr : b.noteEn) + '</span>'
+    + '<span class="row"><span class="price">' + priceHTML(b.price, lang) + wasHTML(b.parts, lang) + '</span>'
+    + '<span class="btn btn--line btn--sm">' + t.more + '</span></span></span></a>').join("");
+
+  $("#rxEye").innerHTML = ic("rx",14) + (lang==="ar" ? "خدمة صيدلية" : "Pharmacy service");
+  $("#rxH").textContent = t.rx; $("#rxP").textContent = t.rxDesc; $("#rxB").innerHTML = ic("rx",18) + t.rx;
+  const steps = lang==="ar"
+    ? [["ارفع صورة الوصفة","من جوالك أو من ملفاتك."],
+       ["يراجعها صيدلي مرخّص","نتواصل معك إذا احتجنا توضيحًا."],
+       ["نجهّز طلبك","توصيل لعنوانك أو استلام من الفرع."]]
+    : [["Upload your prescription","From your phone or your files."],
+       ["A licensed pharmacist reviews it","We contact you if anything needs clarifying."],
+       ["We prepare your order","Delivered, or ready at your branch."]];
+  $("#rxSteps").innerHTML = steps.map((s,i) =>
+    '<div class="rxstep"><span class="n">' + (i+1) + '</span><div><b>' + s[0] + '</b><span>' + s[1] + '</span></div></div>').join("");
+
+  const Ly = UCP.loyalty;
+  $("#loyH").textContent = t.loyalty; $("#loyP").textContent = t.loyaltyDesc;
+  $("#loyB").textContent = t.more;
+  $("#loyBal").textContent = t.balance;
+  $("#loyPts").textContent = Ly.points.toLocaleString("en-US");
+  $("#loyTier").textContent = (lang==="ar" ? Ly.tierAr : Ly.tierEn) + " · " + t.points;
+  $("#loyBar").style.width = (Ly.progress*100) + "%";
+  $("#loyNext").textContent = Ly.toNext + " " + t.toNext + " " + (lang==="ar" ? Ly.nextAr : Ly.nextEn);
+
+  $("#trust").innerHTML = [
+    ["shield", lang==="ar" ? "صيدلية · معلومة تجريبية" : "Pharmacy · placeholder claim"],
+    ["lock",   lang==="ar" ? "دفع آمن" : "Secure payment"],
+    ["truck",  lang==="ar" ? "توصيل لكل الطلبات" : "Delivery on every order"],
+    ["chat",   lang==="ar" ? "دعم العملاء" : "Customer support"],
+  ].map((x) => '<div>' + ic(x[0],20) + '<span>' + x[1] + '</span></div>').join("");
+  $("#ftCols").innerHTML = footerCols();
+  $("#rights").textContent = "© 2026 " + t.brand + ". " + t.rights + ".";
+
+  $("#drT").textContent = t.cart; $("#drTot").textContent = t.total;
+  $("#drGo").textContent = t.checkout; $("#drNote").textContent = t.vat + " · " + t.phNote;
+  $("#mmB").innerHTML = '<div class="mm-t">' + t.services + '</div>'
+    + [["rx",t.rx],["chat",t.tele],["store",t.pickup],["gift",t.loyalty],["bell",t.vitamins]]
+      .map((x) => '<a href="#">' + ic(x[0],20) + '<span>' + x[1] + '</span></a>').join("")
+    + '<div class="mm-t">' + t.cats + '</div>'
+    + UCP.categories.map((c) => '<a href="#cats">' + ic(c.icon,20) + '<span>' + nm(c) + '</span></a>').join("");
+
+  renderCart();
+}
+
+function secHd(sel, n, title, all) {
+  $(sel).innerHTML = '<span class="n num">' + n + '</span><h2>' + title + '</h2>'
+    + '<span class="rule"></span><a href="#" class="all">' + all + ic("next",15) + '</a>';
+}
+
+function card(p, hero) {
+  const t = T(), lang = L(), b = byId(UCP.brands, p.brand), off = offLabel(p, lang);
+  return '<article class="pc' + (hero ? ' pc--hero on-ink' : '') + '">'
+    + '<div class="im">' + art(p, hero ? {} : {light:true})
+      + (off ? '<span class="off">' + off + '</span>' : "")
+      + (p.tags.includes("low") ? '<span class="flag">' + t.lowStock + '</span>' : "")
+    + '</div><div class="bd"><span class="br">' + nm(b) + '</span>'
+    + '<h3>' + nm(p) + '</h3>'
+    + '<span class="price pr">' + priceHTML(p.price, lang) + (p.was ? wasHTML(p.was, lang) : "") + '</span>'
+    + '<button class="add" data-add="' + p.id + '">' + ic("plus",15) + '<span>' + t.add + '</span></button>'
+    + '</div></article>';
+}
+
+function footerCols() {
+  const t = T(), lang = L();
+  const cols = lang==="ar"
+    ? [[t.ftAbout,["من نحن","فروعنا","الوظائف","تواصل معنا"]],
+       [t.ftService,["المساعدة","التوصيل","الإرجاع والاستبدال","الأسئلة الشائعة"]],
+       [t.ftShop,["كل الفئات","العلامات التجارية","العروض","الباقات"]],
+       [t.ftPharmacy,["طلب الوصفات","استشارة صيدلي","متابعة الفيتامينات","الاستلام من الفرع"]],
+       [t.ftLegal,["سياسة الخصوصية","الشروط والأحكام","سياسة الإرجاع","ملفات الارتباط"]]]
+    : [[t.ftAbout,["About us","Our branches","Careers","Contact us"]],
+       [t.ftService,["Help","Delivery","Returns","FAQ"]],
+       [t.ftShop,["All categories","Brands","Offers","Packages"]],
+       [t.ftPharmacy,["Prescriptions","Pharmacist consultation","Vitamin follow-up","Branch pickup"]],
+       [t.ftLegal,["Privacy policy","Terms","Return policy","Cookies"]]];
+  return '<div><img src="../brand/ucp-lockup.png" alt="UCP" style="height:76px;width:auto;margin-bottom:14px">'
+    + '<p style="font-size:var(--t-13);color:var(--on-ink-mut);max-width:30ch">' + t.brand + '</p>'
+    + '<p style="font-size:var(--t-11);color:#6E675D;margin-top:12px">' + t.phNote + '</p></div>'
+    + cols.map((c) => '<div><h3>' + c[0] + '</h3><ul>'
+      + c[1].map((l) => '<li><a href="#">' + l + '</a></li>').join("") + '</ul></div>').join("");
+}
+
+function renderCart() {
+  const t = T(), lang = L(), n = Shell.count(), c = $("#cnt");
+  if (c) { c.hidden = n === 0; c.textContent = n; if (n) c.classList.add("pop"); }
+  $("#drSum").innerHTML = priceHTML(Shell.subtotal(), lang);
+  $("#drB").innerHTML = Shell.cart.length === 0
+    ? '<p class="dr-empty">' + t.emptyCart + '</p>'
+    : Shell.cart.map((l) => { const p = byId(UCP.products, l.id);
+        return '<div class="dr-i"><span class="av">' + art(p, {light:true}) + '</span>'
+          + '<div class="t"><b>' + nm(p) + '</b><span class="price">' + priceHTML(p.price*l.q, lang) + '</span>'
+          + '<div class="dr-q"><button data-q="-1" data-id="' + l.id + '" aria-label="−">' + ic("minus",15) + '</button>'
+          + '<span class="num">' + l.q + '</span>'
+          + '<button data-q="1" data-id="' + l.id + '" aria-label="+">' + ic("plus",15) + '</button></div></div></div>'; }).join("");
+}
+
+/* search */
+function wireSearch(inputSel, panelSel) {
+  const input = $(inputSel), panel = $(panelSel);
+  input.addEventListener("input", () => {
+    const t = T(), lang = L(), r = Shell.search(input.value);
+    if (input.value.trim().length < 2) { panel.classList.remove("on"); return; }
+    const none = !r.cats.length && !r.brands.length && !r.products.length;
+    panel.innerHTML = none
+      ? '<p style="padding:30px;text-align:center;color:var(--tx-faint)">' + t.noResults + '</p>'
+      : (r.cats.length ? '<div class="sug-h">' + t.cats + '</div>' + r.cats.map((c) =>
+          '<a class="sug-i" href="#cats"><span class="av" style="display:grid;place-items:center;background:var(--ink);color:var(--amber)">'
+          + ic(c.icon,20) + '</span><span class="t">' + nm(c) + '</span></a>').join("") : "")
+      + (r.brands.length ? '<div class="sug-h">' + t.brands + '</div>' + r.brands.map((b) =>
+          '<a class="sug-i" href="#"><span class="av" style="display:grid;place-items:center;background:var(--ink)">'
+          + brandMark(b,"#FFA300") + '</span><span class="t">' + nm(b) + '</span></a>').join("") : "")
+      + (r.products.length ? '<div class="sug-h">' + t.popular + '</div>' + r.products.map((p) =>
+          '<a class="sug-i" href="#pop"><span class="av">' + art(p,{light:true}) + '</span>'
+          + '<span class="t">' + nm(p) + '<span>' + nm(byId(UCP.brands,p.brand)) + '</span></span>'
+          + '<span class="price">' + priceHTML(p.price,lang) + '</span></a>').join("") : "");
+    panel.classList.add("on");
+  });
+  input.addEventListener("focus", () => { if (input.value.trim().length >= 2) panel.classList.add("on"); });
+  input.addEventListener("keydown", (e) => { if (e.key === "Escape") panel.classList.remove("on"); });
+  document.addEventListener("click", (e) => { if (!panel.parentElement.contains(e.target)) panel.classList.remove("on"); });
+}
+
+const drawer = (on) => { $("#drawer").classList.toggle("on", on); $("#scrim").classList.toggle("on", on); };
+const menu   = (on) => { $("#mm").classList.toggle("on", on); $("#scrim").classList.toggle("on", on); };
+$("#drX").onclick = () => drawer(false);
+$("#mmOpen").onclick = () => menu(true);
+$("#mmX").onclick = () => menu(false);
+$("#scrim").onclick = () => { drawer(false); menu(false); };
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") { drawer(false); menu(false); } });
+$("#rxB").onclick = () => Shell.toast(T().rx + " — " + (L()==="ar" ? "نموذج تصميم فقط" : "design prototype only"));
+
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+wireSearch("#q", "#sug");
+wireSearch("#qm", "#sugm");
+</script>
+</body>
+</html>

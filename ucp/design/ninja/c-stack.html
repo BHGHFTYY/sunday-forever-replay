@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — NINJA / C · STACK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ucp.css">
+<style>
+/* ===========================================================================
+   NINJA / C — STACK
+   ---------------------------------------------------------------------------
+   Execution idea: FULL-BLEED BANDS. The page is a vertical stack of
+   edge-to-edge bands that alternate ink / amber / paper, and each band does
+   exactly one job. Nothing is boxed inside a container; the colour change IS
+   the section break, so there are no section rules and no card borders.
+
+   It is the only execution where AMBER LEADS: the hero is an amber field
+   with ink type, which is the most literal expression of the logo's own
+   colour and the highest-contrast thing this brand can do (9.49:1).
+
+   Categories are a directory — full-width rows with oversized numerals —
+   rather than tiles, and products travel in snap carousels that bleed off
+   the edge so the band reads as continuing. Built thumb-first: a persistent
+   bottom dock on phones, 48px targets everywhere.
+   =========================================================================== */
+
+.wrap { width:100%; max-width:1280px; margin-inline:auto; padding-inline:20px; }
+@media (min-width:900px) { .wrap { padding-inline:32px; } }
+body { padding-bottom:var(--dock,0); }
+@media (max-width:899px) { body { --dock:72px; } }
+
+/* --- slim top bar; the real navigation is the dock / drawer -------------- */
+.top { position:sticky; top:0; z-index:100; background:var(--ink); color:var(--on-ink); }
+.top .wrap { display:flex; align-items:center; gap:14px; height:62px; }
+@media (min-width:900px) { .top .wrap { height:72px; gap:26px; } }
+.logo { display:flex; align-items:center; gap:10px; flex:none; }
+.logo img { height:34px; width:auto; }
+.logo b { font-family:var(--disp); font-size:21px; font-weight:800; }
+.tnav { display:none; gap:2px; margin-inline:auto; }
+@media (min-width:1000px) { .tnav { display:flex; } }
+.tnav a { padding:10px 14px; font-size:var(--t-14); font-weight:500; color:var(--on-ink-mut); }
+.tnav a:hover { color:var(--amber); }
+.tacts { display:flex; align-items:center; gap:4px; margin-inline-start:auto; }
+.ib { width:46px; height:46px; display:grid; place-items:center; position:relative; color:var(--on-ink); }
+.ib:hover { background:var(--ink-800); }
+.cnt { position:absolute; top:5px; inset-inline-end:5px; min-width:19px; height:19px; background:var(--amber);
+  color:var(--on-amber); font-size:var(--t-11); font-weight:700; display:grid; place-items:center; padding-inline:4px; }
+
+/* --- BAND 1: amber hero — the inverse of the other executions ------------ */
+.band { position:relative; }
+.b-amber { background:var(--amber); color:var(--on-amber); }
+.b-ink   { background:var(--ink);   color:var(--on-ink); }
+.b-paper { background:var(--paper); color:var(--tx); }
+.b-paper2{ background:var(--paper-2); color:var(--tx); }
+
+.hero { overflow:hidden; }
+.hero::after { content:""; position:absolute; inset-block:0; inset-inline-end:-10%; width:46%;
+  background:repeating-linear-gradient(72deg, transparent 0 46px, rgba(18,16,12,.09) 46px 48px); }
+.hero .wrap { position:relative; padding-block:34px 0; }
+.hero h1 { font-size:clamp(40px,9vw,88px); font-weight:900; max-width:14ch; }
+.hero .sub { font-size:var(--t-16); font-weight:500; opacity:.85; max-width:44ch; margin-top:14px; }
+@media (min-width:900px) { .hero .sub { font-size:var(--t-18); } }
+.hero-search { margin-top:24px; display:flex; height:60px; background:var(--ink); max-width:640px; }
+.hero-search input { flex:1; min-width:0; background:none; border:0; outline:0; color:var(--on-ink);
+  padding-inline:20px; font-size:var(--t-16); }
+.hero-search input::placeholder { color:#8A8377; }
+.hero-search button { width:62px; background:var(--ink-800); color:var(--amber); display:grid; place-items:center; }
+.hero-search button:hover { background:var(--ink-850); }
+.hero-chips { display:flex; gap:8px; margin-top:16px; padding-bottom:4px; }
+.hero-chips a { flex:none; border:1.5px solid rgba(18,16,12,.32); padding:8px 14px; font-size:var(--t-13);
+  font-weight:600; white-space:nowrap; }
+.hero-chips a:hover { background:var(--ink); color:var(--amber); border-color:var(--ink); }
+.hero-foot { display:flex; flex-wrap:wrap; gap:0; margin-top:30px; border-top:1.5px solid rgba(18,16,12,.22); }
+.hero-foot div { flex:1; min-width:150px; padding:16px 0; display:flex; align-items:center; gap:11px;
+  border-inline-end:1.5px solid rgba(18,16,12,.22); }
+.hero-foot div:last-child { border-inline-end:0; }
+.hero-foot b { display:block; font-size:var(--t-14); font-weight:700; }
+.hero-foot span { font-size:var(--t-12); opacity:.75; }
+
+/* --- band heading: big, quiet, no rules ---------------------------------- */
+.bhd { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:22px; }
+.bhd h2 { font-size:clamp(25px,4.2vw,40px); }
+.bhd .k { font-size:var(--t-12); font-weight:700; opacity:.6; margin-bottom:5px; }
+.bhd .all { flex:none; display:inline-flex; align-items:center; gap:6px; font-size:var(--t-14); font-weight:700; }
+.b-ink .bhd .all { color:var(--amber); }
+.b-paper .bhd .all, .b-paper2 .bhd .all { color:var(--amber-800); }
+
+/* --- BAND 2: categories as a directory ---------------------------------- */
+.dir { border-top:1px solid var(--line); }
+.b-ink .dir { border-color:var(--line-ink); }
+.dir a { display:flex; align-items:center; gap:18px; padding:16px 0; border-bottom:1px solid var(--line);
+  transition:padding var(--fast), background var(--fast); }
+.b-ink .dir a { border-color:var(--line-ink); }
+.dir a:hover { padding-inline-start:12px; }
+.dir .n { font-family:var(--disp); font-size:28px; font-weight:900; color:var(--amber); flex:none;
+  width:52px; line-height:1; }
+@media (min-width:700px) { .dir .n { font-size:38px; width:68px; } }
+.dir .g { flex:none; opacity:.55; }
+.dir b { flex:1; min-width:0; font-family:var(--disp); font-size:var(--t-21); font-weight:700; }
+@media (min-width:700px) { .dir b { font-size:26px; } }
+.dir .c { font-size:var(--t-12); opacity:.55; flex:none; }
+.dir .go { flex:none; opacity:.5; transition:opacity var(--fast), transform var(--fast); }
+.dir a:hover .go { opacity:1; }
+
+/* --- carousels that bleed off the edge ----------------------------------- */
+.bleed { margin-inline:-20px; padding-inline:20px; }
+@media (min-width:900px) { .bleed { margin-inline:-32px; padding-inline:32px; } }
+.carousel { display:grid; grid-auto-flow:column; gap:12px; scroll-snap-type:x proximity; padding-bottom:6px; }
+.carousel > * { width:188px; scroll-snap-align:start; }
+@media (min-width:700px) { .carousel > * { width:226px; } }
+
+.pc { display:flex; flex-direction:column; background:var(--paper); border:1px solid var(--line);
+  transition:transform var(--fast), border-color var(--fast); }
+.b-ink .pc { background:var(--ink-850); border-color:var(--line-ink); color:var(--on-ink); }
+.pc:hover { transform:translateY(-3px); border-color:var(--ink); }
+.b-ink .pc:hover { border-color:var(--amber); }
+.pc .im { position:relative; aspect-ratio:1; overflow:hidden; }
+.pc .im svg { width:100%; height:100%; }
+.pc .off { position:absolute; top:0; inset-inline-start:0; background:var(--amber); color:var(--on-amber);
+  font-family:var(--disp); font-size:var(--t-13); font-weight:800; padding:3px 9px; }
+.pc .flag { position:absolute; inset-inline:0; bottom:0; background:rgba(18,16,12,.9); color:#fff;
+  font-size:var(--t-11); font-weight:600; text-align:center; padding:4px; }
+.pc .bd { padding:13px; display:flex; flex-direction:column; gap:4px; flex:1; }
+.pc .br { font-size:var(--t-11); font-weight:700; opacity:.6; }
+.pc h3 { font-family:var(--text); font-size:var(--t-14); font-weight:500; line-height:1.45; min-height:2.9em; }
+.pc .pr { margin-top:auto; padding-top:6px; }
+.pc .add { margin-top:10px; height:46px; background:var(--amber); color:var(--on-amber); font-size:var(--t-14);
+  font-weight:700; display:flex; align-items:center; justify-content:center; gap:7px; }
+.pc .add:hover { background:var(--amber-400); }
+
+/* --- BAND: prescription, ink, oversized ---------------------------------- */
+.rx .wrap { display:grid; gap:26px; }
+@media (min-width:900px) { .rx .wrap { grid-template-columns:1fr 1fr; gap:56px; align-items:center; } }
+.rx h2 { font-size:clamp(28px,5vw,52px); }
+.rx p { color:var(--on-ink-mut); margin-top:14px; font-size:var(--t-16); max-width:42ch; }
+.rxsteps { display:grid; gap:0; border-top:1px solid var(--line-ink); }
+.rxstep { display:flex; gap:16px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--line-ink); }
+.rxstep .n { font-family:var(--disp); font-size:26px; font-weight:900; color:var(--amber); flex:none; width:38px; line-height:1; }
+.rxstep b { display:block; font-size:var(--t-16); margin-bottom:3px; }
+.rxstep span { font-size:var(--t-13); color:var(--on-ink-mut); line-height:1.6; }
+
+/* --- BAND: packages as wide rows ---------------------------------------- */
+.pkrow { display:grid; gap:14px; }
+@media (min-width:860px) { .pkrow { grid-template-columns:repeat(3,1fr); } }
+.pk { border:1px solid var(--line); background:var(--paper); display:flex; flex-direction:column;
+  transition:transform var(--fast), border-color var(--fast); }
+.pk:hover { transform:translateY(-3px); border-color:var(--ink); }
+.pk .im { aspect-ratio:16/9; position:relative; }
+.pk .save { position:absolute; top:0; inset-inline-start:0; background:var(--amber); color:var(--on-amber);
+  font-size:var(--t-12); font-weight:700; padding:4px 10px; }
+.pk .bd { padding:18px; display:flex; flex-direction:column; gap:7px; flex:1; }
+.pk h3 { font-size:var(--t-21); }
+.pk .note { font-size:var(--t-13); color:var(--tx-mut); }
+.pk .row { display:flex; align-items:baseline; justify-content:space-between; margin-top:auto; padding-top:12px; }
+
+/* --- BAND: services as big tiles ---------------------------------------- */
+.svcs { display:grid; gap:12px; }
+@media (min-width:700px) { .svcs { grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1100px) { .svcs { grid-template-columns:repeat(4,1fr); } }
+.svc { border:1px solid var(--line-ink); background:var(--ink-850); padding:22px; display:flex;
+  flex-direction:column; gap:12px; transition:border-color var(--fast), background var(--fast); }
+.svc:hover { border-color:var(--amber); background:var(--ink-800); }
+.svc .i { width:48px; height:48px; background:var(--ink); color:var(--amber); display:grid; place-items:center; }
+.svc b { font-family:var(--disp); font-size:var(--t-21); font-weight:700; }
+.svc span { font-size:var(--t-13); color:var(--on-ink-mut); line-height:1.6; }
+.svc .go { margin-top:auto; padding-top:10px; font-size:var(--t-13); font-weight:700; color:var(--amber);
+  display:inline-flex; align-items:center; gap:6px; }
+
+/* --- BAND: loyalty, amber again ---------------------------------------- */
+.loy .wrap { display:grid; gap:24px; }
+@media (min-width:900px) { .loy .wrap { grid-template-columns:1.05fr .95fr; gap:52px; align-items:center; } }
+.loy h2 { font-size:clamp(26px,4.4vw,44px); }
+.loy p { margin-top:10px; font-weight:500; opacity:.82; max-width:40ch; }
+.loy-card { background:var(--ink); color:var(--on-ink); padding:28px; }
+.loy-card small { font-size:var(--t-12); font-weight:700; color:var(--on-ink-mut); }
+.loy-pts { font-family:var(--disp); font-size:58px; font-weight:900; line-height:1; color:var(--amber); margin:6px 0 4px; }
+.loy-bar { height:7px; background:var(--ink-800); margin-top:18px; }
+.loy-bar i { display:block; height:100%; background:var(--amber); }
+.loy-next { font-size:var(--t-13); color:var(--on-ink-mut); margin-top:9px; }
+
+/* --- brands ------------------------------------------------------------- */
+.bstrip { display:flex; gap:10px; }
+.bcard { flex:none; width:150px; border:1px solid var(--line); background:var(--paper); padding:16px 12px;
+  display:grid; place-items:center; gap:7px; }
+.bcard:hover { border-color:var(--ink); }
+.bcard svg { width:100%; height:32px; }
+.bcard span { font-size:var(--t-12); color:var(--tx-faint); }
+
+/* --- footer ------------------------------------------------------------- */
+.ft-cols { display:grid; gap:28px; padding-block:40px; }
+@media (min-width:700px) { .ft-cols { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:1050px) { .ft-cols { grid-template-columns:1.4fr repeat(4,1fr); } }
+.ft h3 { font-family:var(--text); font-size:var(--t-13); color:var(--amber); margin-bottom:13px; font-weight:700; }
+.ft li { margin-bottom:9px; }
+.ft a { font-size:var(--t-14); color:var(--on-ink-mut); }
+.ft a:hover { color:var(--on-ink); }
+.ft-bot { border-top:1px solid var(--line-ink); }
+.ft-bot .wrap { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;
+  padding-block:18px; font-size:var(--t-12); color:var(--on-ink-mut); }
+.pay { display:flex; gap:6px; }
+.pay i { font-style:normal; border:1px solid var(--line-ink); padding:4px 9px; font-size:var(--t-11); font-weight:600; }
+
+/* --- the dock: this execution's real navigation on a phone -------------- */
+.dock { display:none; }
+@media (max-width:899px) {
+  .dock { position:fixed; inset-block-end:0; inset-inline:0; z-index:200; display:grid;
+    grid-template-columns:repeat(5,1fr); background:var(--ink); border-top:1px solid var(--line-ink);
+    padding-bottom:env(safe-area-inset-bottom); }
+}
+.dk { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; height:66px;
+  font-size:var(--t-11); font-weight:600; color:var(--on-ink-mut); position:relative; }
+.dk[aria-current=page] { color:var(--amber); }
+.dk[aria-current=page]::before { content:""; position:absolute; top:0; inset-inline:22%; height:3px; background:var(--amber); }
+.dk .cnt { top:8px; inset-inline-end:22%; }
+
+/* --- shared chrome ------------------------------------------------------ */
+.scrim { position:fixed; inset:0; width:100%; height:100%; background:rgba(11,10,7,.62); z-index:290;
+  opacity:0; pointer-events:none; transition:opacity var(--mid); }
+.scrim.on { opacity:1; pointer-events:auto; }
+.drawer { position:fixed; inset-block:0; inset-inline-end:0; width:min(410px,94vw); background:var(--paper);
+  z-index:300; display:flex; flex-direction:column; transform:translateX(var(--o)); transition:transform var(--mid); }
+html[dir=rtl] .drawer { --o:-100%; } html[dir=ltr] .drawer { --o:100%; }
+.drawer.on { transform:translateX(0); }
+.dr-h { display:flex; align-items:center; justify-content:space-between; padding:17px 20px;
+  background:var(--ink); color:var(--on-ink); }
+.dr-h b { font-family:var(--disp); font-size:var(--t-18); font-weight:800; }
+.dr-b { flex:1; overflow:auto; padding:16px 20px; display:grid; gap:10px; align-content:start; }
+.dr-empty { text-align:center; color:var(--tx-faint); padding:60px 0; }
+.dr-i { display:flex; gap:12px; border:1px solid var(--line); padding:11px; }
+.dr-i .av { width:58px; height:58px; flex:none; overflow:hidden; }
+.dr-i .t { flex:1; min-width:0; }
+.dr-i .t b { display:block; font-size:var(--t-13); font-weight:600; line-height:1.4; }
+.dr-q { display:flex; align-items:center; border:1px solid var(--line); height:32px; margin-top:7px; width:fit-content; }
+.dr-q button { width:32px; height:30px; display:grid; place-items:center; }
+.dr-q span { width:32px; text-align:center; font-size:var(--t-13); font-weight:700; }
+.dr-f { border-top:1px solid var(--line); padding:18px 20px; display:grid; gap:13px; }
+.dr-tot { display:flex; justify-content:space-between; align-items:baseline; font-weight:700; }
+.dr-tot .price b { font-size:28px; }
+.dr-note { font-size:var(--t-11); color:var(--tx-faint); }
+.mm { position:fixed; inset-block:0; inset-inline-start:0; width:min(340px,88vw); background:var(--ink);
+  color:var(--on-ink); z-index:300; transform:translateX(var(--m)); transition:transform var(--mid); overflow:auto; }
+html[dir=rtl] .mm { --m:100%; } html[dir=ltr] .mm { --m:-100%; }
+.mm.on { transform:translateX(0); }
+.mm-h { display:flex; align-items:center; justify-content:space-between; padding:17px 20px;
+  border-bottom:1px solid var(--line-ink); }
+.mm a { display:flex; align-items:center; gap:13px; padding:14px 20px; border-bottom:1px solid var(--line-ink);
+  font-size:var(--t-14); font-weight:500; }
+.mm a svg { color:var(--amber); }
+.mm-t { font-size:var(--t-11); font-weight:700; color:#6E675D; padding:18px 20px 7px; }
+.ucp-toast { position:fixed; inset-block-end:calc(var(--dock,0px) + 22px); inset-inline-start:50%;
+  transform:translate(50%,180%); background:var(--ink); color:var(--on-ink); padding:14px 22px;
+  font-size:var(--t-14); font-weight:600; z-index:400; transition:transform var(--mid); display:flex;
+  align-items:center; gap:10px; border-inline-start:4px solid var(--amber); }
+html[dir=ltr] .ucp-toast { transform:translate(-50%,180%); }
+.ucp-toast.on { transform:translate(50%,0); }
+html[dir=ltr] .ucp-toast.on { transform:translate(-50%,0); }
+.ucp-toast .i { color:var(--amber); display:flex; }
+.only-m { display:grid; } @media (min-width:1000px) { .only-m { display:none; } }
+</style>
+</head>
+<body>
+<a class="u-skip" href="#main">تخطَّ إلى المحتوى</a>
+<div class="proto" id="proto"></div>
+
+<header class="top"><div class="wrap">
+  <button class="ib only-m" id="mmOpen" aria-label="Menu"></button>
+  <a href="#" class="logo"><img src="../brand/ucp-mark.png" alt="UCP"><b>UCP</b></a>
+  <nav class="tnav" id="tnav" aria-label="Primary"></nav>
+  <div class="tacts" id="tacts"></div>
+</div></header>
+
+<main id="main">
+  <section class="band b-amber hero"><div class="wrap">
+    <h1 id="h1"></h1>
+    <p class="sub" id="sub"></p>
+    <div class="hero-search"><input id="q" type="search" autocomplete="off" aria-label="Search">
+      <button aria-label="Search"></button></div>
+    <div class="hero-chips u-scroll" id="chips"></div>
+    <div class="hero-foot" id="hfoot"></div>
+  </div></section>
+
+  <section class="band b-paper" style="padding-block:44px"><div class="wrap">
+    <div class="bhd" id="hdCats"></div>
+    <div class="dir" id="cats"></div>
+  </div></section>
+
+  <section class="band b-paper" style="padding-block:44px"><div class="wrap">
+    <div class="bhd" id="hdPop"></div>
+    <div class="bleed u-scroll"><div class="carousel" id="pop"></div></div>
+  </div></section>
+
+  <section class="band b-paper2" style="padding-block:44px"><div class="wrap">
+    <div class="bhd" id="hdOff"></div>
+    <div class="bleed u-scroll"><div class="carousel" id="off"></div></div>
+  </div></section>
+
+  <section class="band b-ink rx" id="rx" style="padding-block:52px"><div class="wrap">
+    <div><h2 id="rxH"></h2><p id="rxP"></p>
+      <div style="margin-top:24px"><button class="btn btn--amber btn--lg" id="rxB"></button></div></div>
+    <div class="rxsteps" id="rxSteps"></div>
+  </div></section>
+
+  <section class="band b-paper" style="padding-block:44px"><div class="wrap">
+    <div class="bhd" id="hdPk"></div>
+    <div class="pkrow" id="pks"></div>
+  </div></section>
+
+  <section class="band b-ink" style="padding-block:44px"><div class="wrap">
+    <div class="bhd" id="hdSvc"></div>
+    <div class="svcs" id="svcs"></div>
+  </div></section>
+
+  <section class="band b-amber loy" style="padding-block:44px"><div class="wrap">
+    <div><h2 id="loyH"></h2><p id="loyP"></p>
+      <div style="margin-top:22px"><a href="#" class="btn btn--ink btn--lg" id="loyB"></a></div></div>
+    <div class="loy-card"><small id="loyBal"></small><div class="loy-pts num" id="loyPts"></div>
+      <div style="font-size:var(--t-14);font-weight:700" id="loyTier"></div>
+      <div class="loy-bar"><i id="loyBar"></i></div><div class="loy-next" id="loyNext"></div></div>
+  </div></section>
+
+  <section class="band b-paper2" style="padding-block:40px"><div class="wrap">
+    <div class="bhd" id="hdBr"></div>
+    <div class="bleed u-scroll"><div class="bstrip" id="brands"></div></div>
+  </div></section>
+</main>
+
+<footer class="band b-ink">
+  <div class="wrap"><div class="ft ft-cols" id="ftCols"></div></div>
+  <div class="ft-bot"><div class="wrap"><span id="rights"></span>
+    <div class="pay"><i>mada</i><i>VISA</i><i>Apple&nbsp;Pay</i></div></div></div>
+</footer>
+
+<nav class="dock" id="dock" aria-label="Main"></nav>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="dr-h"><b id="drT"></b><button id="drX" aria-label="Close"></button></div>
+  <div class="dr-b" id="drB"></div>
+  <div class="dr-f"><div class="dr-tot"><span id="drTot"></span><span class="price" id="drSum"></span></div>
+    <button class="btn btn--amber btn--block btn--lg" id="drGo"></button>
+    <p class="dr-note" id="drNote"></p></div>
+</aside>
+<nav class="mm" id="mm" aria-label="Menu">
+  <div class="mm-h"><b style="font-family:var(--disp);font-size:21px;font-weight:800">UCP</b>
+    <button id="mmX" aria-label="Close"></button></div><div id="mmB"></div>
+</nav>
+
+<script src="ucp.js"></script>
+<script>
+const $ = (s) => document.querySelector(s);
+const T = () => Shell.T(), nm = (o) => Shell.nm(o), L = () => Shell.lang;
+
+function render() {
+  const t = T(), lang = L();
+  $("#proto").innerHTML = "<b>NINJA / C — STACK</b> · " + t.proto;
+  $("#q").placeholder = t.searchPh;
+  $(".hero-search button").innerHTML = ic("search",21);
+  $("#mmOpen").innerHTML = ic("menu",22);
+  $("#drX").innerHTML = $("#mmX").innerHTML = ic("close",21);
+
+  $("#tnav").innerHTML = UCP.categories.slice(0,6).map((c)=>'<a href="#cats">'+nm(c)+'</a>').join("")
+    + '<a href="#rx" style="color:var(--amber);font-weight:700">'+t.rx+'</a>';
+  $("#tacts").innerHTML =
+    '<button data-lang class="ib" style="width:auto;padding-inline:12px;font-size:var(--t-13);font-weight:700;color:var(--amber)">'
+      + (lang==="ar" ? "EN" : "ع") + '</button>'
+    + '<button class="ib" aria-label="'+t.account+'">' + ic("user",21) + '</button>'
+    + '<button class="ib" id="cartBtn" aria-label="'+t.cart+'">' + ic("cart",21)
+      + '<span class="cnt num" id="cnt" hidden>0</span></button>';
+  $("#cartBtn").onclick = () => drawer(true);
+
+  $("#h1").textContent = lang==="ar" ? "صيدليتك، أسرع." : "Your pharmacy, faster.";
+  $("#sub").textContent = lang==="ar"
+    ? "ابحث عن أي منتج، أو ارفع وصفتك — ونوصلها لك أو نجهّزها للاستلام."
+    : "Search for anything, or upload your prescription — delivered or ready to collect.";
+  const chips = lang==="ar"
+    ? ["واقي شمس","فيتامين د","عدسات يومية","شامبو للقشرة","معجون للأسنان الحساسة","حفاضات"]
+    : ["Sunscreen","Vitamin D","Daily lenses","Dandruff shampoo","Sensitive toothpaste","Diapers"];
+  $("#chips").innerHTML = chips.map((c)=>'<a href="#pop">'+c+'</a>').join("");
+  $("#hfoot").innerHTML = [
+    ["truck", t.etaValue, t.etaTitle],
+    ["store", t.pickup, t.pickupDesc],
+    ["rx", t.rx, t.rxDesc],
+  ].map((x)=>'<div>'+ic(x[0],22)+'<span><b>'+x[1]+'</b><span>'+x[2]+'</span></span></div>').join("");
+
+  bhd("#hdCats", lang==="ar"?"تصفّح":"Browse", t.cats, t.allCats);
+  bhd("#hdPop",  lang==="ar"?"الأكثر مبيعًا":"Best selling", t.popular, t.viewAll);
+  bhd("#hdOff",  lang==="ar"?"وفّر اليوم":"Save today", t.offers, t.viewAll);
+  bhd("#hdPk",   lang==="ar"?"روتين كامل":"Full routine", t.packages, t.viewAll);
+  bhd("#hdSvc",  lang==="ar"?"أكثر من متجر":"More than a shop", t.services, "");
+  bhd("#hdBr",   lang==="ar"?"علاماتنا":"Our brands", t.brands, t.viewAll);
+
+  $("#cats").innerHTML = UCP.categories.map((c,i) =>
+    '<a href="#pop"><span class="n num">' + String(i+1).padStart(2,"0") + '</span>'
+    + '<span class="g">' + ic(c.icon,26) + '</span><b>' + nm(c) + '</b>'
+    + '<span class="c num">' + UCP.products.filter((p)=>p.cat===c.id).length + '</span>'
+    + '<span class="go">' + ic("next",20) + '</span></a>').join("");
+
+  $("#pop").innerHTML = Shell.list("popular").slice(0,10).map((p)=>card(p,false)).join("");
+  $("#off").innerHTML = Shell.list("offers").slice(0,10).map((p)=>card(p,false)).join("");
+
+  $("#rxH").textContent = t.rx; $("#rxP").textContent = t.rxDesc;
+  $("#rxB").innerHTML = ic("rx",18) + t.rx;
+  const steps = lang==="ar"
+    ? [["ارفع صورة الوصفة","من جوالك أو من ملفاتك."],
+       ["يراجعها صيدلي مرخّص","نتواصل معك إذا احتجنا توضيحًا."],
+       ["نجهّز طلبك","توصيل لعنوانك أو استلام من الفرع."]]
+    : [["Upload your prescription","From your phone or your files."],
+       ["A licensed pharmacist reviews it","We contact you if anything needs clarifying."],
+       ["We prepare your order","Delivered, or ready at your branch."]];
+  $("#rxSteps").innerHTML = steps.map((s,i)=>
+    '<div class="rxstep"><span class="n num">'+(i+1)+'</span><div><b>'+s[0]+'</b><span>'+s[1]+'</span></div></div>').join("");
+
+  $("#pks").innerHTML = UCP.bundles.map((b)=>
+    '<a class="pk" href="#"><span class="im">' + bundleArt(b,{light:true})
+    + '<span class="save">' + t.save + " " + (b.parts-b.price) + " " + t.riyal + '</span></span>'
+    + '<span class="bd"><h3>'+nm(b)+'</h3><span class="note">'+(lang==="ar"?b.noteAr:b.noteEn)+'</span>'
+    + '<span class="row"><span class="price">'+priceHTML(b.price,lang)+wasHTML(b.parts,lang)+'</span>'
+    + '<span style="font-size:var(--t-13);font-weight:700;color:var(--amber-800)">'+t.more+'</span></span></span></a>').join("");
+
+  $("#svcs").innerHTML = [
+    {i:"rx",b:t.rx,s:t.rxDesc},{i:"chat",b:t.tele,s:t.teleDesc},
+    {i:"store",b:t.pickup,s:t.pickupDesc},{i:"bell",b:t.vitamins,s:t.vitaminsDesc},
+  ].map((x)=>'<a class="svc" href="#"><span class="i">'+ic(x.i,24)+'</span>'
+    + '<b>'+x.b+'</b><span>'+x.s+'</span><span class="go">'+t.more+ic("next",15)+'</span></a>').join("");
+
+  const Ly = UCP.loyalty;
+  $("#loyH").textContent = t.loyalty; $("#loyP").textContent = t.loyaltyDesc;
+  $("#loyB").textContent = t.more; $("#loyBal").textContent = t.balance;
+  $("#loyPts").textContent = Ly.points.toLocaleString("en-US");
+  $("#loyTier").textContent = (lang==="ar"?Ly.tierAr:Ly.tierEn) + " · " + t.points;
+  $("#loyBar").style.width = (Ly.progress*100) + "%";
+  $("#loyNext").textContent = Ly.toNext + " " + t.toNext + " " + (lang==="ar"?Ly.nextAr:Ly.nextEn);
+
+  $("#brands").innerHTML = UCP.brands.map((b)=>
+    '<a class="bcard" href="#">'+brandMark(b,"#12100C")+'<span>'+nm(b)+'</span></a>').join("");
+
+  $("#ftCols").innerHTML = footerCols();
+  $("#rights").textContent = "© 2026 " + t.brand + ". " + t.rights + ".";
+  $("#drT").textContent = t.cart; $("#drTot").textContent = t.total;
+  $("#drGo").textContent = t.checkout; $("#drNote").textContent = t.vat + " · " + t.phNote;
+
+  const n = Shell.count();
+  $("#dock").innerHTML = [
+    ["store", lang==="ar"?"الرئيسية":"Home", true],
+    ["search", lang==="ar"?"البحث":"Search"],
+    ["rx", t.rx.split(" ")[0]],
+    ["cart", t.cart],
+    ["user", lang==="ar"?"حسابي":"Profile"],
+  ].map((x)=>'<a class="dk" href="#"'+(x[2]?' aria-current="page"':"")+'>'+ic(x[0],21)
+    + '<span>'+x[1]+'</span>'+(x[0]==="cart"&&n?'<span class="cnt num">'+n+'</span>':"")+'</a>').join("");
+
+  $("#mmB").innerHTML = '<div class="mm-t">'+t.services+'</div>'
+    + [["rx",t.rx],["chat",t.tele],["store",t.pickup],["gift",t.loyalty],["bell",t.vitamins]]
+      .map((x)=>'<a href="#">'+ic(x[0],20)+'<span>'+x[1]+'</span></a>').join("")
+    + '<div class="mm-t">'+t.cats+'</div>'
+    + UCP.categories.map((c)=>'<a href="#cats">'+ic(c.icon,20)+'<span>'+nm(c)+'</span></a>').join("");
+  renderCart();
+}
+
+function bhd(sel,k,title,all) {
+  $(sel).innerHTML = '<div><div class="k">'+k+'</div><h2>'+title+'</h2></div>'
+    + (all ? '<a href="#" class="all">'+all+ic("next",15)+'</a>' : "");
+}
+
+function card(p, onInk) {
+  const t = T(), lang = L(), b = byId(UCP.brands,p.brand), off = offLabel(p,lang);
+  return '<article class="pc'+(onInk?' on-ink':'')+'"><div class="im">' + art(p, onInk?{}:{light:true})
+    + (off ? '<span class="off">'+off+'</span>' : "")
+    + (p.tags.includes("low") ? '<span class="flag">'+t.lowStock+'</span>' : "")
+    + '</div><div class="bd"><span class="br">'+nm(b)+'</span><h3>'+nm(p)+'</h3>'
+    + '<span class="price pr">'+priceHTML(p.price,lang)+(p.was?wasHTML(p.was,lang):"")+'</span>'
+    + '<button class="add" data-add="'+p.id+'">'+ic("plus",16)+'<span>'+t.add+'</span></button></div></article>';
+}
+
+function footerCols() {
+  const t = T(), lang = L();
+  const cols = lang==="ar"
+    ? [[t.ftAbout,["من نحن","فروعنا","الوظائف","تواصل معنا"]],
+       [t.ftService,["المساعدة","التوصيل","الإرجاع والاستبدال","الأسئلة الشائعة"]],
+       [t.ftShop,["كل الفئات","العلامات التجارية","العروض","الباقات"]],
+       [t.ftPharmacy,["طلب الوصفات","استشارة صيدلي","متابعة الفيتامينات","الاستلام من الفرع"]],
+       [t.ftLegal,["سياسة الخصوصية","الشروط والأحكام","سياسة الإرجاع","ملفات الارتباط"]]]
+    : [[t.ftAbout,["About us","Our branches","Careers","Contact us"]],
+       [t.ftService,["Help","Delivery","Returns","FAQ"]],
+       [t.ftShop,["All categories","Brands","Offers","Packages"]],
+       [t.ftPharmacy,["Prescriptions","Pharmacist consultation","Vitamin follow-up","Branch pickup"]],
+       [t.ftLegal,["Privacy policy","Terms","Return policy","Cookies"]]];
+  return '<div><img src="../brand/ucp-lockup.png" alt="UCP" style="height:76px;width:auto;margin-bottom:14px">'
+    + '<p style="font-size:var(--t-13);color:var(--on-ink-mut);max-width:30ch">'+t.brand+'</p>'
+    + '<p style="font-size:var(--t-11);color:#6E675D;margin-top:12px">'+t.phNote+'</p></div>'
+    + cols.map((c)=>'<div><h3>'+c[0]+'</h3><ul>'
+      + c[1].map((l)=>'<li><a href="#">'+l+'</a></li>').join("")+'</ul></div>').join("");
+}
+
+function renderCart() {
+  const t = T(), lang = L(), n = Shell.count(), c = $("#cnt");
+  if (c) { c.hidden = n===0; c.textContent = n; if (n) c.classList.add("pop"); }
+  $("#drSum").innerHTML = priceHTML(Shell.subtotal(), lang);
+  $("#drB").innerHTML = Shell.cart.length===0
+    ? '<p class="dr-empty">'+t.emptyCart+'</p>'
+    : Shell.cart.map((l)=>{ const p = byId(UCP.products,l.id);
+        return '<div class="dr-i"><span class="av">'+art(p,{light:true})+'</span>'
+          + '<div class="t"><b>'+nm(p)+'</b><span class="price">'+priceHTML(p.price*l.q,lang)+'</span>'
+          + '<div class="dr-q"><button data-q="-1" data-id="'+l.id+'" aria-label="−">'+ic("minus",15)+'</button>'
+          + '<span class="num">'+l.q+'</span>'
+          + '<button data-q="1" data-id="'+l.id+'" aria-label="+">'+ic("plus",15)+'</button></div></div></div>'; }).join("");
+}
+
+const drawer = (on)=>{ $("#drawer").classList.toggle("on",on); $("#scrim").classList.toggle("on",on); };
+const menu   = (on)=>{ $("#mm").classList.toggle("on",on); $("#scrim").classList.toggle("on",on); };
+$("#drX").onclick=()=>drawer(false);
+$("#mmOpen").onclick=()=>menu(true);
+$("#mmX").onclick=()=>menu(false);
+$("#scrim").onclick=()=>{drawer(false);menu(false);};
+document.addEventListener("keydown",(e)=>{if(e.key==="Escape"){drawer(false);menu(false);}});
+$("#rxB").onclick=()=>Shell.toast(T().rx+" — "+(L()==="ar"?"نموذج تصميم فقط":"design prototype only"));
+
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+</script>
+</body>
+</html>

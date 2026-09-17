@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — NINJA / D · COMMAND</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ucp.css">
+<style>
+/* ===========================================================================
+   NINJA / D — COMMAND
+   ---------------------------------------------------------------------------
+   Execution idea: THE SEARCH IS THE PAGE. The hero is not a picture and not
+   a slogan — it is one enormous search field, because on a pharmacy site the
+   majority of visits are a specific-product hunt, not a browse.
+
+   Everything below it is built like a fast tool rather than a shop window:
+   products are TABLE ROWS with an inline add, not cards, so twenty items fit
+   where six would; the catalogue is a two-column text index; and a tab strip
+   switches the table's dataset in place instead of stacking more sections.
+
+   This is the densest and most utilitarian of the four. It is the execution
+   that makes a returning customer fastest, and the one that asks the most of
+   a first-time visitor.
+   =========================================================================== */
+
+body { background:var(--paper-2); }
+.wrap { width:100%; max-width:1300px; margin-inline:auto; padding-inline:18px; }
+@media (min-width:900px) { .wrap { padding-inline:30px; } }
+
+/* --- a thin command bar, not a marketing header -------------------------- */
+.bar { position:sticky; top:0; z-index:110; background:var(--ink); color:var(--on-ink);
+  border-bottom:1px solid var(--line-ink); }
+.bar .wrap { display:flex; align-items:center; gap:14px; height:56px; }
+.logo { display:flex; align-items:center; gap:9px; flex:none; }
+.logo img { height:28px; width:auto; }
+.logo b { font-family:var(--disp); font-size:19px; font-weight:800; }
+.bar-mini { display:none; flex:1; min-width:0; max-width:460px; }
+@media (min-width:900px) { .bar-mini { display:block; } }
+.bar-mini .box { display:flex; height:36px; background:var(--ink-850); border:1px solid var(--line-ink); }
+.bar-mini input { flex:1; min-width:0; background:none; border:0; outline:0; color:var(--on-ink);
+  padding-inline:12px; font-size:var(--t-13); }
+.bar-mini input::placeholder { color:#7A736A; }
+.bar-mini button { width:40px; color:var(--amber); display:grid; place-items:center; }
+.bar-links { display:none; gap:2px; margin-inline-start:auto; }
+@media (min-width:1080px) { .bar-links { display:flex; } }
+.bar-links a { padding:8px 11px; font-size:var(--t-13); font-weight:500; color:var(--on-ink-mut); }
+.bar-links a:hover { color:var(--amber); }
+.bar-acts { display:flex; align-items:center; gap:3px; margin-inline-start:auto; }
+@media (min-width:1080px) { .bar-acts { margin-inline-start:14px; } }
+.ib { width:40px; height:40px; display:grid; place-items:center; position:relative; color:var(--on-ink); }
+.ib:hover { background:var(--ink-800); }
+.cnt { position:absolute; top:2px; inset-inline-end:2px; min-width:18px; height:18px; background:var(--amber);
+  color:var(--on-amber); font-size:var(--t-11); font-weight:700; display:grid; place-items:center; padding-inline:4px; }
+.rxb { display:none; align-items:center; gap:7px; height:36px; padding-inline:13px; background:var(--amber);
+  color:var(--on-amber); font-weight:700; font-size:var(--t-13); flex:none; }
+@media (min-width:640px) { .rxb { display:inline-flex; } }
+
+/* --- the command hero ---------------------------------------------------- */
+.cmd { background:var(--ink); color:var(--on-ink); position:relative; overflow:hidden; }
+.cmd::after { content:""; position:absolute; inset:0;
+  background:radial-gradient(70% 120% at 50% 0%, rgba(255,163,0,.16), transparent 62%); }
+.cmd .wrap { position:relative; padding-block:44px 38px; text-align:center; }
+@media (min-width:900px) { .cmd .wrap { padding-block:70px 54px; } }
+.cmd .kick { font-size:var(--t-12); font-weight:700; color:var(--amber); margin-bottom:16px;
+  display:inline-flex; align-items:center; gap:8px; }
+.cmd h1 { font-size:clamp(28px,5vw,52px); font-weight:900; max-width:20ch; margin-inline:auto; }
+.cmd .sub { font-size:var(--t-15); color:var(--on-ink-mut); margin-top:12px; max-width:52ch; margin-inline:auto; }
+
+.big { position:relative; max-width:820px; margin:28px auto 0; }
+.big-box { display:flex; height:66px; background:var(--paper); }
+@media (min-width:900px) { .big-box { height:76px; } }
+.big-box .i { width:60px; display:grid; place-items:center; color:var(--tx-faint); flex:none; }
+.big-box input { flex:1; min-width:0; border:0; outline:0; background:none; font-size:var(--t-18);
+  font-weight:500; padding-inline-end:12px; color:var(--tx); }
+@media (min-width:900px) { .big-box input { font-size:var(--t-21); } }
+.big-box input::placeholder { color:var(--tx-faint); font-weight:400; }
+.big-go { padding-inline:26px; background:var(--amber); color:var(--on-amber); font-weight:700;
+  font-size:var(--t-15); flex:none; }
+.big-go:hover { background:var(--amber-400); }
+.big-hint { display:flex; flex-wrap:wrap; justify-content:center; gap:7px; margin-top:16px; }
+.big-hint span { font-size:var(--t-12); color:var(--on-ink-mut); align-self:center; margin-inline-end:4px; }
+.big-hint a { border:1px solid var(--line-ink); padding:7px 13px; font-size:var(--t-13); font-weight:500;
+  color:var(--on-ink-mut); }
+.big-hint a:hover { border-color:var(--amber); color:var(--amber); }
+
+.sug { position:absolute; inset-inline:0; top:calc(100% + 8px); background:var(--paper); color:var(--tx);
+  border:1px solid var(--line); box-shadow:0 30px 70px rgba(0,0,0,.5); max-height:60vh; overflow:auto;
+  display:none; z-index:130; text-align:start; }
+.sug.on { display:block; }
+.sug-h { font-size:var(--t-11); font-weight:700; color:var(--tx-faint); padding:12px 18px 5px; }
+.sug-i { display:flex; align-items:center; gap:13px; padding:10px 18px; width:100%; text-align:start; }
+.sug-i:hover { background:var(--paper-3); }
+.sug-i .av { width:42px; height:42px; flex:none; overflow:hidden; }
+.sug-i .t { flex:1; min-width:0; font-size:var(--t-14); font-weight:600; }
+.sug-i .t span { display:block; font-size:var(--t-12); color:var(--tx-faint); font-weight:400; }
+
+/* --- status strip: the tool's readout ------------------------------------ */
+.status { background:var(--ink-850); color:var(--on-ink); border-block:1px solid var(--line-ink); }
+.status .wrap { display:grid; grid-template-columns:repeat(2,1fr); }
+@media (min-width:760px) { .status .wrap { grid-template-columns:repeat(4,1fr); } }
+.status div { padding:14px 0; display:flex; align-items:center; gap:10px;
+  border-inline-end:1px solid var(--line-ink); padding-inline-end:16px; }
+.status div:last-child { border-inline-end:0; }
+.status svg { color:var(--amber); flex:none; }
+.status b { display:block; font-size:var(--t-13); font-weight:700; }
+.status span { font-size:var(--t-11); color:var(--on-ink-mut); }
+
+/* --- two-column text index of the catalogue ----------------------------- */
+.panel { background:var(--paper); border:1px solid var(--line); }
+.panel-h { display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:14px 18px; border-bottom:1px solid var(--line); }
+.panel-h h2 { font-size:var(--t-21); }
+.panel-h .all { font-size:var(--t-13); font-weight:700; color:var(--amber-800);
+  display:inline-flex; align-items:center; gap:5px; }
+
+.idx { display:grid; grid-template-columns:repeat(2,1fr); }
+@media (min-width:900px) { .idx { grid-template-columns:repeat(3,1fr); } }
+.idx a { display:flex; align-items:center; gap:10px; padding:11px 18px; border-bottom:1px solid var(--paper-3);
+  border-inline-end:1px solid var(--paper-3); font-size:var(--t-14); }
+.idx a:hover { background:var(--ink); color:var(--on-ink); }
+.idx a:hover .n { color:var(--amber); }
+.idx .n { font-family:var(--disp); font-size:var(--t-12); font-weight:700; color:var(--tx-faint); width:18px; flex:none; }
+.idx .nm { flex:1; min-width:0; font-weight:500; }
+.idx .c { font-size:var(--t-11); color:var(--tx-faint); }
+
+/* --- the main layout: table + side rail --------------------------------- */
+.main-grid { display:grid; gap:18px; padding-block:22px; }
+@media (min-width:1080px) { .main-grid { grid-template-columns:minmax(0,1fr) 316px; gap:20px; align-items:start; } }
+
+/* tabs switch the table in place */
+.tabs { display:flex; gap:0; border-bottom:1px solid var(--line); background:var(--paper); }
+.tabs button { padding:13px 16px; font-size:var(--t-14); font-weight:600; color:var(--tx-mut);
+  border-bottom:3px solid transparent; white-space:nowrap; }
+.tabs button[aria-selected=true] { color:var(--tx); border-color:var(--amber); }
+.tabs button:hover { color:var(--tx); }
+
+/* products as rows, not cards */
+.rows { background:var(--paper); }
+.row { display:flex; align-items:center; gap:14px; padding:11px 16px; border-bottom:1px solid var(--paper-3);
+  transition:background var(--fast); }
+.row:last-child { border-bottom:0; }
+.row:hover { background:var(--paper-2); }
+.row .rk { font-family:var(--disp); font-size:var(--t-13); font-weight:700; color:var(--tx-faint);
+  width:22px; flex:none; display:none; }
+@media (min-width:700px) { .row .rk { display:block; } }
+.row .av { width:54px; height:54px; flex:none; overflow:hidden; border:1px solid var(--line); }
+.row .t { flex:1; min-width:0; }
+.row .t b { display:block; font-size:var(--t-14); font-weight:500; line-height:1.4; }
+.row .t span { font-size:var(--t-11); color:var(--tx-faint); }
+.row .meta { display:none; flex:none; width:96px; font-size:var(--t-12); color:var(--tx-faint); }
+@media (min-width:860px) { .row .meta { display:block; } }
+.row .pcell { flex:none; text-align:end; min-width:96px; }
+.row .pcell .price b { font-size:var(--t-18); }
+.row .off { display:inline-block; margin-top:2px; font-size:var(--t-11); font-weight:700;
+  background:var(--amber); color:var(--on-amber); padding:1px 6px; }
+.row .qa { width:44px; height:44px; flex:none; background:var(--ink); color:var(--on-ink);
+  display:grid; place-items:center; transition:background var(--fast), color var(--fast); }
+.row .qa:hover { background:var(--amber); color:var(--on-amber); }
+.row .step { display:flex; align-items:center; height:44px; border:1px solid var(--amber); flex:none; }
+.row .step button { width:34px; height:100%; display:grid; place-items:center; color:var(--amber-800); }
+.row .step button:hover { background:var(--amber-tint); }
+.row .step span { width:30px; text-align:center; font-weight:700; font-size:var(--t-14); }
+
+/* --- side rail ----------------------------------------------------------- */
+.rail { display:grid; gap:18px; }
+.card { background:var(--paper); border:1px solid var(--line); }
+.card-h { padding:13px 16px; border-bottom:1px solid var(--line); font-size:var(--t-14); font-weight:700;
+  display:flex; align-items:center; gap:8px; }
+.card-b { padding:16px; }
+.seg { display:flex; border:1px solid var(--line); }
+.seg button { flex:1; padding:10px; font-size:var(--t-13); font-weight:600; color:var(--tx-mut); }
+.seg button[aria-pressed=true] { background:var(--ink); color:var(--on-ink); }
+.eta { display:flex; align-items:center; gap:10px; margin-top:14px; font-size:var(--t-13); }
+.eta b { font-size:var(--t-15); }
+.eta svg { color:var(--jade); flex:none; }
+
+.rxcard { background:var(--ink); color:var(--on-ink); padding:20px; }
+.rxcard h3 { font-size:var(--t-21); }
+.rxcard p { font-size:var(--t-13); color:var(--on-ink-mut); margin-top:7px; }
+.rxcard ol { margin-top:14px; display:grid; gap:9px; }
+.rxcard li { display:flex; gap:10px; font-size:var(--t-13); color:var(--on-ink-mut); }
+.rxcard li b { color:var(--amber); font-family:var(--disp); font-weight:800; flex:none; }
+
+.loycard { background:var(--amber); color:var(--on-amber); padding:20px; }
+.loycard small { font-size:var(--t-12); font-weight:700; opacity:.72; }
+.loycard .p { font-family:var(--disp); font-size:42px; font-weight:900; line-height:1; margin:5px 0 3px; }
+.loycard .bar2 { height:6px; background:rgba(18,16,12,.22); margin-top:14px; }
+.loycard .bar2 i { display:block; height:100%; background:var(--ink); }
+.loycard .nx { font-size:var(--t-12); font-weight:600; margin-top:8px; }
+
+.pkmini a { display:flex; gap:12px; align-items:center; padding:12px 16px; border-bottom:1px solid var(--paper-3); }
+.pkmini a:last-child { border-bottom:0; }
+.pkmini a:hover { background:var(--paper-2); }
+.pkmini .av { width:56px; height:38px; flex:none; overflow:hidden; border:1px solid var(--line); }
+.pkmini b { display:block; font-size:var(--t-13); font-weight:600; }
+.pkmini span { font-size:var(--t-11); color:var(--tx-faint); }
+
+/* --- services + brands strips ------------------------------------------- */
+.svcrow { display:grid; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:18px; }
+@media (min-width:640px) { .svcrow { grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1080px) { .svcrow { grid-template-columns:repeat(4,1fr); } }
+.svcrow a { background:var(--paper); padding:18px; display:flex; gap:12px; align-items:flex-start; }
+.svcrow a:hover { background:var(--jade); color:#fff; }
+.svcrow a:hover .i { color:#fff; }
+.svcrow .i { color:var(--jade); flex:none; }
+.svcrow b { display:block; font-size:var(--t-14); font-weight:600; margin-bottom:2px; }
+.svcrow span { font-size:var(--t-12); opacity:.8; }
+
+.bstrip { display:flex; gap:8px; margin-top:18px; }
+.bcard { flex:none; width:132px; border:1px solid var(--line); background:var(--paper); padding:13px 10px;
+  display:grid; place-items:center; gap:5px; }
+.bcard:hover { border-color:var(--ink); }
+.bcard svg { width:100%; height:26px; }
+.bcard span { font-size:var(--t-11); color:var(--tx-faint); }
+
+/* --- footer ------------------------------------------------------------- */
+.ft { background:var(--ink); color:var(--on-ink); margin-top:24px; }
+.ft-cols { display:grid; gap:26px; padding-block:38px; }
+@media (min-width:700px) { .ft-cols { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:1050px) { .ft-cols { grid-template-columns:1.4fr repeat(4,1fr); } }
+.ft h3 { font-family:var(--text); font-size:var(--t-13); color:var(--amber); margin-bottom:12px; font-weight:700; }
+.ft li { margin-bottom:8px; }
+.ft a { font-size:var(--t-14); color:var(--on-ink-mut); }
+.ft a:hover { color:var(--on-ink); }
+.ft-bot { border-top:1px solid var(--line-ink); }
+.ft-bot .wrap { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;
+  padding-block:16px; font-size:var(--t-12); color:var(--on-ink-mut); }
+.pay { display:flex; gap:6px; }
+.pay i { font-style:normal; border:1px solid var(--line-ink); padding:4px 9px; font-size:var(--t-11); font-weight:600; }
+
+/* --- shared chrome ------------------------------------------------------ */
+.scrim { position:fixed; inset:0; width:100%; height:100%; background:rgba(11,10,7,.62); z-index:290;
+  opacity:0; pointer-events:none; transition:opacity var(--mid); }
+.scrim.on { opacity:1; pointer-events:auto; }
+.drawer { position:fixed; inset-block:0; inset-inline-end:0; width:min(410px,94vw); background:var(--paper);
+  z-index:300; display:flex; flex-direction:column; transform:translateX(var(--o)); transition:transform var(--mid); }
+html[dir=rtl] .drawer { --o:-100%; } html[dir=ltr] .drawer { --o:100%; }
+.drawer.on { transform:translateX(0); }
+.dr-h { display:flex; align-items:center; justify-content:space-between; padding:16px 20px;
+  background:var(--ink); color:var(--on-ink); }
+.dr-h b { font-family:var(--disp); font-size:var(--t-18); font-weight:800; }
+.dr-b { flex:1; overflow:auto; padding:16px 20px; display:grid; gap:10px; align-content:start; }
+.dr-empty { text-align:center; color:var(--tx-faint); padding:60px 0; }
+.dr-i { display:flex; gap:12px; border:1px solid var(--line); padding:11px; }
+.dr-i .av { width:56px; height:56px; flex:none; overflow:hidden; }
+.dr-i .t { flex:1; min-width:0; }
+.dr-i .t b { display:block; font-size:var(--t-13); font-weight:600; line-height:1.4; }
+.dr-q { display:flex; align-items:center; border:1px solid var(--line); height:32px; margin-top:7px; width:fit-content; }
+.dr-q button { width:32px; height:30px; display:grid; place-items:center; }
+.dr-q span { width:32px; text-align:center; font-size:var(--t-13); font-weight:700; }
+.dr-f { border-top:1px solid var(--line); padding:18px 20px; display:grid; gap:12px; }
+.dr-tot { display:flex; justify-content:space-between; align-items:baseline; font-weight:700; }
+.dr-tot .price b { font-size:28px; }
+.dr-note { font-size:var(--t-11); color:var(--tx-faint); }
+.mm { position:fixed; inset-block:0; inset-inline-start:0; width:min(340px,88vw); background:var(--ink);
+  color:var(--on-ink); z-index:300; transform:translateX(var(--m)); transition:transform var(--mid); overflow:auto; }
+html[dir=rtl] .mm { --m:100%; } html[dir=ltr] .mm { --m:-100%; }
+.mm.on { transform:translateX(0); }
+.mm-h { display:flex; align-items:center; justify-content:space-between; padding:16px 20px;
+  border-bottom:1px solid var(--line-ink); }
+.mm a { display:flex; align-items:center; gap:13px; padding:13px 20px; border-bottom:1px solid var(--line-ink);
+  font-size:var(--t-14); font-weight:500; }
+.mm a svg { color:var(--amber); }
+.mm-t { font-size:var(--t-11); font-weight:700; color:#6E675D; padding:16px 20px 6px; }
+.ucp-toast { position:fixed; inset-block-end:22px; inset-inline-start:50%; transform:translate(50%,160%);
+  background:var(--ink); color:var(--on-ink); padding:13px 20px; font-size:var(--t-14); font-weight:600;
+  z-index:400; transition:transform var(--mid); display:flex; align-items:center; gap:10px;
+  border-inline-start:4px solid var(--amber); }
+html[dir=ltr] .ucp-toast { transform:translate(-50%,160%); }
+.ucp-toast.on { transform:translate(50%,0); }
+html[dir=ltr] .ucp-toast.on { transform:translate(-50%,0); }
+.ucp-toast .i { color:var(--amber); display:flex; }
+.only-m { display:grid; } @media (min-width:1080px) { .only-m { display:none; } }
+</style>
+</head>
+<body>
+<a class="u-skip" href="#main">تخطَّ إلى المحتوى</a>
+<div class="proto" id="proto"></div>
+
+<header class="bar"><div class="wrap">
+  <button class="ib only-m" id="mmOpen" aria-label="Menu"></button>
+  <a href="#" class="logo"><img src="../brand/ucp-mark.png" alt="UCP"><b>UCP</b></a>
+  <div class="bar-mini"><div class="box"><input id="qm" type="search" autocomplete="off" aria-label="Search">
+    <button aria-label="Search"></button></div></div>
+  <nav class="bar-links" id="barLinks" aria-label="Primary"></nav>
+  <div class="bar-acts" id="acts"></div>
+</div></header>
+
+<main id="main">
+  <section class="cmd"><div class="wrap">
+    <span class="kick" id="kick"></span>
+    <h1 id="h1"></h1>
+    <p class="sub" id="sub"></p>
+    <div class="big">
+      <div class="big-box"><span class="i" id="bigI"></span>
+        <input id="q" type="search" autocomplete="off" aria-label="Search">
+        <button class="big-go" id="bigGo"></button></div>
+      <div class="sug" id="sug"></div>
+    </div>
+    <div class="big-hint" id="hints"></div>
+  </div></section>
+
+  <section class="status"><div class="wrap" id="status"></div></section>
+
+  <div class="wrap">
+    <section class="panel" style="margin-top:22px">
+      <div class="panel-h" id="hdIdx"></div>
+      <div class="idx" id="idx"></div>
+    </section>
+
+    <div class="main-grid">
+      <section class="panel">
+        <div class="tabs" id="tabs" role="tablist"></div>
+        <div class="rows" id="rows"></div>
+      </section>
+
+      <aside class="rail">
+        <div class="card">
+          <div class="card-h" id="fulH"></div>
+          <div class="card-b">
+            <div class="seg" id="seg"></div>
+            <div class="eta" id="eta"></div>
+          </div>
+        </div>
+        <div class="rxcard" id="rxcard"></div>
+        <div class="loycard" id="loycard"></div>
+        <div class="card"><div class="card-h" id="pkH"></div><div class="pkmini" id="pkmini"></div></div>
+      </aside>
+    </div>
+
+    <section class="svcrow" id="svc"></section>
+    <div class="u-scroll"><div class="bstrip" id="brands"></div></div>
+  </div>
+</main>
+
+<footer class="ft">
+  <div class="wrap"><div class="ft-cols" id="ftCols"></div></div>
+  <div class="ft-bot"><div class="wrap"><span id="rights"></span>
+    <div class="pay"><i>mada</i><i>VISA</i><i>Apple&nbsp;Pay</i></div></div></div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="dr-h"><b id="drT"></b><button id="drX" aria-label="Close"></button></div>
+  <div class="dr-b" id="drB"></div>
+  <div class="dr-f"><div class="dr-tot"><span id="drTot"></span><span class="price" id="drSum"></span></div>
+    <button class="btn btn--amber btn--block btn--lg" id="drGo"></button>
+    <p class="dr-note" id="drNote"></p></div>
+</aside>
+<nav class="mm" id="mm" aria-label="Menu">
+  <div class="mm-h"><b style="font-family:var(--disp);font-size:20px;font-weight:800">UCP</b>
+    <button id="mmX" aria-label="Close"></button></div><div id="mmB"></div>
+</nav>
+
+<script src="ucp.js"></script>
+<script>
+const $ = (s) => document.querySelector(s);
+const T = () => Shell.T(), nm = (o) => Shell.nm(o), L = () => Shell.lang;
+let tab = "popular", ful = "delivery";
+
+function render() {
+  const t = T(), lang = L();
+  $("#proto").innerHTML = "<b>NINJA / D — COMMAND</b> · " + t.proto;
+  $("#q").placeholder = $("#qm").placeholder = t.searchPh;
+  $("#bigI").innerHTML = ic("search",24); $("#bigGo").textContent = t.search;
+  $(".bar-mini button").innerHTML = ic("search",16);
+  $("#mmOpen").innerHTML = ic("menu",21);
+  $("#drX").innerHTML = $("#mmX").innerHTML = ic("close",20);
+
+  $("#barLinks").innerHTML = UCP.categories.slice(0,6).map((c)=>'<a href="#idx">'+nm(c)+'</a>').join("");
+  $("#acts").innerHTML =
+    '<a href="#" class="rxb">' + ic("rx",16) + '<span>' + t.rx + '</span></a>'
+    + '<button data-lang class="ib" style="width:auto;padding-inline:10px;font-size:var(--t-12);font-weight:700;color:var(--amber)">'
+      + (lang==="ar"?"EN":"ع") + '</button>'
+    + '<button class="ib" aria-label="'+t.account+'">' + ic("user",19) + '</button>'
+    + '<button class="ib" id="cartBtn" aria-label="'+t.cart+'">' + ic("cart",19)
+      + '<span class="cnt num" id="cnt" hidden>0</span></button>';
+  $("#cartBtn").onclick = () => drawer(true);
+
+  $("#kick").innerHTML = ic("clock",14) + (lang==="ar" ? "ابحث · أضف · استلم" : "Search · Add · Collect");
+  $("#h1").textContent = lang==="ar" ? "اكتب ما تحتاجه. نتكفّل بالباقي." : "Type what you need. We handle the rest.";
+  $("#sub").textContent = lang==="ar"
+    ? "أكثر من ٤٠٠٠ منتج، وصفاتك الطبية، واستشارة صيدلي — من حقل بحث واحد."
+    : "Over 4,000 products, your prescriptions and a pharmacist — from one search field.";
+  const hints = lang==="ar"
+    ? ["واقي شمس","فيتامين د","عدسات يومية","شامبو للقشرة","حفاضات مقاس ٤"]
+    : ["Sunscreen","Vitamin D","Daily lenses","Dandruff shampoo","Diapers size 4"];
+  $("#hints").innerHTML = '<span>' + (lang==="ar"?"الأكثر بحثًا":"Most searched") + '</span>'
+    + hints.map((h)=>'<a href="#rows">'+h+'</a>').join("");
+
+  $("#status").innerHTML = [
+    ["truck", t.etaValue, t.etaTitle],
+    ["store", UCP.branches.filter((b)=>b.open).length + (lang==="ar"?" فروع":" branches"), t.openNow],
+    ["rx", t.rx, t.rxDesc],
+    ["shield", lang==="ar"?"صيادلة مرخّصون":"Licensed pharmacists", lang==="ar"?"معلومة تجريبية":"placeholder claim"],
+  ].map((x)=>'<div>'+ic(x[0],21)+'<span><b>'+x[1]+'</b><span>'+x[2]+'</span></span></div>').join("");
+
+  $("#hdIdx").innerHTML = '<h2>'+t.cats+'</h2><a href="#" class="all">'+t.allCats+ic("next",15)+'</a>';
+  $("#idx").innerHTML = UCP.categories.map((c,i)=>
+    '<a href="#rows"><span class="n num">'+String(i+1).padStart(2,"0")+'</span>'
+    + '<span class="nm">'+nm(c)+'</span>'
+    + '<span class="c num">'+UCP.products.filter((p)=>p.cat===c.id).length+'</span></a>').join("")
+    // 11 categories in a 3-column index leaves one empty cell that reads as a
+    // rendering fault. The twelfth is the "all categories" exit, which closes
+    // the grid AND is genuinely useful.
+    + '<a href="#" style="background:var(--ink);color:var(--on-ink)">'
+    + '<span class="n" style="color:var(--amber)">12</span>'
+    + '<span class="nm">'+t.allCats+'</span>'
+    + '<span class="c" style="color:var(--amber)">'+ic("next",15)+'</span></a>';
+
+  const tabs = [["popular",t.popular],["offers",t.offers],["reorder",t.reorder],["picked",t.picked]];
+  $("#tabs").innerHTML = tabs.map((x)=>
+    '<button role="tab" data-tab="'+x[0]+'" aria-selected="'+(tab===x[0])+'">'+x[1]+'</button>').join("");
+  renderRows();
+
+  $("#fulH").innerHTML = ic("truck",18) + (lang==="ar"?"كيف تستلم طلبك":"How you get it");
+  $("#seg").innerHTML =
+    '<button data-ful="delivery" aria-pressed="'+(ful==="delivery")+'">'+t.delivery+'</button>'
+    + '<button data-ful="pickup" aria-pressed="'+(ful==="pickup")+'">'+t.pickup+'</button>';
+  $("#eta").innerHTML = ic("check",17) + (ful==="delivery"
+    ? '<span>'+t.etaTitle+' <b>'+t.etaValue+'</b><br><span style="color:var(--tx-faint);font-size:var(--t-12)">'+t.etaNote+'</span></span>'
+    : '<span>'+(lang==="ar"?"جاهز خلال":"Ready in")+' <b>'+(lang==="ar"?"٢٠ دقيقة":"20 minutes")+'</b><br><span style="color:var(--tx-faint);font-size:var(--t-12)">'+nm(UCP.branches[0])+'</span></span>');
+
+  const steps = lang==="ar" ? ["ارفع الوصفة","يراجعها صيدلي مرخّص","نجهّزها ونوصلها"]
+                            : ["Upload it","A pharmacist reviews it","We prepare and deliver"];
+  $("#rxcard").innerHTML = '<h3>'+t.rx+'</h3><p>'+t.rxDesc+'</p><ol>'
+    + steps.map((s,i)=>'<li><b>'+(i+1)+'</b><span>'+s+'</span></li>').join("")
+    + '</ol><button class="btn btn--amber btn--block" id="rxB" style="margin-top:16px">'+t.rx+'</button>';
+  $("#rxB").onclick = () => Shell.toast(t.rx + " — " + (lang==="ar"?"نموذج تصميم فقط":"design prototype only"));
+
+  const Ly = UCP.loyalty;
+  $("#loycard").innerHTML = '<small>'+t.balance+'</small>'
+    + '<div class="p num">'+Ly.points.toLocaleString("en-US")+'</div>'
+    + '<div style="font-size:var(--t-13);font-weight:700">'+(lang==="ar"?Ly.tierAr:Ly.tierEn)+' · '+t.points+'</div>'
+    + '<div class="bar2"><i style="width:'+(Ly.progress*100)+'%"></i></div>'
+    + '<div class="nx">'+Ly.toNext+' '+t.toNext+' '+(lang==="ar"?Ly.nextAr:Ly.nextEn)+'</div>';
+
+  $("#pkH").innerHTML = ic("gift",17) + t.packages;
+  $("#pkmini").innerHTML = UCP.bundles.map((b)=>
+    '<a href="#"><span class="av">'+bundleArt(b,{light:true})+'</span>'
+    + '<span style="flex:1;min-width:0"><b>'+nm(b)+'</b><span>'+(lang==="ar"?b.noteAr:b.noteEn)+'</span></span>'
+    + '<span class="price">'+priceHTML(b.price,lang)+'</span></a>').join("");
+
+  $("#svc").innerHTML = [
+    {i:"rx",b:t.rx,s:t.rxDesc},{i:"store",b:t.pickup,s:t.pickupDesc},
+    {i:"chat",b:t.tele,s:t.teleDesc},{i:"bell",b:t.vitamins,s:t.vitaminsDesc},
+  ].map((x)=>'<a href="#"><span class="i">'+ic(x.i,22)+'</span>'
+    + '<span><b>'+x.b+'</b><span>'+x.s+'</span></span></a>').join("");
+
+  $("#brands").innerHTML = UCP.brands.map((b)=>
+    '<a class="bcard" href="#">'+brandMark(b,"#12100C")+'<span>'+nm(b)+'</span></a>').join("");
+
+  $("#ftCols").innerHTML = footerCols();
+  $("#rights").textContent = "© 2026 " + t.brand + ". " + t.rights + ".";
+  $("#drT").textContent = t.cart; $("#drTot").textContent = t.total;
+  $("#drGo").textContent = t.checkout; $("#drNote").textContent = t.vat + " · " + t.phNote;
+  $("#mmB").innerHTML = '<div class="mm-t">'+t.services+'</div>'
+    + [["rx",t.rx],["chat",t.tele],["store",t.pickup],["gift",t.loyalty],["bell",t.vitamins]]
+      .map((x)=>'<a href="#">'+ic(x[0],20)+'<span>'+x[1]+'</span></a>').join("")
+    + '<div class="mm-t">'+t.cats+'</div>'
+    + UCP.categories.map((c)=>'<a href="#idx">'+ic(c.icon,20)+'<span>'+nm(c)+'</span></a>').join("");
+  renderCart();
+}
+
+function renderRows() {
+  const t = T(), lang = L();
+  $("#rows").innerHTML = Shell.list(tab).slice(0,12).map((p,i)=>{
+    const b = byId(UCP.brands,p.brand), off = offLabel(p,lang), q = Shell.qtyOf(p.id);
+    return '<div class="row" data-row="'+p.id+'">'
+      + '<span class="rk num">'+String(i+1).padStart(2,"0")+'</span>'
+      + '<span class="av">'+art(p,{light:true})+'</span>'
+      + '<span class="t"><b>'+nm(p)+'</b><span>'+nm(b)+'</span></span>'
+      + '<span class="meta num">'+p.size+'</span>'
+      + '<span class="pcell"><span class="price">'+priceHTML(p.price,lang)+'</span>'
+      + (p.was ? '<br><span class="off">'+off+'</span>' : "") + '</span>'
+      + '<span class="act">'+stepper(p.id,q,t)+'</span></div>';
+  }).join("");
+}
+function stepper(id,q,t) {
+  return q > 0
+    ? '<span class="step"><button data-q="-1" data-id="'+id+'" aria-label="−">'+ic("minus",16)+'</button>'
+      + '<span class="num">'+q+'</span>'
+      + '<button data-q="1" data-id="'+id+'" aria-label="+">'+ic("plus",16)+'</button></span>'
+    : '<button class="qa" data-add="'+id+'" aria-label="'+t.add+'">'+ic("plus",19)+'</button>';
+}
+
+function footerCols() {
+  const t = T(), lang = L();
+  const cols = lang==="ar"
+    ? [[t.ftAbout,["من نحن","فروعنا","الوظائف","تواصل معنا"]],
+       [t.ftService,["المساعدة","التوصيل","الإرجاع والاستبدال","الأسئلة الشائعة"]],
+       [t.ftShop,["كل الفئات","العلامات التجارية","العروض","الباقات"]],
+       [t.ftPharmacy,["طلب الوصفات","استشارة صيدلي","متابعة الفيتامينات","الاستلام من الفرع"]],
+       [t.ftLegal,["سياسة الخصوصية","الشروط والأحكام","سياسة الإرجاع","ملفات الارتباط"]]]
+    : [[t.ftAbout,["About us","Our branches","Careers","Contact us"]],
+       [t.ftService,["Help","Delivery","Returns","FAQ"]],
+       [t.ftShop,["All categories","Brands","Offers","Packages"]],
+       [t.ftPharmacy,["Prescriptions","Pharmacist consultation","Vitamin follow-up","Branch pickup"]],
+       [t.ftLegal,["Privacy policy","Terms","Return policy","Cookies"]]];
+  return '<div><img src="../brand/ucp-lockup.png" alt="UCP" style="height:72px;width:auto;margin-bottom:14px">'
+    + '<p style="font-size:var(--t-13);color:var(--on-ink-mut);max-width:30ch">'+t.brand+'</p>'
+    + '<p style="font-size:var(--t-11);color:#6E675D;margin-top:12px">'+t.phNote+'</p></div>'
+    + cols.map((c)=>'<div><h3>'+c[0]+'</h3><ul>'
+      + c[1].map((l)=>'<li><a href="#">'+l+'</a></li>').join("")+'</ul></div>').join("");
+}
+
+function renderCart() {
+  const t = T(), lang = L(), n = Shell.count(), c = $("#cnt");
+  if (c) { c.hidden = n===0; c.textContent = n; if (n) c.classList.add("pop"); }
+  $("#drSum").innerHTML = priceHTML(Shell.subtotal(), lang);
+  $("#drB").innerHTML = Shell.cart.length===0
+    ? '<p class="dr-empty">'+t.emptyCart+'</p>'
+    : Shell.cart.map((l)=>{ const p = byId(UCP.products,l.id);
+        return '<div class="dr-i"><span class="av">'+art(p,{light:true})+'</span>'
+          + '<div class="t"><b>'+nm(p)+'</b><span class="price">'+priceHTML(p.price*l.q,lang)+'</span>'
+          + '<div class="dr-q"><button data-q="-1" data-id="'+l.id+'" aria-label="−">'+ic("minus",15)+'</button>'
+          + '<span class="num">'+l.q+'</span>'
+          + '<button data-q="1" data-id="'+l.id+'" aria-label="+">'+ic("plus",15)+'</button></div></div></div>'; }).join("");
+}
+
+function wireSearch(inputSel, panelSel) {
+  const input = $(inputSel), panel = panelSel ? $(panelSel) : null;
+  input.addEventListener("input", () => {
+    if (!panel) return;
+    const t = T(), lang = L(), r = Shell.search(input.value);
+    if (input.value.trim().length < 2) { panel.classList.remove("on"); return; }
+    const none = !r.cats.length && !r.brands.length && !r.products.length;
+    panel.innerHTML = none
+      ? '<p style="padding:30px;text-align:center;color:var(--tx-faint)">'+t.noResults+'</p>'
+      : (r.cats.length ? '<div class="sug-h">'+t.cats+'</div>' + r.cats.map((c)=>
+          '<a class="sug-i" href="#idx"><span class="av" style="display:grid;place-items:center;background:var(--ink);color:var(--amber)">'
+          + ic(c.icon,20)+'</span><span class="t">'+nm(c)+'</span></a>').join("") : "")
+      + (r.products.length ? '<div class="sug-h">'+t.popular+'</div>' + r.products.map((p)=>
+          '<a class="sug-i" href="#rows"><span class="av">'+art(p,{light:true})+'</span>'
+          + '<span class="t">'+nm(p)+'<span>'+nm(byId(UCP.brands,p.brand))+'</span></span>'
+          + '<span class="price">'+priceHTML(p.price,lang)+'</span></a>').join("") : "");
+    panel.classList.add("on");
+  });
+  input.addEventListener("keydown",(e)=>{ if(e.key==="Escape" && panel) panel.classList.remove("on"); });
+}
+document.addEventListener("click",(e)=>{
+  const p = $("#sug");
+  if (p && !$(".big").contains(e.target)) p.classList.remove("on");
+  const tb = e.target.closest("[data-tab]");
+  if (tb) { tab = tb.dataset.tab;
+    document.querySelectorAll("[data-tab]").forEach((n)=>n.setAttribute("aria-selected", n.dataset.tab===tab));
+    renderRows(); return; }
+  const f = e.target.closest("[data-ful]");
+  if (f) { ful = f.dataset.ful; render(); }
+});
+
+const drawer = (on)=>{ $("#drawer").classList.toggle("on",on); $("#scrim").classList.toggle("on",on); };
+const menu   = (on)=>{ $("#mm").classList.toggle("on",on); $("#scrim").classList.toggle("on",on); };
+$("#drX").onclick=()=>drawer(false);
+$("#mmOpen").onclick=()=>menu(true);
+$("#mmX").onclick=()=>menu(false);
+$("#scrim").onclick=()=>{drawer(false);menu(false);};
+document.addEventListener("keydown",(e)=>{if(e.key==="Escape"){drawer(false);menu(false);}});
+
+// The inline stepper has to re-render its own row, not the whole table.
+Shell.onRender(() => { renderRows(); });
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+wireSearch("#q","#sug");
+wireSearch("#qm",null);
+</script>
+</body>
+</html>
