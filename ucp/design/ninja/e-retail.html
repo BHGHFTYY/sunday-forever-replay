@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — NINJA / E · RETAIL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ucp.css">
+<style>
+/* ===========================================================================
+   NINJA / E — RETAIL
+   ---------------------------------------------------------------------------
+   Built against a measured reference rather than from taste. The governing
+   rule, and the one every earlier execution broke:
+
+     THE BRAND COLOUR IS MOSTLY TEXT AND HAIRLINES, NOT FILL.
+
+   Vivid amber (#FFA300) appears as a large fill exactly TWICE on this page —
+   the services band and the loyalty band — plus the logo. Everywhere else the
+   brand reads as --amber-900 (#8A5400, 6.27:1 on white), which is the same
+   hue at a lightness that can legally be text. That single change is what
+   separates a storefront from a swatch.
+
+   The primary action is ESPRESSO, compact, and auto-width. Not amber, not
+   full-bleed, not once per card. A grid of forty saturated buttons is the
+   loudest thing a page can do, and it should never be spent on "add to cart".
+
+   Density is deliberate. Six module TYPES alternate — announcement, campaign
+   band, promo duo, product rail, saturated service band, tinted editorial —
+   so the page never settles into heading/grid/heading/grid.
+
+   Packshots sit on one warm tile (--paper-3) with no border and no gradient,
+   the way every retailer that shoots on white presents cut-outs.
+   =========================================================================== */
+
+.wrap { width:100%; max-width:1320px; margin-inline:auto; padding-inline:16px; }
+@media (min-width:900px) { .wrap { padding-inline:32px; } }
+
+body { font-size:var(--t-15); }
+
+/* --- announcement -------------------------------------------------------- */
+.ann { background:var(--paper-3); text-align:center; padding:10px 16px; }
+.ann b { display:block; font-size:var(--t-14); font-weight:700; }
+.ann span { font-size:var(--t-13); color:var(--tx-mut); }
+
+/* --- header -------------------------------------------------------------- */
+.hd { position:sticky; top:0; z-index:60; background:var(--paper); border-bottom:1px solid var(--line); }
+.hd-in { display:flex; align-items:center; gap:14px; height:66px; }
+.logo { display:flex; align-items:center; gap:10px; flex:none; }
+.logo img { height:38px; width:auto; }
+.logo .lt { display:none; line-height:1.1; }
+@media (min-width:1080px) { .logo .lt { display:block; } }
+.logo .lt b { display:block; font-family:var(--disp); font-size:var(--t-16); font-weight:800; }
+.logo .lt span { font-size:var(--t-11); color:var(--tx-mut); }
+
+.srch { flex:1; min-width:0; position:relative; display:none; }
+@media (min-width:760px) { .srch { display:block; } }
+.srch input {
+  width:100%; height:44px; border:1.5px solid var(--tx); border-radius:var(--r-2);
+  background:var(--paper); padding-inline:44px 14px; font-size:var(--t-14);
+}
+.srch input::placeholder { color:var(--tx-mut); }
+.srch .si { position:absolute; inset-block:0; inset-inline-start:14px; display:flex; align-items:center; color:var(--tx); pointer-events:none; }
+.hd-acts { display:flex; align-items:center; gap:2px; margin-inline-start:auto; flex:none; }
+.iact { display:flex; flex-direction:column; align-items:center; gap:1px; padding:6px 9px; border-radius:var(--r-2); position:relative; }
+.iact:hover { background:var(--paper-3); }
+.iact span { font-size:10px; font-weight:600; color:var(--tx-mut); }
+.iact .cnt {
+  position:absolute; inset-block-start:2px; inset-inline-end:4px; min-width:17px; height:17px;
+  background:var(--ink); color:var(--on-ink); border-radius:9px; font-size:10px; font-weight:700;
+  display:grid; place-items:center; padding-inline:4px;
+}
+.lang { border:1px solid var(--line-2); border-radius:var(--r-2); height:34px; padding-inline:11px; font-size:var(--t-12); font-weight:700; }
+.lang:hover { border-color:var(--tx); }
+
+/* mobile search sits on its own row, so it is never cramped */
+.srch-m { display:block; padding-block:0 12px; }
+@media (min-width:760px) { .srch-m { display:none; } }
+.srch-m .srch { display:block; }
+
+/* --- category nav -------------------------------------------------------- */
+.cnav { border-bottom:1px solid var(--line); background:var(--paper); }
+.cnav ul { display:flex; gap:0; align-items:center; }
+.cnav a {
+  display:block; padding:13px 14px; font-size:var(--t-14); font-weight:600; white-space:nowrap;
+  border-bottom:2.5px solid transparent;
+}
+.cnav a:hover { border-bottom-color:var(--amber); }
+
+/* --- section furniture --------------------------------------------------- */
+.sec { padding-block:44px; }
+@media (max-width:759px) { .sec { padding-block:32px; } }
+.sh { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:18px; }
+.sh h2 { font-size:var(--t-26); font-weight:800; letter-spacing:-.01em; }
+@media (min-width:900px) { .sh h2 { font-size:var(--t-34); } }
+.sh .cnt2 { font-size:var(--t-13); color:var(--tx-mut); margin-top:2px; }
+.sh a.all { font-size:var(--t-14); font-weight:600; text-decoration:underline; text-underline-offset:4px; flex:none; margin-top:9px; }
+.sh a.all:hover { color:var(--amber-900); }
+
+/* --- horizontal rails: bleed to the edge so the row reads as scrollable --- */
+.rail { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:4px; }
+.rail::-webkit-scrollbar { display:none; }
+.rail { scrollbar-width:none; }
+.rail > * { scroll-snap-align:start; flex:none; }
+
+/* --- product card -------------------------------------------------------- */
+.pc { width:180px; display:flex; flex-direction:column; }
+@media (min-width:760px) { .pc { width:215px; } }
+.pc .tile {
+  position:relative; background:var(--paper-3); border-radius:var(--r-2);
+  aspect-ratio:4/5; display:grid; place-items:center; overflow:hidden;
+}
+.pc .tile { padding:9% 7%; }
+.pc .tile svg { width:100%; height:100%; }
+.pc .sale {
+  position:absolute; inset-block-start:10px; inset-inline-start:11px;
+  font-size:var(--t-13); font-weight:700; color:var(--tx);
+}
+.pc .sz {
+  position:absolute; inset-block-end:9px; inset-inline-start:11px;
+  font-size:var(--t-12); color:var(--tx-mut);
+}
+.pc .br { margin-top:11px; font-size:var(--t-14); font-weight:700; line-height:1.3; }
+.pc .nm { font-size:var(--t-14); color:var(--tx); line-height:1.45; margin-top:2px; }
+.pc .pr { margin-top:7px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap; }
+.pc .pr .now { font-family:var(--text); font-size:var(--t-16); font-weight:600; }
+.pc .pr .now.cut { color:var(--amber-900); font-weight:700; }
+.pc .pr s { font-size:var(--t-13); color:var(--tx-faint); text-decoration-thickness:1px; }
+.pc .pr .cur { font-size:var(--t-12); font-weight:500; color:inherit; }
+/* auto width, espresso, one per card — never a wall of brand colour */
+.pc .add {
+  margin-top:10px; align-self:flex-start; height:38px; padding-inline:18px;
+  background:var(--ink); color:var(--on-ink); border-radius:var(--r-2);
+  font-size:var(--t-13); font-weight:700; display:inline-flex; align-items:center; gap:7px;
+  transition:background var(--fast);
+}
+.pc .add:hover { background:var(--ink-800); }
+.pc .add.ok { background:var(--jade); }
+
+/* --- campaign hero ------------------------------------------------------- */
+.hero { background:var(--amber-tint); }
+.hero-in { display:grid; gap:0; align-items:stretch; }
+@media (min-width:900px) { .hero-in { grid-template-columns:1.05fr .95fr; } }
+.hero-tx { padding-block:34px 30px; align-self:center; }
+@media (min-width:900px) { .hero-tx { padding-block:54px; padding-inline-end:24px; } }
+.hero .eyebrow {
+  font-size:var(--t-12); font-weight:700; color:var(--amber-900);
+  text-transform:uppercase; letter-spacing:.09em; margin-bottom:10px;
+}
+html[lang="ar"] .hero .eyebrow { text-transform:none; }
+.hero h1 { font-size:var(--t-34); font-weight:900; letter-spacing:-.015em; }
+@media (min-width:640px) { .hero h1 { font-size:var(--t-44); } }
+@media (min-width:1100px) { .hero h1 { font-size:var(--t-60); } }
+.hero p.sub { margin-top:12px; font-size:var(--t-16); max-width:34ch; color:var(--tx); }
+.hero .cta { display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
+/* outlined, on the tint — the reference's own move, and it keeps amber scarce */
+.hero .cta .b1 {
+  height:48px; padding-inline:26px; border-radius:999px; background:var(--paper);
+  border:1.5px solid var(--ink); font-size:var(--t-15); font-weight:700;
+  display:inline-flex; align-items:center; gap:8px; transition:background var(--fast);
+}
+.hero .cta .b1:hover { background:var(--ink); color:var(--on-ink); }
+.hero-art { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; align-items:end; padding-block:0 30px; }
+@media (min-width:900px) { .hero-art { padding-block:44px; } }
+.hero-art .hp { background:var(--paper); border-radius:var(--r-2); aspect-ratio:3/4; display:grid; place-items:center; padding:9% 7%; }
+.hero-art .hp svg { width:100%; height:100%; }
+.hero-art .hp:nth-child(2) { aspect-ratio:3/4.6; }
+
+/* --- promo duo ----------------------------------------------------------- */
+.duo { display:grid; gap:14px; grid-template-columns:1fr; }
+@media (min-width:700px) { .duo { grid-template-columns:1fr 1fr; } }
+.promo { background:var(--paper-3); border-radius:var(--r-2); padding:16px; display:flex; gap:16px; align-items:center; }
+.promo .pi { width:38%; max-width:190px; flex:none; background:var(--paper); border-radius:var(--r-2); aspect-ratio:1; display:grid; place-items:center; padding:8%; }
+.promo .pi svg { width:100%; height:100%; }
+.promo .chip { font-size:var(--t-12); font-weight:700; color:var(--amber-900); }
+.promo h3 { font-size:var(--t-21); font-weight:800; margin-top:4px; }
+.promo p { font-size:var(--t-14); color:var(--tx-mut); margin-top:3px; }
+.promo .pp { margin-top:9px; font-size:var(--t-18); font-weight:700; color:var(--amber-900); }
+.promo .pp s { font-size:var(--t-13); font-weight:400; color:var(--tx-faint); margin-inline-start:7px; }
+
+/* --- editorial duo / trio ------------------------------------------------ */
+.ed { display:grid; gap:16px; grid-template-columns:repeat(2,1fr); }
+@media (min-width:900px) { .ed.three { grid-template-columns:repeat(3,1fr); } }
+.ed .card .im { background:var(--paper-3); border-radius:var(--r-2); aspect-ratio:16/10; display:grid; place-items:center; color:var(--amber-900); }
+.ed .card h3 { font-size:var(--t-18); font-weight:800; margin-top:11px; }
+@media (min-width:900px) { .ed .card h3 { font-size:var(--t-21); } }
+.ed .card p { font-size:var(--t-14); color:var(--tx-mut); margin-top:3px; }
+
+/* --- the one saturated band ---------------------------------------------- */
+.band { background:var(--amber); color:var(--on-amber); padding-block:40px; }
+.band .eyebrow { font-size:var(--t-12); font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+html[lang="ar"] .band .eyebrow { text-transform:none; }
+.band h2 { font-size:var(--t-34); font-weight:900; margin-top:6px; }
+@media (min-width:900px) { .band h2 { font-size:var(--t-44); } }
+.band .cta { display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
+.band .cta a {
+  height:46px; padding-inline:24px; border-radius:999px; background:var(--paper);
+  border:1.5px solid var(--ink); font-size:var(--t-15); font-weight:700;
+  display:inline-flex; align-items:center; gap:8px; transition:background var(--fast), color var(--fast);
+}
+.band .cta a:hover { background:var(--ink); color:var(--on-ink); }
+.band .cards { display:grid; gap:14px; grid-template-columns:1fr; margin-top:24px; }
+@media (min-width:700px) { .band .cards { grid-template-columns:1fr 1fr; } }
+.band .cards .c { background:var(--amber-tint); border-radius:var(--r-2); padding:18px; }
+.band .cards .c .ci { color:var(--amber-900); }
+.band .cards .c h3 { font-size:var(--t-18); font-weight:800; margin-top:9px; }
+.band .cards .c p { font-size:var(--t-14); color:var(--tx-mut); margin-top:4px; }
+
+/* --- tinted editorial band ----------------------------------------------- */
+.tint { background:var(--paper-2); padding-block:44px; }
+.tint .sh { justify-content:center; text-align:center; flex-direction:column; align-items:center; gap:2px; }
+
+/* --- brands -------------------------------------------------------------- */
+.brands { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+@media (min-width:700px) { .brands { grid-template-columns:repeat(4,1fr); } }
+@media (min-width:1000px) { .brands { grid-template-columns:repeat(8,1fr); } }
+.brands a {
+  border:1px solid var(--line); border-radius:var(--r-2); aspect-ratio:16/9;
+  display:grid; place-items:center; transition:border-color var(--fast);
+}
+.brands a:hover { border-color:var(--tx); }
+.brands svg { width:86%; }
+
+/* --- loyalty ------------------------------------------------------------- */
+.loy { background:var(--ink); color:var(--on-ink); padding-block:36px; }
+.loy-in { display:grid; gap:20px; align-items:center; }
+@media (min-width:860px) { .loy-in { grid-template-columns:1.1fr .9fr; } }
+.loy .eyebrow { font-size:var(--t-12); font-weight:700; color:var(--amber); letter-spacing:.09em; text-transform:uppercase; }
+html[lang="ar"] .loy .eyebrow { text-transform:none; }
+.loy h2 { font-size:var(--t-26); font-weight:800; margin-top:6px; }
+@media (min-width:900px) { .loy h2 { font-size:var(--t-34); } }
+.loy p { color:var(--on-ink-mut); font-size:var(--t-15); margin-top:6px; }
+.loy .meter { margin-top:16px; }
+.loy .meter .bar { height:6px; background:var(--ink-800); border-radius:3px; overflow:hidden; }
+.loy .meter .bar i { display:block; height:100%; background:var(--amber); }
+.loy .meter .lb { display:flex; justify-content:space-between; font-size:var(--t-13); margin-top:8px; color:var(--on-ink-mut); }
+.loy .meter .lb b { color:var(--on-ink); }
+.loy .join {
+  margin-top:18px; height:48px; padding-inline:26px; border-radius:999px;
+  background:var(--amber); color:var(--on-amber); font-weight:700; font-size:var(--t-15);
+  display:inline-flex; align-items:center; gap:8px;
+}
+.loy .join:hover { background:var(--amber-400); }
+
+/* --- footer -------------------------------------------------------------- */
+.ft { background:var(--ink-950); color:var(--on-ink-mut); padding-block:40px 24px; }
+.ft-cols { display:grid; gap:26px; grid-template-columns:1fr 1fr; }
+@media (min-width:860px) { .ft-cols { grid-template-columns:1.4fr repeat(4,1fr); } }
+.ft h4 { font-family:var(--text); font-size:var(--t-13); font-weight:700; color:var(--on-ink); letter-spacing:.06em; text-transform:uppercase; margin-bottom:11px; }
+html[lang="ar"] .ft h4 { text-transform:none; letter-spacing:normal; }
+.ft li a { display:block; padding-block:5px; font-size:var(--t-14); }
+.ft li a:hover { color:var(--amber); }
+.ft .lead img { height:54px; width:auto; margin-bottom:12px; }
+.ft .lead p { font-size:var(--t-14); max-width:34ch; }
+.ft .bot { border-top:1px solid var(--line-ink); margin-top:28px; padding-top:18px; font-size:var(--t-12); display:flex; flex-wrap:wrap; gap:10px 20px; justify-content:space-between; }
+
+/* --- toast --------------------------------------------------------------- */
+.ucp-toast {
+  position:fixed; inset-block-end:20px; inset-inline-start:50%; transform:translate(50%,16px);
+  background:var(--ink); color:var(--on-ink); padding:12px 18px; border-radius:var(--r-2);
+  display:flex; align-items:center; gap:9px; font-size:var(--t-14); font-weight:600;
+  opacity:0; pointer-events:none; transition:opacity var(--mid), transform var(--mid); z-index:200;
+}
+[dir="ltr"] .ucp-toast { transform:translate(-50%,16px); }
+.ucp-toast.on { opacity:1; transform:translate(50%,0); }
+[dir="ltr"] .ucp-toast.on { transform:translate(-50%,0); }
+.ucp-toast .i { color:var(--amber); display:flex; }
+</style>
+</head>
+<body>
+<a href="#main" class="u-skip">تخطَّ إلى المحتوى</a>
+<div class="proto"><b>UCP NINJA / E · RETAIL</b> — <span id="protoTx"></span></div>
+
+<div class="ann"><b id="annB"></b><span id="annS"></span></div>
+
+<header class="hd">
+  <div class="wrap hd-in">
+    <a href="#" class="logo"><img src="../brand/ucp-mark.png" alt="UCP">
+      <span class="lt"><b id="lgB"></b><span id="lgS"></span></span></a>
+    <div class="srch"><span class="si" id="si1"></span><input id="q1" type="search" autocomplete="off"></div>
+    <div class="hd-acts">
+      <button class="lang" data-lang>EN</button>
+      <a href="#" class="iact" id="acc"></a>
+      <a href="#" class="iact" id="crt"></a>
+    </div>
+  </div>
+  <div class="wrap srch-m"><div class="srch"><span class="si" id="si2"></span><input id="q2" type="search" autocomplete="off"></div></div>
+</header>
+
+<nav class="cnav" aria-label="categories"><div class="wrap u-scroll"><ul id="cnav"></ul></div></nav>
+
+<main id="main">
+  <section class="hero"><div class="wrap hero-in">
+    <div class="hero-tx">
+      <div class="eyebrow" id="hEy"></div>
+      <h1 id="hH"></h1>
+      <p class="sub" id="hP"></p>
+      <div class="cta"><a class="b1" id="hB1"></a><a class="b1" id="hB2"></a></div>
+    </div>
+    <div class="hero-art" id="hArt"></div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sh"><div><h2 id="t1"></h2><div class="cnt2" id="c1"></div></div><a href="#" class="all" id="a1"></a></div>
+    <div class="duo" id="promoDuo"></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0"><div class="wrap">
+    <div class="sh"><div><h2 id="t2"></h2><div class="cnt2" id="c2"></div></div><a href="#" class="all" id="a2"></a></div>
+    <div class="rail" id="rail1"></div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="eyebrow" id="bEy"></div>
+    <h2 id="bH"></h2>
+    <div class="cta"><a id="bB1"></a><a id="bB2"></a></div>
+    <div class="cards" id="bCards"></div>
+  </div></section>
+
+  <section class="tint"><div class="wrap">
+    <div class="sh"><h2 id="t3"></h2><div class="cnt2" id="c3"></div></div>
+    <div class="ed three" id="ed3"></div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="sh"><div><h2 id="t4"></h2><div class="cnt2" id="c4"></div></div><a href="#" class="all" id="a4"></a></div>
+    <div class="rail" id="rail2"></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0"><div class="wrap">
+    <div class="sh"><h2 id="t5"></h2><a href="#" class="all" id="a5"></a></div>
+    <div class="brands" id="brands"></div>
+  </div></section>
+
+  <section class="loy"><div class="wrap loy-in">
+    <div>
+      <div class="eyebrow" id="lEy"></div>
+      <h2 id="lH"></h2><p id="lP"></p>
+      <button class="join" id="lB"></button>
+    </div>
+    <div class="meter">
+      <div class="bar"><i id="lBar"></i></div>
+      <div class="lb"><span id="lL1"></span><span id="lL2"></span></div>
+    </div>
+  </div></section>
+</main>
+
+<footer class="ft"><div class="wrap">
+  <div class="ft-cols" id="ftCols"></div>
+  <div class="bot"><span id="ftR"></span><span id="ftN"></span></div>
+</div></footer>
+
+<script src="ucp.js"></script>
+<script>
+/* Rendering only. Every datum, string and price comes from ucp.js, so this
+   execution differs from the others in composition alone. */
+const $ = (s) => document.querySelector(s);
+const set = (id, html) => { const e = document.getElementById(id); if (e) e.innerHTML = html; };
+
+function priceBlock(p, L) {
+  const cut = !!p.was;
+  return '<div class="pr"><span class="now' + (cut ? ' cut' : '') + '">' + priceHTML(p.price, L) + '</span>'
+    + (cut ? wasHTML(p.was, L) : '') + '</div>';
+}
+
+function card(p) {
+  const L = Shell.lang, T = Shell.T(), b = byId(UCP.brands, p.brand);
+  const q = Shell.qtyOf(p.id);
+  return '<article class="pc">'
+    + '<a href="#" class="tile">' + art(p, { light: true })
+      + (p.was ? '<span class="sale">' + T.sale + '</span>' : '')
+      + '<span class="sz num">' + p.size + '</span></a>'
+    + '<div class="br">' + Shell.nm(b) + '</div>'
+    + '<a href="#" class="nm">' + Shell.nm(p) + '</a>'
+    + priceBlock(p, L)
+    + '<button class="add' + (q ? ' ok' : '') + '" data-add="' + p.id + '">'
+      + ic(q ? 'check' : 'plus', 15) + '<span>' + (q ? T.added : T.add) + '</span></button>'
+    + '</article>';
+}
+
+function render() {
+  const L = Shell.lang, T = Shell.T(), n = Shell.nm;
+  const ar = L === 'ar';
+
+  set('protoTx', T.proto);
+  set('annB', ar ? 'توصيل خلال ٦٠ دقيقة داخل الرياض' : 'Delivery in 60 minutes inside Riyadh');
+  set('annS', ar ? 'من فروعنا المفتوحة الآن · بيانات النموذج تجريبية' : 'From branches open right now · prototype data');
+  set('lgB', T.short); set('lgS', T.tag);
+  set('si1', ic('search', 19)); set('si2', ic('search', 19));
+  $('#q1').placeholder = T.searchPh; $('#q2').placeholder = T.searchPh;
+  document.querySelector('.lang').textContent = ar ? 'EN' : 'ع';
+  set('acc', ic('user', 21) + '<span>' + T.account + '</span>');
+  const c = Shell.count();
+  set('crt', ic('cart', 21) + '<span>' + T.cart + '</span>' + (c ? '<i class="cnt num">' + c + '</i>' : ''));
+
+  set('cnav', UCP.categories.map((x) => '<li><a href="#">' + n(x) + '</a></li>').join(''));
+
+  /* hero */
+  set('hEy', ar ? 'صيدلية العناية العاجلة' : 'Urgent Care Pharmacy');
+  set('hH', ar ? 'دواؤك وصل قبل ما تقوم.' : 'Your medicine, before you get up.');
+  set('hP', ar ? 'ارفع وصفتك أو اطلب من أكثر من ٤٠٠٠ منتج، ويصلك من أقرب فرع مفتوح.'
+               : 'Upload a prescription or order from 4,000+ products, delivered from the nearest open branch.');
+  $('#hB1').innerHTML = T.rx + ic('next', 16); $('#hB1').href = '#';
+  $('#hB2').innerHTML = T.shopNow; $('#hB2').href = '#';
+  set('hArt', Shell.list('top').slice(0, 3)
+    .map((p) => '<div class="hp">' + art(p, { light: true }) + '</div>').join(''));
+
+  /* promo duo — the two deepest real discounts, not a badge on everything */
+  set('t1', T.offers); set('a1', T.viewAll);
+  const offers = Shell.list('offers');
+  set('c1', offers.length + ' ' + T.items);
+  set('promoDuo', offers.slice(0, 2).map((p) => {
+    const b = byId(UCP.brands, p.brand);
+    return '<a href="#" class="promo"><div class="pi">' + art(p, { light: true }) + '</div>'
+      + '<div><div class="chip">' + T.off + ' ' + offLabel(p, L) + '</div>'
+      + '<h3>' + n(b) + '</h3><p>' + n(p) + '</p>'
+      + '<div class="pp">' + priceHTML(p.price, L) + '<s>' + priceHTML(p.was, L) + '</s></div></div></a>';
+  }).join(''));
+
+  /* rail 1 */
+  set('t2', T.popular); set('a2', T.viewAll);
+  const top = Shell.list('top');
+  set('c2', top.length + ' ' + T.items);
+  set('rail1', top.slice(0, 10).map(card).join(''));
+
+  /* the one saturated band */
+  set('bEy', ar ? 'خدمات صيدلية' : 'Pharmacy services');
+  set('bH', ar ? 'صيدلي معك، لا رفّ فقط.' : 'A pharmacist, not just a shelf.');
+  $('#bB1').innerHTML = T.rx; $('#bB1').href = '#';
+  $('#bB2').innerHTML = T.tele; $('#bB2').href = '#';
+  set('bCards', [['rx', T.rx, T.rxDesc], ['chat', T.tele, T.teleDesc]]
+    .map((x) => '<div class="c"><div class="ci">' + ic(x[0], 26) + '</div><h3>' + x[1] + '</h3><p>' + x[2] + '</p></div>').join(''));
+
+  /* tinted editorial */
+  set('t3', T.services);
+  set('c3', ar ? 'ما نقدّمه إلى جانب البيع' : 'What we do besides selling');
+  set('ed3', [['truck', T.delivery, T.deliveryDesc], ['store', T.pickup, T.pickupDesc], ['bell', T.vitamins, T.vitaminsDesc]]
+    .map((x) => '<a href="#" class="card"><div class="im">' + ic(x[0], 34) + '</div><h3>' + x[1] + '</h3><p>' + x[2] + '</p></a>').join(''));
+
+  /* rail 2 */
+  set('t4', T.picked); set('a4', T.viewAll);
+  const pick = Shell.list('picked');
+  set('c4', pick.length + ' ' + T.items);
+  set('rail2', pick.slice(0, 10).map(card).join(''));
+
+  /* brands */
+  set('t5', T.brands); set('a5', T.viewAll);
+  set('brands', UCP.brands.map((b) => '<a href="#">' + brandMark(b, '#2A1E14') + '</a>').join(''));
+
+  /* loyalty */
+  const ly = UCP.loyalty;
+  set('lEy', T.loyalty); set('lH', ar ? 'كل ريال يرجع لك نقطة.' : 'Every riyal earns a point.');
+  set('lP', T.loyaltyDesc);
+  $('#lB').innerHTML = ar ? 'انضم الآن' : 'Join now';
+  $('#lBar').style.width = Math.round(ly.progress * 100) + '%';
+  set('lL1', '<b class="num">' + ly.points + '</b> ' + T.points);
+  set('lL2', '<span class="num">' + ly.toNext + '</span> ' + T.toNext + ' <b>' + (ar ? ly.nextAr : ly.nextEn) + '</b>');
+
+  /* footer */
+  const cols = [
+    [T.ftShop, UCP.categories.slice(0, 5).map(n)],
+    [T.ftPharmacy, [T.rx, T.tele, T.pickup, T.vitamins, T.loyalty]],
+    [T.ftAbout, [T.brand, ar ? 'فروعنا' : 'Our branches', ar ? 'وظائف' : 'Careers', ar ? 'تواصل معنا' : 'Contact']],
+    [T.ftLegal, [ar ? 'الشروط' : 'Terms', ar ? 'الخصوصية' : 'Privacy', ar ? 'الاستبدال' : 'Returns']],
+  ];
+  set('ftCols',
+    '<div class="lead"><img src="../brand/ucp-lockup.png" alt="UCP"><p>' + T.phNote + '</p></div>'
+    + cols.map((col) => '<div><h4>' + col[0] + '</h4><ul>'
+        + col[1].map((x) => '<li><a href="#">' + x + '</a></li>').join('') + '</ul></div>').join(''));
+  set('ftR', '© ' + new Date().getFullYear() + ' ' + T.brand + ' — ' + T.rights);
+  set('ftN', T.vat);
+}
+
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang('ar');
+</script>
+</body>
+</html>

@@ -53,13 +53,13 @@ const UCP = {
     { id:"p3",  brand:"ordinary", cat:"face",     form:"dropper", ar:"ذا أوردينري نياسيناميد ١٠٪",       en:"The Ordinary Niacinamide 10%",    price:45,  was:null, size:"30 ml",  rank:3,  tags:["popular"] },
     { id:"p4",  brand:"laroche",  cat:"face",     form:"tube",    ar:"لاروش بوزيه توليريان مرطب",        en:"La Roche-Posay Toleriane Cream",  price:129, was:null, size:"40 ml",  rank:9,  tags:[] },
     { id:"p5",  brand:"bioderma", cat:"face",     form:"bottle",  ar:"بيوديرما سنسيبيو ماء ميسيلار",     en:"Bioderma Sensibio H2O",           price:89,  was:110, size:"500 ml",  rank:4,  tags:["offer","popular"] },
-    { id:"p6",  brand:"vichy",    cat:"hair",     form:"bottle",  ar:"فيشي ديركوس شامبو مقوٍ",           en:"Vichy Dercos Energising Shampoo", price:115, was:139, size:"400 ml",  rank:10, tags:["offer"] },
-    { id:"p7",  brand:"eucerin",  cat:"body",     form:"pump",    ar:"أوسرين لوشن اليوريا ١٠٪",          en:"Eucerin UreaRepair 10% Lotion",   price:119, was:142, size:"250 ml",  rank:11, tags:["offer"] },
+    { id:"p6",  brand:"vichy",    cat:"hair",     form:"bottle",  ar:"فيشي ديركوس شامبو مقوٍ",           en:"Vichy Dercos Energising Shampoo", price:115, was:null, size:"400 ml",  rank:10, tags:["offer"] },
+    { id:"p7",  brand:"eucerin",  cat:"body",     form:"pump",    ar:"أوسرين لوشن اليوريا ١٠٪",          en:"Eucerin UreaRepair 10% Lotion",   price:119, was:null, size:"250 ml",  rank:11, tags:["offer"] },
     { id:"p8",  brand:"sensodyne",cat:"oral",     form:"carton",  ar:"سنسوداين معجون ريبير آند بروتكت",  en:"Sensodyne Repair & Protect",      price:32,  was:39,  size:"75 ml",   rank:5,  tags:["offer","popular"] },
-    { id:"p9",  brand:"oralb",    cat:"oral",     form:"device",  ar:"أورال-بي فرشاة كهربائية",          en:"Oral-B Vitality Electric Brush",  price:149, was:189, size:"1 unit",  rank:12, tags:["offer"] },
+    { id:"p9",  brand:"oralb",    cat:"oral",     form:"device",  ar:"أورال-بي فرشاة كهربائية",          en:"Oral-B Vitality Electric Brush",  price:149, was:null, size:"1 unit",  rank:12, tags:["offer"] },
     { id:"p10", brand:"centrum",  cat:"vitamins", form:"jar",     ar:"سنتروم فيتامينات متعددة",          en:"Centrum Adults Multivitamin",     price:95,  was:115, size:"60 tabs", rank:6,  tags:["offer","popular","reorder"] },
     { id:"p11", brand:"solgar",   cat:"vitamins", form:"jar",     ar:"سولجار فيتامين د٣ ١٠٠٠",           en:"Solgar Vitamin D3 1000 IU",       price:79,  was:null, size:"100 sg", rank:7,  tags:["popular","reorder"] },
-    { id:"p12", brand:"acuvue",   cat:"lenses",   form:"lens",    ar:"أكيوفيو موست عدسات يومية",         en:"Acuvue Moist Daily Lenses",       price:149, was:179, size:"30 lens", rank:8,  tags:["offer","popular"] },
+    { id:"p12", brand:"acuvue",   cat:"lenses",   form:"lens",    ar:"أكيوفيو موست عدسات يومية",         en:"Acuvue Moist Daily Lenses",       price:149, was:null, size:"30 lens", rank:8,  tags:["offer","popular"] },
     { id:"p13", brand:"omron",    cat:"devices",  form:"device",  ar:"أومرون جهاز قياس الضغط",           en:"Omron M3 Blood Pressure Monitor", price:329, was:399, size:"1 unit",  rank:13, tags:["offer"] },
     { id:"p14", brand:"nivea",    cat:"body",     form:"tube",    ar:"نيفيا لوشن الجسم المغذي",          en:"Nivea Nourishing Body Lotion",    price:29,  was:null, size:"400 ml", rank:14, tags:["reorder"] },
     { id:"p15", brand:"pampers",  cat:"baby",     form:"carton",  ar:"بامبرز حفاضات بريميوم مقاس ٤",     en:"Pampers Premium Care Size 4",     price:89,  was:109, size:"52 pcs",  rank:15, tags:["offer","reorder"] },
@@ -67,9 +67,9 @@ const UCP = {
     { id:"p17", brand:"laroche",  cat:"feminine", form:"bottle",  ar:"لاروش بوزيه غسول نسائي مهدئ",      en:"La Roche-Posay Intimate Wash",    price:79,  was:null, size:"200 ml", rank:17, tags:[] },
     { id:"p18", brand:"oralb",    cat:"oral",     form:"carton",  ar:"أورال-بي خيط أسنان",               en:"Oral-B Essential Dental Floss",   price:14,  was:null, size:"50 m",   rank:18, tags:[] },
     { id:"p19", brand:"cerave",   cat:"body",     form:"jar",     ar:"سيرافي كريم مرطب",                 en:"CeraVe Moisturising Cream",       price:96,  was:120, size:"454 g",   rank:19, tags:["offer","reorder"] },
-    { id:"p20", brand:"vichy",    cat:"face",     form:"dropper", ar:"فيشي ليفت أكتيف سيروم فيتامين سي", en:"Vichy Liftactiv Vitamin C Serum", price:219, was:265, size:"20 ml",   rank:20, tags:["offer"] },
+    { id:"p20", brand:"vichy",    cat:"face",     form:"dropper", ar:"فيشي ليفت أكتيف سيروم فيتامين سي", en:"Vichy Liftactiv Vitamin C Serum", price:219, was:null, size:"20 ml",   rank:20, tags:["offer"] },
     { id:"p21", brand:"centrum",  cat:"medicine", form:"carton",  ar:"أقراص مسكّنة للألم",               en:"Pain Relief Tablets",             price:16,  was:null, size:"24 tabs",rank:21, tags:["reorder"] },
-    { id:"p22", brand:"centrum",  cat:"medicine", form:"bottle",  ar:"شراب للسعال",                      en:"Cough Syrup",                     price:27,  was:34,  size:"120 ml",  rank:22, tags:["offer"] },
+    { id:"p22", brand:"centrum",  cat:"medicine", form:"bottle",  ar:"شراب للسعال",                      en:"Cough Syrup",                     price:27,  was:null,  size:"120 ml",  rank:22, tags:["offer"] },
     { id:"p23", brand:"nivea",    cat:"makeup",   form:"tube",    ar:"مرطب شفاه ملوّن",                  en:"Tinted Lip Balm",                 price:19,  was:null, size:"4.8 g",  rank:23, tags:[] },
     { id:"p24", brand:"nivea",    cat:"makeup",   form:"dropper", ar:"كريم أساس خفيف",                   en:"Lightweight Foundation",          price:55,  was:69,  size:"30 ml",   rank:24, tags:["offer"] },
   ],
@@ -104,7 +104,7 @@ const UCP = {
       popular:"الأكثر طلبًا", offers:"عروض اليوم", packages:"باقات مختارة",
       reorder:"أعد طلب مشترياتك", picked:"مختارات لك", services:"خدمات UCP",
       add:"أضف للسلة", added:"تمت الإضافة", outOfStock:"نفد المخزون", lowStock:"كمية محدودة",
-      off:"خصم", save:"توفير", vat:"شامل الضريبة", riyal:"ر.س", items:"منتج",
+      off:"خصم", sale:"تخفيض", save:"توفير", vat:"شامل الضريبة", riyal:"ر.س", items:"منتج",
       points:"نقطة", balance:"رصيدك", toNext:"نقطة للوصول إلى",
       free:"مجاني", total:"الإجمالي", checkout:"إتمام الطلب", emptyCart:"سلتك فارغة",
       etaTitle:"التوصيل خلال", etaValue:"٦٠ دقيقة", etaNote:"للطلبات داخل الرياض",
@@ -129,7 +129,7 @@ const UCP = {
       popular:"Most ordered", offers:"Today's offers", packages:"Curated packages",
       reorder:"Buy it again", picked:"Picked for you", services:"UCP services",
       add:"Add to cart", added:"Added", outOfStock:"Out of stock", lowStock:"Only a few left",
-      off:"off", save:"Save", vat:"VAT incl.", riyal:"SAR", items:"items",
+      off:"off", sale:"Sale", save:"Save", vat:"VAT incl.", riyal:"SAR", items:"items",
       points:"points", balance:"Your balance", toNext:"points to reach",
       free:"Free", total:"Total", checkout:"Checkout", emptyCart:"Your cart is empty",
       etaTitle:"Delivery in", etaValue:"60 minutes", etaNote:"for orders inside Riyadh",
@@ -213,66 +213,228 @@ function offLabel(p, lang) {
 }
 const byId = (arr, id) => arr.find((x) => x.id === id);
 
-/* --- product artwork ------------------------------------------------------
-   No licensed product photography exists for this exercise. Rather than use
-   stock photos of the wrong bottle, each SKU gets a deterministic, clearly
-   illustrative render: a lit silhouette on ink with an amber label band and
-   a rim light. Swapping in real imagery is a change to this function alone. */
-const FORMS = {
-  pump:   'M34 30h32v50a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6z M43 18h14v12H43z M50 18V10h10',
-  tube:   'M36 28h28v52a6 6 0 0 1-6 6H42a6 6 0 0 1-6-6z M36 28c5-4 23-4 28 0 M44 14h12v14H44z',
-  bottle: 'M34 34h32v46a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6z M42 16h16v18H42z',
-  dropper:'M38 36h24v44a6 6 0 0 1-6 6H44a6 6 0 0 1-6-6z M45 14h10v22H45z M50 14V8',
-  jar:    'M30 40h40v40a6 6 0 0 1-6 6H36a6 6 0 0 1-6-6z M36 24h28v16H36z',
-  carton: 'M30 26 50 16l20 10v54L50 90 30 80z M30 26l20 10 20-10 M50 36v54',
-  device: 'M34 14h32a4 4 0 0 1 4 4v64a4 4 0 0 1-4 4H34a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4z M40 26h20 M40 38h20 M44 52h12',
-  lens:   'M50 86a36 36 0 1 0 0-72 36 36 0 0 0 0 72z M50 70a20 20 0 1 0 0-40 20 20 0 0 0 0 40z',
-};
+/* --- product rendering ----------------------------------------------------
+   The previous version drew the same silhouette for every SKU with an amber
+   band across it. Forty identical bottles in a grid is the single loudest
+   "generated" signal a storefront can send — it reads as placeholder no
+   matter how good the layout around it is.
+
+   This version fixes the three things that actually make a product grid look
+   real:
+
+   1. SIZE VARIES. A 20 ml serum is drawn small; a 500 ml body wash fills the
+      frame. The scale is parsed from the pack size, so a shelf has the
+      irregular rhythm a real shelf has.
+   2. EACH PRODUCT HAS A PRINTED LABEL carrying its brand name. A container
+      without a label is a shape; a container with type on it is a product.
+   3. COLOUR VARIES PER BRAND, within a restrained pharmacy range, so the
+      grid looks like a shelf rather than a pattern swatch.
+
+   This is still illustration and is labelled as placeholder. It is a
+   stand-in for photography, not a claim about any product's real packaging.
+   Swapping in real imagery is a change to this function alone.
+   -------------------------------------------------------------------------- */
+
 function hashCode(s) {
   let h = 2166136261;
   for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
   return Math.abs(h);
 }
+
+/** Pack size -> a 0.52..1 scale, so small products actually look small. */
+function sizeScale(size) {
+  const m = /([\d.]+)\s*(ml|g|tabs|sg|lens|pcs|m|unit)?/i.exec(size || "");
+  if (!m) return 0.8;
+  const n = parseFloat(m[1]) || 1;
+  const unit = (m[2] || "").toLowerCase();
+  if (unit === "unit") return 1;                       // devices are big
+  if (unit === "lens" || unit === "pcs" || unit === "tabs" || unit === "sg") {
+    return Math.max(0.6, Math.min(0.92, 0.6 + (n / 200) * 0.32));
+  }
+  if (unit === "m") return 0.6;                        // floss
+  // ml / g on a log curve: 20ml small, 500ml full
+  const t = (Math.log(Math.max(n, 5)) - Math.log(5)) / (Math.log(500) - Math.log(5));
+  return Math.max(0.52, Math.min(1, 0.52 + t * 0.48));
+}
+
+/**
+ * Each brand's real packaging colours. A pharmacy shelf is legible because
+ * CeraVe is teal-on-white and Nivea is deep blue — not because a hash handed
+ * out eight tasteful greys. These are the brands' own visual identities.
+ */
+const BRAND_PAL = {
+  cerave:   { body:"#FFFFFF", cap:"#2E7D96", accent:"#1C6E8C" },
+  laroche:  { body:"#FFFFFF", cap:"#1B4E8C", accent:"#2E6FB5" },
+  vichy:    { body:"#F3F4F6", cap:"#C8102E", accent:"#C8102E" },
+  bioderma: { body:"#FFFFFF", cap:"#D4577E", accent:"#D4577E" },
+  eucerin:  { body:"#FFFFFF", cap:"#17365D", accent:"#C9A227" },
+  avene:    { body:"#F0F3F5", cap:"#6E8CA0", accent:"#6E8CA0" },
+  isdin:    { body:"#FFFFFF", cap:"#17457F", accent:"#2F6DB5" },
+  ordinary: { body:"#EDE7DE", cap:"#2B2B2B", accent:"#6B6156" },
+  sensodyne:{ body:"#FFFFFF", cap:"#0F7B8A", accent:"#0F7B8A" },
+  oralb:    { body:"#F7F9FB", cap:"#0B4DA2", accent:"#0B4DA2" },
+  centrum:  { body:"#FFFFFF", cap:"#C1451B", accent:"#C1451B" },
+  solgar:   { body:"#C08A2E", cap:"#7A4E12", accent:"#5E3B0D" },
+  acuvue:   { body:"#FFFFFF", cap:"#0B57A4", accent:"#0B57A4" },
+  omron:    { body:"#F2F4F6", cap:"#37474F", accent:"#0B6FB5" },
+  nivea:    { body:"#0C3C8F", cap:"#082B66", accent:"#0C3C8F" },
+  pampers:  { body:"#FFFFFF", cap:"#1C7CC4", accent:"#3F9E4D" },
+};
+const PAL_FALLBACK = { body:"#FFFFFF", cap:"#33414C", accent:"#4A6FA5" };
+const shelfFor = (id) => BRAND_PAL[id] || PAL_FALLBACK;
+
+/**
+ * Geometry per pack format, drawn in a 0..100 box anchored to the baseline
+ * so different sizes sit on the same shelf line rather than floating.
+ */
+function body(form, w, h, cx, base) {
+  const x = cx - w / 2, y = base - h;
+  switch (form) {
+    case "tube":
+      return { shape: `<path d="M${x} ${y + 7} q${w / 2} -9 ${w} 0 L${x + w} ${base - 5} q0 5 -6 5 H${x + 6} q-6 0 -6 -5 Z"/>`,
+               cap: `<rect x="${cx - w * 0.22}" y="${y - h * 0.1}" width="${w * 0.44}" height="${h * 0.1 + 2}" rx="1.5"/>`,
+               labelY: y + h * 0.34, labelH: h * 0.34 };
+    case "jar":
+      return { shape: `<rect x="${x}" y="${y + h * 0.18}" width="${w}" height="${h * 0.82}" rx="3"/>`,
+               cap: `<rect x="${x - 2}" y="${y}" width="${w + 4}" height="${h * 0.2}" rx="2"/>`,
+               labelY: y + h * 0.42, labelH: h * 0.34 };
+    case "carton":
+      return { shape: `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="1.5"/>`,
+               cap: "", labelY: y + h * 0.28, labelH: h * 0.44,
+               fold: `<path d="M${x + w * 0.72} ${y} V${base}" />` };
+    case "device":
+      return { shape: `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4"/>`,
+               cap: "", labelY: y + h * 0.16, labelH: h * 0.36, screen: true };
+    case "lens":
+      return { round: true, cx, cy: base - h / 2, r: Math.min(w, h) / 2,
+               labelY: base - h / 2 - 5, labelH: 11 };
+    case "dropper":
+      return { shape: `<rect x="${x}" y="${y + h * 0.26}" width="${w}" height="${h * 0.74}" rx="2.5"/>`,
+               cap: `<rect x="${cx - w * 0.2}" y="${y}" width="${w * 0.4}" height="${h * 0.28}" rx="1.5"/>`,
+               labelY: y + h * 0.46, labelH: h * 0.34 };
+    case "pump":
+      return { shape: `<rect x="${x}" y="${y + h * 0.2}" width="${w}" height="${h * 0.8}" rx="3.5"/>`,
+               cap: `<path d="M${cx - w * 0.14} ${y + h * 0.2} v-${h * 0.12} h-${w * 0.2} v-3 h${w * 0.42} v3 h-${w * 0.1} v${h * 0.12} Z"/>`,
+               labelY: y + h * 0.44, labelH: h * 0.34 };
+    default: // bottle
+      return { shape: `<rect x="${x}" y="${y + h * 0.16}" width="${w}" height="${h * 0.84}" rx="3"/>`,
+               cap: `<rect x="${cx - w * 0.26}" y="${y}" width="${w * 0.52}" height="${h * 0.18}" rx="1.5"/>`,
+               labelY: y + h * 0.42, labelH: h * 0.34 };
+  }
+}
+
+/** Relative luminance test, so a label on Nivea blue still reads. */
+function isDark(hex) {
+  const v = hex.replace("#", "");
+  const [r, g, b] = [0, 2, 4].map((i) => parseInt(v.slice(i, i + 2), 16) / 255);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b < 0.5;
+}
+
+function esc(t) {
+  return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 function art(p, opt) {
   const o = opt || {};
-  const path = FORMS[p.form] || FORMS.bottle;
-  const h = hashCode(p.id);
-  const id = "g" + p.id + (o.light ? "l" : "");
-  const bg1 = o.light ? "#F2EEE7" : "#241F18";
-  const bg2 = o.light ? "#E4DED3" : "#0E0C09";
-  const body = o.light ? "#FFFFFF" : "#2C261E";
-  const edge = o.light ? "#BFB6A6" : "#6E6558";
-  return '<svg viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="xMidYMid meet">'
-    + '<defs><linearGradient id="'+id+'" x1="0" y1="0" x2="1" y2="1">'
-    + '<stop offset="0%" stop-color="'+bg1+'"/><stop offset="100%" stop-color="'+bg2+'"/></linearGradient></defs>'
-    + '<rect width="100" height="100" fill="url(#'+id+')"/>'
-    + '<ellipse cx="50" cy="90" rx="26" ry="3.6" fill="#000" opacity="'+(o.light?".14":".5")+'"/>'
-    + '<g transform="translate(0 2)">'
-    + '<path d="'+path+'" fill="'+body+'" stroke="'+edge+'" stroke-width="2.4" stroke-linejoin="round"/>'
-    + '<rect x="34" y="'+(52+(h%8))+'" width="32" height="13" fill="#FFA300"/>'
-    + '<path d="'+path+'" fill="none" stroke="#FFA300" stroke-width="2.4" stroke-linejoin="round"'
-    + ' clip-path="inset(0 0 0 64%)" opacity=".9"/>'
-    + '</g></svg>';
+  const id = "a" + p.id + (o.light ? "L" : "D");
+  const sc = sizeScale(p.size);
+  const pal = shelfFor(p.brand);
+  const brandName = (typeof byId === "function" && byId(UCP.brands, p.brand))
+    ? byId(UCP.brands, p.brand).en : "UCP";
+
+  const base = 86;                       // shared shelf line
+  const maxH = 66, maxW = 44;
+  const h = maxH * sc;
+  const w = Math.max(16, maxW * (0.58 + sc * 0.42) * (p.form === "carton" ? 0.9 : 0.8));
+  const g = body(p.form, w, h, 50, base);
+
+  // Always white behind the product. Every retailer worth copying shoots on
+  // white; a tinted gradient tile per card is what makes a grid look generated.
+  const dark = isDark(pal.body);
+  const stroke = dark ? "rgba(255,255,255,.22)" : "rgba(42,30,20,.16)";
+  const labelBg = "#FFFFFF";
+  const labelTx = "#2A1E14";
+
+  // Label type scales with the container, and is dropped entirely when the
+  // container is too small to carry it legibly.
+  const labelW = w * 0.82;
+  const showLabel = !g.round && labelW > 17 && g.labelH > 9;
+  const fs = Math.max(3.4, Math.min(5.6, labelW / (brandName.length * 0.56)));
+
+  let shape;
+  if (g.round) {
+    shape = `<circle cx="${g.cx}" cy="${g.cy}" r="${g.r}" fill="${pal.body}" stroke="${stroke}" stroke-width="1"/>
+      <circle cx="${g.cx}" cy="${g.cy}" r="${g.r * 0.58}" fill="none" stroke="${pal.accent}" stroke-width="1.6" opacity=".8"/>
+      <circle cx="${g.cx}" cy="${g.cy}" r="${g.r * 0.26}" fill="${pal.accent}" opacity=".5"/>`;
+  } else {
+    shape =
+      `<g fill="${pal.body}" stroke="${stroke}" stroke-width="1">${g.shape}</g>`
+      + (g.cap ? `<g fill="${pal.cap}">${g.cap}</g>` : "")
+      + (g.fold ? `<g stroke="${stroke}" stroke-width=".8" fill="none" opacity=".7">${g.fold}</g>` : "")
+      + (g.screen ? `<rect x="${50 - w * 0.32}" y="${g.labelY - 2}" width="${w * 0.64}" height="${g.labelH * 0.7}" rx="1.5" fill="${pal.cap}" opacity=".9"/>` : "");
+  }
+
+  const label = showLabel ? `
+    <g>
+      <rect x="${50 - labelW / 2}" y="${g.labelY}" width="${labelW}" height="${g.labelH}" fill="${labelBg}" opacity=".97"/>
+      <rect x="${50 - labelW / 2}" y="${g.labelY}" width="${labelW}" height="2" fill="${pal.accent}"/>
+      <text x="50" y="${g.labelY + g.labelH * 0.58}" text-anchor="middle"
+        font-family="Zain, system-ui, sans-serif" font-size="${fs}" font-weight="700"
+        fill="${labelTx}">${esc(brandName)}</text>
+      <rect x="${50 - labelW * 0.28}" y="${g.labelY + g.labelH * 0.7}" width="${labelW * 0.56}" height="1.4"
+        fill="${labelTx}" opacity=".28"/>
+    </g>` : "";
+
+  return `<svg viewBox="24 12 52 80" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+  <defs>
+    <filter id="${id}sh" x="-40%" y="-60%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="1.6"/>
+    </filter>
+    <linearGradient id="${id}gl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity=".20"/>
+      <stop offset="42%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity=".09"/>
+    </linearGradient>
+    <clipPath id="${id}cp">${g.round
+      ? `<circle cx="${g.cx}" cy="${g.cy}" r="${g.r}"/>`
+      : g.shape.replace("<path", "<path").replace("<rect", "<rect")}</clipPath>
+  </defs>
+  <ellipse cx="50" cy="${base + 1.2}" rx="${w * 0.5}" ry="1.9" fill="#2A1E14" opacity=".18" filter="url(#${id}sh)"/>
+  ${shape}
+  ${label}
+  <g clip-path="url(#${id}cp)"><rect width="100" height="100" fill="url(#${id}gl)"/></g>
+</svg>`;
 }
+
+/** A package: three real containers at their real relative sizes. */
 function bundleArt(b, opt) {
   const o = opt || {};
   const h = hashCode(b.id);
-  const forms = ["carton","tube","bottle","jar","pump"];
-  const picks = [0,1,2].map((i) => forms[(h + i*3) % forms.length]);
-  const bg = o.light ? "#F2EEE7" : "#1A1712";
-  const body = o.light ? "#FFFFFF" : "#2C261E";
-  const edge = o.light ? "#BFB6A6" : "#6E6558";
-  const items = picks.map((f, i) => {
-    const sc = i === 1 ? .92 : .74;
-    return '<g transform="translate('+(18+i*32)+' '+(i===1?6:14)+') scale('+sc+') translate(-50 0)">'
-      + '<path d="'+FORMS[f]+'" fill="'+body+'" stroke="'+edge+'" stroke-width="'+(2.4/sc)+'" stroke-linejoin="round"/>'
-      + '<rect x="36" y="54" width="28" height="14" fill="#FFA300" opacity=".85"/></g>';
+  const picks = [
+    { form: "carton", size: "75 ml",  brand: UCP.brands[h % UCP.brands.length].id },
+    { form: "bottle", size: "400 ml", brand: UCP.brands[(h + 5) % UCP.brands.length].id },
+    { form: "tube",   size: "50 ml",  brand: UCP.brands[(h + 9) % UCP.brands.length].id },
+  ];
+  const ground = "#FFFFFF";
+  const ground2 = "#FFFFFF";
+  const inner = picks.map((pk, i) => {
+    const sc2 = [0.82, 1, 0.74][i];
+    const x = [24, 80, 132][i];
+    return `<g transform="translate(${x} 0) scale(${sc2}) translate(-50 ${(1 - sc2) * 40})">`
+      + art({ id: b.id + i, form: pk.form, size: pk.size, brand: pk.brand }, { light: true })
+        .replace(/<svg[^>]*>/, "").replace("</svg>", "")
+        .replace(/<rect width="100" height="100" fill="url\(#[^)]+\)"\/>/, "")
+      + `</g>`;
   }).join("");
-  return '<svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'
-    + '<rect width="160" height="100" fill="'+bg+'"/>'
-    + '<ellipse cx="80" cy="94" rx="58" ry="4" fill="#000" opacity="'+(o.light?".12":".4")+'"/>'
-    + items + '</svg>';
+  return `<svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs><linearGradient id="bg${b.id}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="${ground}"/><stop offset="100%" stop-color="${ground2}"/>
+    </linearGradient></defs>
+    <rect width="160" height="100" fill="url(#bg${b.id})"/>
+    ${inner}
+  </svg>`;
 }
+
 function brandMark(b, color) {
   const label = b.en;
   const size = label.length > 15 ? 13 : label.length > 10 ? 15 : 18;

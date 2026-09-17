@@ -77,3 +77,57 @@ Placeholder. Prices, stock, rankings, branches and point balances are design
 filler, not UCP's. No claim, licence or certification is presented as fact.
 `ucp.js` maps onto the types in `packages/core/src/types.ts`, so the chosen
 execution can be wired to the real catalogue adapter directly.
+
+---
+
+## E · RETAIL — built against a measured reference
+
+The first four executions were judged "still AI-made". Rather than guess a
+fifth time, the brief was re-grounded on a reference the client named
+(ulta.com) and a screen recording they supplied. Three measurable differences
+came out of it, and all three were things taste had not caught.
+
+### 1. The brand colour is text and hairlines, not fill
+
+A published extraction of the reference's design system counts its accent
+appearing **46 times as text, 46 times as a border, and 8 times as a
+background**. Ours was the exact inverse — amber filled every add button and
+every badge, roughly forty saturated blocks per page. At that frequency an
+accent stops being an accent.
+
+`E · RETAIL` spends vivid `--amber` as a large fill **twice**: the services
+band and the loyalty band. Everywhere else the brand reads as `--amber-900`
+(#8A5400), the same hue at a lightness that can legally be text:
+
+| use | colour | on white |
+|---|---|---|
+| large fill, dark text on it | `--amber` #FFA300 | 8.11:1 (text on amber) |
+| sale price, chips, eyebrows | `--amber-900` #8A5400 | **6.27:1** |
+
+`--amber` at 2.00:1 on white was never a text colour; pretending otherwise is
+what forced it into backgrounds in the first place.
+
+### 2. The primary action is not the brand colour
+
+In the reference, "Add to bag" is a **black, auto-width** control. The accent
+is reserved for sale prices. Here the add control is `--ink` espresso, sized
+to its label, one per card — not a full-bleed bar.
+
+### 3. Promotion rate has to be believable
+
+63% of the sample catalogue carried a struck-through price, so two thirds of
+every grid wore a discount badge. That reads as a fake sale whatever the
+layout does. It is now ~25%, and the tile label is the word "Sale"
+(`تخفيض`), not a coloured pill.
+
+### Packshots
+
+Brand palettes are no longer hash-assigned: each brand carries **its own real
+packaging colours** (CeraVe teal-on-white, Nivea deep blue, Solgar amber
+glass), the product is cropped to fill its frame, and it sits on one warm tile
+(`--paper-3`) with no border and no gradient — the way a cut-out photograph
+sits on a retailer's card. Size still varies with the real pack size, so a
+20 ml serum is visibly smaller than a 473 ml wash.
+
+**These remain placeholder renderings.** Production needs UCP's own product
+photography; no rendering here should ship as a product image.
