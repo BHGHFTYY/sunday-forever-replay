@@ -131,3 +131,45 @@ sits on a retailer's card. Size still varies with the real pack size, so a
 
 **These remain placeholder renderings.** Production needs UCP's own product
 photography; no rendering here should ship as a product image.
+
+---
+
+## The real catalogue
+
+`e-retail.html` no longer runs on invented products. It runs on UCP's own
+MasterSheet export (`ucp/data/mastersheet-8-13.csv`), compiled by
+`ucp/tools/build-catalogue.mjs` into `catalogue.js`.
+
+| | count |
+|---|---|
+| products | 3,824 (of 3,828; 4 rows carry no image) |
+| with photographs | 3,824, served from ucpksa.com's media library |
+| brands | 1,106 derived from titles; the wall shows the largest 16 |
+| categories | 11 + "other" (349, 9%) |
+| pack sizes parsed | 2,976 (78%) |
+
+**What is real:** product titles, SKUs, photographs and product-page URLs.
+
+**What is derived:** brand, category and pack size, parsed from the title by
+heuristics in the builder. They are good enough to shape a browse experience
+and are *not* UCP's own taxonomy — the 9% in "other" and any miscategorised
+product are artefacts of that parsing, fixable by editing the rules and
+re-running.
+
+**What is invented:** every price and every discount. The export contains no
+pricing at all. Figures are seeded from the SKU so they stay stable between
+runs, the promotion rate is held at 21%, and the page ribbon says outright
+that prices are placeholder. None of them should ever be shown to a customer.
+
+### Two gaps worth naming
+
+1. **The export is English-only.** Product titles therefore stay English even
+   in Arabic mode; only the interface translates. That is how the prototype
+   renders it rather than machine-translating 3,824 pharmaceutical names, which
+   would produce confident nonsense on dosages and actives. Arabic titles need
+   a second export column.
+2. **Photographs cannot be verified from here.** This container's network
+   policy blocks `ucpksa.com`, so every screenshot in this repo shows the
+   *fallback* drawing, not the real photo. The page requests the real URLs and
+   a normal browser will load them. If a URL 404s, `IMGFAIL()` swaps in the
+   drawn packshot rather than a broken-image glyph.
