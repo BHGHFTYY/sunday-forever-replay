@@ -14,38 +14,56 @@ specifies.
 
 Prices remain placeholder. The export has none.
 
-## The accessibility conflict, stated plainly
+## Colour: one hue, three jobs
 
-The project brief requires WCAG 2.1 AA. Four of the handoff's colour pairings
-do not reach it, including the primary CTA:
+The handoff's palette failed WCAG 2.1 AA in four places, including the primary
+CTA. The fix was not to darken everything — WCAG's thresholds depend on the
+**role** a colour plays, and that is what makes a vivid palette possible:
 
-| pairing | handoff | needs |
-|---|---|---|
-| white text on `#FF7A00` CTA | **2.61:1** | 4.5:1 |
-| `#FF7A00` text on cream | **2.38:1** | 4.5:1 |
-| `#FF7A00` text on `#FDE7D3` chip | **2.18:1** | 4.5:1 |
-| `#8A7C70` muted text on cream | **3.68:1** | 4.5:1 |
+| | requirement |
+|---|---|
+| small text | 4.5:1 |
+| large text (≥24px, or ≥18.66px bold) and UI boundaries | 3:1 |
+| a fill | none — only what sits *on* it must pass |
 
-The handoff values are the **default** — nothing has been quietly "corrected".
-`data-aa="on"` on `<html>` swaps in the smallest changes that reach AA: same
-hue, lower lightness, geometry and layout untouched.
+So UCP's orange keeps its full brightness exactly where it is most visible —
+as a **fill**. Only the steps that must carry small text step down, and those
+were derived in OKLCH (`ucp/tools/palette.mjs`): the brand hue is held at
+50.5°, and at each required lightness the tool takes the **most saturated
+in-gamut colour**. Multiplying toward black would have drained the chroma and
+produced exactly the muddy result this avoids.
 
-| token | handoff | AA variant | result |
+| token | value | job | worst case |
 |---|---|---|---|
-| `--on-orange` | `#FFFFFF` | `#2B2420` | 5.84:1 |
-| `--accent-tx` | `#FF7A00` | `#B35500` | 4.54:1 on cream |
-| `--accent-tx` on tint | `#FF7A00` | `#A85100` | 4.57:1 |
-| `--muted-tx` | `#8A7C70` | `#74685E` | 4.51:1 on its worst ground |
-| `--accent-line` | `#FF7A00` | `#E06B00` | 3.05:1 (WCAG 1.4.11) |
+| `--orange-500` | `#FF7A00` | fills, active states, large shapes | ink on it, **5.84:1** |
+| `--orange-600` | `#D66500` | borders, icons, large numerals | **3.06:1** |
+| `--orange-700` | `#AB4F00` | small text: prices, links, chips | **4.55:1** |
+| `--ink` | `#2B2420` | body text | 12.73:1 |
+| `--muted` | `#75675B` | secondary text | **4.55:1** |
+| `--line-strong` | `#988A7E` | the edge of a form field | **3.05:1** |
 
-The prototype has a live **WCAG AA** button so the two can be compared on the
-real page rather than argued about in the abstract. `node ucp/tools/contrast.mjs`
-checks every pairing in both modes and exits non-zero if the AA variant fails.
+`--line` `#EFE3D8` stays as it was: decorative, for card edges, where no ratio
+applies.
 
-The visible cost of the AA variant is that the CTA reads dark-on-orange instead
-of white-on-orange. That is a real change in feel, and it is the client's call
-— but shipping 2.61:1 on the primary action of a pharmacy is not a neutral
-default either.
+### The one deviation from the handoff
+
+The CTA label is **ink, not white**. The alternative — keeping white text by
+darkening the fill — needs `#BF5900`, which passes at only 4.52:1 *and* turns
+the brand brown. Ink on the real orange is both more accessible (5.84:1) and
+more UCP. `cta-compare.html` renders both side by side.
+
+### Two tools guard this
+
+- `node ucp/tools/contrast.mjs` — checks all 21 token pairings. Exits non-zero
+  on failure.
+- `node ucp/tools/audit-a11y.mjs <url>` — loads a real page, walks every
+  visible text node, composites its actual background up the ancestor chain,
+  and checks the real rendered ratio against the right threshold for that
+  element's size and weight.
+
+The second is not redundant. It immediately caught the wishlist heart, which
+was `--orange` on white at 2.61:1 — sound tokens used wrongly. Token maths
+proves the palette; the audit proves the pages use it.
 
 ## Reconstructed `support.js`
 

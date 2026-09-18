@@ -1,44 +1,73 @@
 /* ===========================================================================
    UCP — WARM BOUTIQUE
    ---------------------------------------------------------------------------
-   Implemented from the supplied handoff (design_handoff_ucp_warm_boutique).
-   Every token below is the handoff's own value; nothing here is invented.
-
-   Direction: warm cream ground, circular and pill geometry, generously
-   rounded cards, UCP orange as a strategic accent — CTAs, offers, active
-   states — rather than a dominant colour.
+   Implemented from the supplied handoff (design_handoff_ucp_warm_boutique):
+   warm cream ground, circular and pill geometry, generously rounded cards,
+   UCP orange as a strategic accent rather than a dominant colour.
 
    --------------------------------------------------------------------------
-   ACCESSIBILITY NOTE, and the one place this file adds something.
+   COLOUR — ONE HUE, THREE JOBS.
 
-   The brief this project started from requires WCAG 2.1 AA. Four of the
-   handoff's colour pairings do not reach it:
+   The handoff's palette fails WCAG 2.1 AA in four places, including the
+   primary CTA. The fix is NOT to darken everything: WCAG's thresholds depend
+   on the ROLE a colour plays, and that is what makes a vivid palette possible.
 
-     white on #FF7A00 (the primary CTA)     2.61:1   needs 4.5
-     #FF7A00 text on #FBF3EC cream          2.38:1   needs 4.5
-     #FF7A00 text on #FDE7D3 tint chip      2.18:1   needs 4.5
-     #8A7C70 muted body text on cream       3.68:1   needs 4.5
+       4.5:1   small text
+       3.0:1   large text (>=24px, or >=18.66px bold) and UI boundaries
+       none    a fill — only whatever sits ON it has to pass
 
-   The handoff values are the DEFAULT here, exactly as specified. Setting
-   `data-aa="on"` on <html> swaps in the smallest corrections that reach AA —
-   same hue, lower lightness, geometry and layout untouched. The prototype has
-   a live toggle so the two can be compared rather than argued about.
+   So UCP's orange keeps its full brightness exactly where it is most visible —
+   as a FILL. Only the steps that must carry small text step down, and those
+   were derived in OKLCH (ucp/tools/palette.mjs), holding the brand hue at
+   50.5 deg and taking the MOST SATURATED in-gamut colour at each required
+   lightness. Multiplying toward black would have drained the chroma and given
+   the muddy result this approach avoids.
+
+     --orange-500  #FF7A00   fills, active states, large shapes.
+                             Carries INK text at 5.84:1 — better than the
+                             handoff's white-on-orange at 2.61:1, and it keeps
+                             the brand colour completely unchanged.
+     --orange-600  #D66500   1.5px borders, icons, large display numerals.
+                             >= 3.06:1 on all four light grounds.
+     --orange-700  #AB4F00   small text: prices, links, eyebrows, chips.
+                             >= 4.55:1 on all four light grounds.
+
+   The one visible deviation from the handoff is that the CTA label is ink
+   rather than white. The alternative — keeping white by darkening the fill to
+   #BF5900 — passes at only 4.52:1 and turns the brand brown. Ink on the real
+   orange is both more accessible and more UCP.
+
+   Neutrals moved the minimum distance needed:
+     --muted  #8A7C70 -> #75675B   4.55:1 on its worst ground (tan)
+     --line-strong #A09185         3.05:1, for the edge of a form field.
+                                   --line stays decorative, for card edges.
+
+   node ucp/tools/contrast.mjs verifies every pairing this file renders.
    =========================================================================== */
 
 :root {
-  /* --- handoff palette, verbatim --------------------------------------- */
-  --cream:  #FBF3EC;   /* page ground */
-  --tan:    #F3E9DE;   /* alternate section ground, image placeholders */
+  /* --- grounds: handoff values, unchanged ------------------------------- */
+  --cream:  #FBF3EC;
+  --tan:    #F3E9DE;
   --white:  #FFFFFF;
-  --ink:    #2B2420;   /* body text and dark surfaces */
-  --muted:  #8A7C70;
-  --orange: #FF7A00;
-  --tint:   #FDE7D3;   /* accent tint background */
-  --line:   #EFE3D8;   /* hairline */
+  --tint:   #FDE7D3;
+  --line:   #EFE3D8;   /* decorative card hairline */
+
+  /* --- brand: one hue, three jobs --------------------------------------- */
+  --orange-500: #FF7A00;
+  --orange-600: #D66500;
+  --orange-700: #AB4F00;
+  --orange: var(--orange-500);   /* the fill, and the name to reach for */
+
+  /* --- text ------------------------------------------------------------- */
+  --ink:         #2B2420;
+  --muted:       #75675B;
+  --line-strong: #988A7E;   /* solved against CREAM, the darker of the two grounds a field sits on */
 
   /* roles — the only layer a page should reference */
-  --on-orange: var(--white);  /* handoff: white text on the orange CTA */
-  --accent-tx: var(--orange); /* orange used AS TEXT */
+  --on-orange: var(--ink);        /* 5.84:1 */
+  --accent-tx: var(--orange-700); /* orange AS SMALL TEXT */
+  --accent-ui: var(--orange-600); /* orange as a border, icon or big numeral */
   --muted-tx:  var(--muted);
 
   /* --- type ------------------------------------------------------------- */
@@ -59,19 +88,6 @@
   --fast: 120ms cubic-bezier(.2,.8,.2,1);
   --mid:  220ms cubic-bezier(.16,1,.3,1);
 }
-
-/* The AA variant. Hue preserved; lightness reduced until each pair reaches
-   4.5:1. Verified by ucp/tools/contrast.mjs. */
-:root {
-  --accent-line: var(--orange);   /* orange used as a 1.5px UI boundary */
-}
-:root[data-aa="on"] {
-  --on-orange:   #2B2420;   /* ink on orange .............. 5.84:1 */
-  --accent-tx:   #B35500;   /* accent text on cream ....... 4.54:1 */
-  --muted-tx:    #74685E;   /* clears 4.5 on its WORST ground, tan (4.51:1) */
-  --accent-line: #E06B00;   /* 1.5px border on cream ...... 3.05:1 (WCAG 1.4.11) */
-}
-:root[data-aa="on"] .tintchip { --accent-tx: #A85100; }  /* on #FDE7D3: 4.57:1 */
 
 html[lang="en"] { --font: var(--en); }
 
@@ -143,9 +159,11 @@ html[lang="ar"] .eyebrow, html[lang="ar"] .label { text-transform: none; }
 .pcard .wish {
   position: absolute; top: 10px; inset-inline-end: 10px; width: 28px; height: 28px;
   border-radius: 50%; background: var(--white); display: grid; place-items: center;
-  font-size: 14px; color: var(--orange); line-height: 1;
+  /* Drawn as a text glyph, so it is held to the 4.5:1 text bar rather than the
+     3:1 icon bar. --orange on white is 2.61:1 and fails both. */
+  font-size: 14px; color: var(--accent-tx); line-height: 1;
 }
-.pcard .wish[aria-pressed="true"] { background: var(--orange); color: var(--white); }
+.pcard .wish[aria-pressed="true"] { background: var(--orange); color: var(--on-orange); }
 .pcard .body { padding: 18px; }
 .pcard .brand { font-size: 10px; font-weight: 500; color: var(--muted-tx); margin-bottom: 6px; }
 html[lang="en"] .pcard .brand { letter-spacing: .08em; text-transform: uppercase; }

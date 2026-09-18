@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><title>CTA — contrast options</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FBF3EC;--tan:#F3E9DE;--tint:#FDE7D3;--ink:#2B2420;--line:#EFE3D8}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 15px/1.6 "El Messiri",system-ui;padding:36px}
+h1{font-size:22px;font-weight:700;margin:0 0 6px}
+.note{font-size:13px;color:#75675b;margin-bottom:28px;max-width:70ch}
+.row{display:flex;gap:26px;flex-wrap:wrap}
+.opt{width:232px}
+.opt h2{font-size:13px;font-weight:700;margin:0 0 4px}
+.opt .m{font-size:11px;color:#75675b;margin-bottom:12px;min-height:30px}
+.card{background:#fff;border-radius:22px;box-shadow:0 4px 16px rgba(43,36,32,.06);overflow:hidden}
+.shot{aspect-ratio:1;background:var(--tan);display:grid;place-items:center}
+.shot i{display:block;width:44%;height:62%;background:#b9b3ad;border-radius:12px}
+.body{padding:18px}
+.brand{font-size:10px;font-weight:500;margin-bottom:6px}
+.name{font-size:14px;font-weight:500;line-height:1.35;margin-bottom:10px}
+.price{display:flex;align-items:baseline;gap:6px;margin-bottom:12px}
+.price b{font-size:15px;font-weight:700}
+.chip{font-size:10px;font-weight:600;padding:3px 7px;border-radius:999px;background:var(--tint)}
+.add{display:block;width:100%;text-align:center;font-size:12px;font-weight:600;padding:11px;border-radius:999px;border:0}
+.ratio{margin-top:10px;font:600 11px/1.5 "Sora";display:flex;gap:6px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.pass{background:#1a7f43}.fail{background:#c0392b}
+.swatches{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+.sw{width:150px}
+.sw .c{height:62px;border-radius:14px}
+.sw .l{font:600 11px/1.5 "Sora";margin-top:7px}
+.sw .r{font:400 10px/1.4 "Sora";color:#75675b}
+</style></head><body>
+<h1>الزر الأساسي — خياران متوافقان مع WCAG AA</h1>
+<p class="note">اليمين: لون UCP البرتقالي كما هو مع نص داكن. اليسار: نص أبيض مع برتقالي أغمق.
+كلاهما يحقق ٤٫٥:١، والفرق هو أي عنصر يحتفظ بلون العلامة الكامل.</p>
+
+<div class="row" id="row"></div>
+
+<h1 style="margin-top:44px">مقياس البرتقالي</h1>
+<p class="note">درجة واحدة لكل وظيفة: التعبئة، الحدود والنص الكبير، ثم النص الصغير.</p>
+<div class="swatches" id="sw"></div>
+
+<script>
+const OPTS = [
+  { id:"A", fill:"#FF7A00", text:"#2B2420", chip:"#AB4F00",
+    h:"A — برتقالي UCP الكامل + نص داكن", m:"لون العلامة يبقى بدون أي تغيير", ratio:5.84 },
+  { id:"B", fill:"#BF5900", text:"#FFFFFF", chip:"#AB4F00",
+    h:"B — نص أبيض + برتقالي أغمق", m:"النص الأبيض يبقى، لكن لون العلامة يتغيّر", ratio:4.52 },
+];
+document.getElementById("row").innerHTML = OPTS.map(o => `
+  <div class="opt">
+    <h2>${o.h}</h2><div class="m">${o.m}</div>
+    <div class="card">
+      <div class="shot"><i></i></div>
+      <div class="body">
+        <div class="brand" style="color:#75675b">CERAVE</div>
+        <div class="name">غسول رغوي للبشرة الدهنية ٤٧٣ مل</div>
+        <div class="price"><b>٧٨ ﷼</b><span class="chip" style="color:${o.chip}">خصم ١٨٪</span></div>
+        <button class="add" style="background:${o.fill};color:${o.text}">أضف للسلة</button>
+      </div>
+    </div>
+    <div class="ratio"><span class="dot pass"></span>${o.ratio.toFixed(2)}:1</div>
+  </div>`).join("");
+
+const SCALE = [
+  ["#FF7A00","orange-500 · التعبئة","نص داكن عليه 5.84:1"],
+  ["#D66500","orange-600 · الحدود والأيقونات","3.06:1 كحدّ أدنى"],
+  ["#AB4F00","orange-700 · النص الصغير","4.55:1 كحدّ أدنى"],
+  ["#2B2420","ink · النص الأساسي","13.91:1 على الكريمي"],
+  ["#75675B","muted · النص الثانوي","4.55:1 كحدّ أدنى"],
+];
+document.getElementById("sw").innerHTML = SCALE.map(([c,l,r]) =>
+  `<div class="sw"><div class="c" style="background:${c}"></div><div class="l">${c} — ${l}</div><div class="r">${r}</div></div>`).join("");
+</script>
+</body></html>

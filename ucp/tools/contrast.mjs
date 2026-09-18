@@ -1,6 +1,7 @@
-/* Verify every colour pairing the Warm Boutique prototype actually renders,
-   in both the handoff default and the AA variant. Run: node ucp/tools/contrast.mjs
-   Exits non-zero if the AA variant fails, so it can gate a build. */
+/* Verify every colour pairing the Warm Boutique prototype renders.
+   The palette is AA by construction (see ucp/tools/palette.mjs); this is the
+   regression guard. Exits non-zero on any failure so it can gate a build.
+   Run: node ucp/tools/contrast.mjs */
 const lum = (hex) => {
   const v = hex.replace("#", "");
   const c = [0, 2, 4].map((i) => parseInt(v.slice(i, i + 2), 16) / 255)
@@ -9,35 +10,33 @@ const lum = (hex) => {
 };
 const cr = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
 
-const BASE = { cream:"#FBF3EC", tan:"#F3E9DE", white:"#FFFFFF", ink:"#2B2420",
-               muted:"#8A7C70", orange:"#FF7A00", tint:"#FDE7D3" };
-const MODES = {
-  "handoff (default)": { onOrange:"#FFFFFF", accentTx:"#FF7A00", mutedTx:"#8A7C70", accentOnTint:"#FF7A00", accentLine:"#FF7A00" },
-  "AA variant":        { onOrange:"#2B2420", accentTx:"#B35500", mutedTx:"#74685E", accentOnTint:"#A85100", accentLine:"#E06B00" },
+const T = {
+  cream:"#FBF3EC", tan:"#F3E9DE", white:"#FFFFFF", tint:"#FDE7D3", line:"#EFE3D8",
+  orange500:"#FF7A00", orange600:"#D66500", orange700:"#AB4F00",
+  ink:"#2B2420", muted:"#75675B", lineStrong:"#988A7E",
 };
-/* 4.5 for body text; 3.0 where the handoff uses the colour only at >=24px bold. */
-const pairs = (m) => [
-  ["CTA label on orange",        m.onOrange,  BASE.orange, 4.5],
-  ["accent text on cream",       m.accentTx,  BASE.cream,  4.5],
-  ["accent text on white card",  m.accentTx,  BASE.white,  4.5],
-  ["accent text on tint chip",   m.accentOnTint, BASE.tint, 4.5],
-  ["muted text on cream",        m.mutedTx,   BASE.cream,  4.5],
-  ["muted text on white card",   m.mutedTx,   BASE.white,  4.5],
-  ["muted text on tan",          m.mutedTx,   BASE.tan,    4.5],
-  ["body text on cream",         BASE.ink,    BASE.cream,  4.5],
-  ["body text on white card",    BASE.ink,    BASE.white,  4.5],
-  ["body text on tan",           BASE.ink,    BASE.tan,    4.5],
-  ["white on ink surface",       BASE.white,  BASE.ink,    4.5],
-  ["orange 1.5px border on cream", m.accentLine, BASE.cream, 3.0],
+const GROUNDS = [["cream", T.cream], ["white card", T.white], ["tint chip", T.tint], ["tan", T.tan]];
+
+/* [label, fg, bg, required] — 4.5 small text, 3.0 large text and UI boundaries */
+const checks = [
+  ["CTA label (ink) on orange fill", T.ink, T.orange500, 4.5],
+  ["white on ink surface",           T.white, T.ink,     4.5],
+  ["body text on orange fill",       T.ink, T.orange500, 4.5],
 ];
-let failed = 0;
-for (const [name, m] of Object.entries(MODES)) {
-  console.log("\n" + name);
-  for (const [label, fg, bg, need] of pairs(m)) {
-    const v = cr(fg, bg), ok = v >= need;
-    if (!ok && name === "AA variant") failed++;
-    console.log(`  ${ok ? "PASS" : "FAIL"}  ${v.toFixed(2).padStart(6)}:1  (needs ${need})  ${label}`);
-  }
+for (const [name, bg] of GROUNDS) {
+  checks.push([`body text on ${name}`,          T.ink,        bg, 4.5]);
+  checks.push([`muted text on ${name}`,         T.muted,      bg, 4.5]);
+  checks.push([`accent small text on ${name}`,  T.orange700,  bg, 4.5]);
+  checks.push([`accent border/icon on ${name}`, T.orange600,  bg, 3.0]);
 }
-console.log(failed ? `\n${failed} AA-variant failure(s)` : "\nAA variant: all pairings pass.");
-process.exit(failed ? 1 : 0);
+checks.push(["input border on white field", T.lineStrong, T.white, 3.0]);
+checks.push(["input border on cream",       T.lineStrong, T.cream, 3.0]);
+
+let bad = 0;
+for (const [label, fg, bg, need] of checks) {
+  const v = cr(fg, bg), ok = v >= need;
+  if (!ok) bad++;
+  console.log(`  ${ok ? "PASS" : "FAIL"}  ${v.toFixed(2).padStart(6)}:1  (needs ${need})  ${label}`);
+}
+console.log(bad ? `\n${bad} failure(s)` : `\nAll ${checks.length} pairings pass WCAG 2.1 AA.`);
+process.exit(bad ? 1 : 0);
