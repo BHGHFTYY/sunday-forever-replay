@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBF3EC;}
+a{color:inherit;text-decoration:none;}
+a:hover{color:#FF7A00;}
+*{box-sizing:border-box;}
+</style>
+</helmet>
+<div dir="{{ L.dir }}" style="font-family:{{ L.font }}, sans-serif;background:#FBF3EC;min-height:100vh;display:flex;flex-direction:column;">
+
+  <div style="position:sticky;top:0;z-index:50;background:#2B2420;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 40px;">
+    <div style="display:flex;gap:20px;flex-wrap:wrap;font:500 12px/1 {{ L.font }};">
+      <a href="#home">{{ L.s.navHome }}</a><a href="#category">{{ L.s.navCategory }}</a><a href="#product">{{ L.s.navProduct }}</a>
+      <a href="#search">{{ L.s.navSearch }}</a><a href="#cart">{{ L.s.navCart }}</a><a href="#checkout">{{ L.s.navCheckout }}</a>
+      <a href="#loyalty">{{ L.s.navLoyalty }}</a><a href="#prescription">{{ L.s.navPrescription }}</a><a href="#app">{{ L.s.navApp }}</a>
+    </div>
+    <button onClick="{{ toggleLang }}" style="font:600 11px/1 'Sora',sans-serif;background:#fff;border:none;color:#2B2420;padding:6px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;">AR / EN</button>
+  </div>
+
+  <!-- ===== HOMEPAGE DESKTOP ===== -->
+  <section id="home" data-screen-label="Homepage — Desktop" style="padding:56px 0 0;">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding-bottom:24px;border-bottom:1px solid #EFE3D8;">
+        <img src="assets/ucp-logo-mark.png" style="height:40px;width:auto;" alt="UCP">
+        <div style="width:520px;height:46px;background:#fff;border-radius:999px;display:flex;align-items:center;padding:0 22px;box-shadow:0 2px 8px rgba(43,36,32,0.05);">
+          <span style="font:400 14px/1 {{ L.font }};color:#8A7C70;">{{ L.s.search }}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:28px;">
+          <span style="font:500 13px/1 {{ L.font }};color:#2B2420;">{{ L.s.account }}</span>
+          <span style="font:500 13px/1 {{ L.font }};color:#2B2420;">{{ L.s.loyalty }}</span>
+          <span style="font:500 13px/1 {{ L.font }};color:#2B2420;">{{ L.s.cart }} (2)</span>
+          <a href="#prescription" style="font:600 13px/1 {{ L.font }};color:#FF7A00;">● {{ L.s.prescription }}</a>
+        </div>
+      </div>
+
+      <div style="padding:56px 40px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;">
+        <div style="font:600 11px/1 {{ L.font }};letter-spacing:{{ L.track }};text-transform:{{ L.transform }};color:#FF7A00;background:#FDE7D3;padding:6px 16px;border-radius:999px;">UCP ONLINE</div>
+        <div style="font:600 42px/1.25 {{ L.font }};color:#2B2420;max-width:640px;">{{ L.s.heroTitle }}</div>
+        <div style="font:400 15px/1.6 {{ L.font }};color:#8A7C70;max-width:460px;">{{ L.s.heroSub }}</div>
+        <div style="font:700 14px/1 {{ L.font }};color:#fff;background:#FF7A00;padding:16px 34px;border-radius:999px;">{{ L.s.shopNow }} {{ L.arrow }}</div>
+        <div style="display:flex;gap:16px;margin-top:24px;">
+          <div style="width:170px;height:120px;border-radius:22px;background:#F3E9DE;transform:translateY(12px);"></div>
+          <div style="width:170px;height:120px;border-radius:22px;background:#FDE7D3;"></div>
+          <div style="width:170px;height:120px;border-radius:22px;background:#F3E9DE;transform:translateY(12px);"></div>
+        </div>
+      </div>
+
+      <div style="padding:0 40px 56px;display:flex;flex-direction:column;align-items:center;">
+        <div style="font:700 22px/1 {{ L.font }};color:#2B2420;margin-bottom:28px;">{{ L.s.categoriesLabel }}</div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:32px;max-width:1000px;">
+          <sc-for list="{{ L.cats }}" as="cc" hint-placeholder-count="8">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;width:104px;">
+              <div style="width:92px;height:92px;border-radius:50%;background:{{ cc.bg }};"></div>
+              <div style="font:500 13px/1.3 {{ L.font }};color:#2B2420;text-align:center;">{{ cc.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font:600 13px/1 {{ L.font }};color:#FF7A00;margin-top:24px;">{{ L.s.viewAll }}</div>
+      </div>
+
+      <div style="padding:0 40px 56px;display:flex;flex-direction:column;align-items:center;">
+        <div style="font:700 22px/1 {{ L.font }};color:#2B2420;margin-bottom:28px;">{{ L.s.shopByBrand }}</div>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;">
+          <sc-for list="{{ brandLetters }}" as="bl" hint-placeholder-count="8">
+            <div style="width:78px;height:78px;border-radius:50%;background:#fff;border:1px solid #EFE3D8;display:flex;align-items:center;justify-content:center;font:700 22px/1 'Sora',sans-serif;color:#2B2420;">{{ bl }}</div>
+          </sc-for>
+        </div>
+      </div>
+
+      <sc-for list="{{ L.merch }}" as="mrow" hint-placeholder-count="3">
+        <div style="padding:0 40px 56px;">
+          <div style="text-align:center;margin-bottom:28px;"><div style="font:700 22px/1 {{ L.font }};color:#2B2420;">{{ mrow.title }}</div></div>
+          <div style="display:flex;gap:20px;overflow-x:auto;padding-bottom:8px;justify-content:center;">
+            <sc-for list="{{ L.prod }}" as="p" hint-placeholder-count="6">
+              <div style="flex:none;width:200px;background:#fff;border-radius:22px;box-shadow:0 4px 16px rgba(43,36,32,0.06);">
+                <div style="width:100%;aspect-ratio:1;background:#F3E9DE;border-radius:22px 22px 0 0;position:relative;">
+                  <div style="position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font:600 14px/1 sans-serif;color:#FF7A00;">♡</div>
+                </div>
+                <div style="padding:18px;">
+                  <div style="font:500 10px/1 {{ L.font }};letter-spacing:{{ L.track }};text-transform:{{ L.transform }};color:#8A7C70;margin-bottom:6px;">{{ p.brand }}</div>
+                  <div style="font:500 14px/1.35 {{ L.font }};color:#2B2420;height:36px;overflow:hidden;margin-bottom:10px;">{{ p.name }}</div>
+                  <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:12px;">
+                    <div style="font:700 15px/1 {{ L.font }};color:#2B2420;">{{ p.price }} ﷼</div>
+                    <sc-if value="{{ p.hasOld }}" hint-placeholder-val="{{ true }}">
+                      <div style="font:600 10px/1 {{ L.font }};color:#FF7A00;background:#FDE7D3;padding:3px 7px;border-radius:999px;">{{ p.disc }}</div>
+                    </sc-if>
+                  </div>
+                  <div style="text-align:center;font:600 12px/1 {{ L.font }};color:#fff;background:#FF7A00;padding:10px;border-radius:999px;">{{ L.s.addToCart }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+
+      <div style="padding:0 40px 56px;display:flex;justify-content:center;">
+        <div style="width:100%;max-width:900px;background:#2B2420;border-radius:28px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;color:#fff;">
+          <div>
+            <div style="font:700 24px/1.3 {{ L.font }};margin-bottom:10px;">{{ L.s.prescription }}</div>
+            <div style="font:400 14px/1.6 {{ L.font }};color:#D8CFC5;max-width:380px;">{{ L.s.eta }}</div>
+          </div>
+          <a href="#prescription" style="font:700 14px/1 {{ L.font }};color:#2B2420;background:#FF7A00;padding:14px 30px;border-radius:999px;white-space:nowrap;">{{ L.s.prescription }}</a>
+        </div>
+      </div>
+
+      <div style="padding:0 40px 56px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+        <div style="background:#fff;border-radius:22px;padding:24px 32px;display:flex;align-items:center;gap:14px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:#FDE7D3;flex:none;"></div>
+          <div><div style="font:700 14px/1.3 {{ L.font }};color:#2B2420;">{{ L.s.delivery }}</div><div style="font:400 12px/1.5 {{ L.font }};color:#8A7C70;">{{ L.s.eta }}</div></div>
+        </div>
+        <div style="background:#fff;border-radius:22px;padding:24px 32px;display:flex;align-items:center;gap:14px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:#F3E9DE;flex:none;"></div>
+          <div><div style="font:700 14px/1.3 {{ L.font }};color:#2B2420;">{{ L.s.pickup }}</div><div style="font:400 12px/1.5 {{ L.font }};color:#8A7C70;">{{ L.s.pickupSub }}</div></div>
+        </div>
+      </div>
+
+      <div style="padding:32px 40px;border-top:1px solid #EFE3D8;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+        <div><div style="font:700 13px/1 {{ L.font }};color:#2B2420;margin-bottom:12px;">{{ L.s.account }}</div><div style="font:400 12px/1.9 {{ L.font }};color:#8A7C70;">{{ L.s.loyalty }}<br>{{ L.s.navCart }}<br>{{ L.s.navPrescription }}</div></div>
+        <div><div style="font:700 13px/1 {{ L.font }};color:#2B2420;margin-bottom:12px;">{{ L.s.shopByBrand }}</div><div style="font:400 12px/1.9 {{ L.font }};color:#8A7C70;">{{ L.s.categoriesLabel }}<br>{{ L.s.viewAll }}</div></div>
+        <div><div style="font:700 13px/1 {{ L.font }};color:#2B2420;margin-bottom:12px;">{{ L.s.support }}</div><div style="font:400 12px/1.9 {{ L.font }};color:#8A7C70;">{{ L.s.contactUs }}<br>{{ L.s.faq }}</div></div>
+        <div><img src="assets/ucp-logo-mark.png" style="height:26px;width:auto;margin-bottom:10px;"><div style="font:400 11px/1.6 {{ L.font }};color:#8A7C70;">© UCP — {{ L.s.copyrightLine }}</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOMEPAGE MOBILE ===== -->
+  <section data-screen-label="Homepage — Mobile" style="padding:56px 0;background:#F3E9DE;">
+    <div style="text-align:center;font:600 11px/1 {{ L.font }};letter-spacing:0.08em;text-transform:uppercase;color:#8A7C70;margin-bottom:20px;">Homepage — Mobile</div>
+    <div style="width:375px;margin:0 auto;background:#FBF3EC;border:9px solid #2B2420;border-radius:34px;overflow:hidden;">
+      <div style="height:22px;background:#FBF3EC;"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px 18px;background:#fff;border-bottom:1px solid #EFE3D8;">
+        <img src="assets/ucp-logo-mark.png" style="height:26px;width:auto;" alt="UCP">
+        <div style="width:100%;height:38px;background:#FBF3EC;border-radius:999px;display:flex;align-items:center;padding:0 14px;">
+          <span style="font:400 12px/1 {{ L.font }};color:#8A7C70;">{{ L.s.search }}</span>
+        </div>
+      </div>
+      <div style="padding:16px 18px;text-align:center;">
+        <div style="font:600 22px/1.3 {{ L.font }};color:#2B2420;margin-bottom:10px;">{{ L.s.heroTitle }}</div>
+        <div style="font:700 12px/1 {{ L.font }};color:#fff;background:#FF7A00;padding:11px 22px;border-radius:999px;display:inline-block;">{{ L.s.shopNow }}</div>
+      </div>
+      <div style="display:flex;gap:16px;overflow-x:auto;padding:12px 18px;">
+        <sc-for list="{{ L.cats }}" as="mc" hint-placeholder-count="8">
+          <div style="flex:none;display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <div style="width:54px;height:54px;border-radius:50%;background:{{ mc.bg }};"></div>
+            <div style="font:500 9px/1 {{ L.font }};color:#2B2420;">{{ mc.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin:4px 18px;background:#fff;border:1.5px solid #FF7A00;border-radius:18px;padding:16px;text-align:center;">
+        <div style="font:600 13px/1.3 {{ L.font }};color:#2B2420;">{{ L.s.prescription }}</div>
+      </div>
+      <div style="padding:18px 18px 20px;">
+        <div style="font:700 14px/1 {{ L.font }};color:#2B2420;margin-bottom:12px;">{{ L.merch.0.title }}</div>
+        <div style="display:flex;gap:10px;overflow-x:auto;">
+          <sc-for list="{{ L.prod }}" as="mp" hint-placeholder-count="4">
+            <div style="flex:none;width:130px;background:#fff;border-radius:16px;">
+              <div style="width:100%;aspect-ratio:1;background:#F3E9DE;border-radius:16px 16px 0 0;"></div>
+              <div style="padding:10px;">
+                <div style="font:500 11px/1.3 {{ L.font }};color:#2B2420;height:28px;overflow:hidden;">{{ mp.name }}</div>
+                <div style="font:700 12px/1 {{ L.font }};color:#2B2420;margin-top:4px;">{{ mp.price }} ﷼</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:12px 18px;background:#fff;border-top:1px solid #EFE3D8;">
+        <div style="font:600 9px/1 {{ L.font }};color:#8A7C70;">{{ L.s.navSearch }}</div>
+        <div style="font:700 9px/1 {{ L.font }};color:#fff;background:#FF7A00;padding:5px 12px;border-radius:999px;">{{ L.s.navHome }}</div>
+        <div style="font:600 9px/1 {{ L.font }};color:#8A7C70;">{{ L.s.loyalty }}</div>
+        <div style="font:600 9px/1 {{ L.font }};color:#8A7C70;">{{ L.s.cart }}</div>
+        <div style="font:600 9px/1 {{ L.font }};color:#8A7C70;">{{ L.s.account }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORY ===== -->
+  <section id="category" data-screen-label="Category Page" style="padding:56px 40px;">
+    <div style="max-width:1160px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:8px;">
+        <div style="font:700 28px/1 {{ L.font }};color:#2B2420;">{{ L.cats.1.label }}</div>
+        <div style="font:400 13px/1 {{ L.font }};color:#8A7C70;margin-top:8px;">{{ L.s.productCount }}</div>
+      </div>
+      <div style="display:flex;justify-content:center;gap:10px;margin:24px 0;flex-wrap:wrap;">
+        <sc-for list="{{ L.cats }}" as="scc" hint-placeholder-count="8">
+          <div style="font:500 12px/1 {{ L.font }};background:#fff;border:1px solid #EFE3D8;border-radius:999px;padding:9px 18px;color:#2B2420;">{{ scc.label }}</div>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:center;gap:10px;margin-bottom:36px;">
+        <div style="font:600 12px/1 {{ L.font }};background:#2B2420;color:#fff;padding:10px 20px;border-radius:999px;">{{ L.s.filters }}</div>
+        <div style="font:600 12px/1 {{ L.font }};background:#fff;border:1px solid #EFE3D8;color:#2B2420;padding:10px 20px;border-radius:999px;">{{ L.s.sortBy }}</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <sc-for list="{{ L.prod }}" as="cp" hint-placeholder-count="6">
+          <div style="background:#fff;border-radius:22px;box-shadow:0 4px 16px rgba(43,36,32,0.06);">
+            <div style="width:100%;aspect-ratio:1;background:#F3E9DE;border-radius:22px 22px 0 0;"></div>
+            <div style="padding:20px;">
+              <div style="font:500 10px/1 {{ L.font }};color:#8A7C70;margin-bottom:6px;">{{ cp.brand }}</div>
+              <div style="font:500 14px/1.3 {{ L.font }};color:#2B2420;margin-bottom:10px;">{{ cp.name }}</div>
+              <div style="font:700 15px/1 {{ L.font }};color:#2B2420;">{{ cp.price }} ﷼</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:center;margin-top:36px;">
+        <div style="font:600 13px/1 {{ L.font }};background:#fff;border:1px solid #EFE3D8;color:#2B2420;padding:13px 30px;border-radius:999px;">{{ L.s.loadMore }}</div>
+      </div>
+      <div style="margin-top:40px;background:#2B2420;color:#fff;border-radius:999px;padding:14px 24px;display:none;"></div>
+      <div style="display:flex;justify-content:center;margin-top:32px;">
+        <div style="font:400 12px/1 {{ L.font }};color:#8A7C70;">{{ L.s.mobileFilterHint }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT ===== -->
+  <section id="product" data-screen-label="Product Page" style="padding:56px 40px;background:#F3E9DE;">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;">
+      <div style="width:420px;height:420px;background:#FBF3EC;border-radius:26px;margin-bottom:12px;"></div>
+      <div style="display:flex;gap:6px;margin-bottom:28px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#FF7A00;"></div>
+        <div style="width:8px;height:8px;border-radius:50%;background:#EFE3D8;"></div>
+        <div style="width:8px;height:8px;border-radius:50%;background:#EFE3D8;"></div>
+      </div>
+      <div style="text-align:center;max-width:460px;display:flex;flex-direction:column;align-items:center;gap:14px;">
+        <a href="#" style="font:600 12px/1 {{ L.font }};color:#FF7A00;background:#FDE7D3;padding:5px 14px;border-radius:999px;">{{ L.prod.0.brand }}</a>
+        <div style="font:600 24px/1.3 {{ L.font }};color:#2B2420;">{{ L.prod.0.name }}</div>
+        <div style="display:flex;align-items:baseline;gap:8px;">
+          <div style="font:700 20px/1 {{ L.font }};color:#2B2420;">{{ L.prod.0.price }} ﷼</div>
+          <div style="font:400 14px/1 {{ L.font }};color:#8A7C70;text-decoration:line-through;">{{ L.prod.0.old }}</div>
+          <div style="font:600 12px/1 {{ L.font }};color:#FF7A00;">{{ L.prod.0.disc }}</div>
+        </div>
+        <div style="font:500 12px/1 {{ L.font }};color:#2B2420;display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;background:#2B2420;border-radius:50%;display:inline-block;"></span>{{ L.s.availability }}</div>
+        <div style="display:flex;gap:10px;">
+          <div style="font:500 11px/1 {{ L.font }};background:#fff;border:1px solid #EFE3D8;border-radius:999px;padding:8px 15px;color:#2B2420;">{{ L.s.delivery }} · {{ L.s.eta }}</div>
+          <div style="font:500 11px/1 {{ L.font }};background:#fff;border:1px solid #EFE3D8;border-radius:999px;padding:8px 15px;color:#2B2420;">{{ L.s.pickup }}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;width:100%;">
+          <div style="display:flex;align-items:center;background:#fff;border:1px solid #EFE3D8;border-radius:999px;">
+            <div style="padding:10px 17px;">−</div><div style="padding:10px 17px;">1</div><div style="padding:10px 17px;">+</div>
+          </div>
+          <div style="flex:1;text-align:center;background:#FF7A00;color:#fff;padding:14px;font:700 13px/1 {{ L.font }};border-radius:999px;">{{ L.s.addToCart }}</div>
+        </div>
+        <div style="font:400 12px/1.7 {{ L.font }};color:#8A7C70;">{{ L.s.description }}</div>
+      </div>
+      <div style="width:100%;margin-top:48px;background:#fff;border-radius:22px;padding:26px;text-align:center;">
+        <div style="font:600 16px/1 {{ L.font }};color:#2B2420;margin-bottom:18px;">{{ L.s.buildBundle }}</div>
+        <div style="display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:18px;">
+          <sc-for list="{{ L.prodFbt }}" as="bf" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <div style="width:56px;height:56px;border-radius:50%;background:#F3E9DE;"></div>
+              <div style="font:600 14px/1;color:#8A7C70;">+</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font:700 13px/1 {{ L.font }};color:#fff;background:#FF7A00;padding:12px 26px;border-radius:999px;display:inline-block;">{{ L.s.addBundle }} — 158 ﷼</div>
+      </div>
+      <div style="width:100%;margin-top:40px;">
+        <div style="text-align:center;font:600 16px/1 {{ L.font }};color:#2B2420;margin-bottom:18px;">{{ L.s.similar }}</div>
+        <div style="display:flex;gap:16px;overflow-x:auto;justify-content:center;">
+          <sc-for list="{{ L.prodSimilar }}" as="sp" hint-placeholder-count="4">
+            <div style="flex:none;width:160px;background:#fff;border-radius:18px;">
+              <div style="width:100%;aspect-ratio:1;background:#F3E9DE;border-radius:18px 18px 0 0;"></div>
+              <div style="padding:12px;font:500 12px/1.3 {{ L.font }};color:#2B2420;">{{ sp.name }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEARCH ===== -->
+  <section id="search" data-screen-label="Search" style="padding:56px 40px;">
+    <div style="max-width:1160px;margin:0 auto;display:flex;flex-direction:column;align-items:center;">
+      <div style="width:640px;height:52px;background:#fff;border-radius:999px;display:flex;align-items:center;padding:0 22px;margin-bottom:28px;box-shadow:0 2px 8px rgba(43,36,32,0.05);">
+        <span style="font:400 14px/1 {{ L.font }};color:#8A7C70;">{{ L.s.search }}</span>
+      </div>
+      <div style="font:600 12px/1 {{ L.font }};color:#8A7C70;margin-bottom:10px;">{{ L.s.recentSearches }}</div>
+      <div style="display:flex;gap:8px;margin-bottom:24px;">
+        <sc-for list="{{ L.recent }}" as="rc" hint-placeholder-count="4">
+          <div style="font:500 12px/1 {{ L.font }};background:#fff;border:1px solid #EFE3D8;border-radius:999px;padding:8px 16px;color:#2B2420;">{{ rc.label }}</div>
+        </sc-for>
+      </div>
+      <div style="font:600 12px/1 {{ L.font }};color:#8A7C70;margin-bottom:10px;">{{ L.s.popularSearches }}</div>
+      <div style="display:flex;gap:8px;margin-bottom:32px;">
+        <sc-for list="{{ L.popular }}" as="pc" hint-placeholder-count="4">
+          <div style="font:500 12px/1 {{ L.font }};background:#FDE7D3;border-radius:999px;padding:8px 16px;color:#FF7A00;">{{ pc.label }}</div>
+        </sc-for>
+      </div>
+      <div style="font:600 12px/1 {{ L.font }};color:#8A7C70;margin-bottom:10px;">{{ L.s.quickResults }}</div>
+      <div style="display:flex;gap:16px;margin-bottom:24px;">
+        <sc-for list="{{ L.quick }}" as="qp" hint-placeholder-count="4">
+          <div style="width:150px;background:#fff;border-radius:16px;">
+            <div style="width:100%;aspect-ratio:1;background:#F3E9DE;border-radius:16px 16px 0 0;"></div>
+            <div style="padding:10px;font:500 12px/1.3 {{ L.font }};color:#2B2420;text-align:center;">{{ qp.name }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="font:600 12px/1 {{ L.font }};color:#8A7C70;margin-bottom:10px;">{{ L.s.brandsLabel }}</div>
+      <div style="display:flex;gap:16px;">
+        <sc-for list="{{ brandLettersSearch }}" as="bl2" hint-placeholder-count="3">
+          <div style="width:56px;height:56px;border-radius:50%;background:#fff;border:1px solid #EFE3D8;display:flex;align-items:center;justify-content:center;font:700 16px/1 'Sora',sans-serif;color:#2B2420;">{{ bl2 }}</div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CART ===== -->
+  <section id="cart" data-screen-label="Cart" style="padding:56px 40px;background:#F3E9DE;">
+    <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr;gap:32px;">
+      <div>
+        <div style="font:700 24px/1 {{ L.font }};color:#2B2420;margin-bottom:24px;">{{ L.s.cartTitle }}</div>
+        <sc-for list="{{ L.cartItems }}" as="ci" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;gap:16px;background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;">
+            <div style="width:70px;height:70px;border-radius:14px;background:#FBF3EC;flex:none;"></div>
+            <div style="flex:1;">
+              <div style="font:500 10px/1 {{ L.font }};color:#8A7C70;margin-bottom:4px;">{{ ci.brand }}</div>
+              <div style="font:500 14px/1.3 {{ L.font }};color:#2B2420;">{{ ci.name }}</div>
+            </div>
+            <div style="display:flex;align-items:center;background:#FBF3EC;border-radius:999px;">
+              <div style="padding:8px 13px;">−</div><div style="padding:8px 13px;">{{ ci.qty }}</div><div style="padding:8px 13px;">+</div>
+            </div>
+            <div style="font:700 14px/1 {{ L.font }};color:#2B2420;width:70px;text-align:right;">{{ ci.price }} ﷼</div>
+          </div>
+        </sc-for>
+        <div style="margin-top:28px;">
+          <div style="font:700 16px/1 {{ L.font }};color:#2B2420;margin-bottom:14px;">{{ L.s.recommended }}</div>
+          <div style="display:flex;gap:12px;overflow-x:auto;">
+            <sc-for list="{{ L.quick }}" as="rp" hint-placeholder-count="4">
+              <div style="flex:none;width:130px;background:#fff;border-radius:16px;">
+                <div style="width:100%;aspect-ratio:1;background:#FBF3EC;border-radius:16px 16px 0 0;"></div>
+                <div style="padding:10px;font:500 11px/1.3 {{ L.font }};color:#2B2420;height:28px;overflow:hidden;">{{ rp.name }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:22px;padding:28px;align-self:start;">
+        <div style="display:flex;gap:8px;margin-bottom:20px;">
+          <div style="flex:1;height:42px;background:#FBF3EC;border-radius:999px;display:flex;align-items:center;padding:0 16px;"><span style="font:400 12px/1 {{ L.font }};color:#8A7C70;">{{ L.s.promoCode }}</span></div>
+          <div style="font:600 12px/1 {{ L.font }};background:#2B2420;color:#fff;padding:0 18px;border-radius:999px;display:flex;align-items:center;">{{ L.s.apply }}</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font:400 13px/1 {{ L.font }};color:#8A7C70;margin-bottom:10px;"><span>{{ L.s.subtotal }}</span><span>250 ﷼</span></div>
+        <div style="display:flex;justify-content:space-between;font:400 13px/1 {{ L.font }};color:#8A7C70;margin-bottom:10px;"><span>{{ L.s.deliveryFee }}</span><span>15 ﷼</span></div>
+        <div style="display:flex;justify-content:space-between;font:700 16px/1 {{ L.font }};color:#2B2420;padding-top:14px;border-top:1px solid #EFE3D8;margin-bottom:20px;"><span>{{ L.s.total }}</span><span>265 ﷼</span></div>
+        <a href="#checkout" style="display:block;text-align:center;background:#FF7A00;color:#fff;padding:15px;border-radius:999px;font:700 14px/1 {{ L.font }};">{{ L.s.checkoutCta }}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHECKOUT ===== -->
+  <section id="checkout" data-screen-label="Checkout" style="padding:56px 40px;">
+    <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr;gap:32px;">
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <div style="font:700 24px/1 {{ L.font }};color:#2B2420;">{{ L.s.checkoutTitle }}</div>
+        <div style="background:#fff;border-radius:20px;padding:22px;">
+          <div style="font:700 14px/1 {{ L.font }};color:#2B2420;margin-bottom:14px;">{{ L.s.customerInfo }}</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div style="height:42px;background:#FBF3EC;border-radius:12px;display:flex;align-items:center;padding:0 14px;font:400 12px/1 {{ L.font }};color:#8A7C70;">{{ L.s.fullName }}</div>
+            <div style="height:42px;background:#FBF3EC;border-radius:12px;display:flex;align-items:center;padding:0 14px;font:400 12px/1 {{ L.font }};color:#8A7C70;">{{ L.s.phone }}</div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:20px;padding:22px;">
+          <div style="font:700 14px/1 {{ L.font }};color:#2B2420;margin-bottom:14px;">{{ L.s.deliveryMethod }}</div>
+          <div style="display:flex;gap:10px;">
+            <div style="flex:1;border:1.5px solid #FF7A00;border-radius:14px;padding:14px;font:600 12px/1.4 {{ L.font }};color:#2B2420;">{{ L.s.delivery }}<div style="font:400 11px/1.4 {{ L.font }};color:#8A7C70;margin-top:4px;">{{ L.s.eta }}</div></div>
+            <div style="flex:1;border:1px solid #EFE3D8;border-radius:14px;padding:14px;font:600 12px/1.4 {{ L.font }};color:#2B2420;">{{ L.s.pickupMethod }}<div style="font:400 11px/1.4 {{ L.font }};color:#8A7C70;margin-top:4px;">{{ L.s.pickupSub }}</div></div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:20px;padding:22px;">
+          <div style="font:700 14px/1 {{ L.font }};color:#2B2420;margin-bottom:14px;">{{ L.s.paymentMethod }}</div>
+          <div style="display:flex;gap:10px;">
+            <div style="flex:1;height:52px;border:1.5px solid #FF7A00;border-radius:14px;"></div>
+            <div style="flex:1;height:52px;border:1px solid #EFE3D8;border-radius:14px;"></div>
+            <div style="flex:1;height:52px;border:1px solid #EFE3D8;border-radius:14px;"></div>
+          </div>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:22px;padding:28px;align-self:start;">
+        <div style="font:700 14px/1 {{ L.font }};color:#2B2420;margin-bottom:16px;">{{ L.s.orderSummary }}</div>
+        <div style="display:flex;justify-content:space-between;font:400 13px/1 {{ L.font }};color:#8A7C70;margin-bottom:10px;"><span>{{ L.s.subtotal }}</span><span>250 ﷼</span></div>
+        <div style="display:flex;justify-content:space-between;font:400 13px/1 {{ L.font }};color:#8A7C70;margin-bottom:10px;"><span>{{ L.s.deliveryFee }}</span><span>15 ﷼</span></div>
+        <div style="display:flex;justify-content:space-between;font:700 16px/1 {{ L.font }};color:#2B2420;padding-top:14px;border-top:1px solid #EFE3D8;margin-bottom:20px;"><span>{{ L.s.total }}</span><span>265 ﷼</span></div>
+        <div style="display:block;text-align:center;background:#FF7A00;color:#fff;padding:15px;border-radius:999px;font:700 14px/1 {{ L.font }};">{{ L.s.placeOrder }}</div>
+      </div>
+    </div>
+    <div style="max-width:640px;margin:56px auto 0;background:#2B2420;border-radius:24px;padding:36px;text-align:center;color:#fff;">
+      <div style="font:700 20px/1.3 {{ L.font }};margin-bottom:10px;">{{ L.s.confirmTitle }}</div>
+      <div style="font:400 13px/1.6 {{ L.font }};color:#D8CFC5;margin-bottom:16px;">{{ L.s.confirmSub }}</div>
+      <div style="font:600 13px/1 {{ L.font }};color:#FF7A00;">{{ L.s.orderNumber }} #UCP-48213</div>
+    </div>
+  </section>
+
+  <!-- ===== LOYALTY ===== -->
+  <section id="loyalty" data-screen-label="Loyalty" style="padding:56px 40px;background:#F3E9DE;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="background:#2B2420;border-radius:26px;padding:40px;color:#fff;display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+        <div>
+          <div style="font:700 24px/1.3 {{ L.font }};margin-bottom:8px;">{{ L.s.loyaltyTitle }}</div>
+          <div style="font:400 13px/1.6 {{ L.font }};color:#D8CFC5;max-width:360px;">{{ L.s.loyaltySub }}</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font:700 34px/1 {{ L.font }};color:#FF7A00;">1,240</div>
+          <div style="font:500 12px/1 {{ L.font }};color:#D8CFC5;margin-top:6px;">{{ L.s.pointsLabel }}</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;">
+        <div style="background:#fff;border-radius:20px;padding:22px;text-align:center;"><div style="font:700 14px/1 {{ L.font }};color:#2B2420;margin-bottom:6px;">{{ L.s.tierLabel }}</div><div style="font:600 13px/1 {{ L.font }};color:#FF7A00;">{{ L.s.tierGold }}</div></div>
+        <div style="background:#fff;border-radius:20px;padding:22px;text-align:center;"><div style="font:700 14px/1 {{ L.font }};color:#2B2420;margin-bottom:6px;">{{ L.s.earnRule }}</div><div style="font:400 12px/1.4 {{ L.font }};color:#8A7C70;">1 ﷼ = 1 point</div></div>
+        <div style="background:#fff;border-radius:20px;padding:22px;text-align:center;"><div style="font:700 14px/1 {{ L.font }};color:#2B2420;margin-bottom:6px;">{{ L.s.redeemRewards }}</div><div style="font:600 12px/1 {{ L.font }};color:#FF7A00;">{{ L.s.viewAll }}</div></div>
+      </div>
+      <div style="font:700 16px/1 {{ L.font }};color:#2B2420;margin-bottom:16px;">{{ L.s.pointsHistory }}</div>
+      <sc-for list="{{ L.loyaltyHistory }}" as="lh" hint-placeholder-count="3">
+        <div style="display:flex;justify-content:space-between;background:#fff;border-radius:16px;padding:16px 20px;margin-bottom:10px;">
+          <div style="font:500 13px/1.3 {{ L.font }};color:#2B2420;">{{ lh.label }}</div>
+          <div style="font:700 13px/1 {{ L.font }};color:#FF7A00;">{{ lh.pts }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===== PRESCRIPTION ===== -->
+  <section id="prescription" data-screen-label="Prescription Ordering" style="padding:56px 40px;">
+    <div style="max-width:800px;margin:0 auto;text-align:center;">
+      <div style="font:600 11px/1 {{ L.font }};letter-spacing:{{ L.track }};text-transform:{{ L.transform }};color:#FF7A00;background:#FDE7D3;padding:6px 16px;border-radius:999px;display:inline-block;margin-bottom:20px;">UCP CARE</div>
+      <div style="font:600 32px/1.3 {{ L.font }};color:#2B2420;margin-bottom:14px;">{{ L.s.prescriptionTitle }}</div>
+      <div style="font:400 14px/1.6 {{ L.font }};color:#8A7C70;max-width:520px;margin:0 auto 32px;">{{ L.s.prescriptionSub }}</div>
+      <div style="background:#fff;border:2px dashed #EFE3D8;border-radius:26px;padding:48px;margin-bottom:24px;">
+        <div style="width:60px;height:60px;border-radius:50%;background:#FDE7D3;margin:0 auto 16px;"></div>
+        <div style="font:600 15px/1.3 {{ L.font }};color:#2B2420;margin-bottom:8px;">{{ L.s.uploadPrescription }}</div>
+        <div style="font:400 12px/1.5 {{ L.font }};color:#8A7C70;">{{ L.s.uploadHint }}</div>
+      </div>
+      <div style="font:700 14px/1 {{ L.font }};color:#fff;background:#FF7A00;padding:16px 34px;border-radius:999px;display:inline-block;margin-bottom:12px;">{{ L.s.uploadPrescription }}</div>
+      <div style="font:500 13px/1 {{ L.font }};color:#2B2420;">{{ L.s.orCallDoctor }}</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;text-align:center;">
+        <div><div style="width:44px;height:44px;border-radius:50%;background:#F3E9DE;margin:0 auto 10px;"></div><div style="font:600 13px/1.4 {{ L.font }};color:#2B2420;">{{ L.s.pharmacistReview }}</div></div>
+        <div><div style="width:44px;height:44px;border-radius:50%;background:#F3E9DE;margin:0 auto 10px;"></div><div style="font:600 13px/1.4 {{ L.font }};color:#2B2420;">{{ L.s.statusReview }}</div></div>
+        <div><div style="width:44px;height:44px;border-radius:50%;background:#F3E9DE;margin:0 auto 10px;"></div><div style="font:600 13px/1.4 {{ L.font }};color:#2B2420;">{{ L.s.statusReady }}</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APP SCREENS ===== -->
+  <section id="app" data-screen-label="App Screens" style="padding:56px 40px 80px;background:#F3E9DE;">
+    <div style="text-align:center;font:600 11px/1 {{ L.font }};letter-spacing:0.08em;text-transform:uppercase;color:#8A7C70;margin-bottom:28px;">App — Home / Product / Navigation</div>
+    <div style="display:flex;gap:40px;justify-content:center;flex-wrap:wrap;">
+
+      <div>
+        <div style="text-align:center;font:600 12px/1 {{ L.font }};color:#8A7C70;margin-bottom:12px;">{{ L.s.appHomeLabel }}</div>
+        <div style="width:340px;background:#FBF3EC;border:9px solid #2B2420;border-radius:32px;overflow:hidden;">
+          <div style="height:20px;background:#FBF3EC;"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 16px;background:#fff;border-bottom:1px solid #EFE3D8;">
+            <img src="assets/ucp-logo-mark.png" style="height:22px;width:auto;" alt="UCP">
+          </div>
+          <div style="padding:14px 16px;text-align:center;">
+            <div style="font:600 18px/1.3 {{ L.font }};color:#2B2420;margin-bottom:8px;">{{ L.s.heroTitle }}</div>
+          </div>
+          <div style="display:flex;gap:12px;overflow-x:auto;padding:0 16px 14px;">
+            <sc-for list="{{ L.cats }}" as="ac" hint-placeholder-count="8">
+              <div style="flex:none;display:flex;flex-direction:column;align-items:center;gap:5px;">
+                <div style="width:46px;height:46px;border-radius:50%;background:{{ ac.bg }};"></div>
+                <div style="font:500 8px/1 {{ L.font }};color:#2B2420;">{{ ac.label }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="padding:0 16px 16px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <sc-for list="{{ L.quick }}" as="ap" hint-placeholder-count="4">
+                <div style="background:#fff;border-radius:14px;">
+                  <div style="width:100%;aspect-ratio:1;background:#F3E9DE;border-radius:14px 14px 0 0;"></div>
+                  <div style="padding:8px;font:700 11px/1 {{ L.font }};color:#2B2420;">{{ ap.price }} ﷼</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:10px 16px;background:#fff;border-top:1px solid #EFE3D8;">
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.navSearch }}</div>
+            <div style="font:700 8px/1 {{ L.font }};color:#fff;background:#FF7A00;padding:4px 10px;border-radius:999px;">{{ L.s.navHome }}</div>
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.loyalty }}</div>
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.cart }}</div>
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.account }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="text-align:center;font:600 12px/1 {{ L.font }};color:#8A7C70;margin-bottom:12px;">{{ L.s.appProductLabel }}</div>
+        <div style="width:340px;background:#FBF3EC;border:9px solid #2B2420;border-radius:32px;overflow:hidden;">
+          <div style="height:20px;background:#FBF3EC;"></div>
+          <div style="width:100%;aspect-ratio:1;background:#fff;"></div>
+          <div style="padding:16px;display:flex;flex-direction:column;gap:10px;">
+            <div style="font:600 11px/1 {{ L.font }};color:#FF7A00;">{{ L.prod.0.brand }}</div>
+            <div style="font:600 15px/1.3 {{ L.font }};color:#2B2420;">{{ L.prod.0.name }}</div>
+            <div style="font:700 16px/1 {{ L.font }};color:#2B2420;">{{ L.prod.0.price }} ﷼</div>
+            <div style="font:500 11px/1 {{ L.font }};background:#fff;border:1px solid #EFE3D8;border-radius:999px;padding:8px 14px;color:#2B2420;width:fit-content;">{{ L.s.delivery }} · {{ L.s.eta }}</div>
+            <div style="text-align:center;background:#FF7A00;color:#fff;padding:13px;font:700 12px/1 {{ L.font }};border-radius:999px;margin-top:6px;">{{ L.s.addToBag }}</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:10px 16px;background:#fff;border-top:1px solid #EFE3D8;">
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.navSearch }}</div>
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.navHome }}</div>
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.loyalty }}</div>
+            <div style="font:700 8px/1 {{ L.font }};color:#fff;background:#FF7A00;padding:4px 10px;border-radius:999px;">{{ L.s.cart }}</div>
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.account }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="text-align:center;font:600 12px/1 {{ L.font }};color:#8A7C70;margin-bottom:12px;">{{ L.s.appNavLabel }}</div>
+        <div style="width:340px;background:#fff;border:9px solid #2B2420;border-radius:32px;overflow:hidden;">
+          <div style="height:20px;background:#fff;"></div>
+          <div style="padding:24px 16px;text-align:center;">
+            <div style="width:70px;height:70px;border-radius:50%;background:#F3E9DE;margin:0 auto 14px;"></div>
+            <div style="font:600 14px/1.3 {{ L.font }};color:#2B2420;margin-bottom:6px;">Sarah A.</div>
+            <div style="font:400 11px/1.4 {{ L.font }};color:#8A7C70;">{{ L.s.tierGold }} · 1,240 {{ L.s.pointsLabel }}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px;padding:0 16px;">
+            <sc-for list="{{ L.profileMenu }}" as="pm" hint-placeholder-count="5">
+              <div style="display:flex;justify-content:space-between;padding:13px 6px;border-bottom:1px solid #EFE3D8;font:500 12px/1 {{ L.font }};color:#2B2420;"><span>{{ pm.label }}</span><span>{{ L.arrow }}</span></div>
+            </sc-for>
+          </div>
+          <div style="height:16px;"></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 16px;background:#fff;border-top:1px solid #EFE3D8;">
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.navSearch }}</div>
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.navHome }}</div>
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.loyalty }}</div>
+            <div style="font:600 8px/1 {{ L.font }};color:#8A7C70;">{{ L.s.cart }}</div>
+            <div style="font:700 8px/1 {{ L.font }};color:#fff;background:#FF7A00;padding:4px 10px;border-radius:999px;">{{ L.s.account }}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'ar' };
+
+  renderVals() {
+    const STRINGS = {
+      search: { ar: 'ابحث عن منتج أو علامة تجارية', en: 'Search products or brands' },
+      account: { ar: 'حسابي', en: 'Account' },
+      cart: { ar: 'السلة', en: 'Cart' },
+      loyalty: { ar: 'الولاء', en: 'Loyalty' },
+      prescription: { ar: 'اطلب وصفتك', en: 'Order Your Prescription' },
+      viewAll: { ar: 'عرض الكل', en: 'View All' },
+      shopByBrand: { ar: 'تسوق عبر العلامة التجارية', en: 'Shop By Brand' },
+      addToCart: { ar: 'أضف للسلة', en: 'Add to Cart' },
+      delivery: { ar: 'التوصيل', en: 'Delivery' },
+      pickup: { ar: 'الاستلام من الفرع', en: 'Store Pickup' },
+      pickupSub: { ar: 'جاهز خلال ساعة', en: 'Ready in 1 hour' },
+      filters: { ar: 'الفلاتر', en: 'Filters' },
+      sortBy: { ar: 'ترتيب', en: 'Sort' },
+      productCount: { ar: '٣٤٢ منتج', en: '342 products' },
+      similar: { ar: 'منتجات مشابهة', en: 'Similar Products' },
+      availability: { ar: 'متوفر', en: 'In Stock' },
+      eta: { ar: 'التوصيل خلال ٩٠ دقيقة', en: 'Delivery in 90 min' },
+      recentSearches: { ar: 'عمليات بحث سابقة', en: 'Recent Searches' },
+      popularSearches: { ar: 'الأكثر بحثًا', en: 'Popular Searches' },
+      brandsLabel: { ar: 'العلامات التجارية', en: 'Brands' },
+      quickResults: { ar: 'نتائج سريعة', en: 'Quick Results' },
+      shopNow: { ar: 'تسوّق الآن', en: 'Shop Now' },
+      loadMore: { ar: 'عرض المزيد', en: 'Load More' },
+      buildBundle: { ar: 'كوّن باقتك', en: 'Build Your Bundle' },
+      addBundle: { ar: 'أضف الباقة', en: 'Add Bundle' },
+      total: { ar: 'الإجمالي', en: 'Total' },
+      categoriesLabel: { ar: 'الفئات', en: 'Categories' },
+      description: { ar: 'تفاصيل المنتج والمكونات وطريقة الاستخدام.', en: 'Full product details, ingredients, and usage instructions.' },
+      heroTitle: { ar: 'كل ما تحتاجه، في مكانه الصحيح.', en: 'Everything you need, exactly where it should be.' },
+      heroSub: { ar: 'صيدلية وتجميل. توصيل سريع أو استلام من الفرع، اختر ما يناسبك.', en: 'Pharmacy and beauty, together. Fast delivery or store pickup — your call.' },
+      support: { ar: 'الدعم', en: 'Support' },
+      contactUs: { ar: 'تواصل معنا', en: 'Contact Us' },
+      faq: { ar: 'الأسئلة الشائعة', en: 'FAQ' },
+      copyrightLine: { ar: 'كل الحقوق محفوظة', en: 'All rights reserved' },
+      mobileFilterHint: { ar: 'على الجوال، تفتح الفلاتر كقائمة سفلية منزلقة', en: 'On mobile, filters open as a bottom sheet' },
+      navHome: { ar: 'الرئيسية', en: 'Home' },
+      navCategory: { ar: 'الفئة', en: 'Category' },
+      navProduct: { ar: 'المنتج', en: 'Product' },
+      navSearch: { ar: 'البحث', en: 'Search' },
+      navCart: { ar: 'السلة', en: 'Cart' },
+      navCheckout: { ar: 'الدفع', en: 'Checkout' },
+      navLoyalty: { ar: 'الولاء', en: 'Loyalty' },
+      navPrescription: { ar: 'الوصفة', en: 'Prescription' },
+      navApp: { ar: 'التطبيق', en: 'App' },
+      cartTitle: { ar: 'سلة التسوق', en: 'Shopping Cart' },
+      subtotal: { ar: 'الإجمالي الفرعي', en: 'Subtotal' },
+      deliveryFee: { ar: 'رسوم التوصيل', en: 'Delivery Fee' },
+      promoCode: { ar: 'كود الخصم', en: 'Promo code' },
+      apply: { ar: 'تطبيق', en: 'Apply' },
+      checkoutCta: { ar: 'إتمام الطلب', en: 'Proceed to Checkout' },
+      recommended: { ar: 'قد يعجبك أيضًا', en: 'You Might Also Like' },
+      checkoutTitle: { ar: 'إتمام الطلب', en: 'Checkout' },
+      customerInfo: { ar: 'معلومات العميل', en: 'Customer Information' },
+      fullName: { ar: 'الاسم الكامل', en: 'Full Name' },
+      phone: { ar: 'رقم الهاتف', en: 'Phone Number' },
+      deliveryMethod: { ar: 'طريقة الاستلام', en: 'Delivery Method' },
+      pickupMethod: { ar: 'الاستلام من الفرع', en: 'Store Pickup' },
+      paymentMethod: { ar: 'طريقة الدفع', en: 'Payment Method' },
+      orderSummary: { ar: 'ملخص الطلب', en: 'Order Summary' },
+      placeOrder: { ar: 'تأكيد الطلب', en: 'Place Order' },
+      confirmTitle: { ar: 'تم استلام طلبك!', en: 'Order Received!' },
+      confirmSub: { ar: 'سنرسل لك تحديثًا فور تجهيز طلبك.', en: 'We will notify you as soon as your order is ready.' },
+      orderNumber: { ar: 'رقم الطلب', en: 'Order Number' },
+      loyaltyTitle: { ar: 'نادي UCP', en: 'UCP Rewards' },
+      loyaltySub: { ar: 'اجمع نقاطًا مع كل عملية شراء واستبدلها بمكافآت.', en: 'Earn points with every purchase and redeem them for rewards.' },
+      pointsLabel: { ar: 'نقطة', en: 'Points' },
+      tierLabel: { ar: 'المستوى الحالي', en: 'Current Tier' },
+      tierGold: { ar: 'ذهبي', en: 'Gold' },
+      redeemRewards: { ar: 'استبدال المكافآت', en: 'Redeem Rewards' },
+      pointsHistory: { ar: 'سجل النقاط', en: 'Points History' },
+      earnRule: { ar: 'قاعدة الكسب', en: 'Earn Rule' },
+      prescriptionTitle: { ar: 'اطلب وصفتك الطبية بسهولة', en: 'Order Your Prescription, Effortlessly' },
+      prescriptionSub: { ar: 'صوّر وصفتك أو ارفعها، ويقوم فريق الصيادلة المرخصين لدينا بالباقي.', en: 'Snap or upload your prescription — our licensed pharmacists handle the rest.' },
+      uploadPrescription: { ar: 'رفع الوصفة الطبية', en: 'Upload Prescription' },
+      uploadHint: { ar: 'صيغ الملفات المدعومة: JPG، PNG، PDF', en: 'Supported formats: JPG, PNG, PDF' },
+      orCallDoctor: { ar: 'أو تواصل مع طبيبك لإرسالها مباشرة', en: 'Or have your doctor send it directly' },
+      pharmacistReview: { ar: 'مراجعة الصيدلي', en: 'Pharmacist Review' },
+      statusReview: { ar: 'قيد المراجعة', en: 'Under Review' },
+      statusReady: { ar: 'جاهز للاستلام', en: 'Ready for Pickup' },
+      appHomeLabel: { ar: 'الرئيسية', en: 'Home' },
+      appProductLabel: { ar: 'صفحة المنتج', en: 'Product Page' },
+      appNavLabel: { ar: 'الملف الشخصي', en: 'Profile' },
+      addToBag: { ar: 'أضف للسلة', en: 'Add to Bag' }
+    };
+
+    const categoriesData = [
+      { ar: 'العناية بالوجه', en: 'Face', bg: '#FDE7D3' },
+      { ar: 'العناية بالشعر', en: 'Hair', bg: '#F3E9DE' },
+      { ar: 'العناية بالجسم', en: 'Body', bg: '#FDE7D3' },
+      { ar: 'العناية النسائية', en: 'Feminine Care', bg: '#F3E9DE' },
+      { ar: 'العناية بالفم', en: 'Oral Care', bg: '#FDE7D3' },
+      { ar: 'العدسات', en: 'Lenses', bg: '#F3E9DE' },
+      { ar: 'الفيتامينات والمكملات', en: 'Vitamins & Supplements', bg: '#FDE7D3' },
+      { ar: 'عناية الطفل', en: 'Baby', bg: '#F3E9DE' }
+    ];
+
+    const productsData = [
+      { brandAr: 'العلامة ٠١', brandEn: 'Brand 01', nameAr: 'كريم مرطب للوجه', nameEn: 'Hydrating Face Cream', price: '89', old: '120', discAr: 'خصم ٢٥٪', discEn: '25% off' },
+      { brandAr: 'العلامة ٠٢', brandEn: 'Brand 02', nameAr: 'شامبو معالج للشعر', nameEn: 'Repair Shampoo', price: '54', old: '', discAr: '', discEn: '' },
+      { brandAr: 'العلامة ٠٣', brandEn: 'Brand 03', nameAr: 'غسول للبشرة الحساسة', nameEn: 'Gentle Body Wash', price: '42', old: '60', discAr: 'خصم ٣٠٪', discEn: '30% off' },
+      { brandAr: 'العلامة ٠٤', brandEn: 'Brand 04', nameAr: 'فيتامين د٣ ٦٠ كبسولة', nameEn: 'Vitamin D3, 60 Capsules', price: '75', old: '', discAr: '', discEn: '' },
+      { brandAr: 'العلامة ٠٥', brandEn: 'Brand 05', nameAr: 'معجون أسنان تبييض', nameEn: 'Whitening Toothpaste', price: '28', old: '35', discAr: 'خصم ٢٠٪', discEn: '20% off' },
+      { brandAr: 'العلامة ٠٦', brandEn: 'Brand 06', nameAr: 'مستحضر عناية بالطفل', nameEn: 'Baby Care Lotion', price: '46', old: '', discAr: '', discEn: '' }
+    ];
+
+    const merchData = [
+      { ar: 'الأكثر طلبًا', en: 'Most Wanted' },
+      { ar: 'مختارات لك', en: 'Picks For You' },
+      { ar: 'عروض مميزة', en: 'Featured Offers' }
+    ];
+
+    const loyaltyHistoryData = [
+      { ar: 'طلب #48210', en: 'Order #48210', pts: '+42' },
+      { ar: 'مكافأة تسجيل الدخول اليومي', en: 'Daily login bonus', pts: '+5' },
+      { ar: 'طلب #48176', en: 'Order #48176', pts: '+118' }
+    ];
+
+    const profileMenuData = [
+      { ar: 'الطلبات', en: 'Orders' },
+      { ar: 'الوصفات الطبية', en: 'Prescriptions' },
+      { ar: 'العناوين', en: 'Addresses' },
+      { ar: 'المكافآت', en: 'Rewards' },
+      { ar: 'الإعدادات', en: 'Settings' }
+    ];
+
+    const brandLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+    const lang = this.state.lang;
+    const s = {};
+    for (const k in STRINGS) s[k] = lang === 'ar' ? STRINGS[k].ar : STRINGS[k].en;
+    const cats = categoriesData.map(c => ({ label: lang === 'ar' ? c.ar : c.en, bg: c.bg }));
+    const prod = productsData.map(p => ({
+      brand: lang === 'ar' ? p.brandAr : p.brandEn,
+      name: lang === 'ar' ? p.nameAr : p.nameEn,
+      price: p.price, old: p.old,
+      disc: lang === 'ar' ? p.discAr : p.discEn,
+      hasOld: !!p.old
+    }));
+    const merch = merchData.map(m => ({ title: lang === 'ar' ? m.ar : m.en }));
+    const loyaltyHistory = loyaltyHistoryData.map(h => ({ label: lang === 'ar' ? h.ar : h.en, pts: h.pts }));
+    const profileMenu = profileMenuData.map(m => ({ label: lang === 'ar' ? m.ar : m.en }));
+    const cartItems = prod.slice(0, 3).map(p => ({ ...p, qty: 1 }));
+
+    const L = {
+      s, cats, prod, merch, loyaltyHistory, profileMenu, cartItems,
+      dir: lang === 'ar' ? 'rtl' : 'ltr',
+      arrow: lang === 'ar' ? '←' : '→',
+      track: lang === 'ar' ? 'normal' : '0.08em',
+      transform: lang === 'ar' ? 'none' : 'uppercase',
+      font: lang === 'ar' ? '"El Messiri"' : '"Sora"',
+      prodFbt: prod.slice(0, 3),
+      prodSimilar: prod.slice(2, 6),
+      recent: cats.slice(0, 4),
+      popular: cats.slice(4, 8),
+      quick: prod.slice(0, 4)
+    };
+
+    return {
+      L,
+      toggleLang: () => this.setState(st => ({ lang: st.lang === 'ar' ? 'en' : 'ar' })),
+      brandLetters,
+      brandLettersSearch: brandLetters.slice(0, 3)
+    };
+  }
+}
+</script>
+</body>
+</html>
