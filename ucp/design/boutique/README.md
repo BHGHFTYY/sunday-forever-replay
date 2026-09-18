@@ -75,9 +75,72 @@ exported file needs (`DCLogic`, `{{ }}` interpolation in text and attributes,
 `<script type="text/x-dc">` block the browser will not run). It exists only to
 make the supplied file viewable; nothing in the build depends on it.
 
-## Built so far
+## The screens
 
-- `home.html` — handoff screens 1 and 2 (homepage desktop + mobile)
+All nine, on one design system and one catalogue.
 
-Still to come: category, product, search, cart, checkout, loyalty,
-prescription, and the three app screens.
+| file | handoff screen |
+|---|---|
+| `home.html` | 1–2, homepage desktop + mobile |
+| `category.html` | 3, category browsing |
+| `product.html` | 4, product page |
+| `search.html` | 5, search |
+| `cart.html` | 6, cart |
+| `checkout.html` | 7, checkout + confirmation |
+| `loyalty.html` | 8, loyalty |
+| `prescription.html` | 9, prescription ordering |
+| `app.html` | 10–12, the three app screens |
+
+Header, footer, bottom nav and the **product card** live in `boutique.css` and
+`boutique.js`. The card is the one component a customer sees a thousand times;
+two copies of it guarantees the screens drift. The app screens use the same
+tokens and the same card — the app is not a second design system, it is this
+one in a narrower column.
+
+## Where the prototype refuses to pretend
+
+Three places where the honest thing and the impressive thing differ:
+
+**No card fields anywhere.** Checkout shows payment *method* choices only —
+no number field, no CVV, nowhere for a card to be typed. A prototype that
+renders a plausible card form invites someone to type a real card into a page
+with no server, no TLS story and no PCI scope. Fields appear when a payment
+provider's hosted form does, and not before.
+
+**A prescription never leaves the device.** The chosen file is read only far
+enough to show its name and size; it is held in one local variable for the life
+of the page, never uploaded, never written to storage. A prescription is
+medical data. The page says this where a user can read it, not only in a
+comment.
+
+**Every loyalty figure is illustrative, and says so on the page.** Tiers, earn
+rate and balances are not in anything we have been given, and inventing a
+rewards scheme a customer might act on is exactly the business claim this must
+not make.
+
+The same rule governs the product page's labelled gaps (description,
+dispensing status, stock) and the cart's free-delivery threshold, which is
+marked as a placeholder rule rather than presented as policy.
+
+## What is verified, and how
+
+Not "looks right" — driven in a real browser:
+
+- **Contrast**: `contrast.mjs` (21 token pairings) and `audit-a11y.mjs`, which
+  walks every visible text node on all nine pages, composites its real
+  background, and checks the rendered ratio at the right threshold for that
+  node's size and weight. Both pass.
+- **Flow**: product gallery → stepper → bundle → cart → quantity → removal →
+  checkout → method switch → order placed. Totals recomputed at each step.
+- **Layout**: no horizontal overflow on any page at 360, 390 or 1366.
+- **No console errors** on any page.
+
+### A bug this found
+
+The basket reset on every navigation. `Shell` keeps it in memory, which is fine
+for a one-page prototype and wrong here, where each screen is a real page load
+— a 45 SAR basket became the 167 SAR demo basket on the way to checkout.
+`initCart()` now persists it in `sessionStorage` (not local: a demo basket
+should not outlive the tab), wrapped in try/catch so a private window still
+runs and simply forgets.
+

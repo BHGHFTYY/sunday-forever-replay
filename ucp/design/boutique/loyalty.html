@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — الولاء</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="boutique.css">
+</head>
+<body>
+<main id="main"><div class="wrap" style="padding-block:30px 56px">
+  <div class="loyhero" id="hero"></div>
+  <div class="trio" id="trio"></div>
+  <h2 class="section-title" style="text-align:start;margin:30px 0 14px" id="histT"></h2>
+  <div id="hist"></div>
+  <p class="sub" id="note" style="text-align:start;margin-top:16px"></p>
+</div></main>
+
+<script src="../ninja/catalogue.js"></script>
+<script src="../ninja/ucp.js"></script>
+<script src="boutique.js"></script>
+<script>
+/* ===========================================================================
+   LOYALTY — handoff screen 8. Dark hero with the points figure, three rule
+   cards, points history.
+
+   Every number on this screen is ILLUSTRATIVE. UCP's real tiers, earn rate and
+   balances are not in anything we have been given, and inventing a rewards
+   scheme that a customer might act on is exactly the kind of business claim
+   this prototype must not make. The note at the foot says so on the page.
+   =========================================================================== */
+const TX = {
+  ar: { title:"نادي UCP", sub:"اكسب نقاطًا مع كل طلب واستبدلها كخصم على مشترياتك القادمة.",
+        pts:"نقطة", tier:"مستواك الحالي", tierV:"ذهبي", earn:"معدّل الكسب",
+        earnV:"١ ﷼ = ١ نقطة", redeem:"استبدال النقاط", redeemV:"اعرض المكافآت",
+        hist:"سجل النقاط",
+        rows:[["طلب ‎#48210","+42"],["مكافأة تسجيل الدخول اليومي","+5"],["طلب ‎#48176","+118"],["استبدال خصم ١٠ ﷼","−100"]],
+        note:"جميع الأرقام في هذه الصفحة توضيحية. برنامج الولاء الفعلي — المستويات ومعدّل الكسب والأرصدة — يأتي من نظام UCP." },
+  en: { title:"UCP Club", sub:"Earn points on every order and spend them as a discount next time.",
+        pts:"points", tier:"Current tier", tierV:"Gold", earn:"Earn rate",
+        earnV:"1 SAR = 1 point", redeem:"Redeem", redeemV:"See rewards",
+        hist:"Points history",
+        rows:[["Order #48210","+42"],["Daily login bonus","+5"],["Order #48176","+118"],["Redeemed 10 SAR off","−100"]],
+        note:"Every figure on this page is illustrative. The real programme — tiers, earn rate and balances — comes from UCP's system." },
+};
+const tx = () => TX[Shell.lang];
+
+function render() {
+  const T = tx();
+  renderChrome(ctx().loyalty);
+  set("hero", '<div><h1>' + T.title + '</h1><p>' + T.sub + '</p></div>'
+    + '<div class="pts"><b class="num">1,340</b><span>' + T.pts + '</span></div>');
+  set("trio", [[T.tier, T.tierV, null], [T.earn, T.earnV, null], [T.redeem, null, T.redeemV]]
+    .map(([k, v, link]) => '<div class="c"><div class="k">' + k + '</div>'
+      + (v ? '<div class="v">' + v + '</div>' : '<a href="#" style="display:inline-block;margin-top:8px">' + link + '</a>')
+      + '</div>').join(''));
+  set("histT", T.hist);
+  set("hist", T.rows.map(([l, d]) => '<div class="histrow"><span>' + l + '</span>'
+    + '<span class="d num">' + d + '</span></div>').join(''));
+  set("note", T.note);
+}
+mountChrome();
+initCart(null);
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+</script>
+</body>
+</html>

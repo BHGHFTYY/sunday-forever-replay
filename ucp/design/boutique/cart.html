@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — السلة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="boutique.css">
+<style>body { background: var(--tan); }</style>
+</head>
+<body>
+<main id="main"><div class="wrap">
+  <div class="phead"><h1 id="pTitle"></h1><p class="sub" id="pSub"></p></div>
+  <div class="twocol">
+    <div><div id="lines"></div><div id="recs"></div></div>
+    <aside class="summary" id="summary"></aside>
+  </div>
+</div></main>
+
+<script src="../ninja/catalogue.js"></script>
+<script src="../ninja/ucp.js"></script>
+<script src="boutique.js"></script>
+<script>
+/* ===========================================================================
+   CART — handoff screen 6. Line items on the left, sticky summary on the
+   right, recommendations underneath.
+
+   Totals are computed, not drawn. Delivery is free over 150 SAR, which is a
+   PLACEHOLDER RULE — UCP's real threshold is not in any file we have — and the
+   summary says so rather than presenting it as policy.
+   =========================================================================== */
+const FREE_OVER = 150, FEE = 15;
+const TX = {
+  ar: { title:"سلة التسوق", sub:"الأسعار في هذا النموذج تجريبية",
+        empty:"سلتك فارغة", emptyP:"تصفّح الفئات وأضف ما تحتاجه.", browse:"ابدأ التسوق",
+        promo:"رمز الخصم", apply:"تطبيق", checkout:"إتمام الطلب",
+        recs:"قد يعجبك أيضًا", remove:"إزالة",
+        feeNote:"التوصيل مجاني للطلبات فوق ١٥٠ ﷼ — عتبة تجريبية في هذا النموذج",
+        items:"منتج" },
+  en: { title:"Your cart", sub:"Prices in this prototype are placeholder",
+        empty:"Your cart is empty", emptyP:"Browse the categories and add what you need.", browse:"Start shopping",
+        promo:"Promo code", apply:"Apply", checkout:"Checkout",
+        recs:"You might also like", remove:"Remove",
+        feeNote:"Free delivery over 150 SAR — a placeholder threshold in this prototype",
+        items:"items" },
+};
+const tx = () => TX[Shell.lang];
+
+function render() {
+  const T = tx(), C = ctx(), TT = Shell.T(), n = Shell.nm;
+  renderChrome(TT.cart);
+  set("pTitle", T.title); set("pSub", T.sub);
+
+  const lines = Shell.cart.map((l) => ({ p: prod(l.id), q: l.q })).filter((x) => x.p);
+  if (!lines.length) {
+    set("lines", '<div class="emptybox"><h3>' + T.empty + '</h3><p>' + T.emptyP + '</p>'
+      + '<a class="pill pill--cta" href="category.html" style="margin-top:18px">' + T.browse + '</a></div>');
+    set("summary", ""); set("recs", "");
+    return;
+  }
+
+  set("lines", lines.map(({ p, q }) => {
+    const b = brand(p.brand);
+    return '<div class="lineitem">'
+      + '<a class="th" href="product.html?sku=' + p.sku + '">' + shot(p) + '</a>'
+      + '<div class="who">' + (b ? '<div class="b">' + esc2(n(b)) + '</div>' : '')
+        + '<a class="t" href="product.html?sku=' + p.sku + '">' + esc2(n(p)) + '</a></div>'
+      + '<div class="stepper">'
+        + '<button data-q="-1" data-id="' + p.id + '" aria-label="-">' + ic("minus",15) + '</button>'
+        + '<span class="q num">' + q + '</span>'
+        + '<button data-q="1" data-id="' + p.id + '" aria-label="+">' + ic("plus",15) + '</button></div>'
+      + '<div class="money">' + riyal(p.price * q) + '</div>'
+      + '<button class="rm" data-rmid="' + p.id + '" aria-label="' + T.remove + '">' + ic("close",16) + '</button>'
+      + '</div>';
+  }).join(''));
+
+  const sub = Shell.subtotal();
+  const fee = sub >= FREE_OVER ? 0 : FEE;
+  set("summary",
+    '<h2>' + T.title + ' · <span class="num">' + Shell.count() + '</span> ' + T.items + '</h2>'
+    + '<div class="promo"><input id="promo" placeholder="' + T.promo + '">'
+      + '<button class="pill pill--ink">' + T.apply + '</button></div>'
+    + '<div class="sumrow"><span>' + C.subtotal + '</span><span>' + riyal(sub) + '</span></div>'
+    + '<div class="sumrow"><span>' + C.deliveryFee + '</span><span>'
+      + (fee ? riyal(fee) : C.free) + '</span></div>'
+    + '<div class="sumrow total"><span>' + C.total + '</span><span>' + riyal(sub + fee) + '</span></div>'
+    + '<a class="pill pill--cta go" href="checkout.html">' + T.checkout + '</a>'
+    + '<p class="note">' + T.feeNote + '</p>');
+
+  const inCart = new Set(Shell.cart.map((l) => l.id));
+  const recs = UCP.products.filter((p) => !inCart.has(p.id) && p.cat === lines[0].p.cat).slice(0, 10);
+  set("recs", recs.length
+    ? '<h2 class="section-title" style="text-align:start;margin:30px 0 16px">' + T.recs + '</h2>'
+      + '<div class="hrow">' + recs.map(pcard).join('') + '</div>' : '');
+}
+
+document.addEventListener("click", (e) => {
+  const r = e.target.closest("[data-rmid]");
+  if (r) { const id = r.dataset.rmid; Shell.setQty(id, -Shell.qtyOf(id)); }
+});
+
+mountChrome();
+initCart(["s100009","s100002","s100120"]);
+Shell.onRender(render);
+Shell.wire();
+/* Something in the basket so the screen can be reviewed on a cold open. */
+Shell.setLang("ar");
+</script>
+</body>
+</html>

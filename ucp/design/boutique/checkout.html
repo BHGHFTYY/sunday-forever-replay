@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — إتمام الطلب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="boutique.css">
+<style>body { background: var(--tan); }</style>
+</head>
+<body>
+<main id="main"><div class="wrap">
+  <div class="phead"><h1 id="pTitle"></h1><p class="sub" id="pSub"></p></div>
+  <div class="twocol">
+    <div id="forms"></div>
+    <aside class="summary" id="summary"></aside>
+  </div>
+  <div id="confirm"></div>
+</div></main>
+
+<script src="../ninja/catalogue.js"></script>
+<script src="../ninja/ucp.js"></script>
+<script src="boutique.js"></script>
+<script>
+/* ===========================================================================
+   CHECKOUT — handoff screen 7. Customer info, a real single-select delivery
+   method, payment method, sticky summary, and the confirmation state.
+
+   NOTHING HERE COLLECTS OR STORES A REAL CREDENTIAL. The payment section shows
+   method choices only — no card fields, no CVV, nowhere for a number to be
+   typed. A prototype that renders a plausible card form invites someone to
+   type a real card into a page that has no server, no TLS story and no PCI
+   scope. Fields appear only once a payment provider's hosted form does.
+   =========================================================================== */
+const FREE_OVER = 150, FEE = 15;
+const TX = {
+  ar: { title:"إتمام الطلب", sub:"نموذج تصميم — لا يتم إرسال أو حفظ أي بيانات",
+        info:"بياناتك", name:"الاسم", phone:"رقم الجوال",
+        method:"طريقة الاستلام", delivery:"توصيل", deliveryS:"خلال ٦٠ دقيقة داخل الرياض",
+        pickup:"استلام من الفرع", pickupS:"جاهز خلال ٢٠ دقيقة",
+        pay:"طريقة الدفع", mada:"مدى", card:"بطاقة ائتمانية", cod:"الدفع عند الاستلام",
+        payNote:"لا يحتوي هذا النموذج على أي حقول لبيانات البطاقة. تُدخل البيانات لاحقًا في صفحة مزوّد الدفع نفسه.",
+        place:"تأكيد الطلب", order:"الطلب", summary:"ملخص الطلب",
+        gotIt:"تم استلام طلبك", gotItP:"سيصلك إشعار عند تجهيز الطلب.", orderNo:"رقم الطلب",
+        items:"منتج", empty:"سلتك فارغة", browse:"ابدأ التسوق" },
+  en: { title:"Checkout", sub:"Design prototype — nothing is sent or stored",
+        info:"Your details", name:"Name", phone:"Mobile number",
+        method:"How you receive it", delivery:"Delivery", deliveryS:"Within 60 minutes inside Riyadh",
+        pickup:"Branch pickup", pickupS:"Ready in 20 minutes",
+        pay:"Payment method", mada:"mada", card:"Credit card", cod:"Cash on delivery",
+        payNote:"This prototype contains no card fields at all. Card details are entered later, on the payment provider's own hosted page.",
+        place:"Place order", order:"Order", summary:"Order summary",
+        gotIt:"Order received", gotItP:"You will be notified when it is ready.", orderNo:"Order number",
+        items:"items", empty:"Your cart is empty", browse:"Start shopping" },
+};
+const tx = () => TX[Shell.lang];
+const state = { method:"delivery", pay:"mada", placed:false };
+
+function render() {
+  const T = tx(), C = ctx(), TT = Shell.T();
+  renderChrome(null);
+  set("pTitle", T.title); set("pSub", T.sub);
+
+  const lines = Shell.cart.map((l) => ({ p: prod(l.id), q: l.q })).filter((x) => x.p);
+  if (!lines.length && !state.placed) {
+    set("forms", '<div class="emptybox"><h3>' + T.empty + '</h3>'
+      + '<a class="pill pill--cta" href="category.html" style="margin-top:16px">' + T.browse + '</a></div>');
+    set("summary",""); set("confirm",""); return;
+  }
+
+  const choice = (kind, val, title, sub) =>
+    '<button class="choice" role="radio" data-c="' + kind + '" data-v="' + val + '"'
+    + ' aria-checked="' + (state[kind] === val) + '"><b>' + title + '</b>'
+    + (sub ? '<span>' + sub + '</span>' : '') + '</button>';
+
+  set("forms",
+    '<div class="formcard"><h2>' + T.info + '</h2>'
+      + '<div class="field"><label for="nm">' + T.name + '</label><input id="nm" autocomplete="name"></div>'
+      + '<div class="field"><label for="ph">' + T.phone + '</label><input id="ph" type="tel" inputmode="tel" autocomplete="tel"></div>'
+    + '</div>'
+    + '<div class="formcard"><h2>' + T.method + '</h2><div class="choices two" role="radiogroup">'
+      + choice("method","delivery",T.delivery,T.deliveryS)
+      + choice("method","pickup",T.pickup,T.pickupS) + '</div></div>'
+    + '<div class="formcard"><h2>' + T.pay + '</h2><div class="choices" role="radiogroup">'
+      + choice("pay","mada",T.mada) + choice("pay","card",T.card) + choice("pay","cod",T.cod)
+      + '</div><p style="font-size:12px;color:var(--muted-tx);margin-top:12px">' + T.payNote + '</p></div>');
+
+  const sub = Shell.subtotal();
+  const fee = state.method === "pickup" ? 0 : (sub >= FREE_OVER ? 0 : FEE);
+  set("summary",
+    '<h2>' + T.summary + ' · <span class="num">' + Shell.count() + '</span> ' + T.items + '</h2>'
+    + lines.map(({ p, q }) => '<div class="sumrow"><span>' + esc2(Shell.nm(p).slice(0,26))
+        + ' <span class="num" style="opacity:.6">×' + q + '</span></span><span>'
+        + riyal(p.price * q) + '</span></div>').join('')
+    + '<div class="sumrow" style="border-top:1px solid var(--line);margin-top:6px;padding-top:12px"><span>'
+      + C.subtotal + '</span><span>' + riyal(sub) + '</span></div>'
+    + '<div class="sumrow"><span>' + C.deliveryFee + '</span><span>' + (fee ? riyal(fee) : C.free) + '</span></div>'
+    + '<div class="sumrow total"><span>' + C.total + '</span><span>' + riyal(sub + fee) + '</span></div>'
+    + '<button class="pill pill--cta go" id="place">' + T.place + '</button>'
+    + '<p class="note">' + TT.vat + '</p>');
+
+  set("confirm", state.placed
+    ? '<div class="confirm"><h2>' + T.gotIt + '</h2><p>' + T.gotItP + '</p>'
+      + '<div class="no">' + T.orderNo + ' <span class="num">UCP-' + state.placed + '</span></div></div>'
+    : "");
+}
+
+document.addEventListener("click", (e) => {
+  const c = e.target.closest("[data-c]");
+  if (c) { state[c.dataset.c] = c.dataset.v; return render(); }
+  if (e.target.closest("#place")) {
+    /* A visible order reference for the confirmation state. Derived from the
+       clock, not a real sequence — no order is created anywhere. */
+    state.placed = String(Date.now()).slice(-6);
+    render();
+    document.getElementById("confirm").scrollIntoView({ behavior:"smooth", block:"center" });
+  }
+});
+
+mountChrome();
+initCart(["s100009","s100002","s100120"]);
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+</script>
+</body>
+</html>

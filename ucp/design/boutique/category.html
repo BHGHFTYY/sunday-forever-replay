@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — التصفح</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="boutique.css">
+</head>
+<body>
+<main id="main"><div class="wrap">
+  <div class="phead"><h1 id="pTitle"></h1><p class="sub" id="pSub"></p></div>
+  <div class="chiprow" id="chips"></div>
+  <div class="fsrow">
+    <button class="pill filters" id="fOpen"></button>
+    <label class="u-sr" for="sort" id="sortLb"></label>
+    <select id="sort"></select>
+  </div>
+  <div id="active" class="chiprow" style="margin-bottom:18px"></div>
+  <div class="pgrid" id="grid"></div>
+  <div id="more"></div>
+</div></main>
+
+<aside class="sheet" id="sheet" aria-label="filters">
+  <div class="grab"></div>
+  <h3 id="shTitle"></h3>
+  <div id="shBody"></div>
+  <button class="pill pill--cta done" id="shDone"></button>
+</aside>
+<div class="scrim" id="scrim"></div>
+
+<script src="../ninja/catalogue.js"></script>
+<script src="../ninja/ucp.js"></script>
+<script src="boutique.js"></script>
+<script>
+/* ===========================================================================
+   CATEGORY / BROWSE — handoff screen 3.
+   Chip row for category shortcuts, a Filters pill that opens a bottom sheet on
+   every viewport (the handoff specifies the sheet for mobile; using it
+   everywhere keeps one interaction model), a 3-up grid and Load More.
+
+   Facets count against the CURRENT result set with each facet excluded from
+   its own count, so a number never promises results a click cannot deliver.
+   State lives in the URL so a filtered view is linkable and Back behaves.
+   =========================================================================== */
+const PER = 24;
+const BANDS = [
+  { id:"0-25", min:0, max:25, ar:"أقل من ٢٥", en:"Under 25" },
+  { id:"25-50", min:25, max:50, ar:"٢٥ – ٥٠", en:"25 – 50" },
+  { id:"50-100", min:50, max:100, ar:"٥٠ – ١٠٠", en:"50 – 100" },
+  { id:"100-200", min:100, max:200, ar:"١٠٠ – ٢٠٠", en:"100 – 200" },
+  { id:"200+", min:200, max:Infinity, ar:"٢٠٠ فأكثر", en:"200 and up" },
+];
+const SORTS = ["featured","price-asc","price-desc","discount","name"];
+const TX = {
+  ar: { all:"كل المنتجات", brand:"العلامة التجارية", price:"السعر", offer:"العروض فقط",
+        loadMore:"عرض المزيد", done:"عرض النتائج", item:"منتج",
+        featured:"المختارة", "price-asc":"السعر: من الأقل", "price-desc":"السعر: من الأعلى",
+        discount:"أعلى خصم", name:"الاسم أ–ي",
+        emptyH:"لا توجد نتائج مطابقة", emptyP:"جرّب إزالة أحد عوامل التصفية.",
+        sub:"الأسعار في هذه الصفحة تجريبية · الأسماء والصور من كتالوج UCP" },
+  en: { all:"All products", brand:"Brand", price:"Price", offer:"On offer only",
+        loadMore:"Load more", done:"Show results", item:"products",
+        featured:"Featured", "price-asc":"Price: low to high", "price-desc":"Price: high to low",
+        discount:"Biggest discount", name:"Name A–Z",
+        emptyH:"Nothing matches those filters", emptyP:"Try removing one of them.",
+        sub:"Prices on this page are placeholder · names and photographs are UCP catalogue" },
+};
+const tx = () => TX[Shell.lang];
+
+const state = { cat:null, brands:new Set(), price:new Set(), offers:false, sort:"featured", shown:PER };
+
+function readUrl() {
+  const q = new URLSearchParams(location.search);
+  state.cat = q.get("cat");
+  state.brands = new Set((q.get("brand")||"").split(",").filter(Boolean));
+  state.price = new Set((q.get("price")||"").split(",").filter(Boolean));
+  state.offers = q.get("offers") === "1";
+  state.sort = SORTS.includes(q.get("sort")) ? q.get("sort") : "featured";
+  state.shown = Math.max(PER, parseInt(q.get("shown"),10) || PER);
+}
+function writeUrl() {
+  const q = new URLSearchParams();
+  if (state.cat) q.set("cat", state.cat);
+  if (state.brands.size) q.set("brand", [...state.brands].join(","));
+  if (state.price.size) q.set("price", [...state.price].join(","));
+  if (state.offers) q.set("offers","1");
+  if (state.sort !== "featured") q.set("sort", state.sort);
+  if (state.shown !== PER) q.set("shown", String(state.shown));
+  history.pushState(null, "", location.pathname + (q.toString() ? "?"+q : ""));
+}
+
+const inBand = (p) => !state.price.size ||
+  [...state.price].some((id) => { const b = BANDS.find((x)=>x.id===id); return b && p.price>=b.min && p.price<b.max; });
+function match(p, skip) {
+  if (skip!=="cat" && state.cat && p.cat!==state.cat) return false;
+  if (skip!=="brand" && state.brands.size && !state.brands.has(p.brand)) return false;
+  if (skip!=="price" && !inBand(p)) return false;
+  if (skip!=="offers" && state.offers && !p.was) return false;
+  return true;
+}
+function sorted(list) {
+  const a = [...list];
+  switch (state.sort) {
+    case "price-asc": return a.sort((x,y)=>x.price-y.price);
+    case "price-desc": return a.sort((x,y)=>y.price-x.price);
+    case "discount": return a.sort((x,y)=>pct(y.price,y.was)-pct(x.price,x.was));
+    case "name": return a.sort((x,y)=>Shell.nm(x).localeCompare(Shell.nm(y), Shell.lang));
+    default: return a.sort((x,y)=>x.rank-y.rank);
+  }
+}
+function countBy(key, skip) {
+  const m = new Map();
+  for (const p of UCP.products) { if (!match(p, skip)) continue;
+    const k = key(p); if (k===undefined||k===null) continue; m.set(k,(m.get(k)||0)+1); }
+  return m;
+}
+const activeCount = () => (state.cat?1:0) + state.brands.size + state.price.size + (state.offers?1:0);
+
+function renderSheet() {
+  const T = tx(), C = ctx(), n = Shell.nm;
+  const bc = countBy((p)=>p.brand, "brand");
+  const ranked = [...bc.entries()].filter(([id,k])=>id&&k>0).sort((a,b)=>b[1]-a[1]);
+  const sel = ranked.filter(([id])=>state.brands.has(id));
+  const rest = ranked.filter(([id])=>!state.brands.has(id)).slice(0, Math.max(0, 14-sel.length));
+  const pc = countBy((p)=>{ const b=BANDS.find((x)=>p.price>=x.min&&p.price<x.max); return b?b.id:undefined; }, "price");
+  const offerN = UCP.products.filter((p)=>match(p,"offers")&&p.was).length;
+  const opt = (kind,val,label,cnt,on) =>
+    '<button class="chip" data-f="' + kind + '" data-v="' + val + '" aria-pressed="' + on + '">'
+    + label + ' <span class="num" style="opacity:.6">' + cnt + '</span></button>';
+  set("shBody",
+    '<div class="grp"><h4>' + T.brand + '</h4><div class="opts">'
+      + sel.concat(rest).map(([id,k]) => opt("brand", id, esc2((brand(id)||{}).en||"—"), k, state.brands.has(id))).join('')
+    + '</div></div>'
+    + '<div class="grp"><h4>' + T.price + '</h4><div class="opts">'
+      + BANDS.map((b)=>opt("price", b.id, n(b), pc.get(b.id)||0, state.price.has(b.id))).join('')
+    + '</div></div>'
+    + '<div class="grp"><div class="opts">'
+      + opt("offers","1",T.offer,offerN,state.offers) + '</div></div>');
+}
+
+function render() {
+  const T = tx(), C = ctx(), n = Shell.nm;
+  renderChrome(null);
+  const cat = state.cat ? CATEG.get(state.cat) : null;
+  set("pTitle", cat ? n(cat) : T.all);
+  set("pSub", T.sub);
+
+  const catCounts = countBy((p)=>p.cat, "cat");
+  set("chips", '<button class="chip" data-cat="" aria-current="' + (!state.cat) + '">' + T.all
+      + ' <span class="num" style="opacity:.6">' + UCP.products.length + '</span></button>'
+    + UCP.categories.map((c) => '<button class="chip" data-cat="' + c.id + '"'
+      + ' aria-current="' + (state.cat===c.id) + '">' + n(c)
+      + ' <span class="num" style="opacity:.6">' + (catCounts.get(c.id)||0) + '</span></button>').join(''));
+
+  const list = sorted(UCP.products.filter((p)=>match(p)));
+  const page = list.slice(0, state.shown);
+
+  document.getElementById("fOpen").innerHTML = ic("menu",15) + " " + C.filters
+    + (activeCount() ? ' (' + activeCount() + ')' : '');
+  const sortEl = document.getElementById("sort");
+  sortEl.innerHTML = SORTS.map((s)=>'<option value="'+s+'"'+(s===state.sort?' selected':'')+'>'+T[s]+'</option>').join('');
+  document.getElementById("sortLb").textContent = C.sort;
+  document.getElementById("shTitle").textContent = C.filters;
+  document.getElementById("shDone").textContent = T.done;
+
+  const bits = [];
+  for (const id of state.brands) bits.push(["brand", id, (brand(id)||{}).en||id]);
+  for (const id of state.price) { const b = BANDS.find((x)=>x.id===id); if (b) bits.push(["price", id, n(b)]); }
+  if (state.offers) bits.push(["offers","1",T.offer]);
+  set("active", bits.length
+    ? bits.map(([k,v,l])=>'<button class="chip tint" data-rm="'+k+'" data-v="'+v+'">'
+        + esc2(l) + '<span class="x">' + ic("close",12) + '</span></button>').join('')
+      + '<button class="chip" data-clear>' + C.clear + '</button>'
+    : "");
+
+  set("grid", page.length ? page.map(pcard).join('') : '');
+  if (!page.length) set("grid", '<div class="emptybox" style="grid-column:1/-1"><h3>' + T.emptyH
+    + '</h3><p>' + T.emptyP + '</p><button class="pill pill--ink" data-clear style="margin-top:16px">'
+    + C.clear + '</button></div>');
+  set("more", list.length > state.shown
+    ? '<button class="pill pill--line loadmore" id="moreBtn">' + T.loadMore
+      + ' <span class="num">(' + (list.length - state.shown) + ')</span></button>' : '');
+  renderSheet();
+}
+
+function update() { writeUrl(); render(); }
+const sheet = (on) => {
+  document.getElementById("sheet").classList.toggle("on", on);
+  document.getElementById("scrim").classList.toggle("on", on);
+  document.body.style.overflow = on ? "hidden" : "";
+};
+
+document.addEventListener("click", (e) => {
+  const c = e.target.closest("[data-cat]");
+  if (c) { state.cat = c.dataset.cat || null; state.shown = PER; return update(); }
+  const f = e.target.closest("[data-f]");
+  if (f) {
+    const k = f.dataset.f, v = f.dataset.v;
+    const on = f.getAttribute("aria-pressed") === "true";
+    state.shown = PER;
+    if (k === "brand") on ? state.brands.delete(v) : state.brands.add(v);
+    if (k === "price") on ? state.price.delete(v) : state.price.add(v);
+    if (k === "offers") state.offers = !on;
+    return update();
+  }
+  const rm = e.target.closest("[data-rm]");
+  if (rm) {
+    const k = rm.dataset.rm, v = rm.dataset.v;
+    state.shown = PER;
+    if (k==="brand") state.brands.delete(v);
+    if (k==="price") state.price.delete(v);
+    if (k==="offers") state.offers = false;
+    return update();
+  }
+  if (e.target.closest("[data-clear]")) {
+    state.brands.clear(); state.price.clear(); state.offers = false; state.shown = PER;
+    return update();
+  }
+  if (e.target.closest("#moreBtn")) { state.shown += PER; return update(); }
+  if (e.target.closest("#fOpen")) return sheet(true);
+  if (e.target.closest("#shDone") || e.target.closest("#scrim")) return sheet(false);
+});
+document.getElementById("sort").addEventListener("change", (e) => {
+  state.sort = e.target.value; state.shown = PER; update();
+});
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") sheet(false); });
+window.addEventListener("popstate", () => { readUrl(); render(); });
+
+mountChrome();
+initCart(null);
+Shell.onRender(render);
+Shell.wire();
+readUrl();
+Shell.setLang("ar");
+</script>
+</body>
+</html>

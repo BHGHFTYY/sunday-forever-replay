@@ -16,34 +16,6 @@
    photographs and category counts are UCP's real catalogue.
    =========================================================================== */
 
-/* --- prototype bar (review aid; the handoff says this is not production) --- */
-.proto {
-  background:var(--ink); color:#D8CDC4; font-size:11px; padding:8px 16px;
-  display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; text-align:center;
-}
-.proto b { color:var(--orange); }
-.proto button {
-  border:1px solid rgba(255,255,255,.28); border-radius:var(--pill);
-  padding:4px 12px; font-size:11px; font-weight:600; color:#fff;
-}
-.proto button[aria-pressed="true"] { background:var(--orange); color:var(--on-orange); border-color:transparent; }
-
-/* --- header: centred logo, centred pill search, utility row --------------- */
-.hd { padding-block:26px 20px; border-bottom:1px solid var(--line); }
-.hd-in { display:flex; flex-direction:column; align-items:center; gap:16px; }
-.hd .logo img { height:64px; width:auto; }
-.searchbar {
-  width:min(520px,100%); height:46px; border-radius:var(--pill); background:var(--white);
-  border:1px solid var(--line-strong);   /* a control's edge needs 3:1, not a decorative hairline */
-  box-shadow:var(--sh-search); display:flex; align-items:center; gap:10px; padding-inline:20px;
-}
-.searchbar input { flex:1; min-width:0; border:0; background:none; font-size:13px; outline:none; }
-.searchbar input::placeholder { color:var(--muted-tx); }
-.utility { display:flex; align-items:center; justify-content:center; gap:26px; flex-wrap:wrap; font-size:13px; }
-.utility a:hover { text-decoration:underline; text-underline-offset:3px; }
-.utility .rx { color:var(--accent-tx); font-weight:600; display:inline-flex; align-items:center; gap:7px; }
-.utility .rx::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--orange); }
-
 /* --- hero ----------------------------------------------------------------- */
 .hero { padding-block:46px 0; text-align:center; }
 .hero .eyebrow {
@@ -87,43 +59,9 @@
 .duo2 .p b { display:block; font-size:14px; font-weight:600; }
 .duo2 .p span { font-size:12px; color:var(--muted-tx); }
 
-/* --- footer ---------------------------------------------------------------- */
-.ft { background:var(--tan); padding-block:44px 30px; margin-top:20px; }
-.ft-cols { display:grid; gap:28px; grid-template-columns:repeat(2,1fr); }
-@media (min-width:860px) { .ft-cols { grid-template-columns:repeat(4,1fr); } }
-.ft h4 { font-size:13px; font-weight:700; margin-bottom:12px; }
-.ft li a { display:block; padding-block:5px; font-size:13px; color:var(--muted-tx); }
-.ft li a:hover { color:var(--ink); }
-.ft .mark { display:flex; align-items:flex-end; justify-content:flex-start; }
-.ft .mark img { height:54px; width:auto; }
-.ft .bot { border-top:1px solid var(--line); margin-top:28px; padding-top:18px; font-size:11px; color:var(--muted-tx); display:flex; flex-wrap:wrap; gap:8px 20px; justify-content:space-between; }
-
-/* --- mobile bottom nav (handoff: 5 items, Home centred and emphasised) ----- */
-.bnav {
-  position:fixed; inset-inline:0; inset-block-end:0; z-index:80;
-  background:var(--white); border-top:1px solid var(--line);
-  display:flex; justify-content:space-around; align-items:center;
-  padding:8px 6px calc(8px + env(safe-area-inset-bottom));
-}
-@media (min-width:900px) { .bnav { display:none; } }
-.bnav a { display:flex; flex-direction:column; align-items:center; gap:3px; font-size:10px; color:var(--muted-tx); padding:6px 12px; border-radius:var(--pill); }
-.bnav a[aria-current="page"] { background:var(--orange); color:var(--on-orange); font-weight:600; }
-body { padding-bottom:72px; }
-@media (min-width:900px) { body { padding-bottom:0; } }
 </style>
 </head>
 <body>
-<div class="proto">
-  <span><b>UCP — Warm Boutique</b> · <span id="protoTx"></span></span>
-  <button id="langBtn" data-lang>EN</button>
-</div>
-
-<header class="hd"><div class="wrap hd-in">
-  <a href="home.html" class="logo"><img src="ucp-logo-mark.png" alt="UCP"></a>
-  <div class="searchbar"><span id="si"></span><input id="q" type="search" autocomplete="off"></div>
-  <nav class="utility" id="utility"></nav>
-</div></header>
-
 <main id="main">
   <section class="hero"><div class="wrap">
     <span class="eyebrow" id="hEy"></span>
@@ -157,13 +95,6 @@ body { padding-bottom:72px; }
     <div class="duo2" id="duo"></div>
   </div></section>
 </main>
-
-<footer class="ft"><div class="wrap">
-  <div class="ft-cols" id="ftCols"></div>
-  <div class="bot"><span id="ftR"></span><span id="ftN"></span></div>
-</div></footer>
-
-<nav class="bnav" id="bnav" aria-label="primary"></nav>
 
 <script src="../ninja/catalogue.js"></script>
 <script src="../ninja/ucp.js"></script>
@@ -201,14 +132,7 @@ const tx = () => TX[Shell.lang];
 
 function render() {
   const T = tx(), TT = Shell.T(), n = Shell.nm, ar = Shell.lang === "ar";
-  set("protoTx", T.proto);
-  document.getElementById("langBtn").textContent = ar ? "EN" : "ع";
-  set("si", ic("search", 17));
-  $("#q").placeholder = TT.searchPh;
-
-  set("utility", [[T.account,"#"],[T.loyalty,"loyalty.html"],[TT.cart + " (" + Shell.count() + ")","cart.html"]]
-      .map(([lb,h]) => '<a href="' + h + '">' + lb + '</a>').join('')
-    + '<a class="rx" href="prescription.html">' + TT.rx + '</a>');
+  renderChrome(T.home);
 
   set("hEy", T.eyebrow); set("hH", T.heroH); set("hP", T.heroP);
   $("#hCta").innerHTML = T.shopNow + ' <span aria-hidden="true">' + (ar ? "←" : "→") + '</span>';
@@ -252,24 +176,10 @@ function render() {
     .map((r) => '<div class="p"><span class="ic">' + ic(r[0], 22) + '</span>'
       + '<span><b>' + r[1] + '</b><span>' + r[2] + '</span></span></div>').join(''));
 
-  const cols = [
-    [T.ftShop, UCP.categories.slice(0, 5).map(n)],
-    [T.ftCare, [TT.rx, TT.tele, TT.pickup, TT.vitamins, TT.loyalty]],
-    [T.ftAbout, [TT.brand, ar ? "فروعنا" : "Our branches", ar ? "وظائف" : "Careers"]],
-  ];
-  set("ftCols", cols.map((c) => '<div><h4>' + c[0] + '</h4><ul>'
-      + c[1].map((x) => '<li><a href="#">' + x + '</a></li>').join('') + '</ul></div>').join('')
-    + '<div class="mark"><img src="ucp-logo-mark.png" alt="UCP"></div>');
-  set("ftR", "© " + new Date().getFullYear() + " " + TT.brand + " — " + T.rights);
-  set("ftN", T.vat);
-
-  set("bnav", [["search", T.search, "category.html", 0], ["store", T.home, "home.html", 1],
-               ["gift", T.loyalty, "loyalty.html", 0], ["cart", TT.cart, "cart.html", 0],
-               ["user", T.account, "#", 0]]
-    .map(([i, lb, h, cur]) => '<a href="' + h + '"' + (cur ? ' aria-current="page"' : '') + '>'
-      + ic(i, 20) + '<span>' + lb + '</span></a>').join(''));
 }
 
+mountChrome();
+initCart(null);
 Shell.onRender(render);
 Shell.wire();
 Shell.setLang("ar");

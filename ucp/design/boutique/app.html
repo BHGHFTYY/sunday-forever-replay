@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — التطبيق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="boutique.css">
+</head>
+<body>
+<main id="main"><div class="wrap">
+  <div class="phead"><h1 id="pTitle"></h1><p class="sub" id="pSub"></p></div>
+  <div class="phones" id="phones"></div>
+</div></main>
+
+<script src="../ninja/catalogue.js"></script>
+<script src="../ninja/ucp.js"></script>
+<script src="boutique.js"></script>
+<script>
+/* ===========================================================================
+   APP — handoff screens 10–12: Home, Product, Profile, shown as three phone
+   mockups with the shared 5-tab bottom nav.
+
+   These reuse the same tokens, the same catalogue and the same card as the
+   website. The app is not a second design system; it is this one in a narrower
+   column, which is the whole point of keeping the tokens in boutique.css.
+   =========================================================================== */
+const TX = {
+  ar: { title:"التطبيق", sub:"نفس نظام التصميم ونفس الكتالوج، بعرض الهاتف",
+        home:"الرئيسية", search:"البحث", loyalty:"الولاء", cart:"السلة", account:"حسابي",
+        capHome:"الرئيسية", capProduct:"صفحة المنتج", capProfile:"الحساب والتنقل",
+        hero:"كل ما تحتاجه، في مكانه الصحيح.", addBag:"أضف للسلة",
+        eta:"توصيل خلال ٦٠ دقيقة", member:"عضو نادي UCP", tier:"ذهبي · ١٬٣٤٠ نقطة",
+        menu:["الطلبات","الوصفات الطبية","العناوين","المكافآت","الإعدادات"], cats:"الفئات" },
+  en: { title:"The app", sub:"The same design system and the same catalogue, at phone width",
+        home:"Home", search:"Search", loyalty:"Loyalty", cart:"Cart", account:"Account",
+        capHome:"Home", capProduct:"Product", capProfile:"Profile & navigation",
+        hero:"Everything you need, exactly where it should be.", addBag:"Add to bag",
+        eta:"Delivery in 60 minutes", member:"UCP Club member", tier:"Gold · 1,340 points",
+        menu:["Orders","Prescriptions","Addresses","Rewards","Settings"], cats:"Categories" },
+};
+const tx = () => TX[Shell.lang];
+
+const nav = (active) => {
+  const T = tx();
+  return '<nav class="appnav">' + [["search",T.search],["store",T.home],["gift",T.loyalty],
+    ["cart",T.cart],["user",T.account]]
+    .map(([i,l]) => '<a href="#"' + (l===active ? ' aria-current="page"' : '') + '>'
+      + ic(i,17) + '<span>' + l + '</span></a>').join('') + '</nav>';
+};
+const phone = (cap, body) =>
+  '<div class="phone"><div class="bezel"><div class="screen">' + body + '</div></div>'
+  + '<div class="cap">' + cap + '</div></div>';
+
+function render() {
+  const T = tx(), TT = Shell.T(), n = Shell.nm;
+  renderChrome(null);
+  set("pTitle", T.title); set("pSub", T.sub);
+
+  const top = Shell.list("top");
+  const hero = top[0];
+
+  const home = phone(T.capHome,
+    '<div class="appbar"><img src="ucp-logo-mark.png" alt="UCP">' + ic("search",19) + '</div>'
+    + '<div class="scroll">'
+      + '<h2 style="font-size:19px;font-weight:600;padding:4px 16px 14px;line-height:1.35">' + T.hero + '</h2>'
+      + '<div class="appcircles">' + UCP.categories.slice(0,7).map((c) =>
+          '<div class="ci"><span class="c">' + ic(c.icon,22) + '</span><span class="t">'
+          + n(c) + '</span></div>').join('') + '</div>'
+      + '<div class="appgrid">' + top.slice(0,6).map((p) =>
+          '<div class="t"><div class="im">' + shot(p) + '</div><div class="p">'
+          + riyal(p.price) + '</div></div>').join('') + '</div>'
+    + '</div>' + nav(T.home));
+
+  const prodScreen = phone(T.capProduct,
+    '<div class="scroll">'
+      + '<div style="aspect-ratio:1;background:var(--tan);display:grid;place-items:center;padding:12%">'
+        + shot(hero) + '</div>'
+      + '<div style="padding:16px">'
+        + '<div style="font-size:11px;color:var(--muted-tx)">'
+          + esc2((brand(hero.brand)||{}).en || "") + '</div>'
+        + '<div style="font-size:15px;font-weight:600;margin-top:5px;line-height:1.35">'
+          + esc2(n(hero)) + '</div>'
+        + '<div style="font-size:19px;font-weight:700;margin-top:10px">' + riyal(hero.price) + '</div>'
+        + '<span class="pill pill--tint" style="margin-top:12px;font-size:11px;padding:8px 14px">'
+          + ic("truck",14) + ' ' + T.eta + '</span>'
+        + '<button class="pill pill--cta" style="width:100%;margin-top:16px">' + T.addBag + '</button>'
+      + '</div>'
+    + '</div>' + nav(T.cart));
+
+  const profile = phone(T.capProfile,
+    '<div class="scroll"><div class="appprofile">'
+      + '<div class="who"><span class="av">ز</span><span><b>زياد</b><span>'
+        + T.member + ' · ' + T.tier + '</span></span></div>'
+      + '<div class="appmenu">' + T.menu.map((m) =>
+          '<a href="#">' + m + '<span class="ch">' + ic("next",15) + '</span></a>').join('')
+      + '</div></div></div>' + nav(T.account));
+
+  set("phones", home + prodScreen + profile);
+}
+
+mountChrome();
+initCart(null);
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — البحث</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="boutique.css">
+</head>
+<body>
+<main id="main"><div class="wrap"><div class="searchpage">
+  <div class="bigsearch"><span id="bsIcon"></span><input id="bs" type="search" autocomplete="off"></div>
+  <div id="panels"></div>
+</div></div></main>
+
+<script src="../ninja/catalogue.js"></script>
+<script src="../ninja/ucp.js"></script>
+<script src="boutique.js"></script>
+<script>
+/* ===========================================================================
+   SEARCH — handoff screen 5.
+   Large pill field, recent chips, popular chips (tinted), quick product
+   results and brand circles.
+
+   The handoff's recent/popular chips are static placeholders. "Recent" is
+   wired to real per-browser history in localStorage; "popular" is the real
+   catalogue's largest categories rather than an invented trending list —
+   inventing what Saudi shoppers search for would be fabricated business data.
+   =========================================================================== */
+const KEY = "ucp.recent.v1";
+const TX = {
+  ar: { recent:"عمليات بحث سابقة", popular:"الأكثر تصفّحًا", quick:"نتائج سريعة",
+        brands:"العلامات التجارية", results:"نتيجة", none:"لا توجد نتائج لـ",
+        clear:"مسح", hint:"ابحث بالاسم أو العلامة التجارية · ٣٬٨٢٤ منتجًا" },
+  en: { recent:"Recent searches", popular:"Most browsed", quick:"Quick results",
+        brands:"Brands", results:"results", none:"No results for",
+        clear:"Clear", hint:"Search by name or brand · 3,824 products" },
+};
+const tx = () => TX[Shell.lang];
+let q = "";
+
+const recent = {
+  read() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } },
+  add(term) {
+    if (!term || term.length < 2) return;
+    try {
+      const list = [term, ...this.read().filter((x) => x !== term)].slice(0, 6);
+      localStorage.setItem(KEY, JSON.stringify(list));
+    } catch { /* private mode — recent searches simply do not persist */ }
+  },
+  clear() { try { localStorage.removeItem(KEY); } catch {} },
+};
+
+function results(term) {
+  const s = term.trim().toLowerCase();
+  if (s.length < 2) return null;
+  const hit = (p) => (p.title + " " + ((brand(p.brand) || {}).en || "")).toLowerCase().includes(s);
+  return {
+    products: UCP.products.filter(hit).slice(0, 24),
+    total: UCP.products.filter(hit).length,
+    brands: UCP.brands.filter((b) => b.en.toLowerCase().includes(s)).slice(0, 8),
+  };
+}
+
+function render() {
+  const T = tx(), C = ctx(), n = Shell.nm;
+  renderChrome(C.search);
+  set("bsIcon", ic("search", 19));
+  const input = document.getElementById("bs");
+  input.placeholder = T.hint;
+  if (input.value !== q) input.value = q;
+
+  const r = results(q);
+  if (r) {
+    set("panels",
+      '<div class="sgroup"><h3>' + T.quick + ' — <span class="num">' + r.total + '</span> ' + T.results + '</h3>'
+      + (r.products.length
+          ? '<div class="pgrid">' + r.products.map(pcard).join('') + '</div>'
+          : '<div class="emptybox"><h3>' + T.none + ' "' + esc2(q) + '"</h3></div>')
+      + '</div>'
+      + (r.brands.length ? '<div class="sgroup"><h3>' + T.brands + '</h3><div class="brandrow" style="justify-content:flex-start">'
+          + r.brands.map((b) => '<a href="category.html?brand=' + b.id + '" title="' + esc2(b.en) + '">'
+            + esc2(b.en.split(/[\s-]/)[0]) + '</a>').join('') + '</div></div>' : ''));
+    return;
+  }
+
+  const rec = recent.read();
+  const popular = [...UCP.categories].sort((a, b) => b.n - a.n).slice(0, 6);
+  const quick = Shell.list("top").slice(0, 8);
+  set("panels",
+    (rec.length ? '<div class="sgroup"><h3>' + T.recent
+        + ' <button id="clr" style="font-size:12px;font-weight:600;text-decoration:underline;color:var(--accent-tx)">'
+        + T.clear + '</button></h3><div class="chiprow">'
+      + rec.map((t) => '<button class="chip" data-term="' + esc2(t) + '">' + esc2(t) + '</button>').join('')
+      + '</div></div>' : '')
+    + '<div class="sgroup"><h3>' + T.popular + '</h3><div class="chiprow">'
+      + popular.map((c) => '<a class="chip tint" href="category.html?cat=' + c.id + '">' + n(c)
+        + ' <span class="num" style="opacity:.7">' + c.n + '</span></a>').join('')
+    + '</div></div>'
+    + '<div class="sgroup"><h3>' + T.quick + '</h3><div class="quickrow">'
+      + quick.map(pcard).join('') + '</div></div>');
+}
+
+let timer;
+document.getElementById("bs").addEventListener("input", (e) => {
+  q = e.target.value;
+  clearTimeout(timer);
+  timer = setTimeout(() => { if (q.trim().length >= 2) recent.add(q.trim()); render(); }, 220);
+});
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("[data-term]");
+  if (t) { q = t.dataset.term; return render(); }
+  if (e.target.closest("#clr")) { recent.clear(); return render(); }
+});
+
+mountChrome();
+initCart(null);
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+</script>
+</body>
+</html>

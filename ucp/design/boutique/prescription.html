@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — اطلب وصفتك</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="boutique.css">
+</head>
+<body>
+<main id="main"><div class="wrap"><div class="rxpage" id="rx"></div></div></main>
+
+<script src="../ninja/catalogue.js"></script>
+<script src="../ninja/ucp.js"></script>
+<script src="boutique.js"></script>
+<script>
+/* ===========================================================================
+   PRESCRIPTION — handoff screen 9. Eyebrow, headline, dashed dropzone, CTA,
+   secondary link, and the three-step status row.
+
+   A PRESCRIPTION IMAGE IS MEDICAL DATA. This prototype therefore never
+   transmits or stores one: the chosen file is read only far enough to show its
+   name and size, it is held in a local variable for the life of the page, and
+   it is never uploaded, never written to storage, and never leaves the device.
+   The page says this where the user can read it, not just in a comment.
+   =========================================================================== */
+const TX = {
+  ar: { eyebrow:"UCP CARE", title:"اطلب وصفتك الطبية",
+        sub:"ارفع صورة الوصفة، يراجعها صيدلي مرخّص، ثم نجهّزها للتوصيل أو الاستلام من الفرع.",
+        dzT:"اسحب صورة الوصفة هنا", dzP:"أو اضغط للاختيار · JPG أو PNG أو PDF",
+        cta:"اختر صورة الوصفة", alt:"أو اطلب من طبيبك إرسالها مباشرة",
+        s1:"مراجعة الصيدلي", s2:"قيد المراجعة", s3:"جاهزة للاستلام",
+        chosen:"الملف المختار", clear:"إزالة",
+        privacy:"الوصفة الطبية بيانات صحية. في هذا النموذج لا يُرفع الملف ولا يُحفظ ولا يغادر جهازك — يُقرأ اسمه وحجمه فقط لعرضهما هنا." },
+  en: { eyebrow:"UCP CARE", title:"Order your prescription",
+        sub:"Upload a photo, a licensed pharmacist reviews it, then we prepare it for delivery or branch pickup.",
+        dzT:"Drop your prescription here", dzP:"or tap to choose · JPG, PNG or PDF",
+        cta:"Choose a prescription image", alt:"Or have your doctor send it directly",
+        s1:"Pharmacist review", s2:"Under review", s3:"Ready for pickup",
+        chosen:"Chosen file", clear:"Remove",
+        privacy:"A prescription is medical data. In this prototype the file is never uploaded, never stored and never leaves your device — only its name and size are read, to show them here." },
+};
+const tx = () => TX[Shell.lang];
+let chosen = null;   /* lives for the life of the page and nowhere else */
+
+function render() {
+  const T = tx();
+  renderChrome(null);
+  set("rx",
+    '<span class="pill pill--tint" style="font-size:11px">' + T.eyebrow + '</span>'
+    + '<h1 style="font-size:32px;font-weight:600;margin-top:16px">' + T.title + '</h1>'
+    + '<p class="sub" style="font-size:14px;margin-top:10px">' + T.sub + '</p>'
+    + '<div class="dropzone" id="dz"><div class="ic">' + ic("rx",30) + '</div>'
+      + '<h2>' + T.dzT + '</h2><p>' + T.dzP + '</p></div>'
+    + '<input type="file" id="file" accept="image/jpeg,image/png,application/pdf" hidden>'
+    + '<button class="pill pill--cta" id="pick" style="margin-top:22px">' + T.cta + '</button>'
+    + '<p style="margin-top:14px"><a href="#" style="font-size:13px;text-decoration:underline">' + T.alt + '</a></p>'
+    + (chosen ? '<div class="slot" style="text-align:center;margin-top:20px"><h3>' + T.chosen + '</h3>'
+        + '<p>' + esc2(chosen.name) + ' · <span class="num">' + Math.round(chosen.size/1024) + ' KB</span></p>'
+        + '<button class="pill pill--line" id="clr" style="margin-top:12px;font-size:12px;padding:8px 18px">'
+        + T.clear + '</button></div>' : '')
+    + '<div class="steps3">'
+      + [[ "chat", T.s1, 1 ], [ "clock", T.s2, 0 ], [ "store", T.s3, 0 ]]
+        .map(([i, t, on]) => '<div class="s' + (on ? " on" : "") + '"><span class="c">'
+          + ic(i,22) + '</span><span class="t">' + t + '</span></div>').join('')
+    + '</div>'
+    + '<p class="sub" style="margin-top:26px;font-size:12px">' + T.privacy + '</p>');
+}
+
+document.addEventListener("click", (e) => {
+  if (e.target.closest("#pick") || e.target.closest("#dz")) return document.getElementById("file").click();
+  if (e.target.closest("#clr")) { chosen = null; return render(); }
+});
+document.addEventListener("change", (e) => {
+  if (e.target.id !== "file") return;
+  const f = e.target.files && e.target.files[0];
+  /* name and size only — the bytes are never read, sent or stored */
+  chosen = f ? { name: f.name, size: f.size } : null;
+  render();
+});
+document.addEventListener("dragover", (e) => {
+  if (!e.target.closest("#dz")) return;
+  e.preventDefault(); document.getElementById("dz").classList.add("hot");
+});
+document.addEventListener("dragleave", (e) => {
+  if (e.target.closest("#dz")) document.getElementById("dz").classList.remove("hot");
+});
+document.addEventListener("drop", (e) => {
+  if (!e.target.closest("#dz")) return;
+  e.preventDefault();
+  const f = e.dataTransfer.files && e.dataTransfer.files[0];
+  chosen = f ? { name: f.name, size: f.size } : null;
+  render();
+});
+
+mountChrome();
+initCart(null);
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+</script>
+</body>
+</html>

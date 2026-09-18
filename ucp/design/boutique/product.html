@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — المنتج</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="boutique.css">
+</head>
+<body>
+<main id="main"><div class="wrap">
+  <div class="pdp" id="pdp"></div>
+  <div id="fbt"></div>
+  <section class="section" id="simWrap" style="padding-top:26px"></section>
+</div></main>
+
+<script src="../ninja/catalogue.js"></script>
+<script src="../ninja/ucp.js"></script>
+<script src="boutique.js"></script>
+<script>
+/* ===========================================================================
+   PRODUCT — handoff screen 4.
+   Centred single column, 420px square gallery with dot pagination, brand pill
+   that navigates, price row, fulfilment pills, stepper + full-width CTA,
+   "Build Your Bundle", and a similar-products row.
+
+   The export carries no description, ingredients, dispensing status or stock.
+   Each renders as a labelled gap naming the system the data must come from.
+   The dispensing slot is the reason for that treatment rather than silent
+   omission: a fabricated "no prescription required" on a real SKU is the most
+   dangerous sentence this prototype could contain.
+   =========================================================================== */
+const TX = {
+  ar: { missing:"غير متوفر في هذا النموذج",
+        descH:"وصف المنتج والمكوّنات",
+        descP:"لا يحتوي ملف الكتالوج على وصف أو مكوّنات أو إرشادات استخدام. تأتي هذه من نظام UCP للمنتجات.",
+        rxH:"حالة الصرف (وصفة / بدون وصفة)",
+        rxP:"لا يحتوي الملف على حالة الصرف النظامية، ولن نفترضها. تأتي من سجل UCP الدوائي.",
+        stockH:"التوفّر في الفروع",
+        stockP:"لا يحتوي الملف على أرصدة المخزون. تأتي من نظام المخزون اللحظي.",
+        eta:"توصيل خلال ٦٠ دقيقة", pick:"استلام من الفرع",
+        sku:"رقم الصنف", size:"الحجم", priceNote:"السعر في هذا النموذج تجريبي",
+        bundle:"كوّن باقتك", bundleCta:"أضف الباقة",
+        similar:"منتجات مشابهة", notFound:"لم نعثر على هذا المنتج", back:"العودة إلى التصفح",
+        live:"افتح هذا المنتج على الموقع الحالي" },
+  en: { missing:"Not in this prototype",
+        descH:"Description and ingredients",
+        descP:"The catalogue export carries no description, ingredients or directions. These come from UCP's product system.",
+        rxH:"Dispensing status (Rx / OTC)",
+        rxP:"The export carries no regulatory dispensing status, and we will not assume one. It comes from UCP's pharmacy record.",
+        stockH:"Branch availability",
+        stockP:"The export carries no stock levels. These come from the live inventory system.",
+        eta:"Delivery in 60 minutes", pick:"Branch pickup",
+        sku:"SKU", size:"Size", priceNote:"The price in this prototype is placeholder",
+        bundle:"Build your bundle", bundleCta:"Add the bundle",
+        similar:"Similar products", notFound:"We could not find that product", back:"Back to browse",
+        live:"Open this product on the current site" },
+};
+const tx = () => TX[Shell.lang];
+let current = null, shotIndex = 0;
+
+/** A bare visit lands on a real product; a sku that does not resolve must NOT
+    silently become a different one. */
+function find() {
+  const sku = new URLSearchParams(location.search).get("sku");
+  if (!sku) return UCP.products[0] || null;
+  return UCP.products.find((p) => p.sku === sku) || null;
+}
+const shotsOf = (p) => [p.img].concat(p.alt || []).filter(Boolean);
+
+function render() {
+  const T = tx(), TT = Shell.T(), C = ctx(), n = Shell.nm, L = Shell.lang;
+  current = find();
+  renderChrome(null);
+
+  if (!current) {
+    set("pdp", '<div class="emptybox"><h3>' + T.notFound + '</h3>'
+      + '<p><a href="category.html" style="text-decoration:underline">' + T.back + '</a></p></div>');
+    set("fbt",""); set("simWrap",""); return;
+  }
+  const p = current, b = brand(p.brand), c = CATEG.get(p.cat);
+  const shots = shotsOf(p);
+  const src = shots[shotIndex] || shots[0];
+  const q = Shell.qtyOf(p.id);
+  document.title = "UCP — " + p.title;
+
+  const slot = (h, body) => '<div class="slot"><span class="tag">' + T.missing + '</span>'
+    + '<h3>' + h + '</h3><p>' + body + '</p></div>';
+
+  set("pdp",
+    '<div class="main">' + (src
+        ? '<img src="' + src + '" alt="' + esc2(p.title) + '" onerror="IMGFAIL(this,\'' + p.id + '\')">'
+        : art(p, { light:true })) + '</div>'
+    + (shots.length > 1 ? '<div class="dots">' + shots.map((_, i) =>
+        '<button data-shot="' + i + '" aria-current="' + (i===shotIndex) + '"'
+        + ' aria-label="' + (i+1) + '"></button>').join('') + '</div>' : '')
+    + '<div class="info">'
+      + (b ? '<a class="brandpill" href="category.html?brand=' + b.id + '">' + esc2(n(b)) + '</a>' : '')
+      + '<h1>' + esc2(n(p)) + '</h1>'
+      + '<div class="prices"><b>' + riyal(p.price) + '</b>'
+        + (p.was ? '<s>' + riyal(p.was) + '</s><span class="off">' + TT.off + ' '
+            + '<span class="num">' + pct(p.price, p.was) + '%</span></span>' : '')
+      + '</div>'
+      + '<div class="meta">' + T.sku + ' <span class="num">' + esc2(p.sku) + '</span>'
+        + (p.size ? ' · ' + T.size + ' <span class="num">' + esc2(p.size) + '</span>' : '')
+        + (c ? ' · <a href="category.html?cat=' + c.id + '" style="text-decoration:underline">' + n(c) + '</a>' : '')
+        + ' · ' + T.priceNote + '</div>'
+      + '<div class="fulfilpills">'
+        + '<span class="fp"><span class="i">' + ic("truck",16) + '</span>' + T.eta + '</span>'
+        + '<span class="fp"><span class="i">' + ic("store",16) + '</span>' + T.pick + '</span>'
+      + '</div>'
+      + '<div class="buyrow">'
+        + '<div class="stepper">'
+          + '<button data-step="-1" aria-label="-">' + ic("minus",17) + '</button>'
+          + '<span class="q num">' + Math.max(1,q) + '</span>'
+          + '<button data-step="1" aria-label="+">' + ic("plus",17) + '</button></div>'
+        + '<button class="pill pill--cta cta" data-add="' + p.id + '">' + ic("cart",17) + ' ' + TT.add + '</button>'
+      + '</div>'
+      + slot(T.descH, T.descP)
+      + (p.cat === "medicine" ? slot(T.rxH, T.rxP) : "")
+      + slot(T.stockH, T.stockP)
+      + (p.href ? '<p style="margin-top:18px;font-size:12px"><a href="' + p.href
+          + '" target="_blank" rel="noopener" style="text-decoration:underline">' + T.live + ' ↗</a></p>' : '')
+    + '</div>');
+
+  /* Build Your Bundle — this product plus two real companions from its aisle. */
+  const mates = UCP.products.filter((x) => x.cat === p.cat && x.id !== p.id).slice(0, 2);
+  const chain = [p].concat(mates);
+  const total = chain.reduce((s, x) => s + x.price, 0);
+  set("fbt", mates.length === 2
+    ? '<div class="fbt"><h2>' + T.bundle + '</h2><div class="chain">'
+      + chain.map((x, i) => (i ? '<span class="plus">+</span>' : '')
+        + '<a class="it" href="product.html?sku=' + x.sku + '"><span class="c">' + shot(x) + '</span>'
+        + '<span class="n">' + esc2(n(x).slice(0, 30)) + '</span></a>').join('')
+      + '</div><button class="pill pill--cta cta" id="bundleAdd">' + T.bundleCta
+      + ' — ' + riyal(total) + '</button></div>'
+    : "");
+
+  const sim = UCP.products.filter((x) => x.cat === p.cat && x.id !== p.id).slice(2, 12);
+  set("simWrap", sim.length
+    ? '<h2 class="section-title" style="text-align:start">' + T.similar + '</h2>'
+      + '<div class="hrow simrow" style="margin-top:18px">' + sim.map(pcard).join('') + '</div>'
+    : "");
+}
+
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("[data-shot]");
+  if (t) { shotIndex = Number(t.dataset.shot); return render(); }
+  /* data-step, not data-q: Shell.wire() delegates [data-q] globally and the
+     two handlers would both fire, applying every click twice. */
+  const s = e.target.closest(".stepper [data-step]");
+  if (s && current) {
+    const d = Number(s.dataset.step), q = Shell.qtyOf(current.id);
+    if (q === 0) { if (d > 0) Shell.add(current.id); return; }
+    return Shell.setQty(current.id, d);
+  }
+  if (e.target.closest("#bundleAdd") && current) {
+    const mates = UCP.products.filter((x) => x.cat === current.cat && x.id !== current.id).slice(0, 2);
+    [current].concat(mates).forEach((x) => Shell.add(x.id));
+  }
+});
+
+mountChrome();
+initCart(null);
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+</script>
+</body>
+</html>
