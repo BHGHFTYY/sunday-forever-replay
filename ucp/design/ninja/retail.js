@@ -119,15 +119,18 @@ function priceBlock(p, L) {
 
 /** The one component a customer sees a thousand times. It lives here so the
     homepage's card and the listing page's card cannot drift apart. */
+/** Where a product's own page lives inside the prototype. */
+const pdp = (p) => "e-product.html?sku=" + encodeURIComponent(p.sku);
+
 function card(p) {
   const L = Shell.lang, T = Shell.T(), b = brand(p.brand);
   const q = Shell.qtyOf(p.id);
   return '<article class="pc">'
-    + '<a href="' + (p.href || '#') + '" class="tile">' + shot(p)
+    + '<a href="' + pdp(p) + '" class="tile">' + shot(p)
       + (p.was ? '<span class="sale">' + T.sale + '</span>' : '')
       + (p.size ? '<span class="sz num">' + esc2(p.size) + '</span>' : '') + '</a>'
     + (b ? '<div class="br">' + Shell.nm(b) + '</div>' : '')
-    + '<a href="' + (p.href || '#') + '" class="nm">' + esc2(Shell.nm(p)) + '</a>'
+    + '<a href="' + pdp(p) + '" class="nm">' + esc2(Shell.nm(p)) + '</a>'
     + priceBlock(p, L)
     + '<button class="add' + (q ? ' ok' : '') + '" data-add="' + p.id + '">'
       + ic(q ? 'check' : 'plus', 15) + '<span>' + (q ? T.added : T.add) + '</span></button>'

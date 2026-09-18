@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — NINJA / E · RETAIL — المنتج</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ucp.css">
+<link rel="stylesheet" href="retail.css">
+<style>
+/* ===========================================================================
+   NINJA / E · RETAIL — PRODUCT
+   ---------------------------------------------------------------------------
+   The page where the 1,241 galleries finally pay off, and the page where this
+   prototype's data gaps are most visible — so they are STATED, not hidden.
+
+   A pharmacy PDP normally carries: a description, ingredients, directions,
+   prescription status, and live stock per branch. The MasterSheet export has
+   none of these. Rather than invent them — a fabricated "prescription not
+   required" on a real SKU is the single most dangerous thing this prototype
+   could say — each missing block renders as a labelled slot naming the system
+   the data has to come from. The layout is therefore honest AND reviewable:
+   you can see the shape of the finished page without reading a fiction.
+
+   Everything real is marked real: title, SKU, brand, category, pack size and
+   every photograph.
+   =========================================================================== */
+
+.crumb { font-size:var(--t-13); color:var(--tx-mut); padding-block:16px 0; }
+.crumb a:hover { color:var(--tx); text-decoration:underline; }
+.crumb span { margin-inline:6px; }
+
+/* --- the two columns ----------------------------------------------------- */
+.pdp { display:grid; gap:28px; padding-block:18px 48px; align-items:start; }
+@media (min-width:980px) { .pdp { grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:52px; } }
+
+/* --- gallery -------------------------------------------------------------- */
+.gal { display:grid; gap:12px; }
+@media (min-width:640px) { .gal { grid-template-columns:76px minmax(0,1fr); } }
+.gal .thumbs { display:flex; gap:10px; overflow-x:auto; scrollbar-width:none; order:2; }
+.gal .thumbs::-webkit-scrollbar { display:none; }
+@media (min-width:640px) { .gal .thumbs { flex-direction:column; overflow:visible; order:0; } }
+.gal .thumbs button {
+  flex:none; width:64px; height:80px; background:var(--paper-3); border-radius:var(--r-2);
+  border:1.5px solid transparent; padding:8px; display:grid; place-items:center; overflow:hidden;
+}
+.gal .thumbs button[aria-current="true"] { border-color:var(--ink); }
+.gal .thumbs img { width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply; }
+.gal .main {
+  position:relative; background:var(--paper-3); border-radius:var(--r-2);
+  aspect-ratio:1; display:grid; place-items:center; padding:7%; overflow:hidden;
+}
+.gal .main img, .gal .main svg { width:100%; height:100%; object-fit:contain; }
+.gal .main img { mix-blend-mode:multiply; }
+.gal .main .sale {
+  position:absolute; inset-block-start:14px; inset-inline-start:16px;
+  font-size:var(--t-14); font-weight:700;
+}
+.gal .cnt3 {
+  position:absolute; inset-block-end:12px; inset-inline-end:14px;
+  font-size:var(--t-12); color:var(--tx-mut);
+}
+
+/* --- the buy column ------------------------------------------------------- */
+.buy .brandline { font-size:var(--t-14); font-weight:700; }
+.buy .brandline a:hover { text-decoration:underline; }
+.buy h1 { font-size:var(--t-26); font-weight:800; margin-top:6px; line-height:1.3; }
+@media (min-width:900px) { .buy h1 { font-size:var(--t-34); } }
+.buy .meta { display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:10px; font-size:var(--t-13); color:var(--tx-mut); }
+.buy .meta b { color:var(--tx); font-weight:600; }
+
+.buy .pricing { margin-top:20px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.buy .pricing .now { font-size:var(--t-34); font-weight:800; font-family:var(--text); line-height:1; }
+.buy .pricing .now.cut { color:var(--amber-900); }
+.buy .pricing s { font-size:var(--t-16); color:var(--tx-faint); }
+.buy .pricing .off { font-size:var(--t-13); font-weight:700; color:var(--amber-900); }
+.buy .vat { font-size:var(--t-12); color:var(--tx-mut); margin-top:5px; }
+
+.buy .actions { display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; align-items:stretch; }
+.stepper {
+  display:inline-flex; align-items:center; border:1.5px solid var(--line-2); border-radius:var(--r-2);
+  height:52px; flex:none;
+}
+.stepper button { width:46px; height:100%; display:grid; place-items:center; color:var(--tx); }
+.stepper button:hover { background:var(--paper-3); }
+.stepper .q { min-width:38px; text-align:center; font-weight:700; font-size:var(--t-16); }
+.buy .cta {
+  flex:1 1 200px; height:52px; padding-inline:26px; background:var(--ink); color:var(--on-ink);
+  border-radius:var(--r-2); font-size:var(--t-15); font-weight:700;
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  transition:background var(--fast);
+}
+.buy .cta:hover { background:var(--ink-800); }
+
+/* --- fulfilment ----------------------------------------------------------- */
+.fulfil { margin-top:22px; border:1px solid var(--line); border-radius:var(--r-2); overflow:hidden; }
+.fulfil .row { display:flex; gap:12px; padding:14px 16px; border-bottom:1px solid var(--line); }
+.fulfil .row:last-child { border-bottom:0; }
+.fulfil .row .ri { color:var(--amber-900); flex:none; margin-top:2px; }
+.fulfil .row b { display:block; font-size:var(--t-14); font-weight:700; }
+.fulfil .row p { font-size:var(--t-13); color:var(--tx-mut); margin-top:2px; }
+
+/* --- a slot whose data does not exist yet --------------------------------
+   Drawn as an explicit, labelled gap. A PDP that silently omits ingredients
+   looks finished; one that names what is missing can be reviewed. */
+.slot { margin-top:22px; border:1px dashed var(--line-2); border-radius:var(--r-2); padding:16px; background:var(--paper-2); }
+.slot h3 { font-family:var(--text); font-size:var(--t-14); font-weight:700; }
+.slot p { font-size:var(--t-13); color:var(--tx-mut); margin-top:5px; }
+.slot .tag {
+  display:inline-block; font-size:var(--t-11); font-weight:700; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--amber-900); margin-bottom:7px;
+}
+html[lang="ar"] .slot .tag { text-transform:none; letter-spacing:normal; }
+
+.srcline { margin-top:20px; font-size:var(--t-13); }
+.srcline a { text-decoration:underline; text-underline-offset:3px; }
+.srcline a:hover { color:var(--amber-900); }
+
+/* --- related rails -------------------------------------------------------- */
+.rel { border-top:1px solid var(--line); padding-block:36px; }
+</style>
+</head>
+<body>
+<a href="#buy" class="u-skip">تخطَّ إلى المنتج</a>
+<div class="proto"><b>UCP NINJA / E · RETAIL</b> — <span id="protoTx"></span></div>
+
+<div class="ann"><b id="annB"></b><span id="annS"></span></div>
+
+<header class="hd">
+  <div class="wrap hd-in">
+    <a href="e-retail.html" class="logo"><img src="../brand/ucp-mark.png" alt="UCP">
+      <span class="lt"><b id="lgB"></b><span id="lgS"></span></span></a>
+    <div class="srch"><span class="si" id="si1"></span><input id="q1" type="search" autocomplete="off"></div>
+    <div class="hd-acts">
+      <button class="lang" data-lang>EN</button>
+      <a href="#" class="iact" id="acc"></a>
+      <a href="#" class="iact" id="crt"></a>
+    </div>
+  </div>
+  <div class="wrap srch-m"><div class="srch"><span class="si" id="si2"></span><input id="q2" type="search" autocomplete="off"></div></div>
+</header>
+
+<nav class="cnav" aria-label="categories"><div class="wrap u-scroll"><ul id="cnav"></ul></div></nav>
+
+<main id="main"><div class="wrap">
+  <nav class="crumb" id="crumb" aria-label="breadcrumb"></nav>
+  <div class="pdp" id="pdp"></div>
+</div>
+<div class="wrap" id="rails"></div>
+</main>
+
+<footer class="ft"><div class="wrap">
+  <div class="ft-cols" id="ftCols"></div>
+  <div class="bot"><span id="ftR"></span><span id="ftN"></span></div>
+</div></footer>
+
+<script src="catalogue.js"></script>
+<script src="ucp.js"></script>
+<script src="retail.js"></script>
+<script>
+/* Composition only. Card, chrome and catalogue adapter come from retail.js. */
+
+const TX = {
+  ar: { home:"الرئيسية", sku:"رقم الصنف", size:"الحجم", cat:"الفئة",
+        gallery:"صور المنتج", of:"من",
+        deliver:"توصيل خلال ٦٠ دقيقة", deliverP:"للطلبات داخل الرياض من الفروع المفتوحة",
+        pick:"استلام من الفرع", pickP:"نجهّز الطلب وتستلمه من أقرب فرع",
+        ask:"استشر صيدليًا", askP:"محادثة أو مكالمة فيديو قبل الشراء",
+        missing:"غير متوفر في هذا النموذج",
+        descH:"وصف المنتج والمكوّنات", descP:"لا يحتوي ملف الكتالوج على وصف أو مكوّنات أو إرشادات استخدام. تأتي هذه من نظام UCP للمنتجات.",
+        rxH:"حالة الصرف (وصفة / بدون وصفة)", rxP:"لا يحتوي الملف على حالة الصرف النظامية، ولن نفترضها. تأتي من سجل UCP الدوائي.",
+        stockH:"التوفّر في الفروع", stockP:"لا يحتوي الملف على أرصدة المخزون. تأتي من نظام المخزون اللحظي.",
+        viewLive:"افتح هذا المنتج على الموقع الحالي",
+        more:"المزيد من", similar:"منتجات مشابهة", notFound:"لم نعثر على هذا المنتج",
+        backToList:"العودة إلى التصفح", placeholderPrice:"السعر في هذا النموذج تجريبي" },
+  en: { home:"Home", sku:"SKU", size:"Size", cat:"Category",
+        gallery:"Product images", of:"of",
+        deliver:"Delivery in 60 minutes", deliverP:"Inside Riyadh from branches open now",
+        pick:"Collect from a branch", pickP:"We prepare it, you pick it up",
+        ask:"Ask a pharmacist", askP:"Chat or video call before you buy",
+        missing:"Not in this prototype",
+        descH:"Description and ingredients", descP:"The catalogue export carries no description, ingredients or directions. These come from UCP's product system.",
+        rxH:"Dispensing status (Rx / OTC)", rxP:"The export carries no regulatory dispensing status, and we will not assume one. It comes from UCP's pharmacy record.",
+        stockH:"Branch availability", stockP:"The export carries no stock levels. These come from the live inventory system.",
+        viewLive:"Open this product on the current site",
+        more:"More from", similar:"Similar products", notFound:"We could not find that product",
+        backToList:"Back to browse", placeholderPrice:"The price in this prototype is placeholder" },
+};
+const tx = () => TX[Shell.lang];
+
+let current = null;
+let shotIndex = 0;
+
+/**
+ * A bare visit lands on a real product so the page is never empty in review.
+ * A sku that does not resolve must NOT silently become a different product —
+ * on a pharmacy site, showing product B under a link to product A is the kind
+ * of quiet substitution that has to fail loudly instead.
+ */
+function findProduct() {
+  const sku = new URLSearchParams(location.search).get("sku");
+  if (!sku) return UCP.products[0] || null;
+  return UCP.products.find((p) => p.sku === sku) || null;
+}
+
+/** Primary first, then the rest of the gallery — the order the builder chose. */
+const shotsOf = (p) => [p.img].concat(p.alt || []).filter(Boolean);
+
+function renderGallery() {
+  const p = current, T = tx();
+  const shots = shotsOf(p);
+  const src = shots[shotIndex] || shots[0];
+  const alt = esc2(p.title);
+  const main = src
+    ? '<img src="' + src + '" alt="' + alt + '" onerror="IMGFAIL(this,\'' + p.id + '\')">'
+    : art(p, { light: true });
+  return '<div class="gal">'
+    + (shots.length > 1
+        ? '<div class="thumbs" role="tablist" aria-label="' + T.gallery + '">'
+          + shots.map((s, i) => '<button role="tab" data-shot="' + i + '"'
+              + (i === shotIndex ? ' aria-current="true"' : '')
+              + ' aria-label="' + T.gallery + ' ' + (i + 1) + '">'
+              + '<img src="' + s + '" alt="" loading="lazy" onerror="this.closest(\'button\').remove()"></button>').join('')
+          + '</div>'
+        : '')
+    + '<div class="main">' + main
+      + (p.was ? '<span class="sale">' + Shell.T().sale + '</span>' : '')
+      + (shots.length > 1 ? '<span class="cnt3 num">' + (shotIndex + 1) + ' ' + T.of + ' ' + shots.length + '</span>' : '')
+      + '</div></div>';
+}
+
+function renderBuy() {
+  const p = current, T = tx(), TT = Shell.T(), L = Shell.lang, n = Shell.nm;
+  const b = brand(p.brand), c = CATEG.get(p.cat);
+  const q = Shell.qtyOf(p.id);
+  const off = pct(p.price, p.was);
+
+  const slot = (h, body) => '<div class="slot"><span class="tag">' + T.missing + '</span>'
+    + '<h3>' + h + '</h3><p>' + body + '</p></div>';
+
+  return '<div class="buy" id="buy">'
+    + (b ? '<div class="brandline"><a href="e-list.html?brand=' + b.id + '">' + n(b) + '</a></div>' : '')
+    + '<h1>' + esc2(n(p)) + '</h1>'
+    + '<div class="meta">'
+      + '<span>' + T.sku + ' <b class="num">' + esc2(p.sku) + '</b></span>'
+      + (p.size ? '<span>' + T.size + ' <b class="num">' + esc2(p.size) + '</b></span>' : '')
+      + (c ? '<span>' + T.cat + ' <b><a href="e-list.html?cat=' + c.id + '">' + n(c) + '</a></b></span>' : '')
+    + '</div>'
+    + '<div class="pricing">'
+      + '<span class="now' + (p.was ? ' cut' : '') + '">' + priceHTML(p.price, L) + '</span>'
+      + (p.was ? '<s>' + priceHTML(p.was, L) + '</s><span class="off">' + TT.off + ' ' + offLabel(p, L) + '</span>' : '')
+    + '</div>'
+    + '<div class="vat">' + TT.vat + ' · ' + T.placeholderPrice + '</div>'
+    + '<div class="actions">'
+      + '<div class="stepper">'
+        + '<button data-step="-1" aria-label="-">' + ic("minus", 18) + '</button>'
+        + '<span class="q num" id="qv">' + Math.max(1, q) + '</span>'
+        + '<button data-step="1" aria-label="+">' + ic("plus", 18) + '</button>'
+      + '</div>'
+      + '<button class="cta" data-add="' + p.id + '">' + ic("cart", 18) + '<span>' + TT.add + '</span></button>'
+    + '</div>'
+    + '<div class="fulfil">'
+      + [["truck", T.deliver, T.deliverP], ["store", T.pick, T.pickP], ["chat", T.ask, T.askP]]
+        .map((r) => '<div class="row"><span class="ri">' + ic(r[0], 20) + '</span>'
+          + '<div><b>' + r[1] + '</b><p>' + r[2] + '</p></div></div>').join('')
+    + '</div>'
+    + slot(T.descH, T.descP)
+    + (p.cat === "medicine" ? slot(T.rxH, T.rxP) : "")
+    + slot(T.stockH, T.stockP)
+    + (p.href ? '<div class="srcline"><a href="' + p.href + '" target="_blank" rel="noopener">'
+        + T.viewLive + ' ↗</a></div>' : '')
+    + '</div>';
+}
+
+function renderRails() {
+  const p = current, T = tx(), n = Shell.nm;
+  const b = brand(p.brand), c = CATEG.get(p.cat);
+  const sameBrand = p.brand
+    ? UCP.products.filter((x) => x.brand === p.brand && x.id !== p.id).slice(0, 10) : [];
+  const sameCat = UCP.products.filter((x) => x.cat === p.cat && x.id !== p.id && x.brand !== p.brand)
+    .slice(0, 10);
+  const rail = (title, href, items) => items.length
+    ? '<section class="rel"><div class="sh"><h2>' + title + '</h2>'
+      + '<a class="all" href="' + href + '">' + Shell.T().viewAll + '</a></div>'
+      + '<div class="rail">' + items.map(card).join('') + '</div></section>'
+    : '';
+  return (b ? rail(T.more + ' ' + n(b), "e-list.html?brand=" + b.id, sameBrand) : "")
+    + (c ? rail(T.similar, "e-list.html?cat=" + c.id, sameCat) : "");
+}
+
+function render() {
+  const T = tx(), n = Shell.nm;
+  current = findProduct();
+  renderChrome(current ? current.cat : null);
+
+  if (!current) {
+    set("crumb", '<a href="e-retail.html">' + T.home + '</a>');
+    set("pdp", '<div class="empty" style="grid-column:1/-1;padding:64px 0;text-align:center">'
+      + '<h3>' + T.notFound + '</h3><p style="margin-top:8px">'
+      + '<a href="e-list.html" style="text-decoration:underline">' + T.backToList + '</a></p></div>');
+    set("rails", "");
+    return;
+  }
+  const c = CATEG.get(current.cat);
+  set("crumb", '<a href="e-retail.html">' + T.home + '</a><span>›</span>'
+    + (c ? '<a href="e-list.html?cat=' + c.id + '">' + n(c) + '</a><span>›</span>' : '')
+    + esc2(n(current)));
+  document.title = "UCP — " + current.title;
+  set("pdp", renderGallery() + renderBuy());
+  set("rails", renderRails());
+}
+
+/* --- events --------------------------------------------------------------- */
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("[data-shot]");
+  if (t) { shotIndex = Number(t.dataset.shot); set("pdp", renderGallery() + renderBuy()); }
+});
+/* The stepper uses data-step, NOT data-q: Shell.wire() already delegates
+   [data-q] globally, so sharing the attribute made every click apply twice.
+   Shell.setQty also only knows about lines that already exist, so the first
+   increment from an empty cart has to go through add(). */
+document.addEventListener("click", (e) => {
+  const s = e.target.closest(".stepper [data-step]");
+  if (!s || !current) return;
+  const delta = Number(s.dataset.step);
+  const q = Shell.qtyOf(current.id);
+  if (q === 0) { if (delta > 0) Shell.add(current.id); return; }
+  Shell.setQty(current.id, delta);
+});
+
+Shell.onRender(render);
+Shell.wire();
+Shell.setLang("ar");
+</script>
+</body>
+</html>

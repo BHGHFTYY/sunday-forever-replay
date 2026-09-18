@@ -211,3 +211,41 @@ Verified: back from page 2 returns to page 1 with the sort intact.
 This page uses **no vivid amber fill at all**. It is a utility surface, and the
 brand colour's whole job here is to stay out of the way of 3,824 products. The
 two amber bands on the homepage are the budget for the whole execution.
+
+---
+
+## The product page
+
+`e-product.html?sku=…` is where the 1,241 galleries pay off, and where this
+prototype's data gaps are most visible — so they are **stated, not hidden**.
+
+A pharmacy PDP normally carries a description, ingredients, directions,
+prescription status and live stock per branch. The MasterSheet export has none
+of these. Each missing block therefore renders as a dashed, labelled slot
+naming the system the data has to come from, so the page can be reviewed for
+layout without anyone reading a fiction.
+
+The prescription slot matters most. **A fabricated "no prescription required"
+on a real SKU is the single most dangerous sentence this prototype could
+contain**, so the dispensing status is never guessed — medicines get an
+explicit slot saying the regulatory status comes from UCP's pharmacy record.
+
+Real on this page: title, SKU, brand, category, pack size and every photograph.
+Placeholder: the price, and nothing else is asserted.
+
+A bad `?sku=` shows a not-found state rather than silently falling back to a
+different product. On a pharmacy site, showing product B under a link to
+product A is exactly the kind of quiet substitution that has to fail loudly.
+
+### Reviewing with photographs present
+
+`ucpksa.com` is blocked by this environment's network policy, so screenshots
+taken here normally show the drawn fallbacks. `scratchpad/stub.mjs` intercepts
+those requests and serves neutral grey packshots at realistic proportions,
+which is how the grid and the PDP gallery were checked with imagery in place.
+**Those stand-ins are not UCP's photographs** — they only prove that spacing,
+aspect ratios and `mix-blend-mode` behave.
+
+One open risk: the tile uses `mix-blend-mode: multiply`, which is right for
+packshots on white (it dissolves the white box into the tile) and wrong for
+lifestyle photography with dark backgrounds. Which one UCP has is unverified.

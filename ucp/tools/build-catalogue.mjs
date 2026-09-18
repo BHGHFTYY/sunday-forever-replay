@@ -87,7 +87,9 @@ const CATS = {
   hair:["shampoo","conditioner","hair","dye","keratin","scalp","dandruff","blond","brunette","hena","henna","masque","beard color"],
   face:["facial","cleanser","moisturis","moisturiz","serum","spf","sunscreen","sun block","toner","micellar","acne","eye contour","eye cream","face wash","cleansing foam","peeling","mask sheet","whitening cream"],
   body:["body","lotion","shower","soap","deodorant","antiperspirant","roll on","roll-on","hand cream","foot","scrub","bath","razor","blade","shaving","hair removal","depilat","talc","powder ","perfume","cologne","edp","edt"],
-  medicine:["tablet","tab\\b","capsule","cap\\b","syrup","suspension","injection","ampoule","sachet","mg\\b","suppositor","drops","inhaler","ointment","antibiotic","cream 15","gel 30","spray nasal","nasal"],
+  /* No bare "<form> <number>" patterns here: "cream 15" substring-matches
+     "Cream 150 mL" and quietly files a body moisturiser as a medicine. */
+  medicine:["tablet","tab\\b","capsule","cap\\b","syrup","suspension","injection","ampoule","sachet","mg\\b","suppositor","drops","inhaler","ointment","antibiotic","spray nasal","nasal"],
 };
 const ORDER = ["lenses","baby","oral","makeup","feminine","devices","vitamins","hair","face","body","medicine"];
 

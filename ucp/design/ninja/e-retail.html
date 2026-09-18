@@ -257,7 +257,7 @@ function render() {
   set('c1', offers.length + ' ' + T.items);
   set('promoDuo', offers.slice(0, 2).map((p) => {
     const b = brand(p.brand);
-    return '<a href="' + (p.href || '#') + '" class="promo"><div class="pi">' + shot(p, { swap: false }) + '</div>'
+    return '<a href="' + pdp(p) + '" class="promo"><div class="pi">' + shot(p, { swap: false }) + '</div>'
       + '<div><div class="chip">' + T.off + ' ' + offLabel(p, L) + '</div>'
       + '<h3>' + (b ? n(b) : n(p)) + '</h3>' + (b ? '<p>' + n(p) + '</p>' : '')
       + '<div class="pp">' + priceHTML(p.price, L) + '<s>' + priceHTML(p.was, L) + '</s></div></div></a>';
