@@ -56,6 +56,12 @@ h1 { font-size:clamp(28px,4.4vw,44px); font-weight:900; }
 .judge ol { display:grid; gap:7px; padding-inline-start:20px; color:var(--on-ink-mut); font-size:var(--t-14); }
 .judge li { list-style:decimal; }
 footer { border-top:1px solid var(--line-ink); padding-block:24px 50px; color:#6E675D; font-size:var(--t-12); }
+.pages { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.pages a {
+  font-size:var(--t-13); font-weight:600; padding:7px 12px;
+  border:1px solid var(--line-ink); border-radius:var(--r-2); color:var(--on-ink);
+}
+.pages a:hover { border-color:var(--amber); color:var(--amber); }
 </style>
 </head>
 <body>
@@ -187,7 +193,9 @@ const EX = [
       "زر الإضافة بحجمه الطبيعي ولون الإسبريسو، لا شريط ممتد بعرض البطاقة",
       "ستة أنواع مختلفة من الأقسام تتناوب بدل تكرار عنوان/شبكة/عنوان/شبكة",
       "صور المنتجات مقصوصة على أرضية واحدة دافئة بلا إطار ولا تدرّج",
-    ]},
+      "يعمل على كتالوج UCP الحقيقي: ٣٨٢٤ منتجًا بصورها وأرقام أصنافها",
+    ],
+    pages:[["e-retail.html","الرئيسية"],["e-list.html","التصفح والتصفية"]]},
 ];
 
 document.getElementById("grid").innerHTML = EX.map((e) => `
@@ -209,6 +217,8 @@ document.getElementById("grid").innerHTML = EX.map((e) => `
         <a class="btn btn--amber" href="${e.file}" style="flex:1">افتح النموذج</a>
         <a class="btn btn--line-ink" href="${e.file}" target="_blank" rel="noopener">نافذة جديدة</a>
       </div>
+      ${e.pages ? `<div class="pages">${e.pages.map(([f, lb]) =>
+        `<a href="${f}">${lb}</a>`).join("")}</div>` : ""}
     </div>
   </article>`).join("");
 </script>

@@ -173,3 +173,41 @@ that prices are placeholder. None of them should ever be shown to a customer.
    *fallback* drawing, not the real photo. The page requests the real URLs and
    a normal browser will load them. If a URL 404s, `IMGFAIL()` swaps in the
    drawn packshot rather than a broken-image glyph.
+
+---
+
+## The listing page
+
+`e-list.html` is the browse page, over all 3,824 products. It was built second
+on purpose: a homepage can hide a weak system behind big type and one good
+photograph, but a listing page shows forty cards at once, so any excess in the
+card compounds forty times.
+
+Shared chrome now lives in `retail.css` and `retail.js` — the header, category
+nav, footer, toast and, most importantly, the **product card**. That is the one
+component a customer sees a thousand times; if the homepage's card and the
+listing page's card drift apart, the site stops looking like one site.
+
+### Facets count against the current result set
+
+Selecting *Vitamins* then *Jamieson* narrows 3,824 → 135 → 18, and each brand's
+number is what selecting it would actually return — not its count in the
+unfiltered catalogue. A facet is excluded from its own count, so the numbers
+never promise results a click cannot deliver.
+
+Brands are ranked by matches in the current view rather than listed
+alphabetically: 1,106 brands cannot all be shown, and A–Z would bury the useful
+ones under whatever begins with "A". A selected brand stays pinned in view even
+when it falls below the cut.
+
+### State is in the URL
+
+`?cat=&brand=&price=&offers=&sort=&page=` — so a filtered view can be linked,
+bookmarked and reloaded, and the back button does what a shopper expects.
+Verified: back from page 2 returns to page 1 with the sort intact.
+
+### Deliberately no amber
+
+This page uses **no vivid amber fill at all**. It is a utility surface, and the
+brand colour's whole job here is to stay out of the way of 3,824 products. The
+two amber bands on the homepage are the budget for the whole execution.

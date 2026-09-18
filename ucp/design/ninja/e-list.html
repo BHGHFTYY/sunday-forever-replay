@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — NINJA / E · RETAIL — التصفح</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ucp.css">
+<link rel="stylesheet" href="retail.css">
+<style>
+/* ===========================================================================
+   NINJA / E · RETAIL — LISTING
+   ---------------------------------------------------------------------------
+   The browse page, over all 3,824 real products.
+
+   A homepage can hide a weak system behind big type and one good photograph.
+   A listing page cannot: it shows forty cards at once, so any excess in the
+   card compounds forty times. That is precisely why it is worth building
+   second — it is the page that proves the restraint is real.
+
+   Facets are computed against the CURRENT result set, not the whole
+   catalogue, so a count never promises results that a click cannot deliver.
+   Brands are ranked by how many matches they have here, because 1,106 brands
+   cannot be listed and alphabetical order would bury the useful ones.
+
+   State lives in the URL (?cat=&brand=&price=&offers=&sort=&page=) so a
+   filtered view can be linked, bookmarked and reloaded — and so the back
+   button behaves the way a shopper expects.
+   =========================================================================== */
+
+/* --- page head ----------------------------------------------------------- */
+.crumb { font-size:var(--t-13); color:var(--tx-mut); padding-block:16px 0; }
+.crumb a:hover { color:var(--tx); text-decoration:underline; }
+.crumb span { margin-inline:6px; }
+.phead { padding-block:12px 20px; }
+.phead h1 { font-size:var(--t-34); font-weight:900; letter-spacing:-.015em; }
+@media (min-width:900px) { .phead h1 { font-size:var(--t-44); } }
+.phead .sub { font-size:var(--t-14); color:var(--tx-mut); margin-top:6px; }
+
+/* --- layout -------------------------------------------------------------- */
+.lay { display:grid; gap:28px; align-items:start; padding-bottom:56px; }
+@media (min-width:1000px) { .lay { grid-template-columns:238px minmax(0,1fr); gap:36px; } }
+
+/* --- facets --------------------------------------------------------------
+   A plain column on desktop; a full-height sheet on mobile, because a
+   pharmacy shopper filtering by brand on a phone needs the whole screen. */
+.facets { min-width:0; }
+@media (max-width:999px) {
+  .facets {
+    position:fixed; inset:0; z-index:90; background:var(--paper);
+    overflow-y:auto; padding:0 16px 96px;
+    transform:translateY(100%); visibility:hidden;
+    transition:transform var(--slow), visibility var(--slow);
+  }
+  .facets.on { transform:none; visibility:visible; }
+  .fsheet-hd {
+    position:sticky; top:0; background:var(--paper); z-index:2;
+    display:flex; align-items:center; justify-content:space-between;
+    padding-block:16px 12px; border-bottom:1px solid var(--line); margin-bottom:8px;
+  }
+  .fsheet-hd b { font-size:var(--t-18); font-weight:800; }
+  .fsheet-done {
+    position:fixed; inset-inline:16px; inset-block-end:16px; height:52px;
+    background:var(--ink); color:var(--on-ink); border-radius:var(--r-2);
+    font-size:var(--t-15); font-weight:700; display:none;
+  }
+  .facets.on ~ .fsheet-done { display:block; z-index:91; }
+}
+@media (min-width:1000px) { .fsheet-hd, .fsheet-done { display:none; } }
+
+.fgrp { border-bottom:1px solid var(--line); padding-block:16px; }
+.fgrp:last-child { border-bottom:0; }
+.fgrp > h3 {
+  font-family:var(--text); font-size:var(--t-12); font-weight:700;
+  letter-spacing:.07em; text-transform:uppercase; color:var(--tx-mut); margin-bottom:10px;
+}
+html[lang="ar"] .fgrp > h3 { text-transform:none; letter-spacing:normal; font-size:var(--t-13); }
+.fopt { display:flex; align-items:center; gap:9px; padding-block:6px; cursor:pointer; font-size:var(--t-14); }
+.fopt input { inline-size:17px; block-size:17px; accent-color:var(--ink); flex:none; margin:0; }
+.fopt .lb { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.fopt .n { font-size:var(--t-12); color:var(--tx-faint); flex:none; }
+.fopt:hover .lb { text-decoration:underline; }
+.fmore { margin-top:8px; font-size:var(--t-13); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+.fmore:hover { color:var(--amber-900); }
+.fsearch {
+  width:100%; height:36px; border:1px solid var(--line-2); border-radius:var(--r-2);
+  padding-inline:11px; font-size:var(--t-13); margin-bottom:8px; background:var(--paper);
+}
+.fsearch:focus { border-color:var(--tx); outline:none; }
+
+/* --- toolbar ------------------------------------------------------------- */
+.tbar { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+.tbar .count { font-size:var(--t-14); color:var(--tx-mut); margin-inline-end:auto; }
+.tbar .count b { color:var(--tx); font-weight:700; }
+.tbar select {
+  height:40px; border:1px solid var(--line-2); border-radius:var(--r-2);
+  padding-inline:12px 30px; font-size:var(--t-13); font-weight:600; background:var(--paper);
+}
+.tbar .fbtn {
+  height:40px; padding-inline:16px; border:1.5px solid var(--ink); border-radius:var(--r-2);
+  font-size:var(--t-13); font-weight:700; display:inline-flex; align-items:center; gap:7px;
+}
+@media (min-width:1000px) { .tbar .fbtn { display:none; } }
+/* On a phone the count takes its own line so the two controls can share the
+   next one at equal width, instead of the sort dropping to a lonely third row. */
+@media (max-width:999px) {
+  .tbar .count { flex:0 0 100%; margin-inline-end:0; }
+  .tbar .fbtn, .tbar select { flex:1 1 0; min-width:0; justify-content:center; }
+}
+.tbar .fbtn .b { background:var(--ink); color:var(--on-ink); border-radius:9px; padding-inline:6px; font-size:var(--t-11); }
+
+/* --- active filter chips ------------------------------------------------- */
+.chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.chips .chip {
+  display:inline-flex; align-items:center; gap:7px; height:32px; padding-inline:12px;
+  border:1px solid var(--line-2); border-radius:var(--r-2); font-size:var(--t-13); font-weight:600;
+}
+.chips .chip:hover { border-color:var(--tx); }
+.chips .chip .x { display:flex; color:var(--tx-mut); }
+.chips .clear { font-size:var(--t-13); font-weight:700; text-decoration:underline; text-underline-offset:3px; align-self:center; }
+.chips .clear:hover { color:var(--amber-900); }
+
+/* --- results ------------------------------------------------------------- */
+.grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 12px; }
+@media (min-width:700px) { .grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px 16px; } }
+@media (min-width:1240px) { .grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+
+.empty { padding:56px 0; text-align:center; }
+.empty h3 { font-size:var(--t-21); font-weight:800; }
+.empty p { color:var(--tx-mut); margin-top:6px; font-size:var(--t-14); }
+.empty button {
+  margin-top:16px; height:44px; padding-inline:22px; background:var(--ink); color:var(--on-ink);
+  border-radius:var(--r-2); font-weight:700; font-size:var(--t-14);
+}
+
+/* --- pagination ---------------------------------------------------------- */
+.pager { display:flex; align-items:center; justify-content:center; gap:6px; margin-top:34px; flex-wrap:wrap; }
+.pager button {
+  min-width:40px; height:40px; padding-inline:10px; border:1px solid var(--line-2);
+  border-radius:var(--r-2); font-size:var(--t-14); font-weight:600;
+}
+.pager button:hover:not(:disabled) { border-color:var(--tx); }
+.pager button[aria-current="true"] { background:var(--ink); color:var(--on-ink); border-color:var(--ink); }
+.pager button:disabled { opacity:.35; cursor:default; }
+.pager .gap { color:var(--tx-faint); padding-inline:2px; }
+.pager .nav svg { transform:scaleX(var(--mir,1)); }
+
+.scrim { position:fixed; inset:0; background:rgba(42,30,20,.45); z-index:89; opacity:0; pointer-events:none; transition:opacity var(--mid); }
+.scrim.on { opacity:1; pointer-events:auto; }
+@media (min-width:1000px) { .scrim { display:none; } }
+</style>
+</head>
+<body>
+<a href="#results" class="u-skip">تخطَّ إلى النتائج</a>
+<div class="proto"><b>UCP NINJA / E · RETAIL</b> — <span id="protoTx"></span></div>
+
+<div class="ann"><b id="annB"></b><span id="annS"></span></div>
+
+<header class="hd">
+  <div class="wrap hd-in">
+    <a href="e-retail.html" class="logo"><img src="../brand/ucp-mark.png" alt="UCP">
+      <span class="lt"><b id="lgB"></b><span id="lgS"></span></span></a>
+    <div class="srch"><span class="si" id="si1"></span><input id="q1" type="search" autocomplete="off"></div>
+    <div class="hd-acts">
+      <button class="lang" data-lang>EN</button>
+      <a href="#" class="iact" id="acc"></a>
+      <a href="#" class="iact" id="crt"></a>
+    </div>
+  </div>
+  <div class="wrap srch-m"><div class="srch"><span class="si" id="si2"></span><input id="q2" type="search" autocomplete="off"></div></div>
+</header>
+
+<nav class="cnav" aria-label="categories"><div class="wrap u-scroll"><ul id="cnav"></ul></div></nav>
+
+<main id="main"><div class="wrap">
+  <nav class="crumb" id="crumb" aria-label="breadcrumb"></nav>
+  <div class="phead"><h1 id="pTitle"></h1><p class="sub" id="pSub"></p></div>
+
+  <div class="lay">
+    <aside class="facets" id="facets" aria-label="filters">
+      <div class="fsheet-hd"><b id="fsTitle"></b><button id="fsClose" aria-label="close"></button></div>
+      <div id="fBody"></div>
+    </aside>
+    <button class="fsheet-done" id="fsDone"></button>
+
+    <section id="results">
+      <div class="tbar">
+        <div class="count" id="count" aria-live="polite"></div>
+        <button class="fbtn" id="fOpen"></button>
+        <label class="u-sr" for="sort" id="sortLb"></label>
+        <select id="sort"></select>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="grid" id="grid"></div>
+      <div id="pager"></div>
+    </section>
+  </div>
+</div></main>
+
+<div class="scrim" id="scrim"></div>
+
+<footer class="ft"><div class="wrap">
+  <div class="ft-cols" id="ftCols"></div>
+  <div class="bot"><span id="ftR"></span><span id="ftN"></span></div>
+</div></footer>
+
+<script src="catalogue.js"></script>
+<script src="ucp.js"></script>
+<script src="retail.js"></script>
+<script>
+/* Composition and filtering only. The card, the chrome and the catalogue
+   adapter come from retail.js. */
+
+const PER_PAGE = 24;
+const PRICE_BANDS = [
+  { id:"0-25",    min:0,   max:25,       ar:"أقل من ٢٥",   en:"Under 25" },
+  { id:"25-50",   min:25,  max:50,       ar:"٢٥ – ٥٠",     en:"25 – 50" },
+  { id:"50-100",  min:50,  max:100,      ar:"٥٠ – ١٠٠",    en:"50 – 100" },
+  { id:"100-200", min:100, max:200,      ar:"١٠٠ – ٢٠٠",   en:"100 – 200" },
+  { id:"200+",    min:200, max:Infinity, ar:"٢٠٠ فأكثر",   en:"200 and up" },
+];
+const SORTS = ["featured", "price-asc", "price-desc", "discount", "name"];
+
+const TX = {
+  ar: { all:"كل المنتجات", filters:"التصفية", done:"عرض النتائج", clear:"مسح الكل",
+        brand:"العلامة التجارية", price:"السعر", cat:"الفئة", offer:"العروض فقط",
+        showMore:"عرض المزيد", showLess:"عرض أقل", findBrand:"ابحث عن علامة",
+        results:"نتيجة", of:"من", sortBy:"الترتيب",
+        featured:"المختارة", "price-asc":"السعر: من الأقل", "price-desc":"السعر: من الأعلى",
+        discount:"أعلى خصم", name:"الاسم أ–ي",
+        emptyH:"لا توجد نتائج مطابقة", emptyP:"جرّب إزالة بعض عوامل التصفية.",
+        home:"الرئيسية", prev:"السابق", next:"التالي", noBrand:"بدون علامة" },
+  en: { all:"All products", filters:"Filters", done:"Show results", clear:"Clear all",
+        brand:"Brand", price:"Price", cat:"Category", offer:"On offer only",
+        showMore:"Show more", showLess:"Show less", findBrand:"Find a brand",
+        results:"results", of:"of", sortBy:"Sort by",
+        featured:"Featured", "price-asc":"Price: low to high", "price-desc":"Price: high to low",
+        discount:"Biggest discount", name:"Name A–Z",
+        emptyH:"Nothing matches those filters", emptyP:"Try removing one of them.",
+        home:"Home", prev:"Previous", next:"Next", noBrand:"Unbranded" },
+};
+const tx = () => TX[Shell.lang];
+
+/* --- state lives in the URL ---------------------------------------------- */
+const state = { cat:null, brands:new Set(), price:new Set(), offers:false, sort:"featured", page:1 };
+let brandsExpanded = false, brandQuery = "";
+
+function readUrl() {
+  const q = new URLSearchParams(location.search);
+  state.cat = q.get("cat");
+  state.brands = new Set((q.get("brand") || "").split(",").filter(Boolean));
+  state.price = new Set((q.get("price") || "").split(",").filter(Boolean));
+  state.offers = q.get("offers") === "1";
+  state.sort = SORTS.includes(q.get("sort")) ? q.get("sort") : "featured";
+  state.page = Math.max(1, parseInt(q.get("page"), 10) || 1);
+}
+function writeUrl(push) {
+  const q = new URLSearchParams();
+  if (state.cat) q.set("cat", state.cat);
+  if (state.brands.size) q.set("brand", [...state.brands].join(","));
+  if (state.price.size) q.set("price", [...state.price].join(","));
+  if (state.offers) q.set("offers", "1");
+  if (state.sort !== "featured") q.set("sort", state.sort);
+  if (state.page > 1) q.set("page", String(state.page));
+  const url = location.pathname + (q.toString() ? "?" + q : "");
+  history[push ? "pushState" : "replaceState"](null, "", url);
+}
+
+/* --- filtering ------------------------------------------------------------
+   Each facet is applied to every dimension EXCEPT itself when counting, so a
+   brand's count reflects what selecting it would actually return rather than
+   what it returns in an unfiltered catalogue. */
+const inBands = (p, bands) => !bands.size ||
+  [...bands].some((id) => { const b = PRICE_BANDS.find((x) => x.id === id);
+                            return b && p.price >= b.min && p.price < b.max; });
+
+function match(p, skip) {
+  if (skip !== "cat" && state.cat && p.cat !== state.cat) return false;
+  if (skip !== "brand" && state.brands.size && !state.brands.has(p.brand)) return false;
+  if (skip !== "price" && !inBands(p, state.price)) return false;
+  if (skip !== "offers" && state.offers && !p.was) return false;
+  return true;
+}
+const results = () => UCP.products.filter((p) => match(p));
+
+function sorted(list) {
+  const a = [...list];
+  switch (state.sort) {
+    case "price-asc":  return a.sort((x, y) => x.price - y.price);
+    case "price-desc": return a.sort((x, y) => y.price - x.price);
+    case "discount":   return a.sort((x, y) => pct(y.price, y.was) - pct(x.price, x.was));
+    case "name":       return a.sort((x, y) => Shell.nm(x).localeCompare(Shell.nm(y), Shell.lang));
+    default:           return a.sort((x, y) => x.rank - y.rank);
+  }
+}
+
+/* --- facet rendering ------------------------------------------------------ */
+function countBy(key, skip) {
+  const m = new Map();
+  for (const p of UCP.products) {
+    if (!match(p, skip)) continue;
+    const k = key(p);
+    if (k === undefined) continue;
+    m.set(k, (m.get(k) || 0) + 1);
+  }
+  return m;
+}
+
+function opt(kind, value, label, n, on) {
+  return '<label class="fopt"><input type="checkbox" data-f="' + kind + '" value="' + value + '"'
+    + (on ? " checked" : "") + '>'
+    + '<span class="lb">' + label + '</span><span class="n num">' + n + '</span></label>';
+}
+
+function renderFacets() {
+  const T = tx(), n = Shell.nm;
+  const catCounts = countBy((p) => p.cat, "cat");
+  const brandCounts = countBy((p) => p.brand, "brand");
+  const offerCount = UCP.products.filter((p) => match(p, "offers") && p.was).length;
+
+  let html = "";
+
+  // category — a single choice, because a product has exactly one
+  html += '<div class="fgrp"><h3>' + T.cat + '</h3>'
+    + '<label class="fopt"><input type="radio" name="cat" data-f="cat" value=""'
+      + (state.cat ? "" : " checked") + '><span class="lb">' + T.all + '</span>'
+      + '<span class="n num">' + UCP.products.length + '</span></label>'
+    + UCP.categories.map((c) => {
+        const k = catCounts.get(c.id) || 0;
+        return '<label class="fopt"><input type="radio" name="cat" data-f="cat" value="' + c.id + '"'
+          + (state.cat === c.id ? " checked" : "") + '><span class="lb">' + n(c) + '</span>'
+          + '<span class="n num">' + k + '</span></label>';
+      }).join('') + '</div>';
+
+  // brand — ranked by matches here; 1,106 brands cannot be listed alphabetically
+  let ranked = [...brandCounts.entries()]
+    .filter(([id, k]) => id && k > 0)
+    .sort((a, b) => b[1] - a[1]);
+  if (brandQuery) {
+    const q = brandQuery.toLowerCase();
+    ranked = ranked.filter(([id]) => (brand(id) || {}).en.toLowerCase().includes(q));
+  }
+  // a selected brand always stays visible, even if it falls below the cut
+  const selected = ranked.filter(([id]) => state.brands.has(id));
+  const rest = ranked.filter(([id]) => !state.brands.has(id));
+  const limit = brandsExpanded ? 60 : 10;
+  const shownRest = rest.slice(0, Math.max(0, limit - selected.length));
+  html += '<div class="fgrp"><h3>' + T.brand + '</h3>'
+    + '<input class="fsearch" id="bq" type="search" value="' + esc2(brandQuery) + '" placeholder="' + T.findBrand + '">'
+    + selected.concat(shownRest).map(([id, k]) =>
+        opt("brand", id, esc2((brand(id) || {}).en || "—"), k, state.brands.has(id))).join('')
+    + (rest.length > shownRest.length || brandsExpanded
+        ? '<button class="fmore" id="bMore">' + (brandsExpanded ? T.showLess : T.showMore) + '</button>' : '')
+    + '</div>';
+
+  // price
+  const priceCounts = countBy((p) => {
+    const b = PRICE_BANDS.find((x) => p.price >= x.min && p.price < x.max);
+    return b ? b.id : undefined;
+  }, "price");
+  html += '<div class="fgrp"><h3>' + T.price + '</h3>'
+    + PRICE_BANDS.map((b) => opt("price", b.id, n(b), priceCounts.get(b.id) || 0, state.price.has(b.id))).join('')
+    + '</div>';
+
+  html += '<div class="fgrp">' + opt("offers", "1", T.offer, offerCount, state.offers) + '</div>';
+
+  set("fBody", html);
+  const bq = document.getElementById("bq");
+  if (bq) {
+    bq.addEventListener("input", (e) => { brandQuery = e.target.value; renderFacets(); 
+      const el = document.getElementById("bq"); if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); } });
+  }
+  const more = document.getElementById("bMore");
+  if (more) more.addEventListener("click", () => { brandsExpanded = !brandsExpanded; renderFacets(); });
+}
+
+/* --- chips ---------------------------------------------------------------- */
+function renderChips() {
+  const T = tx(), n = Shell.nm;
+  const bits = [];
+  if (state.cat && CATEG.get(state.cat)) bits.push(["cat", state.cat, n(CATEG.get(state.cat))]);
+  for (const id of state.brands) bits.push(["brand", id, (brand(id) || {}).en || id]);
+  for (const id of state.price) { const b = PRICE_BANDS.find((x) => x.id === id); if (b) bits.push(["price", id, n(b)]); }
+  if (state.offers) bits.push(["offers", "1", T.offer]);
+  set("chips", bits.length
+    ? bits.map(([k, v, lb]) => '<button class="chip" data-rm="' + k + '" data-v="' + v + '">'
+        + esc2(lb) + '<span class="x">' + ic("close", 13) + '</span></button>').join('')
+      + '<button class="clear" id="clearAll">' + T.clear + '</button>'
+    : "");
+}
+
+/* --- pagination ----------------------------------------------------------- */
+function pageList(cur, last) {
+  const out = new Set([1, last, cur, cur - 1, cur + 1]);
+  if (cur <= 3) { out.add(2); out.add(3); }
+  if (cur >= last - 2) { out.add(last - 1); out.add(last - 2); }
+  return [...out].filter((p) => p >= 1 && p <= last).sort((a, b) => a - b);
+}
+function renderPager(total) {
+  const T = tx();
+  const last = Math.max(1, Math.ceil(total / PER_PAGE));
+  if (last <= 1) { set("pager", ""); return; }
+  const pages = pageList(state.page, last);
+  let html = '<nav class="pager" aria-label="pagination">'
+    + '<button class="nav" data-p="' + (state.page - 1) + '"' + (state.page === 1 ? " disabled" : "")
+      + ' aria-label="' + T.prev + '">' + ic("next", 17) + '</button>';
+  let prev = 0;
+  for (const p of pages) {
+    if (prev && p - prev > 1) html += '<span class="gap">…</span>';
+    html += '<button data-p="' + p + '"' + (p === state.page ? ' aria-current="true"' : '') + '>'
+      + '<span class="num">' + p + '</span></button>';
+    prev = p;
+  }
+  html += '<button class="nav" data-p="' + (state.page + 1) + '"' + (state.page === last ? " disabled" : "")
+      + ' aria-label="' + T.next + '" style="transform:scaleX(-1)">' + ic("next", 17) + '</button></nav>';
+  set("pager", html);
+}
+
+/* --- the page ------------------------------------------------------------- */
+function render() {
+  const T = tx(), n = Shell.nm, ar = Shell.lang === "ar";
+  renderChrome(state.cat);
+
+  const cat = state.cat ? CATEG.get(state.cat) : null;
+  set("crumb", '<a href="e-retail.html">' + T.home + '</a><span>›</span>'
+    + (cat ? '<a href="e-list.html">' + T.all + '</a><span>›</span>' + n(cat) : T.all));
+  set("pTitle", cat ? n(cat) : T.all);
+
+  const all = results();
+  const list = sorted(all);
+  const last = Math.max(1, Math.ceil(list.length / PER_PAGE));
+  if (state.page > last) state.page = last;
+  const from = (state.page - 1) * PER_PAGE;
+  const page = list.slice(from, from + PER_PAGE);
+
+  set("pSub", ar
+    ? 'كل الأسعار في هذه الصفحة تجريبية · الأسماء والصور من كتالوج UCP'
+    : 'Every price on this page is placeholder · names and photographs are UCP catalogue');
+  set("count", '<b class="num">' + list.length + '</b> ' + T.results
+    + (last > 1 ? ' · ' + '<span class="num">' + (from + 1) + '–' + (from + page.length) + '</span>' : ''));
+
+  const sel = document.getElementById("sort");
+  sel.innerHTML = SORTS.map((s) => '<option value="' + s + '"' + (s === state.sort ? " selected" : "") + '>'
+    + T[s] + '</option>').join('');
+  document.getElementById("sortLb").textContent = T.sortBy;
+  document.getElementById("fOpen").innerHTML = ic("menu", 16) + '<span>' + T.filters + '</span>'
+    + (activeCount() ? '<span class="b num">' + activeCount() + '</span>' : '');
+  document.getElementById("fsTitle").textContent = T.filters;
+  document.getElementById("fsClose").innerHTML = ic("close", 20);
+  document.getElementById("fsDone").textContent = T.done;
+
+  renderFacets();
+  renderChips();
+
+  set("grid", page.length ? page.map(card).join('') : '');
+  if (!page.length) {
+    set("grid", '<div class="empty" style="grid-column:1/-1"><h3>' + T.emptyH + '</h3>'
+      + '<p>' + T.emptyP + '</p><button id="emptyClear">' + T.clear + '</button></div>');
+  }
+  renderPager(list.length);
+}
+const activeCount = () => (state.cat ? 1 : 0) + state.brands.size + state.price.size + (state.offers ? 1 : 0);
+
+function update(push) { writeUrl(push !== false); render(); }
+function resetPage() { state.page = 1; }
+
+/* --- events --------------------------------------------------------------- */
+document.addEventListener("change", (e) => {
+  const f = e.target.closest("[data-f]");
+  if (!f) return;
+  const kind = f.dataset.f, v = f.value;
+  resetPage();
+  if (kind === "cat") state.cat = v || null;
+  if (kind === "brand") f.checked ? state.brands.add(v) : state.brands.delete(v);
+  if (kind === "price") f.checked ? state.price.add(v) : state.price.delete(v);
+  if (kind === "offers") state.offers = f.checked;
+  update();
+});
+document.getElementById("sort").addEventListener("change", (e) => {
+  state.sort = e.target.value; resetPage(); update();
+});
+document.addEventListener("click", (e) => {
+  const rm = e.target.closest("[data-rm]");
+  if (rm) {
+    const k = rm.dataset.rm, v = rm.dataset.v;
+    resetPage();
+    if (k === "cat") state.cat = null;
+    if (k === "brand") state.brands.delete(v);
+    if (k === "price") state.price.delete(v);
+    if (k === "offers") state.offers = false;
+    return update();
+  }
+  if (e.target.closest("#clearAll") || e.target.closest("#emptyClear")) {
+    state.cat = null; state.brands.clear(); state.price.clear(); state.offers = false;
+    resetPage(); return update();
+  }
+  const p = e.target.closest("[data-p]");
+  if (p && !p.disabled) {
+    state.page = Number(p.dataset.p);
+    update();
+    document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+  if (e.target.closest("#fOpen")) return openSheet(true);
+  if (e.target.closest("#fsClose") || e.target.closest("#fsDone") || e.target.closest("#scrim")) return openSheet(false);
+});
+function openSheet(on) {
+  document.getElementById("facets").classList.toggle("on", on);
+  document.getElementById("scrim").classList.toggle("on", on);
+  document.body.style.overflow = on ? "hidden" : "";
+}
+window.addEventListener("popstate", () => { readUrl(); render(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") openSheet(false); });
+
+Shell.onRender(render);
+Shell.wire();
+readUrl();
+Shell.setLang("ar");
+</script>
+</body>
+</html>

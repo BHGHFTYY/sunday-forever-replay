@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zain:wght@400;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="ucp.css">
+<link rel="stylesheet" href="retail.css">
 <style>
 /* ===========================================================================
    NINJA / E — RETAIL
@@ -34,119 +35,6 @@
    Packshots sit on one warm tile (--paper-3) with no border and no gradient,
    the way every retailer that shoots on white presents cut-outs.
    =========================================================================== */
-
-.wrap { width:100%; max-width:1320px; margin-inline:auto; padding-inline:16px; }
-@media (min-width:900px) { .wrap { padding-inline:32px; } }
-
-body { font-size:var(--t-15); }
-
-/* --- announcement -------------------------------------------------------- */
-.ann { background:var(--paper-3); text-align:center; padding:10px 16px; }
-.ann b { display:block; font-size:var(--t-14); font-weight:700; }
-.ann span { font-size:var(--t-13); color:var(--tx-mut); }
-
-/* --- header -------------------------------------------------------------- */
-.hd { position:sticky; top:0; z-index:60; background:var(--paper); border-bottom:1px solid var(--line); }
-.hd-in { display:flex; align-items:center; gap:14px; height:66px; }
-.logo { display:flex; align-items:center; gap:10px; flex:none; }
-.logo img { height:38px; width:auto; }
-.logo .lt { display:none; line-height:1.1; }
-@media (min-width:1080px) { .logo .lt { display:block; } }
-.logo .lt b { display:block; font-family:var(--disp); font-size:var(--t-16); font-weight:800; }
-.logo .lt span { font-size:var(--t-11); color:var(--tx-mut); }
-
-.srch { flex:1; min-width:0; position:relative; display:none; }
-@media (min-width:760px) { .srch { display:block; } }
-.srch input {
-  width:100%; height:44px; border:1.5px solid var(--tx); border-radius:var(--r-2);
-  background:var(--paper); padding-inline:44px 14px; font-size:var(--t-14);
-}
-.srch input::placeholder { color:var(--tx-mut); }
-.srch .si { position:absolute; inset-block:0; inset-inline-start:14px; display:flex; align-items:center; color:var(--tx); pointer-events:none; }
-.hd-acts { display:flex; align-items:center; gap:2px; margin-inline-start:auto; flex:none; }
-.iact { display:flex; flex-direction:column; align-items:center; gap:1px; padding:6px 9px; border-radius:var(--r-2); position:relative; }
-.iact:hover { background:var(--paper-3); }
-.iact span { font-size:10px; font-weight:600; color:var(--tx-mut); }
-.iact .cnt {
-  position:absolute; inset-block-start:2px; inset-inline-end:4px; min-width:17px; height:17px;
-  background:var(--ink); color:var(--on-ink); border-radius:9px; font-size:10px; font-weight:700;
-  display:grid; place-items:center; padding-inline:4px;
-}
-.lang { border:1px solid var(--line-2); border-radius:var(--r-2); height:34px; padding-inline:11px; font-size:var(--t-12); font-weight:700; }
-.lang:hover { border-color:var(--tx); }
-
-/* mobile search sits on its own row, so it is never cramped */
-.srch-m { display:block; padding-block:0 12px; }
-@media (min-width:760px) { .srch-m { display:none; } }
-.srch-m .srch { display:block; }
-
-/* --- category nav -------------------------------------------------------- */
-.cnav { border-bottom:1px solid var(--line); background:var(--paper); }
-.cnav ul { display:flex; gap:0; align-items:center; }
-.cnav a {
-  display:block; padding:13px 14px; font-size:var(--t-14); font-weight:600; white-space:nowrap;
-  border-bottom:2.5px solid transparent;
-}
-.cnav a:hover { border-bottom-color:var(--amber); }
-
-/* --- section furniture --------------------------------------------------- */
-.sec { padding-block:44px; }
-@media (max-width:759px) { .sec { padding-block:32px; } }
-.sh { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:18px; }
-.sh h2 { font-size:var(--t-26); font-weight:800; letter-spacing:-.01em; }
-@media (min-width:900px) { .sh h2 { font-size:var(--t-34); } }
-.sh .cnt2 { font-size:var(--t-13); color:var(--tx-mut); margin-top:2px; }
-.sh a.all { font-size:var(--t-14); font-weight:600; text-decoration:underline; text-underline-offset:4px; flex:none; margin-top:9px; }
-.sh a.all:hover { color:var(--amber-900); }
-
-/* --- horizontal rails: bleed to the edge so the row reads as scrollable --- */
-.rail { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:4px; }
-.rail::-webkit-scrollbar { display:none; }
-.rail { scrollbar-width:none; }
-.rail > * { scroll-snap-align:start; flex:none; }
-
-/* --- product card -------------------------------------------------------- */
-.pc { width:180px; display:flex; flex-direction:column; }
-@media (min-width:760px) { .pc { width:215px; } }
-.pc .tile {
-  position:relative; background:var(--paper-3); border-radius:var(--r-2);
-  aspect-ratio:4/5; display:grid; place-items:center; overflow:hidden;
-}
-.pc .tile { padding:9% 7%; }
-.pc .tile svg { width:100%; height:100%; }
-.pc .tile .ph, .hero-art .hp .ph, .promo .pi .ph {
-  width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply;
-}
-.pc .tile .ph2 {
-  position:absolute; inset:9% 7%; width:auto; height:auto;
-  opacity:0; transition:opacity var(--mid);
-}
-.pc:hover .tile .ph2, .pc:focus-within .tile .ph2 { opacity:1; }
-@media (hover:none) { .pc .tile .ph2 { display:none; } }
-.pc .sale {
-  position:absolute; inset-block-start:10px; inset-inline-start:11px;
-  font-size:var(--t-13); font-weight:700; color:var(--tx);
-}
-.pc .sz {
-  position:absolute; inset-block-end:9px; inset-inline-start:11px;
-  font-size:var(--t-12); color:var(--tx-mut);
-}
-.pc .br { margin-top:11px; font-size:var(--t-14); font-weight:700; line-height:1.3; }
-.pc .nm { font-size:var(--t-14); color:var(--tx); line-height:1.45; margin-top:2px; }
-.pc .pr { margin-top:7px; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap; }
-.pc .pr .now { font-family:var(--text); font-size:var(--t-16); font-weight:600; }
-.pc .pr .now.cut { color:var(--amber-900); font-weight:700; }
-.pc .pr s { font-size:var(--t-13); color:var(--tx-faint); text-decoration-thickness:1px; }
-.pc .pr .cur { font-size:var(--t-12); font-weight:500; color:inherit; }
-/* auto width, espresso, one per card — never a wall of brand colour */
-.pc .add {
-  margin-top:10px; align-self:flex-start; height:38px; padding-inline:18px;
-  background:var(--ink); color:var(--on-ink); border-radius:var(--r-2);
-  font-size:var(--t-13); font-weight:700; display:inline-flex; align-items:center; gap:7px;
-  transition:background var(--fast);
-}
-.pc .add:hover { background:var(--ink-800); }
-.pc .add.ok { background:var(--jade); }
 
 /* --- campaign hero ------------------------------------------------------- */
 .hero { background:var(--amber-tint); }
@@ -253,29 +141,6 @@ html[lang="ar"] .loy .eyebrow { text-transform:none; }
 }
 .loy .join:hover { background:var(--amber-400); }
 
-/* --- footer -------------------------------------------------------------- */
-.ft { background:var(--ink-950); color:var(--on-ink-mut); padding-block:40px 24px; }
-.ft-cols { display:grid; gap:26px; grid-template-columns:1fr 1fr; }
-@media (min-width:860px) { .ft-cols { grid-template-columns:1.4fr repeat(4,1fr); } }
-.ft h4 { font-family:var(--text); font-size:var(--t-13); font-weight:700; color:var(--on-ink); letter-spacing:.06em; text-transform:uppercase; margin-bottom:11px; }
-html[lang="ar"] .ft h4 { text-transform:none; letter-spacing:normal; }
-.ft li a { display:block; padding-block:5px; font-size:var(--t-14); }
-.ft li a:hover { color:var(--amber); }
-.ft .lead img { height:54px; width:auto; margin-bottom:12px; }
-.ft .lead p { font-size:var(--t-14); max-width:34ch; }
-.ft .bot { border-top:1px solid var(--line-ink); margin-top:28px; padding-top:18px; font-size:var(--t-12); display:flex; flex-wrap:wrap; gap:10px 20px; justify-content:space-between; }
-
-/* --- toast --------------------------------------------------------------- */
-.ucp-toast {
-  position:fixed; inset-block-end:20px; inset-inline-start:50%; transform:translate(50%,16px);
-  background:var(--ink); color:var(--on-ink); padding:12px 18px; border-radius:var(--r-2);
-  display:flex; align-items:center; gap:9px; font-size:var(--t-14); font-weight:600;
-  opacity:0; pointer-events:none; transition:opacity var(--mid), transform var(--mid); z-index:200;
-}
-[dir="ltr"] .ucp-toast { transform:translate(-50%,16px); }
-.ucp-toast.on { opacity:1; transform:translate(50%,0); }
-[dir="ltr"] .ucp-toast.on { transform:translate(-50%,0); }
-.ucp-toast .i { color:var(--amber); display:flex; }
 </style>
 </head>
 <body>
@@ -363,134 +228,17 @@ html[lang="ar"] .ft h4 { text-transform:none; letter-spacing:normal; }
 
 <script src="catalogue.js"></script>
 <script src="ucp.js"></script>
+<script src="retail.js"></script>
 <script>
-/* Rendering only. Every datum, string and price comes from ucp.js, so this
-   execution differs from the others in composition alone. */
-/* ---------------------------------------------------------------------------
-   REAL DATA. UCP's own MasterSheet export replaces the placeholder seed:
-   3,824 products with their real titles, SKUs and photographs served from
-   ucpksa.com's media library.
-
-   Two honest gaps, both visible in the UI rather than papered over:
-     · The export is English-only, so product titles stay English in Arabic
-       mode. Only the chrome translates. Arabic titles need a separate export.
-     · The export carries NO PRICES. Every figure here is a seeded placeholder
-       and the ribbon says so.
-
-   Brand, category and pack size are parsed from the title by
-   ucp/tools/build-catalogue.mjs — heuristics, not UCP's own taxonomy.
---------------------------------------------------------------------------- */
-(function useRealCatalogue() {
-  if (typeof CATALOGUE === "undefined") return;
-  const form = (t, size) => {
-    const s = (t + " " + (size || "")).toLowerCase();
-    if (/lens|lenses/.test(s)) return "lens";
-    if (/tab|cap|sg\b|softgel/.test(s)) return "jar";
-    if (/tube|cream|gel|paste|ointment/.test(s)) return "tube";
-    if (/serum|drops|ampoule|oil/.test(s)) return "dropper";
-    if (/spray|deodorant|wash|shampoo|lotion/.test(s)) return "pump";
-    if (/box|pack|pcs|pads|diaper|sachet/.test(s)) return "carton";
-    if (/monitor|thermo|device|machine/.test(s)) return "device";
-    return "bottle";
-  };
-  UCP.categories = CATALOGUE.categories.map((c) => ({ id:c.id, ar:c.ar, en:c.en, icon:c.icon, n:c.n }));
-  /* All brands, so every product resolves to its own. The brand wall shows
-     only the largest few — a display choice, not a cut in the data. */
-  UCP.brands = CATALOGUE.brands.map((b) => ({ id:b.id, ar:b.en, en:b.en, n:b.n }));
-  const known = new Set(UCP.brands.map((b) => b.id));
-  /* The card prints the brand on its own line, so repeating it at the head of
-     the title ("Avent — Avent Scf810/61 Classic Bottle") is noise. The full
-     title is kept on the record for search and for the image's alt text. */
-  const byIdBrand = new Map(UCP.brands.map((b) => [b.id, b.en]));
-  const strip = (title, brandId) => {
-    const en = byIdBrand.get(brandId);
-    if (!en) return title;
-    const quoted = en.replace(/[.*+?^${}()|[\]\\]/g, (m) => "\\" + m);
-    const re = new RegExp("^" + quoted + "[\\s,'’-]*", "i");
-    const out = title.replace(re, "").trim();
-    return out.length >= 3 ? out : title;
-  };
-  UCP.products = CATALOGUE.products.map((p, i) => ({
-    id: "s" + p.sku, sku: p.sku,
-    brand: known.has(p.brand) ? p.brand : null,
-    cat: p.cat, title: p.title,
-    ar: strip(p.title, p.brand), en: strip(p.title, p.brand),
-    price: p.price, was: p.was, size: p.size || "",
-    form: form(p.title, p.size), rank: i + 1, tags: p.was ? ["offer"] : [],
-    img: imgUrl(p), alt: (p.gallery || []).map((u) => CATALOGUE.IMG_BASE + u),
-    href: pageUrl(p),
-  }));
-})();
-
-const $ = (s) => document.querySelector(s);
-const set = (id, html) => { const e = document.getElementById(id); if (e) e.innerHTML = html; };
-
-/**
- * A real photograph when there is one. The drawn packshot stays as the onerror
- * fallback so a dead URL degrades to a shape rather than to a broken-image
- * glyph — and so the layout can still be reviewed offline.
- */
-function shot(p, opt) {
-  if (!p.img) return art(p, { light: true });
-  const alt = String(p.title || p.en).replace(/"/g, "&quot;");
-  const img = (src, cls) => '<img class="' + cls + '" src="' + src + '" alt="' + alt + '"'
-    + ' loading="lazy" decoding="async" onerror="IMGFAIL(this,\'' + p.id + '\')">';
-  // 1,241 products carry more than one photograph. Showing the second on hover
-  // is what the extra shots are for; without it they are dead weight in the file.
-  const second = (opt && opt.swap === false) ? null : (p.alt && p.alt[0]);
-  return img(p.img, "ph") + (second ? img(second, "ph ph2") : "");
-}
-/** Exposed for the onerror handler, which cannot close over p. The parent is
-    read BEFORE the broken node is removed, or it is null by the time we need it. */
-window.IMGFAIL = (el, id) => {
-  const parent = el.parentNode;
-  const wasHover = el.classList.contains("ph2");
-  el.remove();
-  // A dead hover layer just disappears; only a dead PRIMARY needs a stand-in.
-  if (wasHover) return;
-  const p = byId(UCP.products, id);
-  if (parent && p) parent.insertAdjacentHTML("afterbegin", art(p, { light: true }));
-};
-
-function priceBlock(p, L) {
-  const cut = !!p.was;
-  return '<div class="pr"><span class="now' + (cut ? ' cut' : '') + '">' + priceHTML(p.price, L) + '</span>'
-    + (cut ? wasHTML(p.was, L) : '') + '</div>';
-}
-
-function card(p) {
-  const L = Shell.lang, T = Shell.T(), b = byId(UCP.brands, p.brand);
-  const q = Shell.qtyOf(p.id);
-  return '<article class="pc">'
-    + '<a href="' + (p.href || '#') + '" class="tile">' + shot(p)
-      + (p.was ? '<span class="sale">' + T.sale + '</span>' : '')
-      + (p.size ? '<span class="sz num">' + p.size + '</span>' : '') + '</a>'
-    + (b ? '<div class="br">' + Shell.nm(b) + '</div>' : '')
-    + '<a href="#" class="nm">' + Shell.nm(p) + '</a>'
-    + priceBlock(p, L)
-    + '<button class="add' + (q ? ' ok' : '') + '" data-add="' + p.id + '">'
-      + ic(q ? 'check' : 'plus', 15) + '<span>' + (q ? T.added : T.add) + '</span></button>'
-    + '</article>';
-}
+/* Composition only. The catalogue adapter, the product card and the chrome
+   live in retail.js so this page and the listing page cannot drift apart.
+   What differs between RETAIL's pages is layout, never the card. */
 
 function render() {
   const L = Shell.lang, T = Shell.T(), n = Shell.nm;
   const ar = L === 'ar';
 
-  set('protoTx', ar
-    ? 'الأسماء والصور وأرقام الأصناف من كتالوج UCP الفعلي · الأسعار والعروض تجريبية بالكامل'
-    : 'Names, photographs and SKUs are UCP\'s real catalogue · every price and offer is placeholder');
-  set('annB', ar ? 'توصيل خلال ٦٠ دقيقة داخل الرياض' : 'Delivery in 60 minutes inside Riyadh');
-  set('annS', ar ? 'من فروعنا المفتوحة الآن · بيانات النموذج تجريبية' : 'From branches open right now · prototype data');
-  set('lgB', T.short); set('lgS', T.tag);
-  set('si1', ic('search', 19)); set('si2', ic('search', 19));
-  $('#q1').placeholder = T.searchPh; $('#q2').placeholder = T.searchPh;
-  document.querySelector('.lang').textContent = ar ? 'EN' : 'ع';
-  set('acc', ic('user', 21) + '<span>' + T.account + '</span>');
-  const c = Shell.count();
-  set('crt', ic('cart', 21) + '<span>' + T.cart + '</span>' + (c ? '<i class="cnt num">' + c + '</i>' : ''));
-
-  set('cnav', UCP.categories.map((x) => '<li><a href="#">' + n(x) + '</a></li>').join(''));
+  renderChrome(null);
   const total = UCP.products.length;
 
   /* hero */
@@ -499,16 +247,16 @@ function render() {
   set('hP', ar ? 'ارفع وصفتك أو اطلب من ' + UCP.products.length.toLocaleString('ar-EG') + ' منتج، ويصلك من أقرب فرع مفتوح.'
                : 'Upload a prescription or order from ' + UCP.products.length.toLocaleString('en') + ' products, delivered from the nearest open branch.');
   $('#hB1').innerHTML = T.rx + ic('next', 16); $('#hB1').href = '#';
-  $('#hB2').innerHTML = T.shopNow; $('#hB2').href = '#';
+  $('#hB2').innerHTML = T.shopNow; $('#hB2').href = 'e-list.html';
   set('hArt', Shell.list('top').slice(0, 3)
     .map((p) => '<div class="hp">' + shot(p, { swap: false }) + '</div>').join(''));
 
   /* promo duo — the two deepest real discounts, not a badge on everything */
-  set('t1', T.offers); set('a1', T.viewAll);
+  set('t1', T.offers); set('a1', T.viewAll); $('#a1').href = 'e-list.html?offers=1&sort=discount';
   const offers = Shell.list('offers');
   set('c1', offers.length + ' ' + T.items);
   set('promoDuo', offers.slice(0, 2).map((p) => {
-    const b = byId(UCP.brands, p.brand);
+    const b = brand(p.brand);
     return '<a href="' + (p.href || '#') + '" class="promo"><div class="pi">' + shot(p, { swap: false }) + '</div>'
       + '<div><div class="chip">' + T.off + ' ' + offLabel(p, L) + '</div>'
       + '<h3>' + (b ? n(b) : n(p)) + '</h3>' + (b ? '<p>' + n(p) + '</p>' : '')
@@ -516,7 +264,7 @@ function render() {
   }).join(''));
 
   /* rail 1 */
-  set('t2', T.popular); set('a2', T.viewAll);
+  set('t2', T.popular); set('a2', T.viewAll); $('#a2').href = 'e-list.html';
   const top = Shell.list('top');
   set('c2', top.length + ' ' + T.items);
   set('rail1', top.slice(0, 10).map(card).join(''));
@@ -536,14 +284,15 @@ function render() {
     .map((x) => '<a href="#" class="card"><div class="im">' + ic(x[0], 34) + '</div><h3>' + x[1] + '</h3><p>' + x[2] + '</p></a>').join(''));
 
   /* rail 2 */
-  set('t4', T.picked); set('a4', T.viewAll);
+  set('t4', T.picked); set('a4', T.viewAll); $('#a4').href = 'e-list.html?cat=face';
   const pick = Shell.list('picked');
   set('c4', pick.length + ' ' + T.items);
   set('rail2', pick.slice(0, 10).map(card).join(''));
 
   /* brands */
-  set('t5', T.brands); set('a5', T.viewAll);
-  set('brands', UCP.brands.slice(0, 16).map((b) => '<a href="#">' + brandMark(b, '#2A1E14') + '</a>').join(''));
+  set('t5', T.brands); set('a5', T.viewAll); $('#a5').href = 'e-list.html';
+  set('brands', UCP.brands.slice(0, 16).map((b) =>
+    '<a href="e-list.html?brand=' + b.id + '">' + brandMark(b, '#2A1E14') + '</a>').join(''));
 
   /* loyalty */
   const ly = UCP.loyalty;
@@ -554,19 +303,6 @@ function render() {
   set('lL1', '<b class="num">' + ly.points + '</b> ' + T.points);
   set('lL2', '<span class="num">' + ly.toNext + '</span> ' + T.toNext + ' <b>' + (ar ? ly.nextAr : ly.nextEn) + '</b>');
 
-  /* footer */
-  const cols = [
-    [T.ftShop, UCP.categories.slice(0, 5).map(n)],
-    [T.ftPharmacy, [T.rx, T.tele, T.pickup, T.vitamins, T.loyalty]],
-    [T.ftAbout, [T.brand, ar ? 'فروعنا' : 'Our branches', ar ? 'وظائف' : 'Careers', ar ? 'تواصل معنا' : 'Contact']],
-    [T.ftLegal, [ar ? 'الشروط' : 'Terms', ar ? 'الخصوصية' : 'Privacy', ar ? 'الاستبدال' : 'Returns']],
-  ];
-  set('ftCols',
-    '<div class="lead"><img src="../brand/ucp-lockup.png" alt="UCP"><p>' + T.phNote + '</p></div>'
-    + cols.map((col) => '<div><h4>' + col[0] + '</h4><ul>'
-        + col[1].map((x) => '<li><a href="#">' + x + '</a></li>').join('') + '</ul></div>').join(''));
-  set('ftR', '© ' + new Date().getFullYear() + ' ' + T.brand + ' — ' + T.rights);
-  set('ftN', T.vat);
 }
 
 Shell.onRender(render);
