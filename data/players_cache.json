@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-16T23:52:46.756551+00:00",
+  "fetched_at": "2026-09-18T01:37:46.389987+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -4919,7 +4919,7 @@
     "13805": {
       "name": "E.J. Williams",
       "position": "WR",
-      "team": null
+      "team": "CAR"
     },
     "1008": {
       "name": "Donald Butler",
@@ -18319,7 +18319,7 @@
     "12523": {
       "name": "Jimmy Horn",
       "position": "WR",
-      "team": null
+      "team": "CLE"
     },
     "3157": {
       "name": "William Fuller",
@@ -19079,7 +19079,7 @@
     "11959": {
       "name": "Bryce Oliver",
       "position": "WR",
-      "team": null
+      "team": "HOU"
     },
     "73": {
       "name": "Nick Mangold",
@@ -50294,7 +50294,7 @@
     "13107": {
       "name": "Johnathan Edwards",
       "position": "DB",
-      "team": null
+      "team": "IND"
     },
     "1083": {
       "name": "Mitchell Schwartz",
@@ -51585,6 +51585,11 @@
       "name": "Matthew Bergeron",
       "position": "OL",
       "team": "ATL"
+    },
+    "14088": {
+      "name": "Maceo Beard",
+      "position": "DB",
+      "team": "MIN"
     },
     "6593": {
       "name": "Spencer Schnell",
@@ -53354,7 +53359,7 @@
     "9227": {
       "name": "Israel Abanikanda",
       "position": "RB",
-      "team": null
+      "team": "DAL"
     },
     "11222": {
       "name": "Marcus Cooper",
@@ -54649,7 +54654,7 @@
     "8464": {
       "name": "Cordell Volson",
       "position": "T",
-      "team": null
+      "team": "GB"
     },
     "3971": {
       "name": "Chan Gailey",
@@ -57114,7 +57119,7 @@
     "8926": {
       "name": "Xavier Newman",
       "position": "OL",
-      "team": null
+      "team": "NE"
     },
     "3667": {
       "name": "Sharrod Neasman",
