@@ -117,6 +117,12 @@ body { font-size:var(--t-15); }
 .pc .tile .ph, .hero-art .hp .ph, .promo .pi .ph {
   width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply;
 }
+.pc .tile .ph2 {
+  position:absolute; inset:9% 7%; width:auto; height:auto;
+  opacity:0; transition:opacity var(--mid);
+}
+.pc:hover .tile .ph2, .pc:focus-within .tile .ph2 { opacity:1; }
+@media (hover:none) { .pc .tile .ph2 { display:none; } }
 .pc .sale {
   position:absolute; inset-block-start:10px; inset-inline-start:11px;
   font-size:var(--t-13); font-weight:700; color:var(--tx);
@@ -411,7 +417,8 @@ html[lang="ar"] .ft h4 { text-transform:none; letter-spacing:normal; }
     ar: strip(p.title, p.brand), en: strip(p.title, p.brand),
     price: p.price, was: p.was, size: p.size || "",
     form: form(p.title, p.size), rank: i + 1, tags: p.was ? ["offer"] : [],
-    img: imgUrl(p), href: pageUrl(p),
+    img: imgUrl(p), alt: (p.gallery || []).map((u) => CATALOGUE.IMG_BASE + u),
+    href: pageUrl(p),
   }));
 })();
 
@@ -423,17 +430,24 @@ const set = (id, html) => { const e = document.getElementById(id); if (e) e.inne
  * fallback so a dead URL degrades to a shape rather than to a broken-image
  * glyph — and so the layout can still be reviewed offline.
  */
-function shot(p) {
+function shot(p, opt) {
   if (!p.img) return art(p, { light: true });
-  return '<img class="ph" src="' + p.img + '" alt="' + String(p.title || p.en).replace(/"/g, "&quot;") + '"'
-    + ' loading="lazy" decoding="async"'
-    + ' onerror="IMGFAIL(this,\'' + p.id + '\')">';
+  const alt = String(p.title || p.en).replace(/"/g, "&quot;");
+  const img = (src, cls) => '<img class="' + cls + '" src="' + src + '" alt="' + alt + '"'
+    + ' loading="lazy" decoding="async" onerror="IMGFAIL(this,\'' + p.id + '\')">';
+  // 1,241 products carry more than one photograph. Showing the second on hover
+  // is what the extra shots are for; without it they are dead weight in the file.
+  const second = (opt && opt.swap === false) ? null : (p.alt && p.alt[0]);
+  return img(p.img, "ph") + (second ? img(second, "ph ph2") : "");
 }
 /** Exposed for the onerror handler, which cannot close over p. The parent is
     read BEFORE the broken node is removed, or it is null by the time we need it. */
 window.IMGFAIL = (el, id) => {
   const parent = el.parentNode;
+  const wasHover = el.classList.contains("ph2");
   el.remove();
+  // A dead hover layer just disappears; only a dead PRIMARY needs a stand-in.
+  if (wasHover) return;
   const p = byId(UCP.products, id);
   if (parent && p) parent.insertAdjacentHTML("afterbegin", art(p, { light: true }));
 };
@@ -487,7 +501,7 @@ function render() {
   $('#hB1').innerHTML = T.rx + ic('next', 16); $('#hB1').href = '#';
   $('#hB2').innerHTML = T.shopNow; $('#hB2').href = '#';
   set('hArt', Shell.list('top').slice(0, 3)
-    .map((p) => '<div class="hp">' + shot(p) + '</div>').join(''));
+    .map((p) => '<div class="hp">' + shot(p, { swap: false }) + '</div>').join(''));
 
   /* promo duo — the two deepest real discounts, not a badge on everything */
   set('t1', T.offers); set('a1', T.viewAll);
@@ -495,7 +509,7 @@ function render() {
   set('c1', offers.length + ' ' + T.items);
   set('promoDuo', offers.slice(0, 2).map((p) => {
     const b = byId(UCP.brands, p.brand);
-    return '<a href="' + (p.href || '#') + '" class="promo"><div class="pi">' + shot(p) + '</div>'
+    return '<a href="' + (p.href || '#') + '" class="promo"><div class="pi">' + shot(p, { swap: false }) + '</div>'
       + '<div><div class="chip">' + T.off + ' ' + offLabel(p, L) + '</div>'
       + '<h3>' + (b ? n(b) : n(p)) + '</h3>' + (b ? '<p>' + n(p) + '</p>' : '')
       + '<div class="pp">' + priceHTML(p.price, L) + '<s>' + priceHTML(p.was, L) + '</s></div></div></a>';

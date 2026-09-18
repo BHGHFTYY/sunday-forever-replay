@@ -156,10 +156,52 @@ function decodeEntities(s) {
   return s.replace(/&([a-z]+|#\d+);/gi, (m, k) => ENT[k.toLowerCase()] ?? ENT[k] ?? m);
 }
 
-function firstImage(cell) {
-  const first = cell.split("|")[0] || "";
-  const url = first.split("!")[0].trim();
-  return /^https?:\/\//.test(url) ? url : null;
+/* The images column is a gallery, not one link: entries separated by "|",
+   each "URL ! alt : … ! title : … ! desc : … ! caption :".
+   1,242 of 3,828 rows carry more than one. */
+function gallery(cell) {
+  return cell.split("|").map((entry) => {
+    const parts = entry.split(" ! ");
+    const url = (parts[0] || "").trim();
+    if (!/^https?:\/\//.test(url)) return null;
+    const meta = {};
+    for (const p of parts.slice(1)) {
+      const i = p.indexOf(":");
+      if (i > 0) meta[p.slice(0, i).trim().toLowerCase()] = p.slice(i + 1).trim();
+    }
+    return { url, alt: meta.alt || "" };
+  }).filter(Boolean);
+}
+
+const GENERIC = [/^test/i, /^image[-_]?\d*\./i, /^download/i, /^shopping/i, /^untitled/i,
+                 /^unnamed/i, /^default/i, /^placeholder/i, /^photo[-_]?\d*\./i, /^img[-_]?\d*\./i];
+const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+/**
+ * Pick the primary shot rather than trusting position. Position 0 is wrong
+ * often enough to matter: "PREMIUM PACKAGE HAJJ" leads with an image whose own
+ * alt text says "PROTECTIVE PACKAGE HAJJ" — a different product entirely.
+ *
+ * The alt text is the strongest signal because WordPress writes it from the
+ * product the image was attached to, so a mismatch is a genuine mis-attachment.
+ */
+function pickPrimary(imgs, title) {
+  if (imgs.length <= 1) return 0;
+  const want = new Set(slug(title).split(" ").filter((w) => w.length > 2));
+  let best = 0, bestScore = -Infinity;
+  imgs.forEach((im, i) => {
+    const file = im.url.split("/").pop();
+    let score = -i * 0.5;                                   // position breaks ties only
+    const altWords = new Set(slug(im.alt).split(" ").filter((w) => w.length > 2));
+    let overlap = 0;
+    for (const w of want) if (altWords.has(w)) overlap++;
+    if (want.size) score += (overlap / want.size) * 6;      // alt agrees with the title
+    if (GENERIC.some((re) => re.test(file))) score -= 5;    // auto-named upload
+    const fileWords = new Set(slug(file).split(" "));
+    for (const w of want) if (fileWords.has(w)) { score += 1.5; break; }
+    if (score > bestScore) { bestScore = score; best = i; }
+  });
+  return best;
 }
 
 /* Deterministic PLACEHOLDER price. Not UCP's pricing — the export has none.
@@ -179,6 +221,7 @@ function placeholderPrice(sku, cat) {
 /* --- build ---------------------------------------------------------------- */
 const IMG_BASE = "https://ucpksa.com/wp-content/uploads/";
 const URL_BASE = "https://ucpksa.com/shop/";
+let MOVED = 0;
 const rows = parseCsv(readFileSync(CSV, "utf8")).slice(1).filter((r) => r.length >= 4 && r[0].trim());
 const products = [];
 const brandCount = new Map();
@@ -186,13 +229,19 @@ const brandCount = new Map();
 for (const r of rows) {
   const title = decodeEntities(r[0]).replace(/\s+/g, " ").trim();
   const sku = r[1].trim();
-  const img = firstImage(r[2] || "");
+  const imgs = gallery(r[2] || "");
+  const primary = imgs.length ? pickPrimary(imgs, title) : -1;
+  if (primary > 0) MOVED++;
+  const img = primary >= 0 ? imgs[primary].url : null;
   const url = (r[3] || "").trim();
   if (!img) continue;                    // 4 rows carry no image; they cannot be shown
   const brand = brandOf(title);
   const cat = catOf(title, brand);
+  const rel = (u) => (u.startsWith(IMG_BASE) ? u.slice(IMG_BASE.length) : u);
+  const rest = imgs.filter((_, i) => i !== primary).map((im) => rel(im.url));
   products.push({ sku, title, brand, cat, size: sizeOf(title),
-                  img: img.startsWith(IMG_BASE) ? img.slice(IMG_BASE.length) : img,
+                  gallery: rest.length ? rest : undefined,
+                  img: rel(img),
                   url: url.startsWith(URL_BASE) ? url.slice(URL_BASE.length) : url,
                   price: placeholderPrice(sku, cat) });
   if (brand) brandCount.set(brand, (brandCount.get(brand) || 0) + 1);
@@ -248,6 +297,10 @@ console.log(`products      ${products.length}`);
 console.log(`brands        ${brands.length}   top: ${brands.slice(0,12).map(b=>b.en+"("+b.n+")").join(", ")}`);
 console.log(`categories    ${categories.map(c=>c.id+":"+c.n).join("  ")}`);
 console.log(`unclassified  ${catCount.other||0} (${Math.round((catCount.other||0)/products.length*100)}%)`);
+const repicked = products.filter(p => p.gallery).length;
+console.log(`primary moved ${MOVED} time(s) off position 0 by the alt-text check`);
+const shots = products.reduce((n, p) => n + 1 + (p.gallery ? p.gallery.length : 0), 0);
+console.log(`photographs   ${shots} across ${products.length} products; ${repicked} have a gallery`);
 console.log(`sizes parsed  ${products.filter(p=>p.size).length} (${Math.round(products.filter(p=>p.size).length/products.length*100)}%)`);
 console.log(`on promotion  ${products.filter(p=>p.was).length} (${Math.round(products.filter(p=>p.was).length/products.length*100)}%)`);
 console.log(`output        ${(out.length/1024).toFixed(0)} KB`);
