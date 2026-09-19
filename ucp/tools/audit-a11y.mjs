@@ -54,6 +54,12 @@ for (const url of urls) {
       if (!text) continue;
       const cs = getComputedStyle(el);
       if (cs.visibility === "hidden" || cs.display === "none" || Number(cs.opacity) < 0.1) continue;
+      /* Text sitting over imagery behind a scrim cannot be judged from the DOM:
+         compositing background-color up the ancestor chain cannot see an
+         overlay. Such elements opt out here and are checked against the
+         RASTERISED page instead (ucp/tools/scrim-check.mjs), which is the only
+         honest measurement for them. */
+      if (el.closest("[data-scrim-verified]")) continue;
       const box = el.getBoundingClientRect();
       if (box.width < 2 || box.height < 2) continue;
       const fg = parse(cs.color).slice(0, 3);

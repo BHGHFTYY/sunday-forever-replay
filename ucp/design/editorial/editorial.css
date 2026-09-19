@@ -1,0 +1,193 @@
+/* ===========================================================================
+   UCP — EDITORIAL
+   ---------------------------------------------------------------------------
+   Drawn from the Nestery shot (Shakuro): a near-monochrome, photography-led
+   layout. Warm grey ground, near-black ink, very small type, enormous
+   whitespace, and almost no accent colour at all — in the original the brand
+   colour appears once, as a 5px dot marking an active item.
+
+   WHAT CHANGES FOR A PHARMACY. Nestery sells about twenty chairs, so it can
+   put five thumbnails in a row and call that the catalogue. UCP has 3,824
+   SKUs across twelve categories. The editorial calm transfers; the density
+   cannot. So this keeps the shot's restraint and its typographic category
+   index (which gets better, not worse, with real counts against it) and
+   rejects its lookbook-sized product row.
+
+   COLOUR is the AA scale already derived for this project in
+   ucp/tools/palette.mjs — the brand hue at three lightnesses, each with one
+   job. The ground is cooler and greyer here than Warm Boutique's cream, so
+   the neutrals are re-solved against it.
+   =========================================================================== */
+
+:root {
+  --ground:  #F1F0EE;
+  --paper:   #FFFFFF;
+  --sunk:    #E7E6E3;
+  --ink:     #16161C;
+  --muted:   #6A6A72;   /* 4.72:1 on ground */
+  --line:    #DEDDD9;
+  --line-strong: #8E8E96;
+
+  --orange-500: #FF7A00;   /* fill and the active dot; carries ink text */
+  --orange-700: #AB4F00;   /* orange as small text */
+  --on-orange:  #16161C;
+
+  --font: "IBM Plex Sans Arabic", system-ui, sans-serif;
+
+  --fast: 140ms cubic-bezier(.2,.8,.2,1);
+  --mid:  280ms cubic-bezier(.16,1,.3,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+body {
+  margin: 0; overflow-x: hidden; background: var(--ground); color: var(--ink);
+  font: 400 15px/1.7 var(--font); -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { margin: 0; font-weight: 500; line-height: 1.2; letter-spacing: -.01em; }
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+img, svg { display: block; max-width: 100%; }
+ul { margin: 0; padding: 0; list-style: none; }
+input { font: inherit; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+:lang(ar), :lang(ar) *, [dir="rtl"] * { letter-spacing: normal !important; }
+.num { font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: isolate; }
+
+.wrap { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 20px; }
+@media (min-width: 900px) { .wrap { padding-inline: 44px; } }
+
+/* --- the prototype bar ---------------------------------------------------- */
+.proto {
+  background: var(--ink); color: #A9A9B2; font-size: 11px; padding: 7px 16px;
+  display: flex; gap: 14px; align-items: center; justify-content: center; flex-wrap: wrap; text-align: center;
+}
+.proto b { color: var(--orange-500); }
+.proto button { border: 1px solid rgba(255,255,255,.26); border-radius: 999px; padding: 3px 12px; font-size: 11px; color: #fff; }
+
+/* --- header: a hairline, nothing more ------------------------------------- */
+.hd { border-bottom: 1px solid var(--line); background: var(--ground); position: sticky; top: 0; z-index: 50; }
+.hd-in { display: flex; align-items: center; gap: 20px; height: 66px; }
+.hd .logo img { height: 34px; width: auto; }
+.hd nav { display: none; gap: 26px; margin-inline-start: 26px; font-size: 13px; }
+@media (min-width: 980px) { .hd nav { display: flex; } }
+.hd nav a:hover { color: var(--orange-700); }
+.hd .right { margin-inline-start: auto; display: flex; align-items: center; gap: 18px; font-size: 12px; }
+.hd .right a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.hd .sbtn { display: flex; align-items: center; gap: 7px; }
+
+/* --- hero: full bleed image, text over it --------------------------------- */
+.hero { position: relative; min-height: 560px; display: flex; align-items: flex-end; overflow: hidden; }
+@media (min-width: 900px) { .hero { min-height: 640px; } }
+.hero .bg { position: absolute; inset: 0; background: var(--sunk); }
+.hero .bg .fill { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
+.hero .bg .fill span { display: grid; place-items: center; padding: 6%; }
+.hero .bg .fill span img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.hero .bg .fill span svg { width: 100%; height: 100%; }
+/* the scrim is what makes white text legible over any photograph */
+/* The scrim is the only thing making white text legible over an arbitrary
+   photograph, so it is sized for the WORST case — a bright, near-white image —
+   not for the placeholder behind it today. Measured, not guessed: see
+   scrim contrast check in the session notes. */
+.hero .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,22,28,.20) 0%, rgba(22,22,28,.62) 46%, rgba(22,22,28,.90) 100%); }
+.hero .in { position: relative; width: 100%; padding-block: 0 44px; }
+.hero .chips { display: flex; gap: 8px; margin-bottom: 26px; flex-wrap: wrap; }
+.hero .chips a { background: rgba(255,255,255,.92); color: var(--ink); font-size: 11px; font-weight: 500; padding: 7px 14px; border-radius: 999px; }
+.hero .chips a:hover { background: #fff; }
+.hero h1 { color: #fff; font-size: 34px; font-weight: 500; max-width: 16ch; }
+@media (min-width: 760px) { .hero h1 { font-size: 52px; } }
+.hero p { color: rgba(255,255,255,.82); font-size: 14px; margin-top: 16px; max-width: 46ch; }
+.hero .acts { display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap; align-items: center; }
+.hero .acts .go { background: var(--orange-500); color: var(--on-orange); font-size: 13px; font-weight: 600; padding: 13px 26px; border-radius: 999px; }
+.hero .acts .go:hover { filter: brightness(1.07); }
+.hero .acts .alt { color: #fff; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; }
+.hero .acts .alt:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* the floating card over the photograph — the shot's signature move */
+.floatcard {
+  position: absolute; inset-inline-end: 44px; inset-block-start: 96px; width: 244px;
+  background: rgba(255,255,255,.94); backdrop-filter: blur(8px);
+  border-radius: 14px; padding: 14px; display: flex; gap: 12px; align-items: center;
+}
+@media (max-width: 899px) { .floatcard { display: none; } }
+.floatcard .th { width: 56px; height: 56px; flex: none; background: var(--sunk); border-radius: 10px; display: grid; place-items: center; padding: 6px; }
+.floatcard .th img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.floatcard .th svg { width: 100%; height: 100%; }
+.floatcard > span > * { display: block; }
+.floatcard .b { font-size: 10px; color: var(--muted); }
+.floatcard .t { font-size: 12px; font-weight: 500; line-height: 1.35; margin-top: 2px; }
+.floatcard .p { font-size: 13px; font-weight: 600; margin-top: 6px; }
+
+/* --- section furniture ---------------------------------------------------- */
+.sec { padding-block: 72px; }
+@media (max-width: 767px) { .sec { padding-block: 48px; } }
+.eyebrow { font-size: 11px; color: var(--muted); margin-bottom: 14px; }
+.lede { font-size: 17px; line-height: 1.6; max-width: 56ch; }
+@media (min-width: 760px) { .lede { font-size: 20px; } }
+
+/* --- the typographic category index ---------------------------------------
+   The shot lists rooms as plain words with a superscript count. With twelve
+   real categories and real counts behind them this becomes a genuine index
+   rather than decoration — it is the one element that gets BETTER at
+   pharmacy scale. */
+.index { display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: baseline; }
+.index a { font-size: 22px; font-weight: 500; color: var(--muted); transition: color var(--fast); }
+@media (min-width: 760px) { .index a { font-size: 30px; } }
+.index a:hover, .index a.on { color: var(--ink); }
+.index a sup { font-size: 11px; font-weight: 400; margin-inline-start: 3px; vertical-align: super; }
+
+/* --- product row ----------------------------------------------------------- */
+.prow { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); margin-top: 34px; }
+@media (min-width: 700px) { .prow { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1080px) { .prow { grid-template-columns: repeat(6, 1fr); } }
+/* display:block on the parts is load-bearing — they are <span>s inside an
+   <a>, so without it the brand and the name render on one run
+   ("AxeSpray Gold Temptation") and the vertical margins are ignored. */
+.ptile { background: var(--paper); border-radius: 14px; padding: 14px; transition: transform var(--fast); }
+.ptile > * { display: block; }
+.ptile:hover { transform: translateY(-3px); }
+.ptile .im { aspect-ratio: 1; background: var(--paper); display: grid !important; place-items: center; padding: 8%; }
+.ptile .im img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.ptile .im svg { width: 100%; height: 100%; }
+.ptile .b { font-size: 10px; color: var(--muted); margin-top: 8px; }
+.ptile .t { font-size: 12px; font-weight: 500; line-height: 1.35; margin-top: 2px; height: 32px; overflow: hidden; }
+.ptile .p { font-size: 13px; font-weight: 600; margin-top: 8px; display: flex !important; align-items: baseline; gap: 6px; }
+.ptile .p s { font-size: 11px; font-weight: 400; color: var(--muted); }
+.ptile .dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--orange-500); margin-inline-end: 5px; }
+.allprods { margin-top: 26px; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--ink); padding-bottom: 3px; }
+
+/* --- story: vertical text nav + panels ------------------------------------- */
+.story { display: grid; gap: 30px; }
+@media (min-width: 900px) { .story { grid-template-columns: 220px minmax(0,1fr); gap: 56px; } }
+.storynav { display: flex; flex-direction: row; gap: 18px; flex-wrap: wrap; }
+@media (min-width: 900px) { .storynav { flex-direction: column; gap: 10px; } }
+.storynav button { font-size: 15px; color: var(--muted); text-align: start; display: flex; align-items: center; gap: 9px; }
+.storynav button[aria-selected="true"] { color: var(--ink); }
+.storynav button .dot { width: 5px; height: 5px; border-radius: 50%; background: transparent; flex: none; }
+.storynav button[aria-selected="true"] .dot { background: var(--orange-500); }
+.storypanel { display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 680px) { .storypanel { grid-template-columns: 1fr 1fr; align-items: start; } }
+.storypanel .card { background: var(--paper); border-radius: 16px; padding: 24px; }
+.storypanel .card h3 { font-size: 17px; font-weight: 500; }
+.storypanel .card p { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.storypanel .card .ic { color: var(--orange-700); margin-bottom: 14px; }
+
+/* --- a labelled gap where a real asset is missing --------------------------- */
+.slot { border: 1px dashed var(--line-strong); border-radius: 16px; padding: 22px; background: transparent; }
+.slot .tag { font-size: 10px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--orange-700); }
+html[lang="ar"] .slot .tag { text-transform: none; letter-spacing: normal; }
+.slot h3 { font-size: 15px; font-weight: 500; margin-top: 8px; }
+.slot p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+/* --- footer ---------------------------------------------------------------- */
+.ft { border-top: 1px solid var(--line); padding-block: 44px 28px; }
+.ft-cols { display: grid; gap: 28px; grid-template-columns: 1fr 1fr; }
+@media (min-width: 860px) { .ft-cols { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+.ft h4 { font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 12px; }
+.ft li a { display: block; padding-block: 5px; font-size: 13px; }
+.ft li a:hover { color: var(--orange-700); }
+.ft .lead img { height: 44px; width: auto; margin-bottom: 14px; }
+.ft .bot { border-top: 1px solid var(--line); margin-top: 32px; padding-top: 18px; font-size: 11px; color: var(--muted); display: flex; gap: 10px 20px; flex-wrap: wrap; justify-content: space-between; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
