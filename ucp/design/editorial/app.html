@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — التطبيق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="editorial.css">
+</head>
+<body>
+<main><div class="wrap">
+  <div class="phead"><h1 id="pTitle"></h1><p class="sub" id="pSub"></p></div>
+  <div class="phones" id="phones"></div>
+</div></main>
+<script src="catalogue.js"></script>
+<script src="ucp.js"></script>
+<script src="editorial.js"></script>
+<script>
+/* APP. The same tokens, the same catalogue and the same tile as the website —
+   the app is not a second design system, it is this one in a narrower column,
+   which is the whole reason the tokens live in editorial.css. */
+const T2={ ar:{ title:"التطبيق", sub:"نفس نظام التصميم ونفس الكتالوج، بعرض الهاتف",
+  home:"الرئيسية", search:"البحث", loyalty:"الولاء", cart:"السلة", account:"حسابي",
+  cap:["الرئيسية","صفحة المنتج","الحساب"], hero:"صيدلية تعرف ما تحتاجه.",
+  add:"أضف للسلة", eta:"توصيل ٦٠ دقيقة", member:"عضو نادي UCP · ذهبي",
+  menu:["الطلبات","الوصفات الطبية","العناوين","المكافآت","الإعدادات"] },
+  en:{ title:"The app", sub:"The same design system and the same catalogue, at phone width",
+  home:"Home", search:"Search", loyalty:"Loyalty", cart:"Cart", account:"Account",
+  cap:["Home","Product","Profile"], hero:"A pharmacy that knows what you need.",
+  add:"Add to cart", eta:"60-minute delivery", member:"UCP Club · Gold",
+  menu:["Orders","Prescriptions","Addresses","Rewards","Settings"] } };
+const t2=()=>T2[Shell.lang];
+const nav=(active)=>{ const T=t2();
+  return '<nav class="anav">'+[["search",T.search],["store",T.home],["gift",T.loyalty],["cart",T.cart],["user",T.account]]
+    .map(([i,l])=>'<a href="#"'+(l===active?' aria-current="page"':'')+'>'+ic(i,16)+'<span>'+l+'</span></a>').join('')+'</nav>'; };
+const phone=(cap,body)=>'<div class="phone"><div class="bez"><div class="scr">'+body+'</div></div><div class="cap">'+cap+'</div></div>';
+function render(){ const T=t2(),n=Shell.nm; renderChrome();
+  set("pTitle",T.title); set("pSub",T.sub);
+  const top=Shell.list("top"), h=top[0], b=brand(h.brand);
+  const home=phone(T.cap[0],
+    '<div class="abar"><img src="ucp-logo-mark.png" alt="UCP">'+ic("search",17)+'</div>'
+    +'<div class="sc"><h2 style="font-size:18px;font-weight:500;padding:4px 14px 14px;line-height:1.35">'+T.hero+'</h2>'
+    +'<div class="index" style="padding:0 14px 16px;gap:4px 14px">'
+      +UCP.categories.slice(0,5).map((c)=>'<a href="#" style="font-size:14px">'+n(c)+'<sup class="num">'+c.n+'</sup></a>').join('')+'</div>'
+    +'<div class="agrid">'+top.slice(0,6).map((p)=>'<div class="t"><div class="im">'+shot(p)+'</div><div class="p">'+riyal(p.price)+'</div></div>').join('')+'</div>'
+    +'</div>'+nav(T.home));
+  const prodS=phone(T.cap[1],
+    '<div class="sc"><div style="aspect-ratio:1;background:var(--paper);display:grid;place-items:center;padding:12%">'+shot(h)+'</div>'
+    +'<div style="padding:16px">'+(b?'<div style="font-size:11px;color:var(--muted)">'+esc2(b.en)+'</div>':'')
+    +'<div style="font-size:15px;font-weight:500;margin-top:5px;line-height:1.35">'+esc2(n(h))+'</div>'
+    +'<div style="font-size:19px;font-weight:600;margin-top:10px">'+riyal(h.price)+'</div>'
+    +'<div style="font-size:12px;color:var(--muted);margin-top:8px">'+T.eta+'</div>'
+    +'<button style="width:100%;margin-top:16px;background:var(--orange-500);color:var(--on-orange);border-radius:999px;padding:13px;font-size:13px;font-weight:600">'+T.add+'</button>'
+    +'</div></div>'+nav(T.cart));
+  const prof=phone(T.cap[2],
+    '<div class="sc" style="padding:18px 16px">'
+    +'<div style="display:flex;align-items:center;gap:12px"><span style="width:48px;height:48px;border-radius:50%;background:var(--sunk);display:grid;place-items:center;font-weight:600">ز</span>'
+    +'<span><b style="display:block;font-size:15px;font-weight:500">زياد</b><span style="font-size:12px;color:var(--muted)">'+T.member+'</span></span></div>'
+    +'<div class="amenu" style="margin-top:20px">'+T.menu.map((m)=>'<a href="#">'+m+'<span class="ch">'+ic("next",14)+'</span></a>').join('')+'</div>'
+    +'</div>'+nav(T.account));
+  set("phones",home+prodS+prof); }
+mountChrome(); initCart(null); Shell.onRender(render); Shell.wire(); Shell.setLang("ar");
+</script>
+</body></html>

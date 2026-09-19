@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — المنتج</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="editorial.css">
+</head>
+<body>
+<main><div class="wrap"><div class="pdp" id="pdp"></div><div id="rails"></div></div></main>
+<script src="catalogue.js"></script>
+<script src="ucp.js"></script>
+<script src="editorial.js"></script>
+<script>
+/* PRODUCT. The export carries no description, dispensing status or stock, so
+   each renders as a labelled gap naming the system it must come from. The
+   dispensing slot is why: a fabricated "no prescription required" on a real
+   SKU is the most dangerous sentence this prototype could contain. */
+const T2 = {
+  ar:{ sku:"رقم الصنف", size:"الحجم", cat:"الفئة", eta:"التوصيل", etaV:"خلال ٦٠ دقيقة",
+       pick:"الاستلام", pickV:"من أقرب فرع", add:"أضف للسلة",
+       descH:"الوصف والمكوّنات", descP:"لا يحتوي ملف الكتالوج على وصف أو مكوّنات. تأتي من نظام UCP للمنتجات.",
+       rxH:"حالة الصرف", rxP:"لا يحتوي الملف على حالة الصرف النظامية، ولن نفترضها.",
+       stockH:"التوفّر", stockP:"لا يحتوي الملف على أرصدة المخزون.",
+       more:"المزيد من", similar:"منتجات مشابهة", nf:"لم نعثر على هذا المنتج",
+       priceNote:"السعر تجريبي" },
+  en:{ sku:"SKU", size:"Size", cat:"Category", eta:"Delivery", etaV:"Within 60 minutes",
+       pick:"Pickup", pickV:"From your nearest branch", add:"Add to cart",
+       descH:"Description and ingredients", descP:"The export carries no description or ingredients. They come from UCP's product system.",
+       rxH:"Dispensing status", rxP:"The export carries no regulatory dispensing status, and we will not assume one.",
+       stockH:"Availability", stockP:"The export carries no stock levels.",
+       more:"More from", similar:"Similar products", nf:"We could not find that product",
+       priceNote:"Price is placeholder" },
+};
+const t2=()=>T2[Shell.lang];
+let cur=null, si=0;
+function find(){ const sku=new URLSearchParams(location.search).get("sku");
+  if(!sku)return UCP.products[0]||null;
+  return UCP.products.find((p)=>p.sku===sku)||null; }
+const shots=(p)=>[p.img].concat(p.alt||[]).filter(Boolean);
+function render(){ const T=t2(),C=ctx(),TT=Shell.T(),n=Shell.nm;
+  cur=find(); renderChrome();
+  if(!cur){ set("pdp",'<div class="emptybox" style="grid-column:1/-1"><h3>'+T.nf+'</h3><p><a href="category.html" style="border-bottom:1px solid currentColor">'+C.back+'</a></p></div>'); set("rails",""); return; }
+  const p=cur,b=brand(p.brand),c=CATEG.get(p.cat),s=shots(p),src=s[si]||s[0],q=Shell.qtyOf(p.id);
+  document.title="UCP — "+p.title;
+  const slot=(h,t)=>'<div class="slot" style="margin-top:16px"><span class="tag">'+C.slotTag+'</span><h3>'+h+'</h3><p>'+t+'</p></div>';
+  set("pdp",
+    '<div><div class="stage">'+(src?'<img src="'+src+'" alt="'+esc2(p.title)+'" onerror="IMGFAIL(this,\''+p.id+'\')">':art(p,{light:true}))+'</div>'
+    +(s.length>1?'<div class="thumbs">'+s.map((u,i)=>'<button data-shot="'+i+'" aria-current="'+(i===si)+'" aria-label="'+(i+1)+'"><img src="'+u+'" alt="" onerror="this.closest(\'button\').remove()"></button>').join('')+'</div>':'')
+    +'</div>'
+    +'<div>'+(b?'<a class="meta-b" href="category.html?brand='+b.id+'" style="border-bottom:1px solid currentColor">'+esc2(n(b))+'</a>':'')
+    +'<h1>'+esc2(n(p))+'</h1>'
+    +'<div class="prices"><b>'+riyal(p.price)+'</b>'+(p.was?'<s>'+riyal(p.was)+'</s><span class="off">'+TT.off+' <span class="num">'+pct(p.price,p.was)+'%</span></span>':'')+'</div>'
+    +'<div class="facts">'
+      +'<div><span>'+T.sku+'</span><span class="num">'+esc2(p.sku)+'</span></div>'
+      +(p.size?'<div><span>'+T.size+'</span><span class="num">'+esc2(p.size)+'</span></div>':'')
+      +(c?'<div><span>'+T.cat+'</span><a href="category.html?cat='+c.id+'" style="border-bottom:1px solid currentColor">'+n(c)+'</a></div>':'')
+      +'<div><span>'+T.eta+'</span><span>'+T.etaV+'</span></div>'
+      +'<div><span>'+T.pick+'</span><span>'+T.pickV+'</span></div>'
+    +'</div>'
+    +'<div class="buyrow"><div class="stepper">'
+      +'<button data-step="-1" aria-label="-">'+ic("minus",16)+'</button>'
+      +'<span class="q num">'+Math.max(1,q)+'</span>'
+      +'<button data-step="1" aria-label="+">'+ic("plus",16)+'</button></div>'
+      +'<button class="add" data-add="'+p.id+'">'+ic("cart",16)+' '+T.add+'</button></div>'
+    +'<p style="font-size:11px;color:var(--muted);margin-top:10px">'+TT.vat+' · '+T.priceNote+'</p>'
+    +slot(T.descH,T.descP)+(p.cat==="medicine"?slot(T.rxH,T.rxP):"")+slot(T.stockH,T.stockP)
+    +'</div>');
+  const same=p.brand?UCP.products.filter((x)=>x.brand===p.brand&&x.id!==p.id).slice(0,6):[];
+  const sim=UCP.products.filter((x)=>x.cat===p.cat&&x.id!==p.id&&x.brand!==p.brand).slice(0,6);
+  const rail=(t,items)=>items.length?'<section class="sec" style="padding-block:0 60px"><div class="eyebrow">'+t+'</div><div class="prow">'+items.map(ptile).join('')+'</div></section>':'';
+  set("rails",(b?rail(T.more+' '+n(b),same):'')+rail(T.similar,sim)); }
+document.addEventListener("click",(e)=>{
+  const t=e.target.closest("[data-shot]"); if(t){si=Number(t.dataset.shot);return render();}
+  /* data-step, not data-q: Shell.wire() delegates [data-q] globally and both
+     handlers would fire, applying every click twice. */
+  const s=e.target.closest(".stepper [data-step]");
+  if(s&&cur){ const d=Number(s.dataset.step),q=Shell.qtyOf(cur.id);
+    if(q===0){ if(d>0)Shell.add(cur.id); return; } return Shell.setQty(cur.id,d); }
+});
+mountChrome(); initCart(null); Shell.onRender(render); Shell.wire(); Shell.setLang("ar");
+</script>
+</body></html>

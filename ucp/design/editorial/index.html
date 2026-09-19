@@ -10,19 +10,6 @@
 <link rel="stylesheet" href="editorial.css">
 </head>
 <body>
-<div class="proto"><span><b>UCP — EDITORIAL</b> · <span id="protoTx"></span></span>
-  <button id="langBtn" data-lang>EN</button></div>
-
-<header class="hd"><div class="wrap hd-in">
-  <a href="#" class="logo"><img src="ucp-logo-mark.png" alt="UCP"></a>
-  <nav id="topnav"></nav>
-  <div class="right">
-    <a href="#" class="sbtn" id="sbtn"></a>
-    <a href="#" id="cartLink"></a>
-    <a href="#" id="accLink"></a>
-  </div>
-</div></header>
-
 <main>
   <section class="hero">
     <div class="bg"><div class="fill" id="heroFill"></div></div>
@@ -57,13 +44,9 @@
   </div></section>
 </main>
 
-<footer class="ft"><div class="wrap">
-  <div class="ft-cols" id="ftCols"></div>
-  <div class="bot"><span id="ftR"></span><span id="ftN"></span></div>
-</div></footer>
-
 <script src="catalogue.js"></script>
 <script src="ucp.js"></script>
+<script src="editorial.js"></script>
 <script>
 /* ===========================================================================
    UCP — EDITORIAL homepage
@@ -80,55 +63,6 @@
    not an invention. Inventing a pharmacist with a name and a title, or a
    customer quote, is precisely the kind of thing a pharmacy must never ship.
    =========================================================================== */
-
-/* --- catalogue adapter (same one the other executions use) ---------------- */
-(function () {
-  if (typeof CATALOGUE === "undefined") return;
-  const form = (t, s) => {
-    const x = (t + " " + (s || "")).toLowerCase();
-    if (/lens/.test(x)) return "lens";
-    if (/tab|cap|sg\b|softgel/.test(x)) return "jar";
-    if (/tube|cream|gel|paste|ointment/.test(x)) return "tube";
-    if (/serum|drops|ampoule|oil/.test(x)) return "dropper";
-    if (/spray|deodorant|wash|shampoo|lotion/.test(x)) return "pump";
-    if (/box|pack|pcs|pads|diaper|sachet/.test(x)) return "carton";
-    return "bottle";
-  };
-  UCP.categories = CATALOGUE.categories.map((c) => ({ id:c.id, ar:c.ar, en:c.en, icon:c.icon, n:c.n }));
-  UCP.brands = CATALOGUE.brands.map((b) => ({ id:b.id, ar:b.en, en:b.en, n:b.n }));
-  const known = new Set(UCP.brands.map((b) => b.id));
-  const bn = new Map(UCP.brands.map((b) => [b.id, b.en]));
-  const strip = (t, id) => {
-    const en = bn.get(id); if (!en) return t;
-    const q = en.replace(/[.*+?^${}()|[\]\\]/g, (m) => "\\" + m);
-    const o = t.replace(new RegExp("^" + q + "[\\s,'’-]*", "i"), "").trim();
-    return o.length >= 3 ? o : t;
-  };
-  UCP.products = CATALOGUE.products.map((p, i) => ({
-    id:"s"+p.sku, sku:p.sku, brand: known.has(p.brand) ? p.brand : null,
-    cat:p.cat, title:p.title, ar:strip(p.title,p.brand), en:strip(p.title,p.brand),
-    price:p.price, was:p.was, size:p.size || "", form:form(p.title,p.size),
-    rank:i+1, tags:p.was?["offer"]:[], img:imgUrl(p),
-  }));
-})();
-
-const BRAND = new Map(UCP.brands.map((b) => [b.id, b]));
-const PROD = new Map(UCP.products.map((p) => [p.id, p]));
-const $ = (s) => document.querySelector(s);
-const set = (id, h) => { const e = document.getElementById(id); if (e) e.innerHTML = h; };
-const esc2 = (s) => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
-const riyal = (n) => '<span class="num">' + n + '</span> ﷼';
-
-function shot(p) {
-  if (!p.img) return art(p, { light:true });
-  return '<img src="' + p.img + '" alt="' + esc2(p.title) + '" loading="lazy" decoding="async"'
-    + ' onerror="IMGFAIL(this,\'' + p.id + '\')">';
-}
-window.IMGFAIL = (el, id) => {
-  const parent = el.parentNode; el.remove();
-  const p = PROD.get(id);
-  if (parent && p) parent.insertAdjacentHTML("afterbegin", art(p, { light:true }));
-};
 
 const TX = {
   ar: { proto:"الأسماء والصور من كتالوج UCP الفعلي · الأسعار تجريبية",
@@ -187,13 +121,7 @@ let tab = 0;
 
 function render() {
   const T = tx(), TT = Shell.T(), n = Shell.nm, ar = Shell.lang === "ar";
-  set("protoTx", T.proto);
-  document.getElementById("langBtn").textContent = ar ? "EN" : "ع";
-
-  set("topnav", T.nav.map(([l,h]) => '<a href="'+h+'">'+l+'</a>').join(''));
-  set("sbtn", ic("search",15) + ' <span>' + T.search + '</span>');
-  set("cartLink", T.cart + ' (<span class="num">' + Shell.count() + '</span>)');
-  set("accLink", T.account);
+  renderChrome();
 
   const top = Shell.list("top");
   set("heroFill", top.slice(0,3).map((p) => '<span>' + shot(p) + '</span>').join(''));
@@ -202,7 +130,7 @@ function render() {
   $("#heroCta").textContent = T.heroCta;
   $("#heroAlt").innerHTML = T.heroAlt + ' <span aria-hidden="true">' + (ar ? "←" : "→") + '</span>';
 
-  const f = top[0], fb = BRAND.get(f.brand);
+  const f = top[0], fb = brand(f.brand);
   set("floatcard", '<span class="th">' + shot(f) + '</span><span>'
     + (fb ? '<span class="b">' + esc2(fb.en) + '</span>' : '')
     + '<span class="t">' + esc2(n(f)) + '</span>'
@@ -217,14 +145,7 @@ function render() {
     '<a href="#"' + (i === 0 ? ' class="on"' : '') + '>' + n(c)
     + '<sup class="num">' + c.n + '</sup></a>').join(''));
 
-  set("prow", top.slice(0, 6).map((p) => {
-    const b = BRAND.get(p.brand);
-    return '<a class="ptile" href="#"><span class="im">' + shot(p) + '</span>'
-      + (b ? '<span class="b">' + esc2(b.en) + '</span>' : '')
-      + '<span class="t">' + esc2(n(p)) + '</span>'
-      + '<span class="p">' + (p.was ? '<span class="dot"></span>' : '') + riyal(p.price)
-      + (p.was ? '<s>' + riyal(p.was) + '</s>' : '') + '</span></a>';
-  }).join(''));
+  set("prow", top.slice(0, 6).map(ptile).join(''));
   $("#allProds").innerHTML = T.allProds + ' <span class="num">(' + UCP.products.length + ')</span>';
 
   set("stEy", T.stEy);
@@ -235,17 +156,6 @@ function render() {
     '<div class="card"><div class="ic">' + ic(i, 24) + '</div><h3>' + h + '</h3><p>' + p + '</p></div>').join('')
     + '<div class="slot"><span class="tag">' + T.slotTag + '</span><h3>' + T.slotH + '</h3><p>' + T.slotP + '</p></div>');
 
-  const cols = [
-    [T.ftShop, UCP.categories.slice(0,5).map(n)],
-    [T.ftCare, [TT.rx, TT.tele, TT.pickup, TT.vitamins]],
-    [T.ftAbout, [TT.brand, ar ? "فروعنا" : "Our branches", ar ? "تواصل معنا" : "Contact"]],
-  ];
-  set("ftCols", '<div class="lead"><img src="ucp-logo-mark.png" alt="UCP"><p style="font-size:13px;color:var(--muted);max-width:34ch">'
-      + TT.phNote + '</p></div>'
-    + cols.map((c) => '<div><h4>' + c[0] + '</h4><ul>'
-      + c[1].map((x) => '<li><a href="#">' + x + '</a></li>').join('') + '</ul></div>').join(''));
-  set("ftR", "© " + new Date().getFullYear() + " " + TT.brand + " — " + T.rights);
-  set("ftN", T.vat);
 }
 
 document.addEventListener("click", (e) => {
@@ -253,6 +163,8 @@ document.addEventListener("click", (e) => {
   if (t) { tab = Number(t.dataset.tab); render(); }
 });
 
+mountChrome();
+initCart(null);
 Shell.onRender(render);
 Shell.wire();
 Shell.setLang("ar");

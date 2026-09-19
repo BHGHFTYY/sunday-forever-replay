@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — التصفح</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="editorial.css">
+</head>
+<body>
+<main><div class="wrap">
+  <div class="phead"><h1 id="pTitle"></h1><p class="sub" id="pSub"></p></div>
+  <div class="index" id="index"></div>
+  <div class="toolbar">
+    <div class="count" id="count"></div>
+    <button class="fbtn" id="fOpen"></button>
+    <label class="u-sr" for="sort" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)" id="sortLb"></label>
+    <select id="sort"></select>
+  </div>
+  <div class="active-filters" id="active"></div>
+  <div class="pgrid" id="grid"></div>
+  <div id="more"></div>
+</div></main>
+<aside class="sheet" id="sheet" aria-label="filters">
+  <div class="grab"></div><h3 id="shT"></h3><div id="shBody"></div>
+  <button class="done" id="shDone"></button>
+</aside>
+<div class="scrim2" id="scrim"></div>
+<script src="catalogue.js"></script>
+<script src="ucp.js"></script>
+<script src="editorial.js"></script>
+<script>
+/* CATEGORY — the shot's typographic index doing real work: twelve categories
+   with live counts, a hairline toolbar, and a grid that scales to a catalogue
+   rather than a lookbook. Facets count against the CURRENT result set with
+   each facet excluded from its own count, so a number never promises results
+   a click cannot deliver. State lives in the URL. */
+const PER = 24;
+const BANDS = [
+  { id:"0-25",min:0,max:25,ar:"أقل من ٢٥",en:"Under 25" },
+  { id:"25-50",min:25,max:50,ar:"٢٥ – ٥٠",en:"25 – 50" },
+  { id:"50-100",min:50,max:100,ar:"٥٠ – ١٠٠",en:"50 – 100" },
+  { id:"100-200",min:100,max:200,ar:"١٠٠ – ٢٠٠",en:"100 – 200" },
+  { id:"200+",min:200,max:Infinity,ar:"٢٠٠ فأكثر",en:"200 and up" },
+];
+const SORTS = ["featured","price-asc","price-desc","discount","name"];
+const T2 = {
+  ar:{ brand:"العلامة التجارية", price:"السعر", offer:"العروض فقط", more:"عرض المزيد",
+       done:"عرض النتائج", featured:"المختارة","price-asc":"السعر: من الأقل",
+       "price-desc":"السعر: من الأعلى", discount:"أعلى خصم", name:"الاسم أ–ي",
+       emptyP:"جرّب إزالة أحد عوامل التصفية.",
+       sub:"الأسعار تجريبية · الأسماء والصور من كتالوج UCP", filters:"تصفية", sort:"ترتيب" },
+  en:{ brand:"Brand", price:"Price", offer:"On offer only", more:"Load more",
+       done:"Show results", featured:"Featured","price-asc":"Price: low to high",
+       "price-desc":"Price: high to low", discount:"Biggest discount", name:"Name A–Z",
+       emptyP:"Try removing one of them.",
+       sub:"Prices are placeholder · names and photographs are UCP catalogue", filters:"Filter", sort:"Sort" },
+};
+const t2 = () => T2[Shell.lang];
+const st = { cat:null, brands:new Set(), price:new Set(), offers:false, sort:"featured", shown:PER };
+function readUrl(){ const q=new URLSearchParams(location.search);
+  st.cat=q.get("cat"); st.brands=new Set((q.get("brand")||"").split(",").filter(Boolean));
+  st.price=new Set((q.get("price")||"").split(",").filter(Boolean));
+  st.offers=q.get("offers")==="1"; st.sort=SORTS.includes(q.get("sort"))?q.get("sort"):"featured";
+  st.shown=Math.max(PER,parseInt(q.get("shown"),10)||PER); }
+function writeUrl(){ const q=new URLSearchParams();
+  if(st.cat)q.set("cat",st.cat); if(st.brands.size)q.set("brand",[...st.brands].join(","));
+  if(st.price.size)q.set("price",[...st.price].join(",")); if(st.offers)q.set("offers","1");
+  if(st.sort!=="featured")q.set("sort",st.sort); if(st.shown!==PER)q.set("shown",String(st.shown));
+  history.pushState(null,"",location.pathname+(q.toString()?"?"+q:"")); }
+const inBand=(p)=>!st.price.size||[...st.price].some((id)=>{const b=BANDS.find((x)=>x.id===id);return b&&p.price>=b.min&&p.price<b.max;});
+function match(p,skip){ if(skip!=="cat"&&st.cat&&p.cat!==st.cat)return false;
+  if(skip!=="brand"&&st.brands.size&&!st.brands.has(p.brand))return false;
+  if(skip!=="price"&&!inBand(p))return false;
+  if(skip!=="offers"&&st.offers&&!p.was)return false; return true; }
+function sorted(l){ const a=[...l]; switch(st.sort){
+  case"price-asc":return a.sort((x,y)=>x.price-y.price);
+  case"price-desc":return a.sort((x,y)=>y.price-x.price);
+  case"discount":return a.sort((x,y)=>pct(y.price,y.was)-pct(x.price,x.was));
+  case"name":return a.sort((x,y)=>Shell.nm(x).localeCompare(Shell.nm(y),Shell.lang));
+  default:return a.sort((x,y)=>x.rank-y.rank); } }
+function countBy(key,skip){ const m=new Map();
+  for(const p of UCP.products){ if(!match(p,skip))continue; const k=key(p);
+    if(k===undefined||k===null)continue; m.set(k,(m.get(k)||0)+1);} return m; }
+const nActive=()=>(st.cat?1:0)+st.brands.size+st.price.size+(st.offers?1:0);
+function renderSheet(){ const T=t2(),n=Shell.nm;
+  const bc=countBy((p)=>p.brand,"brand");
+  const ranked=[...bc.entries()].filter(([id,k])=>id&&k>0).sort((a,b)=>b[1]-a[1]);
+  const sel=ranked.filter(([id])=>st.brands.has(id));
+  const rest=ranked.filter(([id])=>!st.brands.has(id)).slice(0,Math.max(0,16-sel.length));
+  const pc=countBy((p)=>{const b=BANDS.find((x)=>p.price>=x.min&&p.price<x.max);return b?b.id:undefined;},"price");
+  const offerN=UCP.products.filter((p)=>match(p,"offers")&&p.was).length;
+  const opt=(k,v,l,c,on)=>'<button class="opt" data-f="'+k+'" data-v="'+v+'" aria-pressed="'+on+'">'+l+' <span class="num" style="opacity:.55">'+c+'</span></button>';
+  set("shBody",
+    '<div class="grp"><h4>'+T.brand+'</h4><div class="opts">'
+    +sel.concat(rest).map(([id,k])=>opt("brand",id,esc2((brand(id)||{}).en||"—"),k,st.brands.has(id))).join('')+'</div></div>'
+    +'<div class="grp"><h4>'+T.price+'</h4><div class="opts">'
+    +BANDS.map((b)=>opt("price",b.id,n(b),pc.get(b.id)||0,st.price.has(b.id))).join('')+'</div></div>'
+    +'<div class="grp"><div class="opts">'+opt("offers","1",T.offer,offerN,st.offers)+'</div></div>'); }
+function render(){ const T=t2(),C=ctx(),n=Shell.nm; renderChrome();
+  const cat=st.cat?CATEG.get(st.cat):null;
+  set("pTitle",cat?n(cat):C.all); set("pSub",T.sub);
+  const cc=countBy((p)=>p.cat,"cat");
+  set("index",'<a href="#" data-cat=""'+(!st.cat?' class="on"':'')+'>'+C.all+'<sup class="num">'+UCP.products.length+'</sup></a>'
+    +UCP.categories.map((c)=>'<a href="#" data-cat="'+c.id+'"'+(st.cat===c.id?' class="on"':'')+'>'+n(c)+'<sup class="num">'+(cc.get(c.id)||0)+'</sup></a>').join(''));
+  const list=sorted(UCP.products.filter((p)=>match(p)));
+  const page=list.slice(0,st.shown);
+  set("count",'<b class="num">'+list.length+'</b> '+C.results);
+  document.getElementById("fOpen").innerHTML=ic("menu",14)+' '+T.filters+(nActive()?' ('+nActive()+')':'');
+  const sEl=document.getElementById("sort");
+  sEl.innerHTML=SORTS.map((s)=>'<option value="'+s+'"'+(s===st.sort?' selected':'')+'>'+T[s]+'</option>').join('');
+  document.getElementById("sortLb").textContent=T.sort;
+  document.getElementById("shT").textContent=T.filters;
+  document.getElementById("shDone").textContent=T.done;
+  const bits=[]; for(const id of st.brands)bits.push(["brand",id,(brand(id)||{}).en||id]);
+  for(const id of st.price){const b=BANDS.find((x)=>x.id===id); if(b)bits.push(["price",id,n(b)]);}
+  if(st.offers)bits.push(["offers","1",T.offer]);
+  set("active",bits.length?bits.map(([k,v,l])=>'<button class="ftag" data-rm="'+k+'" data-v="'+v+'">'+esc2(l)+'<span class="x">'+ic("close",11)+'</span></button>').join('')
+    +'<button class="ftag clear" data-clear>'+C.clear+'</button>':"");
+  set("grid",page.length?page.map(ptile).join(''):'');
+  if(!page.length)set("grid",'<div class="emptybox" style="grid-column:1/-1"><h3>'+C.empty+'</h3><p>'+T.emptyP+'</p></div>');
+  set("more",list.length>st.shown?'<button class="loadmore" id="moreBtn">'+T.more+' <span class="num">('+(list.length-st.shown)+')</span></button>':'');
+  renderSheet(); }
+const upd=()=>{writeUrl();render();};
+const sheet=(on)=>{document.getElementById("sheet").classList.toggle("on",on);
+  document.getElementById("scrim").classList.toggle("on",on);
+  document.body.style.overflow=on?"hidden":"";};
+document.addEventListener("click",(e)=>{
+  const c=e.target.closest("[data-cat]");
+  if(c){e.preventDefault();st.cat=c.dataset.cat||null;st.shown=PER;return upd();}
+  const f=e.target.closest("[data-f]");
+  if(f){const k=f.dataset.f,v=f.dataset.v,on=f.getAttribute("aria-pressed")==="true";st.shown=PER;
+    if(k==="brand")on?st.brands.delete(v):st.brands.add(v);
+    if(k==="price")on?st.price.delete(v):st.price.add(v);
+    if(k==="offers")st.offers=!on; return upd();}
+  const r=e.target.closest("[data-rm]");
+  if(r){const k=r.dataset.rm,v=r.dataset.v;st.shown=PER;
+    if(k==="brand")st.brands.delete(v); if(k==="price")st.price.delete(v);
+    if(k==="offers")st.offers=false; return upd();}
+  if(e.target.closest("[data-clear]")){st.brands.clear();st.price.clear();st.offers=false;st.shown=PER;return upd();}
+  if(e.target.closest("#moreBtn")){st.shown+=PER;return upd();}
+  if(e.target.closest("#fOpen"))return sheet(true);
+  if(e.target.closest("#shDone")||e.target.closest("#scrim"))return sheet(false);
+});
+document.getElementById("sort").addEventListener("change",(e)=>{st.sort=e.target.value;st.shown=PER;upd();});
+document.addEventListener("keydown",(e)=>{if(e.key==="Escape")sheet(false);});
+window.addEventListener("popstate",()=>{readUrl();render();});
+mountChrome(); initCart(null); Shell.onRender(render); Shell.wire(); readUrl(); Shell.setLang("ar");
+</script>
+</body></html>

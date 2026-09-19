@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — السلة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="editorial.css">
+</head>
+<body>
+<main><div class="wrap">
+  <div class="phead" style="text-align:start"><h1 id="pTitle"></h1><p class="sub" id="pSub"></p></div>
+  <div class="twocol"><div><div id="lines"></div><div id="recs"></div></div>
+  <aside id="sum"></aside></div>
+</div></main>
+<script src="catalogue.js"></script>
+<script src="ucp.js"></script>
+<script src="editorial.js"></script>
+<script>
+/* CART. Totals are computed, not drawn. Free delivery over 150 is a
+   PLACEHOLDER RULE — UCP's real threshold is in no file we hold — and the
+   summary says so rather than presenting it as policy. */
+const FREE=150, FEE=15;
+const T2={ ar:{ title:"سلة التسوق", sub:"الأسعار تجريبية", empty:"سلتك فارغة",
+  emptyP:"تصفّح الفئات وأضف ما تحتاجه.", browse:"ابدأ التسوق", checkout:"إتمام الطلب",
+  recs:"قد يعجبك أيضًا", items:"منتج",
+  note:"التوصيل مجاني فوق ١٥٠ ﷼ — عتبة تجريبية في هذا النموذج" },
+  en:{ title:"Your cart", sub:"Prices are placeholder", empty:"Your cart is empty",
+  emptyP:"Browse the categories and add what you need.", browse:"Start shopping", checkout:"Checkout",
+  recs:"You might also like", items:"items",
+  note:"Free delivery over 150 SAR — a placeholder threshold in this prototype" } };
+const t2=()=>T2[Shell.lang];
+function render(){ const T=t2(),C=ctx(),n=Shell.nm; renderChrome();
+  set("pTitle",T.title); set("pSub",T.sub);
+  const lines=Shell.cart.map((l)=>({p:prod(l.id),q:l.q})).filter((x)=>x.p);
+  if(!lines.length){ set("lines",'<div class="emptybox"><h3>'+T.empty+'</h3><p>'+T.emptyP+'</p>'
+      +'<p style="margin-top:18px"><a href="category.html" style="border-bottom:1px solid currentColor">'+T.browse+'</a></p></div>');
+    set("sum",""); set("recs",""); return; }
+  set("lines",lines.map(({p,q})=>{ const b=brand(p.brand);
+    return '<div class="line"><a class="th" href="'+pdp(p)+'">'+shot(p)+'</a>'
+      +'<div class="who">'+(b?'<div class="b">'+esc2(n(b))+'</div>':'')
+      +'<a class="t" href="'+pdp(p)+'">'+esc2(n(p))+'</a></div>'
+      +'<div class="stepper"><button data-q="-1" data-id="'+p.id+'" aria-label="-">'+ic("minus",14)+'</button>'
+      +'<span class="q num">'+q+'</span>'
+      +'<button data-q="1" data-id="'+p.id+'" aria-label="+">'+ic("plus",14)+'</button></div>'
+      +'<div class="money">'+riyal(p.price*q)+'</div>'
+      +'<button class="rm" data-rmid="'+p.id+'" aria-label="remove">'+ic("close",15)+'</button></div>'; }).join(''));
+  const sub=Shell.subtotal(), fee=sub>=FREE?0:FEE;
+  set("sum",'<div class="sumbox"><h2>'+T.title+' · <span class="num">'+Shell.count()+'</span> '+T.items+'</h2>'
+    +'<div class="sumrow"><span>'+C.subtotal+'</span><span>'+riyal(sub)+'</span></div>'
+    +'<div class="sumrow"><span>'+C.delivery+'</span><span>'+(fee?riyal(fee):C.free)+'</span></div>'
+    +'<div class="sumrow tot"><span>'+C.total+'</span><span>'+riyal(sub+fee)+'</span></div>'
+    +'<a class="go" href="checkout.html">'+T.checkout+'</a>'
+    +'<p class="note">'+T.note+'</p></div>');
+  const inCart=new Set(Shell.cart.map((l)=>l.id));
+  const recs=UCP.products.filter((p)=>!inCart.has(p.id)&&p.cat===lines[0].p.cat).slice(0,6);
+  set("recs",recs.length?'<div class="eyebrow" style="margin-top:40px">'+T.recs+'</div>'
+    +'<div class="prow" style="margin-top:14px">'+recs.map(ptile).join('')+'</div>':''); }
+document.addEventListener("click",(e)=>{ const r=e.target.closest("[data-rmid]");
+  if(r){const id=r.dataset.rmid;Shell.setQty(id,-Shell.qtyOf(id));} });
+mountChrome(); initCart(["s100009","s100002","s100120"]);
+Shell.onRender(render); Shell.wire(); Shell.setLang("ar");
+</script>
+</body></html>

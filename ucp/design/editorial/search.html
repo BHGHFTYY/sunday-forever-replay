@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — البحث</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="editorial.css">
+</head>
+<body>
+<main><div class="wrap" style="max-width:860px">
+  <div class="phead" style="text-align:start"><h1 id="pTitle"></h1></div>
+  <div class="field" style="margin-top:8px"><input id="bs" type="search" autocomplete="off" style="border-radius:999px;padding:16px 22px;font-size:15px"></div>
+  <div id="panels"></div>
+</div></main>
+<script src="catalogue.js"></script>
+<script src="ucp.js"></script>
+<script src="editorial.js"></script>
+<script>
+/* SEARCH. "Recent" is real per-browser history in sessionStorage. "Popular"
+   is the catalogue's largest categories, not an invented trending list —
+   inventing what Saudi shoppers search for would be fabricated business data. */
+const KEY="ucp.ed.recent.v1";
+const T2={ ar:{ title:"البحث", ph:"ابحث بالاسم أو العلامة التجارية", recent:"عمليات بحث سابقة",
+  popular:"الأكثر تصفّحًا", quick:"نتائج", brands:"العلامات", none:"لا توجد نتائج لـ", clr:"مسح" },
+  en:{ title:"Search", ph:"Search by name or brand", recent:"Recent searches",
+  popular:"Most browsed", quick:"Results", brands:"Brands", none:"No results for", clr:"Clear" } };
+const t2=()=>T2[Shell.lang];
+let q="";
+const rec={ read(){try{return JSON.parse(sessionStorage.getItem(KEY))||[];}catch{return[];}},
+  add(t){ if(!t||t.length<2)return; try{ sessionStorage.setItem(KEY,JSON.stringify([t,...this.read().filter((x)=>x!==t)].slice(0,6)));}catch{} },
+  clear(){try{sessionStorage.removeItem(KEY);}catch{}} };
+function results(term){ const s=term.trim().toLowerCase(); if(s.length<2)return null;
+  const hit=(p)=>(p.title+" "+((brand(p.brand)||{}).en||"")).toLowerCase().includes(s);
+  const all=UCP.products.filter(hit);
+  return { products:all.slice(0,24), total:all.length,
+           brands:UCP.brands.filter((b)=>b.en.toLowerCase().includes(s)).slice(0,8) }; }
+function render(){ const T=t2(),C=ctx(),n=Shell.nm; renderChrome();
+  set("pTitle",T.title);
+  const i=document.getElementById("bs"); i.placeholder=T.ph; if(i.value!==q)i.value=q;
+  const r=results(q);
+  if(r){ set("panels",
+    '<div class="eyebrow" style="margin-top:30px">'+T.quick+' — <span class="num">'+r.total+'</span> '+C.results+'</div>'
+    +(r.products.length?'<div class="pgrid" style="margin-top:14px">'+r.products.map(ptile).join('')+'</div>'
+      :'<div class="emptybox"><h3>'+T.none+' "'+esc2(q)+'"</h3></div>')
+    +(r.brands.length?'<div class="eyebrow" style="margin-top:40px">'+T.brands+'</div><div class="index" style="margin-top:10px">'
+      +r.brands.map((b)=>'<a href="category.html?brand='+b.id+'">'+esc2(b.en)+'<sup class="num">'+b.n+'</sup></a>').join('')+'</div>':''));
+    return; }
+  const rr=rec.read(), pop=[...UCP.categories].sort((a,b)=>b.n-a.n).slice(0,6);
+  set("panels",
+    (rr.length?'<div class="eyebrow" style="margin-top:30px">'+T.recent
+      +' <button id="clr" style="color:var(--orange-700);font-size:11px;border-bottom:1px solid currentColor">'+T.clr+'</button></div>'
+      +'<div class="active-filters">'+rr.map((t)=>'<button class="ftag" data-term="'+esc2(t)+'">'+esc2(t)+'</button>').join('')+'</div>':'')
+    +'<div class="eyebrow" style="margin-top:34px">'+T.popular+'</div><div class="index" style="margin-top:10px">'
+      +pop.map((c)=>'<a href="category.html?cat='+c.id+'">'+n(c)+'<sup class="num">'+c.n+'</sup></a>').join('')+'</div>'
+    +'<div class="eyebrow" style="margin-top:40px">'+C.all+'</div><div class="pgrid" style="margin-top:14px">'
+      +Shell.list("top").slice(0,8).map(ptile).join('')+'</div>'); }
+let tm; document.getElementById("bs").addEventListener("input",(e)=>{ q=e.target.value;
+  clearTimeout(tm); tm=setTimeout(()=>{ if(q.trim().length>=2)rec.add(q.trim()); render(); },220); });
+document.addEventListener("click",(e)=>{ const t=e.target.closest("[data-term]");
+  if(t){q=t.dataset.term;return render();} if(e.target.closest("#clr")){rec.clear();return render();} });
+mountChrome(); initCart(null); Shell.onRender(render); Shell.wire(); Shell.setLang("ar");
+</script>
+</body></html>

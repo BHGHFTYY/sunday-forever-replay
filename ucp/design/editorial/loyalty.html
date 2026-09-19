@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>UCP — الولاء</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="editorial.css">
+</head>
+<body>
+<main><div class="wrap">
+  <div class="phead" style="text-align:start"><h1 id="pTitle"></h1><p class="sub" id="pSub"></p></div>
+  <div class="bigstat" id="stat"></div>
+  <div class="trio3" id="trio"></div>
+  <div class="eyebrow" style="margin-top:44px" id="histT"></div>
+  <div class="hist" id="hist"></div>
+  <p class="sub" id="note" style="margin-top:24px;font-size:12px"></p>
+</div></main>
+<script src="catalogue.js"></script>
+<script src="ucp.js"></script>
+<script src="editorial.js"></script>
+<script>
+/* LOYALTY. Every number here is ILLUSTRATIVE and the page says so. UCP's real
+   tiers, earn rate and balances are in nothing we have been given, and
+   inventing a rewards scheme a customer might act on is a business claim this
+   must not make. */
+const T2={ ar:{ title:"نادي UCP", sub:"اكسب نقاطًا مع كل طلب واستبدلها كخصم.",
+  pts:"نقطة", tier:"مستواك", tierV:"ذهبي", earn:"معدّل الكسب", earnV:"١ ﷼ = ١ نقطة",
+  redeem:"الاستبدال", redeemV:"من ٥٠٠ نقطة", hist:"سجل النقاط",
+  rows:[["طلب ‎#48210","+42"],["مكافأة تسجيل يومي","+5"],["طلب ‎#48176","+118"],["استبدال خصم ١٠ ﷼","−100"]],
+  note:"جميع الأرقام في هذه الصفحة توضيحية. البرنامج الفعلي يأتي من نظام UCP." },
+  en:{ title:"UCP Club", sub:"Earn points on every order and spend them as a discount.",
+  pts:"points", tier:"Your tier", tierV:"Gold", earn:"Earn rate", earnV:"1 SAR = 1 point",
+  redeem:"Redeem", redeemV:"From 500 points", hist:"Points history",
+  rows:[["Order #48210","+42"],["Daily login bonus","+5"],["Order #48176","+118"],["Redeemed 10 SAR off","−100"]],
+  note:"Every figure on this page is illustrative. The real programme comes from UCP's system." } };
+const t2=()=>T2[Shell.lang];
+function render(){ const T=t2(); renderChrome();
+  set("pTitle",T.title); set("pSub",T.sub);
+  set("stat",'<b class="num">1,340</b><span class="u">'+T.pts+'</span>');
+  set("trio",[[T.tier,T.tierV],[T.earn,T.earnV],[T.redeem,T.redeemV]]
+    .map(([k,v])=>'<div class="c"><div class="k">'+k+'</div><div class="v">'+v+'</div></div>').join(''));
+  set("histT",T.hist);
+  set("hist",T.rows.map(([l,d])=>'<div class="r"><span>'+l+'</span><span class="d num">'+d+'</span></div>').join(''));
+  set("note",T.note); }
+mountChrome(); initCart(null); Shell.onRender(render); Shell.wire(); Shell.setLang("ar");
+</script>
+</body></html>
