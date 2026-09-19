@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-18T01:37:46.389987+00:00",
+  "fetched_at": "2026-09-19T04:24:36.117512+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -3409,7 +3409,7 @@
     "12844": {
       "name": "Ricky Barber",
       "position": "DT",
-      "team": "WAS"
+      "team": null
     },
     "364": {
       "name": "Ryan Mundy",
@@ -10754,7 +10754,7 @@
     "13749": {
       "name": "Kole Wilson",
       "position": "WR",
-      "team": "CLE"
+      "team": null
     },
     "8348": {
       "name": "Kerby Joseph",
@@ -11749,7 +11749,7 @@
     "13872": {
       "name": "Jaxson Moi",
       "position": "DT",
-      "team": null
+      "team": "LAR"
     },
     "8699": {
       "name": "Cyrus Holder",
@@ -13884,7 +13884,7 @@
     "13816": {
       "name": "Mark Gronowski",
       "position": "QB",
-      "team": "HOU"
+      "team": null
     },
     "5104": {
       "name": "Scott Quessenberry",
@@ -24879,7 +24879,7 @@
     "13882": {
       "name": "Ryan Schernecke",
       "position": "OL",
-      "team": "NYG"
+      "team": null
     },
     "11848": {
       "name": "Casey Bauman",
@@ -56234,7 +56234,7 @@
     "13966": {
       "name": "Jacob Rizy",
       "position": "OL",
-      "team": "NE"
+      "team": null
     },
     "1978": {
       "name": "Tony Washington",
@@ -57117,7 +57117,7 @@
       "team": "MIA"
     },
     "8926": {
-      "name": "Xavier Newman",
+      "name": "Xavier Newman-Johnson",
       "position": "OL",
       "team": "NE"
     },
@@ -60094,7 +60094,7 @@
     "11395": {
       "name": "Keidron Smith",
       "position": "DB",
-      "team": null
+      "team": "CHI"
     },
     "13231": {
       "name": "Luke Felix-Fualalo",
