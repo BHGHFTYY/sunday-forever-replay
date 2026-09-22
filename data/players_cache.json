@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-21T10:14:29.399805+00:00",
+  "fetched_at": "2026-09-22T14:33:45.758545+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -10074,7 +10074,7 @@
     "10981": {
       "name": "Colby Sorsdal",
       "position": "OL",
-      "team": null
+      "team": "ATL"
     },
     "6410": {
       "name": "Brian Wallace",
@@ -10614,7 +10614,7 @@
     "1339": {
       "name": "Zach Ertz",
       "position": "TE",
-      "team": null
+      "team": "PHI"
     },
     "8329": {
       "name": "Devin Lloyd",
@@ -35359,7 +35359,7 @@
     "11041": {
       "name": "Andre Jones",
       "position": "DE",
-      "team": "BUF"
+      "team": "MIA"
     },
     "13720": {
       "name": "Ceyair Wright",
@@ -37704,7 +37704,7 @@
     "3388": {
       "name": "Jalen Mills",
       "position": "CB",
-      "team": null
+      "team": "DET"
     },
     "7456": {
       "name": "Benning Potoa'e",
@@ -54164,7 +54164,7 @@
     "6149": {
       "name": "Darius Slayton",
       "position": "WR",
-      "team": null
+      "team": "IND"
     },
     "13248": {
       "name": "Christian Johnstone",
