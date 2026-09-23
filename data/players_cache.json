@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-22T14:33:45.758545+00:00",
+  "fetched_at": "2026-09-23T14:49:20.094664+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -3254,7 +3254,7 @@
     "7974": {
       "name": "Nick McCloud",
       "position": "CB",
-      "team": null
+      "team": "CHI"
     },
     "4585": {
       "name": "Anthony Nash",
@@ -3324,7 +3324,7 @@
     "11281": {
       "name": "Liam Anderson",
       "position": "LB",
-      "team": "MIA"
+      "team": null
     },
     "12081": {
       "name": "Dyshawn Gales",
@@ -4764,7 +4764,7 @@
     "12374": {
       "name": "Brenden Bates",
       "position": "TE",
-      "team": null
+      "team": "JAX"
     },
     "5645": {
       "name": "Nick Gates",
@@ -5709,7 +5709,7 @@
     "13866": {
       "name": "Luke Basso",
       "position": "LS",
-      "team": null
+      "team": "MIA"
     },
     "1242": {
       "name": "Bruce Irvin",
@@ -5999,7 +5999,7 @@
     "2197": {
       "name": "Brandin Cooks",
       "position": "WR",
-      "team": null
+      "team": "SF"
     },
     "645": {
       "name": "Dwan Edwards",
@@ -9539,7 +9539,7 @@
     "7268": {
       "name": "Krys Barnes",
       "position": "LB",
-      "team": null
+      "team": "CLE"
     },
     "11921": {
       "name": "Xavier Weaver",
@@ -9614,7 +9614,7 @@
     "1202": {
       "name": "Johnny Hekker",
       "position": "P",
-      "team": null
+      "team": "MIN"
     },
     "13557": {
       "name": "Athan Kaliakmanis",
@@ -11894,7 +11894,7 @@
     "12282": {
       "name": "C.J. Ravenell",
       "position": "DL",
-      "team": null
+      "team": "NYG"
     },
     "1094": {
       "name": "Mike Martin",
@@ -14359,7 +14359,7 @@
     "9999": {
       "name": "Will Levis",
       "position": "QB",
-      "team": null
+      "team": "NYJ"
     },
     "3968": {
       "name": "Norv Turner",
@@ -15594,7 +15594,7 @@
     "7833": {
       "name": "Isaiahh Loudermilk",
       "position": "DE",
-      "team": null
+      "team": "NYJ"
     },
     "5364": {
       "name": "Joshua Frazier",
@@ -17334,7 +17334,7 @@
     "12695": {
       "name": "Robert Longerbeam",
       "position": "DB",
-      "team": "PHI"
+      "team": "ATL"
     },
     "8225": {
       "name": "Daniel Bellinger",
@@ -18884,7 +18884,7 @@
     "13680": {
       "name": "Bishop Fitzgerald",
       "position": "DB",
-      "team": "PIT"
+      "team": "DET"
     },
     "12843": {
       "name": "Trey Rucker",
@@ -24879,7 +24879,7 @@
     "13882": {
       "name": "Ryan Schernecke",
       "position": "OL",
-      "team": null
+      "team": "NYG"
     },
     "11848": {
       "name": "Casey Bauman",
@@ -25179,7 +25179,7 @@
     "6920": {
       "name": "Isaiah Hodgins",
       "position": "WR",
-      "team": null
+      "team": "PIT"
     },
     "2187": {
       "name": "Kony Ealy",
@@ -28159,7 +28159,7 @@
     "14023": {
       "name": "Jaden Keller",
       "position": "LB",
-      "team": null
+      "team": "NYJ"
     },
     "13925": {
       "name": "Jacob Graham",
@@ -28364,7 +28364,7 @@
     "10990": {
       "name": "Darius Rush",
       "position": "DB",
-      "team": null
+      "team": "PIT"
     },
     "13946": {
       "name": "Jamal Haynes",
@@ -34669,7 +34669,7 @@
     "11257": {
       "name": "Shedrick Jackson",
       "position": "WR",
-      "team": null
+      "team": "BAL"
     },
     "4008": {
       "name": "Greg Manusky",
@@ -38959,7 +38959,7 @@
     "8849": {
       "name": "Tanner Conner",
       "position": "TE",
-      "team": null
+      "team": "NE"
     },
     "8159": {
       "name": "Desmond Ridder",
@@ -39564,7 +39564,7 @@
     "13700": {
       "name": "James Brockermeyer",
       "position": "C",
-      "team": "ATL"
+      "team": null
     },
     "535": {
       "name": "T.J. Ward",
@@ -40469,7 +40469,7 @@
     "13834": {
       "name": "Cody Hardy",
       "position": "TE",
-      "team": null
+      "team": "NYJ"
     },
     "7417": {
       "name": "James Lockhart",
@@ -44909,7 +44909,7 @@
     "4427": {
       "name": "Kenny Moore",
       "position": "CB",
-      "team": null
+      "team": "PHI"
     },
     "5805": {
       "name": "Jacob Ohnesorge",
@@ -46339,7 +46339,7 @@
     "12389": {
       "name": "Hayden Rucci",
       "position": "TE",
-      "team": "JAX"
+      "team": "LAC"
     },
     "318": {
       "name": "Chris Long",
@@ -46754,7 +46754,7 @@
     "7537": {
       "name": "Jaret Patterson",
       "position": "RB",
-      "team": null
+      "team": "MIN"
     },
     "12471": {
       "name": "DJ Giddens",
@@ -48759,7 +48759,7 @@
     "4959": {
       "name": "Scott Daly",
       "position": "LS",
-      "team": "NO"
+      "team": "CHI"
     },
     "5367": {
       "name": "Shaun Dion Hamilton",
@@ -50109,7 +50109,7 @@
     "7559": {
       "name": "Ihmir Smith-Marsette",
       "position": "WR",
-      "team": null
+      "team": "CAR"
     },
     "11536": {
       "name": "Milton Wright",
@@ -60914,7 +60914,7 @@
     "12754": {
       "name": "Drew Moss",
       "position": "OL",
-      "team": null
+      "team": "TEN"
     },
     "6832": {
       "name": "Kalija Lipscomb",
