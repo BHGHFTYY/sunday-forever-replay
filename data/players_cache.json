@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-23T14:49:20.094664+00:00",
+  "fetched_at": "2026-09-24T18:42:22.906463+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -1904,7 +1904,7 @@
     "6476": {
       "name": "D'Angelo Ross",
       "position": "DB",
-      "team": null
+      "team": "CLE"
     },
     "3005": {
       "name": "Lavon Hooks",
@@ -2474,7 +2474,7 @@
     "11579": {
       "name": "Audric Estime",
       "position": "RB",
-      "team": "NO"
+      "team": null
     },
     "12584": {
       "name": "Darien Porter",
@@ -3324,7 +3324,7 @@
     "11281": {
       "name": "Liam Anderson",
       "position": "LB",
-      "team": null
+      "team": "MIA"
     },
     "12081": {
       "name": "Dyshawn Gales",
@@ -4919,7 +4919,7 @@
     "13805": {
       "name": "E.J. Williams",
       "position": "WR",
-      "team": "CAR"
+      "team": null
     },
     "1008": {
       "name": "Donald Butler",
@@ -4994,7 +4994,7 @@
     "6045": {
       "name": "Gary Jennings",
       "position": "WR",
-      "team": "LAC"
+      "team": null
     },
     "13133": {
       "name": "Mason Narcisse",
@@ -5494,7 +5494,7 @@
     "7853": {
       "name": "Naquan Jones",
       "position": "DT",
-      "team": "MIN"
+      "team": "SF"
     },
     "12842": {
       "name": "Timothy McKay",
@@ -6164,7 +6164,7 @@
     "8785": {
       "name": "Cal Adomitis",
       "position": "LS",
-      "team": "MIA"
+      "team": "NO"
     },
     "2139": {
       "name": "Adrian Hubbard",
@@ -8084,7 +8084,7 @@
     "11930": {
       "name": "Taki Taimani",
       "position": "DL",
-      "team": "MIN"
+      "team": null
     },
     "4898": {
       "name": "Christian Schneider",
@@ -8344,7 +8344,7 @@
     "6946": {
       "name": "Myles Bryant",
       "position": "DB",
-      "team": "CLE"
+      "team": null
     },
     "PIT": {
       "name": "Pittsburgh Steelers",
@@ -18634,7 +18634,7 @@
     "8157": {
       "name": "Bailey Zappe",
       "position": "QB",
-      "team": "NYJ"
+      "team": null
     },
     "13960": {
       "name": "Ja'Qurious Conley",
@@ -19789,7 +19789,7 @@
     "12909": {
       "name": "Eli Pancol",
       "position": "WR",
-      "team": null
+      "team": "IND"
     },
     "7169": {
       "name": "Jace Whittaker",
@@ -21639,7 +21639,7 @@
     "13690": {
       "name": "Uso Seumalo",
       "position": "DT",
-      "team": null
+      "team": "SEA"
     },
     "1310": {
       "name": "Tom Compton",
@@ -24104,7 +24104,7 @@
     "6467": {
       "name": "Jonathan Harris",
       "position": "DT",
-      "team": null
+      "team": "MIN"
     },
     "7706": {
       "name": "Josh Ball",
@@ -25129,7 +25129,7 @@
     "11717": {
       "name": "Elijah Jones",
       "position": "DB",
-      "team": "NYG"
+      "team": null
     },
     "13300": {
       "name": "Le'Veon Moss",
@@ -25514,7 +25514,7 @@
     "12054": {
       "name": "Jimmy Ciarlo",
       "position": "LB",
-      "team": "TEN"
+      "team": null
     },
     "7925": {
       "name": "Jerome Johnson",
@@ -28269,7 +28269,7 @@
     "10942": {
       "name": "Viliami Fehoko",
       "position": "DL",
-      "team": null
+      "team": "SF"
     },
     "3370": {
       "name": "Joey Hunt",
@@ -30114,7 +30114,7 @@
     "12071": {
       "name": "Gabe Hall",
       "position": "DT",
-      "team": "PHI"
+      "team": null
     },
     "8335": {
       "name": "Kolby Harvell-Peel",
@@ -31319,7 +31319,7 @@
     "14041": {
       "name": "Anderson Castle",
       "position": "RB",
-      "team": "IND"
+      "team": null
     },
     "12904": {
       "name": "Sal Wormley",
@@ -33679,7 +33679,7 @@
     "12384": {
       "name": "Kingsley Eguakun",
       "position": "OL",
-      "team": "NYG"
+      "team": null
     },
     "14039": {
       "name": "Mante Morrow",
@@ -36724,7 +36724,7 @@
     "14058": {
       "name": "Malick Meiga",
       "position": "WR",
-      "team": null
+      "team": "SEA"
     },
     "8458": {
       "name": "Dylan Parham",
@@ -38244,7 +38244,7 @@
     "3560": {
       "name": "Austin Johnson",
       "position": "DT",
-      "team": null
+      "team": "BUF"
     },
     "719": {
       "name": "Victor Cruz",
@@ -39179,7 +39179,7 @@
     "12763": {
       "name": "Jakob Robinson",
       "position": "CB",
-      "team": "SF"
+      "team": null
     },
     "2566": {
       "name": "Tyler Varga",
@@ -40184,7 +40184,7 @@
     "13857": {
       "name": "Bryce Phillips",
       "position": "DB",
-      "team": "MIN"
+      "team": null
     },
     "6793": {
       "name": "Tristan Wirfs",
@@ -40499,7 +40499,7 @@
     "12737": {
       "name": "Jay Toia",
       "position": "DT",
-      "team": null
+      "team": "ARI"
     },
     "5150": {
       "name": "Heath Harding",
@@ -41534,7 +41534,7 @@
     "12865": {
       "name": "AJ Henning",
       "position": "WR",
-      "team": null
+      "team": "MIA"
     },
     "1769": {
       "name": "Jeff Adams",
@@ -42409,7 +42409,7 @@
     "12057": {
       "name": "Maema Njongmeta",
       "position": "LB",
-      "team": null
+      "team": "CAR"
     },
     "12190": {
       "name": "Jason Bean",
@@ -42514,7 +42514,7 @@
     "8746": {
       "name": "Benton Whitley",
       "position": "DE",
-      "team": null
+      "team": "NE"
     },
     "12779": {
       "name": "Christian Dowell",
@@ -45389,7 +45389,7 @@
     "13715": {
       "name": "Beau Gardner",
       "position": "LS",
-      "team": "CHI"
+      "team": null
     },
     "6152": {
       "name": "Khari Willis",
@@ -49526,6 +49526,11 @@
       "position": "LB",
       "team": null
     },
+    "14089": {
+      "name": "Spencer Triplett",
+      "position": "LS",
+      "team": "LAC"
+    },
     "7452": {
       "name": "Josh Pearson",
       "position": "WR",
@@ -50764,7 +50769,7 @@
     "14038": {
       "name": "Trayvon Rudolph",
       "position": "WR",
-      "team": "MIN"
+      "team": null
     },
     "12377": {
       "name": "Anthony Averett",
@@ -51279,7 +51284,7 @@
     "11891": {
       "name": "Kyle Hergel",
       "position": "OL",
-      "team": "CHI"
+      "team": null
     },
     "7478": {
       "name": "Luther Kirk",
@@ -51329,7 +51334,7 @@
     "13877": {
       "name": "Maximus Pulley",
       "position": "DB",
-      "team": "PHI"
+      "team": "LAR"
     },
     "1247": {
       "name": "Griff Whalen",
