@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-24T18:42:22.906463+00:00",
+  "fetched_at": "2026-09-25T19:14:09.734314+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -4994,7 +4994,7 @@
     "6045": {
       "name": "Gary Jennings",
       "position": "WR",
-      "team": null
+      "team": "LAC"
     },
     "13133": {
       "name": "Mason Narcisse",
@@ -5709,7 +5709,7 @@
     "13866": {
       "name": "Luke Basso",
       "position": "LS",
-      "team": "MIA"
+      "team": null
     },
     "1242": {
       "name": "Bruce Irvin",
@@ -8659,7 +8659,7 @@
     "13676": {
       "name": "Deshawn McKnight",
       "position": "DL",
-      "team": "TB"
+      "team": null
     },
     "14035": {
       "name": "Eric O'Neill",
@@ -28089,7 +28089,7 @@
     "11829": {
       "name": "Solomon Byrd",
       "position": "DE",
-      "team": null
+      "team": "HOU"
     },
     "7735": {
       "name": "Cary Angeline",
@@ -32159,7 +32159,7 @@
     "7830": {
       "name": "Shaun Wade",
       "position": "CB",
-      "team": null
+      "team": "PHI"
     },
     "13085": {
       "name": "Kole Taylor",
@@ -39999,7 +39999,7 @@
     "6290": {
       "name": "Scotty Miller",
       "position": "WR",
-      "team": "CHI"
+      "team": null
     },
     "13150": {
       "name": "Darius Cooper",
@@ -45389,7 +45389,7 @@
     "13715": {
       "name": "Beau Gardner",
       "position": "LS",
-      "team": null
+      "team": "CHI"
     },
     "6152": {
       "name": "Khari Willis",
@@ -49529,7 +49529,7 @@
     "14089": {
       "name": "Spencer Triplett",
       "position": "LS",
-      "team": "LAC"
+      "team": null
     },
     "7452": {
       "name": "Josh Pearson",
