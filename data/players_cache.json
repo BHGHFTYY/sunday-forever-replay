@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-25T19:14:09.734314+00:00",
+  "fetched_at": "2026-09-26T20:18:15.958212+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -11749,7 +11749,7 @@
     "13872": {
       "name": "Jaxson Moi",
       "position": "DT",
-      "team": "LAR"
+      "team": null
     },
     "8699": {
       "name": "Cyrus Holder",
@@ -14674,7 +14674,7 @@
     "12946": {
       "name": "Dontae Fleming",
       "position": "WR",
-      "team": "MIN"
+      "team": null
     },
     "7471": {
       "name": "David Reese",
@@ -21424,7 +21424,7 @@
     "2333": {
       "name": "Laken Tomlinson",
       "position": "OL",
-      "team": "DAL"
+      "team": "GB"
     },
     "7453": {
       "name": "Javon Hagan",
@@ -40139,7 +40139,7 @@
     "12391": {
       "name": "Kenny Dyson",
       "position": "LB",
-      "team": "MIN"
+      "team": null
     },
     "12497": {
       "name": "Tory Horton",
@@ -43534,7 +43534,7 @@
     "12072": {
       "name": "Jacob Roberts",
       "position": "LB",
-      "team": "MIN"
+      "team": null
     },
     "5830": {
       "name": "Sam Eguavoen",
@@ -44329,7 +44329,7 @@
     "12747": {
       "name": "Power Echols",
       "position": "LB",
-      "team": "SEA"
+      "team": null
     },
     "11788": {
       "name": "Christian Mahogany",
@@ -49434,7 +49434,7 @@
     "13611": {
       "name": "Marcus Allen",
       "position": "CB",
-      "team": "MIN"
+      "team": null
     },
     "2332": {
       "name": "Byron Jones",
@@ -50369,7 +50369,7 @@
     "12920": {
       "name": "Dean Clark",
       "position": "DB",
-      "team": "NYJ"
+      "team": null
     },
     "3184": {
       "name": "William Jackson",
@@ -60419,7 +60419,7 @@
     "13035": {
       "name": "Amari Kight",
       "position": "OT",
-      "team": "SEA"
+      "team": null
     },
     "6143": {
       "name": "Marvell Tell",
