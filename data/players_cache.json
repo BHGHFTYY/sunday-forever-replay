@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-27T22:01:08.438210+00:00",
+  "fetched_at": "2026-09-28T23:13:56.684659+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -6584,7 +6584,7 @@
     "13431": {
       "name": "Miles Kitselman",
       "position": "TE",
-      "team": null
+      "team": "DET"
     },
     "13310": {
       "name": "Miller Moss",
@@ -8344,7 +8344,7 @@
     "6946": {
       "name": "Myles Bryant",
       "position": "DB",
-      "team": null
+      "team": "CLE"
     },
     "PIT": {
       "name": "Pittsburgh Steelers",
@@ -9749,7 +9749,7 @@
     "3303": {
       "name": "Matthew Judon",
       "position": "LB",
-      "team": null
+      "team": "SF"
     },
     "4340": {
       "name": "Ondre Pipkins",
@@ -24674,7 +24674,7 @@
     "11565": {
       "name": "J.J. McCarthy",
       "position": "QB",
-      "team": "MIN"
+      "team": "NYG"
     },
     "11057": {
       "name": "Duplicate Player",
@@ -33874,7 +33874,7 @@
     "6862": {
       "name": "Saahdiq Charles",
       "position": "T",
-      "team": null
+      "team": "CAR"
     },
     "5968": {
       "name": "Mark Fields",
@@ -51419,7 +51419,7 @@
     "9490": {
       "name": "Tyler Scott",
       "position": "WR",
-      "team": null
+      "team": "LV"
     },
     "7033": {
       "name": "Debione Renfro",
@@ -52784,7 +52784,7 @@
     "6796": {
       "name": "Mekhi Becton",
       "position": "OT",
-      "team": null
+      "team": "GB"
     },
     "1044": {
       "name": "Cordy Glenn",
