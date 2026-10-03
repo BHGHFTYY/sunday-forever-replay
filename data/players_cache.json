@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-02T01:06:28.783408+00:00",
+  "fetched_at": "2026-10-03T05:05:35.901629+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -4207,7 +4207,7 @@
       "team": "DAL"
     },
     "11436": {
-      "name": "P.J. Mustipher",
+      "name": "PJ Mustipher",
       "position": "NT",
       "team": "NYG"
     },
@@ -8799,7 +8799,7 @@
     "5773": {
       "name": "KhaDarel Hodge",
       "position": "WR",
-      "team": "SF"
+      "team": null
     },
     "3638": {
       "name": "John Tidwell",
@@ -15894,7 +15894,7 @@
     "12041": {
       "name": "Carl Jones",
       "position": "DL",
-      "team": null
+      "team": "BAL"
     },
     "11367": {
       "name": "Daewood Davis",
@@ -28754,7 +28754,7 @@
     "4371": {
       "name": "Josh Tupou",
       "position": "DT",
-      "team": null
+      "team": "NYG"
     },
     "5743": {
       "name": "Michael Cirino",
@@ -33679,7 +33679,7 @@
     "12384": {
       "name": "Kingsley Eguakun",
       "position": "OL",
-      "team": null
+      "team": "ARI"
     },
     "14039": {
       "name": "Mante Morrow",
@@ -43304,7 +43304,7 @@
     "12607": {
       "name": "Jamon Johnson",
       "position": "LB",
-      "team": "BAL"
+      "team": null
     },
     "8602": {
       "name": "Danny Davis",
@@ -49294,7 +49294,7 @@
     "7692": {
       "name": "Kendrick Green",
       "position": "C",
-      "team": null
+      "team": "NYG"
     },
     "14012": {
       "name": "Jahari Rogers",
@@ -53884,7 +53884,7 @@
     "13687": {
       "name": "Marvin Jones",
       "position": "DE",
-      "team": "WAS"
+      "team": null
     },
     "3014": {
       "name": "Darrell Williams",
@@ -57199,7 +57199,7 @@
     "11151": {
       "name": "Tanner Ingle",
       "position": "DB",
-      "team": null
+      "team": "LAR"
     },
     "3151": {
       "name": "Cleyon Laing",
