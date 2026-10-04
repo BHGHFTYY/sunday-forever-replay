@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-03T05:05:35.901629+00:00",
+  "fetched_at": "2026-10-04T05:38:46.734118+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -20239,7 +20239,7 @@
     "8472": {
       "name": "Darian Kinnard",
       "position": "T",
-      "team": "NYG"
+      "team": null
     },
     "2041": {
       "name": "Torrence Allen",
@@ -48259,7 +48259,7 @@
     "11168": {
       "name": "Xavier Smith",
       "position": "WR",
-      "team": "LAR"
+      "team": null
     },
     "5972": {
       "name": "B.J. Autry",
