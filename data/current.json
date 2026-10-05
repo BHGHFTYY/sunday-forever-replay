@@ -1,7 +1,7 @@
 {
   "league_name": "Sunday Forever",
   "my_roster_id": 2,
-  "generated_at": "2026-10-04T21:59:48+00:00",
+  "generated_at": "2026-10-05T00:48:28+00:00",
   "latest_week": 4,
   "weeks": {
     "1": {
@@ -29,7 +29,7 @@
       "my_team_name": "Vision 2030 FC",
       "opponent_team_name": "dabutler10",
       "opponent_roster_id": 3,
-      "snapshot_count": 5,
+      "snapshot_count": 6,
       "file": "data/snapshots_week4.json"
     }
   }
