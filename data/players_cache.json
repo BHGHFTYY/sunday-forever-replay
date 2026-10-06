@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-05T12:33:04.866444+00:00",
+  "fetched_at": "2026-10-06T16:36:53.722018+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -534,7 +534,7 @@
     "10926": {
       "name": "Marte Mapu",
       "position": "DB",
-      "team": null
+      "team": "PIT"
     },
     "9504": {
       "name": "Kayshon Boutte",
@@ -3474,7 +3474,7 @@
     "12877": {
       "name": "Brandon Johnson",
       "position": "DB",
-      "team": null
+      "team": "TB"
     },
     "8119": {
       "name": "Jahan Dotson",
@@ -3719,7 +3719,7 @@
     "13418": {
       "name": "Robert Henry",
       "position": "RB",
-      "team": "WAS"
+      "team": "SEA"
     },
     "5550": {
       "name": "John David Moore",
@@ -19109,7 +19109,7 @@
     "6060": {
       "name": "Sean Murphy-Bunting",
       "position": "CB",
-      "team": "TB"
+      "team": "PIT"
     },
     "4835": {
       "name": "Darrius Sims",
@@ -36354,7 +36354,7 @@
     "12899": {
       "name": "Doneiko Slaughter",
       "position": "DB",
-      "team": "PIT"
+      "team": null
     },
     "880": {
       "name": "Jerrell Powe",
@@ -40059,7 +40059,7 @@
     "11186": {
       "name": "Carlos Washington",
       "position": "RB",
-      "team": "MIA"
+      "team": null
     },
     "11302": {
       "name": "Maalik Hall",
@@ -42279,7 +42279,7 @@
     "4018": {
       "name": "Joe Mixon",
       "position": "RB",
-      "team": null
+      "team": "SEA"
     },
     "11692": {
       "name": "Mike Hall",
@@ -46629,7 +46629,7 @@
     "10991": {
       "name": "K.J. Henry",
       "position": "DE",
-      "team": null
+      "team": "PIT"
     },
     "11430": {
       "name": "Jeremy Banks",
@@ -47899,7 +47899,7 @@
     "4965": {
       "name": "Marcus Davenport",
       "position": "DE",
-      "team": "CHI"
+      "team": null
     },
     "4015": {
       "name": "Boseko Lokombo",
@@ -47909,7 +47909,7 @@
     "14045": {
       "name": "Marlon Jones",
       "position": "CB",
-      "team": "GB"
+      "team": null
     },
     "8193": {
       "name": "E.J. Perry",
@@ -55139,7 +55139,7 @@
     "11911": {
       "name": "Jeshaun Jones",
       "position": "WR",
-      "team": "MIN"
+      "team": null
     },
     "2873": {
       "name": "Derrick Wells",
