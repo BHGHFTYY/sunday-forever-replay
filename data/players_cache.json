@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-07T17:21:26.174975+00:00",
+  "fetched_at": "2026-10-08T22:13:45.080781+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -2404,7 +2404,7 @@
     "11855": {
       "name": "Amari Gainer",
       "position": "LB",
-      "team": null
+      "team": "MIA"
     },
     "8391": {
       "name": "Dominique Robinson",
@@ -16944,7 +16944,7 @@
     "11121": {
       "name": "AJ Finley",
       "position": "DB",
-      "team": null
+      "team": "SEA"
     },
     "943": {
       "name": "Kyle Rudolph",
@@ -17194,7 +17194,7 @@
     "13213": {
       "name": "Lucas Scott",
       "position": "FB",
-      "team": null
+      "team": "BAL"
     },
     "8208": {
       "name": "Tyler Badie",
@@ -19079,7 +19079,7 @@
     "11959": {
       "name": "Bryce Oliver",
       "position": "WR",
-      "team": null
+      "team": "HOU"
     },
     "73": {
       "name": "Nick Mangold",
@@ -33494,7 +33494,7 @@
     "11018": {
       "name": "Christian Braswell",
       "position": "DB",
-      "team": null
+      "team": "JAX"
     },
     "1252": {
       "name": "Jeris Pendleton",
@@ -35294,7 +35294,7 @@
     "8453": {
       "name": "Cam Jurgens",
       "position": "OL",
-      "team": "PHI"
+      "team": "BAL"
     },
     "3037": {
       "name": "Josue Matias",
@@ -35684,7 +35684,7 @@
     "13761": {
       "name": "Jeffrey M'ba",
       "position": "DL",
-      "team": "WAS"
+      "team": "DET"
     },
     "1870": {
       "name": "James Hurst",
@@ -36059,7 +36059,7 @@
     "12939": {
       "name": "Anthony Tyus",
       "position": "RB",
-      "team": null
+      "team": "CAR"
     },
     "11548": {
       "name": "Aaron Dykes",
@@ -45244,7 +45244,7 @@
     "10998": {
       "name": "Jose Ramirez",
       "position": "DL",
-      "team": null
+      "team": "NE"
     },
     "3019": {
       "name": "James Butler",
@@ -46168,7 +46168,7 @@
     },
     "13433": {
       "name": "Riley Nowakowski",
-      "position": "TE",
+      "position": "RB",
       "team": "PIT"
     },
     "13210": {
@@ -46627,7 +46627,7 @@
       "team": null
     },
     "10991": {
-      "name": "K.J. Henry",
+      "name": "KJ Henry",
       "position": "DE",
       "team": "PIT"
     },
@@ -46944,7 +46944,7 @@
     "8114": {
       "name": "Erik Ezukanma",
       "position": "WR",
-      "team": null
+      "team": "PHI"
     },
     "3503": {
       "name": "Geronimo Allison",
@@ -48259,7 +48259,7 @@
     "11168": {
       "name": "Xavier Smith",
       "position": "WR",
-      "team": null
+      "team": "SF"
     },
     "5972": {
       "name": "B.J. Autry",
