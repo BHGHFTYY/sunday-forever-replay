@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-11T01:45:46.990918+00:00",
+  "fetched_at": "2026-10-12T05:42:54.326846+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -3059,7 +3059,7 @@
     "12925": {
       "name": "Jamaal Pritchett",
       "position": "WR",
-      "team": "NYJ"
+      "team": null
     },
     "2891": {
       "name": "Deontay Greenberry",
@@ -9749,7 +9749,7 @@
     "3303": {
       "name": "Matthew Judon",
       "position": "LB",
-      "team": "SF"
+      "team": null
     },
     "4340": {
       "name": "Ondre Pipkins",
@@ -12384,7 +12384,7 @@
     "11738": {
       "name": "Decamerion Richardson",
       "position": "CB",
-      "team": "NO"
+      "team": null
     },
     "8523": {
       "name": "Nick Muse",
@@ -13884,7 +13884,7 @@
     "13816": {
       "name": "Mark Gronowski",
       "position": "QB",
-      "team": "HOU"
+      "team": null
     },
     "5104": {
       "name": "Scott Quessenberry",
@@ -19079,7 +19079,7 @@
     "11959": {
       "name": "Bryce Oliver",
       "position": "WR",
-      "team": "HOU"
+      "team": null
     },
     "73": {
       "name": "Nick Mangold",
@@ -19462,7 +19462,7 @@
       "team": null
     },
     "8861": {
-      "name": "Irv Charles",
+      "name": "Irvin Charles",
       "position": "WR",
       "team": "SEA"
     },
@@ -20654,7 +20654,7 @@
     "12653": {
       "name": "Jack Kiser",
       "position": "LB",
-      "team": "JAX"
+      "team": null
     },
     "3229": {
       "name": "Cyrus Jones",
@@ -32429,7 +32429,7 @@
     "11628": {
       "name": "Marvin Harrison",
       "position": "WR",
-      "team": "ARI"
+      "team": "HOU"
     },
     "1488": {
       "name": "B.W. Webb",
@@ -33494,7 +33494,7 @@
     "11018": {
       "name": "Christian Braswell",
       "position": "DB",
-      "team": "JAX"
+      "team": null
     },
     "1252": {
       "name": "Jeris Pendleton",
@@ -36804,7 +36804,7 @@
     "12538": {
       "name": "Brady Cook",
       "position": "QB",
-      "team": "MIA"
+      "team": null
     },
     "12702": {
       "name": "Rayuan Lane",
@@ -50234,7 +50234,7 @@
     "8200": {
       "name": "Kevin Austin",
       "position": "WR",
-      "team": "NO"
+      "team": null
     },
     "886": {
       "name": "Taiwan Jones",
