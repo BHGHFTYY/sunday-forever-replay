@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12T05:42:54.326846+00:00",
+  "fetched_at": "2026-10-13T06:38:22.126894+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -3459,7 +3459,7 @@
     "12937": {
       "name": "Keith Cooper",
       "position": "DL",
-      "team": null
+      "team": "CAR"
     },
     "2352": {
       "name": "Eric Rowe",
@@ -11879,7 +11879,7 @@
     "11633": {
       "name": "Jamari Thrash",
       "position": "WR",
-      "team": null
+      "team": "LV"
     },
     "12137": {
       "name": "Charles Woods",
@@ -13884,7 +13884,7 @@
     "13816": {
       "name": "Mark Gronowski",
       "position": "QB",
-      "team": null
+      "team": "HOU"
     },
     "5104": {
       "name": "Scott Quessenberry",
@@ -19079,7 +19079,7 @@
     "11959": {
       "name": "Bryce Oliver",
       "position": "WR",
-      "team": null
+      "team": "HOU"
     },
     "73": {
       "name": "Nick Mangold",
@@ -20654,7 +20654,7 @@
     "12653": {
       "name": "Jack Kiser",
       "position": "LB",
-      "team": null
+      "team": "CIN"
     },
     "3229": {
       "name": "Cyrus Jones",
@@ -35159,7 +35159,7 @@
     "7077": {
       "name": "Jacob Bobenmoyer",
       "position": "LS",
-      "team": null
+      "team": "JAX"
     },
     "2977": {
       "name": "Collin Rahrig",
@@ -35594,7 +35594,7 @@
     "4113": {
       "name": "Dawuane Smoot",
       "position": "DE",
-      "team": null
+      "team": "NYG"
     },
     "3622": {
       "name": "Mose Frazier",
@@ -39809,7 +39809,7 @@
     "3369": {
       "name": "Elandon Roberts",
       "position": "LB",
-      "team": null
+      "team": "PIT"
     },
     "5157": {
       "name": "Alec James",
@@ -57354,7 +57354,7 @@
     "5374": {
       "name": "Justin Watson",
       "position": "WR",
-      "team": null
+      "team": "KC"
     },
     "13856": {
       "name": "Darryl Peterson",
