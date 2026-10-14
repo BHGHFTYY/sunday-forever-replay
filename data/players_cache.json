@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-13T06:38:22.126894+00:00",
+  "fetched_at": "2026-10-14T09:47:40.946757+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -864,7 +864,7 @@
     "8361": {
       "name": "Damarion Williams",
       "position": "DB",
-      "team": null
+      "team": "LAR"
     },
     "3054": {
       "name": "Tyreek Burwell",
@@ -2474,7 +2474,7 @@
     "11579": {
       "name": "Audric Estime",
       "position": "RB",
-      "team": "MIN"
+      "team": "CLE"
     },
     "12584": {
       "name": "Darien Porter",
@@ -3059,7 +3059,7 @@
     "12925": {
       "name": "Jamaal Pritchett",
       "position": "WR",
-      "team": null
+      "team": "NYJ"
     },
     "2891": {
       "name": "Deontay Greenberry",
@@ -7254,7 +7254,7 @@
     "7451": {
       "name": "Cam Gill",
       "position": "LB",
-      "team": "CAR"
+      "team": null
     },
     "5129": {
       "name": "Adonis Jennings",
@@ -7689,7 +7689,7 @@
     "6111": {
       "name": "Jake Browning",
       "position": "QB",
-      "team": null
+      "team": "LAC"
     },
     "12965": {
       "name": "Ethan Garbers",
@@ -9559,7 +9559,7 @@
     "11173": {
       "name": "D'Shawn Jamison",
       "position": "CB",
-      "team": null
+      "team": "NE"
     },
     "8913": {
       "name": "Caeveon Patton",
@@ -12384,7 +12384,7 @@
     "11738": {
       "name": "Decamerion Richardson",
       "position": "CB",
-      "team": null
+      "team": "NO"
     },
     "8523": {
       "name": "Nick Muse",
@@ -14454,7 +14454,7 @@
     "14057": {
       "name": "Zion Wilson",
       "position": "DT",
-      "team": null
+      "team": "PHI"
     },
     "13226": {
       "name": "Marcus Tate",
@@ -15189,7 +15189,7 @@
     "12138": {
       "name": "Anthony Goodlow",
       "position": "DE",
-      "team": "CAR"
+      "team": null
     },
     "7524": {
       "name": "Player Invalid",
@@ -23114,7 +23114,7 @@
     "13845": {
       "name": "Elijah Culp",
       "position": "CB",
-      "team": null
+      "team": "GB"
     },
     "10211": {
       "name": "Camerun Peoples",
@@ -28459,7 +28459,7 @@
     "5894": {
       "name": "Germaine Pratt",
       "position": "LB",
-      "team": null
+      "team": "IND"
     },
     "13427": {
       "name": "Diego Pavia",
@@ -28709,7 +28709,7 @@
     "12476": {
       "name": "Devin Neal",
       "position": "RB",
-      "team": null
+      "team": "WAS"
     },
     "11707": {
       "name": "Kiran Amegadjie",
@@ -36804,7 +36804,7 @@
     "12538": {
       "name": "Brady Cook",
       "position": "QB",
-      "team": null
+      "team": "MIA"
     },
     "12702": {
       "name": "Rayuan Lane",
@@ -37134,7 +37134,7 @@
     "7712": {
       "name": "Robert Rochell",
       "position": "DB",
-      "team": null
+      "team": "CAR"
     },
     "5071": {
       "name": "DeShon Elliott",
@@ -37214,7 +37214,7 @@
     "11736": {
       "name": "Jordan Jefferson",
       "position": "DT",
-      "team": null
+      "team": "MIA"
     },
     "7287": {
       "name": "Josh Hammond",
@@ -37449,7 +37449,7 @@
     "11058": {
       "name": "Blake Grupe",
       "position": "K",
-      "team": "NYJ"
+      "team": "LAR"
     },
     "2394": {
       "name": "Sean Mannion",
@@ -43099,7 +43099,7 @@
     "8123": {
       "name": "Hassan Haskins",
       "position": "RB",
-      "team": null
+      "team": "NE"
     },
     "1745": {
       "name": "Patrick Scales",
@@ -43269,7 +43269,7 @@
     "11199": {
       "name": "Emari Demercado",
       "position": "RB",
-      "team": null
+      "team": "DAL"
     },
     "6002": {
       "name": "Qadree Ollison",
@@ -44574,7 +44574,7 @@
     "6296": {
       "name": "Quinton Bell",
       "position": "LB",
-      "team": null
+      "team": "NYJ"
     },
     "6546": {
       "name": "Kenny Bigelow",
@@ -50929,7 +50929,7 @@
     "12803": {
       "name": "Luke Grimm",
       "position": "WR",
-      "team": null
+      "team": "LAC"
     },
     "11872": {
       "name": "Thomas Harper",
@@ -51934,7 +51934,7 @@
     "11569": {
       "name": "Jarquez Hunter",
       "position": "RB",
-      "team": "MIA"
+      "team": null
     },
     "12005": {
       "name": "Jack Browning",
@@ -54094,7 +54094,7 @@
     "11056": {
       "name": "Jared Wayne",
       "position": "WR",
-      "team": "HOU"
+      "team": "MIA"
     },
     "3737": {
       "name": "Shiro Davis",
@@ -55114,7 +55114,7 @@
     "12780": {
       "name": "Xavier Truss",
       "position": "OT",
-      "team": null
+      "team": "PHI"
     },
     "2690": {
       "name": "Zaire Anderson",
@@ -56889,7 +56889,7 @@
     "13230": {
       "name": "Vershon Lee",
       "position": "OL",
-      "team": null
+      "team": "CLE"
     },
     "12395": {
       "name": "Tanner Knue",
@@ -58059,7 +58059,7 @@
     "6960": {
       "name": "Tyler Johnson",
       "position": "WR",
-      "team": "NYJ"
+      "team": null
     },
     "1770": {
       "name": "Ray-Ray Armstrong",
@@ -59909,7 +59909,7 @@
     "11820": {
       "name": "Devin Culp",
       "position": "TE",
-      "team": "TB"
+      "team": "CLE"
     },
     "13247": {
       "name": "Ajani Carter",
