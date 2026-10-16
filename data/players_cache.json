@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-15T14:47:15.565693+00:00",
+  "fetched_at": "2026-10-16T18:26:44.406120+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -2904,7 +2904,7 @@
     "11557": {
       "name": "Joe Milton",
       "position": "QB",
-      "team": "DAL"
+      "team": "PHI"
     },
     "5052": {
       "name": "Ronald Jones",
@@ -7734,7 +7734,7 @@
     "12871": {
       "name": "Eugene Asante",
       "position": "LB",
-      "team": null
+      "team": "SF"
     },
     "6018": {
       "name": "Zach Gentry",
@@ -11894,7 +11894,7 @@
     "12282": {
       "name": "C.J. Ravenell",
       "position": "DL",
-      "team": "NYG"
+      "team": null
     },
     "1094": {
       "name": "Mike Martin",
@@ -20329,7 +20329,7 @@
     "2750": {
       "name": "DeAndre Carter",
       "position": "WR",
-      "team": null
+      "team": "DET"
     },
     "9493": {
       "name": "Puka Nacua",
@@ -22474,7 +22474,7 @@
     "12036": {
       "name": "Ian Wheeler",
       "position": "RB",
-      "team": null
+      "team": "PHI"
     },
     "5999": {
       "name": "D'Cota Dixon",
@@ -33239,7 +33239,7 @@
     "6811": {
       "name": "Kenneth Murray",
       "position": "LB",
-      "team": "HOU"
+      "team": null
     },
     "6554": {
       "name": "Shawn Poindexter",
@@ -33354,7 +33354,7 @@
     "11679": {
       "name": "Chris Braswell",
       "position": "LB",
-      "team": null
+      "team": "HOU"
     },
     "3558": {
       "name": "Chris Jones",
@@ -35154,7 +35154,7 @@
     "10986": {
       "name": "Jammie Robinson",
       "position": "DB",
-      "team": "ATL"
+      "team": null
     },
     "7077": {
       "name": "Jacob Bobenmoyer",
@@ -54169,7 +54169,7 @@
     "6149": {
       "name": "Darius Slayton",
       "position": "WR",
-      "team": "IND"
+      "team": null
     },
     "13248": {
       "name": "Christian Johnstone",
