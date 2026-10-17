@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-16T18:26:44.406120+00:00",
+  "fetched_at": "2026-10-17T18:51:12.306754+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -18149,7 +18149,7 @@
     "13640": {
       "name": "Alan Herron",
       "position": "OT",
-      "team": "NO"
+      "team": null
     },
     "4087": {
       "name": "Teez Tabor",
@@ -49624,7 +49624,7 @@
     "12196": {
       "name": "Jayden Price",
       "position": "CB",
-      "team": null
+      "team": "NO"
     },
     "334": {
       "name": "Andy Levitre",
