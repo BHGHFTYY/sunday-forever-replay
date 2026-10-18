@@ -966,5 +966,247 @@
         }
       ]
     }
+  },
+  {
+    "timestamp": "2026-10-18T21:46:55+00:00",
+    "week": 6,
+    "my": {
+      "roster_id": 2,
+      "team_name": "Vision 2030 FC",
+      "points": 141.4,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "8183",
+          "name": "Brock Purdy",
+          "position": "QB",
+          "team": "SF",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 23.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 5.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8146",
+          "name": "Garrett Wilson",
+          "position": "WR",
+          "team": "NYJ",
+          "points": 8.4
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 29.5
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 25.4
+        },
+        {
+          "slot": "TE",
+          "player_id": "5022",
+          "name": "Dallas Goedert",
+          "position": "TE",
+          "team": "PHI",
+          "points": 12.1
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "10232",
+          "name": "Michael Wilson",
+          "position": "WR",
+          "team": "ARI",
+          "points": 2.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "7627",
+          "name": "Greg Rousseau",
+          "position": "DE",
+          "team": "BUF",
+          "points": 3.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 17.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "13377",
+          "name": "Arvell Reese",
+          "position": "LB",
+          "team": "NYG",
+          "points": 7.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11739",
+          "name": "Evan Williams",
+          "position": "DB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 9.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 8,
+      "team_name": "Tank Commander",
+      "points": 77.98,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "11563",
+          "name": "Bo Nix",
+          "position": "QB",
+          "team": "DEN",
+          "points": 4.48
+        },
+        {
+          "slot": "RB",
+          "player_id": "10219",
+          "name": "Chris Rodriguez",
+          "position": "RB",
+          "team": "JAX",
+          "points": 5.5
+        },
+        {
+          "slot": "RB",
+          "player_id": "8132",
+          "name": "Tyler Allgeier",
+          "position": "RB",
+          "team": "ARI",
+          "points": 4.7
+        },
+        {
+          "slot": "WR",
+          "player_id": "11646",
+          "name": "Jalen Coker",
+          "position": "WR",
+          "team": "CAR",
+          "points": 15.7
+        },
+        {
+          "slot": "WR",
+          "player_id": "13279",
+          "name": "Carnell Tate",
+          "position": "WR",
+          "team": "TEN",
+          "points": 19.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11637",
+          "name": "Keon Coleman",
+          "position": "WR",
+          "team": "BUF",
+          "points": 3.1
+        },
+        {
+          "slot": "TE",
+          "player_id": "12493",
+          "name": "Oronde Gadsden",
+          "position": "TE",
+          "team": "LAC",
+          "points": 1.5
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "8180",
+          "name": "Jalen Nailor",
+          "position": "WR",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "12711",
+          "name": "Tyler Loop",
+          "position": "K",
+          "team": "BAL",
+          "points": 3.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8289",
+          "name": "Aidan Hutchinson",
+          "position": "DL",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "8659",
+          "name": "Nate Landman",
+          "position": "LB",
+          "team": "LAR",
+          "points": 7.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "8267",
+          "name": "Nakobe Dean",
+          "position": "LB",
+          "team": "LV",
+          "points": 6.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "5893",
+          "name": "C.J. Gardner-Johnson",
+          "position": "DB",
+          "team": "BUF",
+          "points": 1.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "12567",
+          "name": "Malaki Starks",
+          "position": "DB",
+          "team": "BAL",
+          "points": 7.0
+        }
+      ]
+    }
   }
 ]
