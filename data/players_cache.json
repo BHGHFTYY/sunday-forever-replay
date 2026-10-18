@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-17T18:51:12.306754+00:00",
+  "fetched_at": "2026-10-18T19:28:44.074381+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -29569,7 +29569,7 @@
     "4238": {
       "name": "Xavier Woods",
       "position": "DB",
-      "team": "CHI"
+      "team": null
     },
     "5605": {
       "name": "Matthew Thomas",
@@ -35154,7 +35154,7 @@
     "10986": {
       "name": "Jammie Robinson",
       "position": "DB",
-      "team": null
+      "team": "ATL"
     },
     "7077": {
       "name": "Jacob Bobenmoyer",
@@ -41264,7 +41264,7 @@
     "13572": {
       "name": "Aiden Fisher",
       "position": "LB",
-      "team": "HOU"
+      "team": null
     },
     "11702": {
       "name": "Brandon Coleman",
@@ -43099,7 +43099,7 @@
     "8123": {
       "name": "Hassan Haskins",
       "position": "RB",
-      "team": "NE"
+      "team": null
     },
     "1745": {
       "name": "Patrick Scales",
@@ -53419,7 +53419,7 @@
     "11019": {
       "name": "Erick Hallett",
       "position": "DB",
-      "team": "TEN"
+      "team": null
     },
     "11309": {
       "name": "Trey Dean",
@@ -54289,7 +54289,7 @@
     "13769": {
       "name": "Collin Wright",
       "position": "CB",
-      "team": "HOU"
+      "team": null
     },
     "1726": {
       "name": "Eric Kettani",
@@ -55059,7 +55059,7 @@
     "5086": {
       "name": "Marquez Valdes-Scantling",
       "position": "WR",
-      "team": "LAC"
+      "team": null
     },
     "11010": {
       "name": "Brad Robbins",
