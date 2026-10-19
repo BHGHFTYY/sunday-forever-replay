@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-18T19:28:44.074381+00:00",
+  "fetched_at": "2026-10-19T21:23:22.695671+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -4214,7 +4214,7 @@
     "829": {
       "name": "Andy Dalton",
       "position": "QB",
-      "team": null
+      "team": "ATL"
     },
     "7248": {
       "name": "Jeffery Whatley",
@@ -8909,7 +8909,7 @@
     "4574": {
       "name": "Cooper Rush",
       "position": "QB",
-      "team": "ATL"
+      "team": null
     },
     "626": {
       "name": "Jim Dray",
@@ -13814,7 +13814,7 @@
     "8678": {
       "name": "Andrew Rupcich",
       "position": "OT",
-      "team": null
+      "team": "NE"
     },
     "11961": {
       "name": "Emory Jones",
@@ -18729,7 +18729,7 @@
     "4072": {
       "name": "Tre'Davious White",
       "position": "CB",
-      "team": null
+      "team": "BUF"
     },
     "2700": {
       "name": "Levi Norwood",
@@ -20239,7 +20239,7 @@
     "8472": {
       "name": "Darian Kinnard",
       "position": "T",
-      "team": null
+      "team": "LV"
     },
     "2041": {
       "name": "Torrence Allen",
@@ -28819,7 +28819,7 @@
     "13937": {
       "name": "Jackson Acker",
       "position": "FB",
-      "team": null
+      "team": "SEA"
     },
     "6734": {
       "name": "Thomas Costigan",
@@ -36784,7 +36784,7 @@
     "13713": {
       "name": "KC Eziomume",
       "position": "DB",
-      "team": null
+      "team": "CHI"
     },
     "6123": {
       "name": "Greedy Williams",
@@ -47974,7 +47974,7 @@
     "7050": {
       "name": "Josiah Deguara",
       "position": "TE",
-      "team": null
+      "team": "SEA"
     },
     "6135": {
       "name": "D'Andre Walker",
@@ -56239,7 +56239,7 @@
     "13966": {
       "name": "Jacob Rizy",
       "position": "OL",
-      "team": null
+      "team": "NE"
     },
     "1978": {
       "name": "Tony Washington",
@@ -60419,7 +60419,7 @@
     "13035": {
       "name": "Amari Kight",
       "position": "OT",
-      "team": null
+      "team": "LV"
     },
     "6143": {
       "name": "Marvell Tell",
