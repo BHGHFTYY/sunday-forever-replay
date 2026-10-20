@@ -1,8 +1,8 @@
 {
   "league_name": "Sunday Forever",
   "my_roster_id": 2,
-  "generated_at": "2026-10-20T00:33:10+00:00",
-  "latest_week": 6,
+  "generated_at": "2026-10-20T04:35:13+00:00",
+  "latest_week": 7,
   "weeks": {
     "1": {
       "my_team_name": "The Heart of The Sahara",
@@ -45,6 +45,13 @@
       "opponent_roster_id": 8,
       "snapshot_count": 9,
       "file": "data/snapshots_week6.json"
+    },
+    "7": {
+      "my_team_name": "Vision 2030 FC",
+      "opponent_team_name": "I will win this week!!",
+      "opponent_roster_id": 6,
+      "snapshot_count": 1,
+      "file": "data/snapshots_week7.json"
     }
   }
 }
