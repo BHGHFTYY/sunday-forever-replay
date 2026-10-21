@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-20T22:16:10.210618+00:00",
+  "fetched_at": "2026-10-21T22:27:53.140105+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -32,7 +32,7 @@
       "team": null
     },
     "8478": {
-      "name": "Samuel Womack",
+      "name": "Samuel Womack III",
       "position": "CB",
       "team": "NYJ"
     },
@@ -122,7 +122,7 @@
       "team": null
     },
     "13569": {
-      "name": "Toriano Pride",
+      "name": "Toriano Pride Jr.",
       "position": "CB",
       "team": "CLE"
     },
@@ -637,7 +637,7 @@
       "team": null
     },
     "13558": {
-      "name": "Tim Keenan",
+      "name": "Tim Keenan III",
       "position": "DT",
       "team": "LV"
     },
@@ -777,7 +777,7 @@
       "team": "NE"
     },
     "13024": {
-      "name": "Jay Higgins",
+      "name": "Jay Higgins IV",
       "position": "LB",
       "team": "BAL"
     },
@@ -1097,7 +1097,7 @@
       "team": null
     },
     "11122": {
-      "name": "Andrew Farmer",
+      "name": "Andrew Farmer II",
       "position": "LB",
       "team": "SF"
     },
@@ -1112,7 +1112,7 @@
       "team": null
     },
     "7553": {
-      "name": "Kyle Pitts",
+      "name": "Kyle Pitts Sr.",
       "position": "TE",
       "team": "ATL"
     },
@@ -2112,7 +2112,7 @@
       "team": null
     },
     "8116": {
-      "name": "Pierre Strong",
+      "name": "Pierre Strong Jr.",
       "position": "RB",
       "team": "GB"
     },
@@ -2687,9 +2687,9 @@
       "team": "NE"
     },
     "8473": {
-      "name": "Eric Johnson",
+      "name": "Eric Johnson II",
       "position": "DT",
-      "team": null
+      "team": "CLE"
     },
     "3517": {
       "name": "Hunter Sharp",
@@ -2777,7 +2777,7 @@
       "team": null
     },
     "13467": {
-      "name": "Trey Zuhn",
+      "name": "Trey Zuhn III",
       "position": "OT",
       "team": "LV"
     },
@@ -2959,7 +2959,7 @@
     "13898": {
       "name": "Corey Rucker",
       "position": "WR",
-      "team": "LV"
+      "team": null
     },
     "13304": {
       "name": "O'Mega Blake",
@@ -3207,7 +3207,7 @@
       "team": "SF"
     },
     "7722": {
-      "name": "Bobby Brown",
+      "name": "Bobby Brown III",
       "position": "DT",
       "team": "CAR"
     },
@@ -3292,7 +3292,7 @@
       "team": null
     },
     "8138": {
-      "name": "James Cook",
+      "name": "James Cook III",
       "position": "RB",
       "team": "BUF"
     },
@@ -3337,7 +3337,7 @@
       "team": null
     },
     "13727": {
-      "name": "Lardarius Webb",
+      "name": "Lardarius Webb Jr.",
       "position": "DB",
       "team": "BAL"
     },
@@ -3454,10 +3454,10 @@
     "11345": {
       "name": "Chris Smith",
       "position": "DL",
-      "team": "DET"
+      "team": null
     },
     "12937": {
-      "name": "Keith Cooper",
+      "name": "Keith Cooper Jr.",
       "position": "DL",
       "team": "CAR"
     },
@@ -3717,7 +3717,7 @@
       "team": "MIA"
     },
     "13418": {
-      "name": "Robert Henry",
+      "name": "Robert Henry Jr.",
       "position": "RB",
       "team": "SEA"
     },
@@ -3747,7 +3747,7 @@
       "team": null
     },
     "12542": {
-      "name": "Efton Chism",
+      "name": "Efton Chism III",
       "position": "WR",
       "team": "NE"
     },
@@ -4052,7 +4052,7 @@
       "team": null
     },
     "13751": {
-      "name": "Michael Coats",
+      "name": "Michael Coats Jr.",
       "position": "CB",
       "team": "CLE"
     },
@@ -4092,7 +4092,7 @@
       "team": null
     },
     "13675": {
-      "name": "Fred Davis",
+      "name": "Fred Davis II",
       "position": "CB",
       "team": "WAS"
     },
@@ -4292,7 +4292,7 @@
       "team": null
     },
     "7721": {
-      "name": "Chris Rumph",
+      "name": "Chris Rumph II",
       "position": "LB",
       "team": "NO"
     },
@@ -4934,7 +4934,7 @@
     "11721": {
       "name": "Bralen Trice",
       "position": "DE",
-      "team": "ATL"
+      "team": null
     },
     "5808": {
       "name": "Connor Jessop",
@@ -5022,7 +5022,7 @@
       "team": "KC"
     },
     "7630": {
-      "name": "Greg Newsome",
+      "name": "Greg Newsome II",
       "position": "CB",
       "team": "NYG"
     },
@@ -5457,7 +5457,7 @@
       "team": null
     },
     "13556": {
-      "name": "TJ Hall",
+      "name": "TJ Hall Jr.",
       "position": "CB",
       "team": "NO"
     },
@@ -5797,7 +5797,7 @@
       "team": null
     },
     "5691": {
-      "name": "Mike Ford",
+      "name": "Mike Ford Jr.",
       "position": "DB",
       "team": "ATL"
     },
@@ -6017,7 +6017,7 @@
       "team": null
     },
     "13340": {
-      "name": "Rueben Bain",
+      "name": "Rueben Bain Jr.",
       "position": "DL",
       "team": "TB"
     },
@@ -7537,7 +7537,7 @@
       "team": null
     },
     "12475": {
-      "name": "Ricky White",
+      "name": "Ricky White III",
       "position": "WR",
       "team": "SEA"
     },
@@ -7547,7 +7547,7 @@
       "team": "BAL"
     },
     "8154": {
-      "name": "Brian Robinson",
+      "name": "Brian Robinson Jr.",
       "position": "RB",
       "team": "ATL"
     },
@@ -8607,7 +8607,7 @@
       "team": null
     },
     "8147": {
-      "name": "John Metchie",
+      "name": "John Metchie III",
       "position": "WR",
       "team": "CAR"
     },
@@ -8712,7 +8712,7 @@
       "team": null
     },
     "11592": {
-      "name": "Erick All",
+      "name": "Erick All Jr.",
       "position": "TE",
       "team": "CIN"
     },
@@ -8967,7 +8967,7 @@
       "team": null
     },
     "4037": {
-      "name": "Chris Godwin",
+      "name": "Chris Godwin Jr.",
       "position": "WR",
       "team": "TB"
     },
@@ -9482,7 +9482,7 @@
       "team": "DET"
     },
     "11689": {
-      "name": "Ennis Rakestraw",
+      "name": "Ennis Rakestraw Jr.",
       "position": "DB",
       "team": "DET"
     },
@@ -9867,7 +9867,7 @@
       "team": "ARI"
     },
     "12588": {
-      "name": "Kevin Winston",
+      "name": "Kevin Winston Jr.",
       "position": "DB",
       "team": "TEN"
     },
@@ -10187,7 +10187,7 @@
       "team": null
     },
     "2340": {
-      "name": "Mario Edwards",
+      "name": "Mario Edwards Jr.",
       "position": "DE",
       "team": "HOU"
     },
@@ -10437,7 +10437,7 @@
       "team": null
     },
     "10883": {
-      "name": "Will McDonald",
+      "name": "Will McDonald IV",
       "position": "DE",
       "team": "NYJ"
     },
@@ -11142,7 +11142,7 @@
       "team": null
     },
     "8125": {
-      "name": "Calvin Austin",
+      "name": "Calvin Austin III",
       "position": "WR",
       "team": "NYG"
     },
@@ -11202,7 +11202,7 @@
       "team": null
     },
     "13518": {
-      "name": "George Gumbs",
+      "name": "George Gumbs Jr.",
       "position": "DE",
       "team": "IND"
     },
@@ -11732,12 +11732,12 @@
       "team": null
     },
     "10894": {
-      "name": "DJ Turner",
+      "name": "DJ Turner II",
       "position": "DB",
       "team": "CIN"
     },
     "13504": {
-      "name": "Darrell Jackson",
+      "name": "Darrell Jackson Jr.",
       "position": "DT",
       "team": "NYJ"
     },
@@ -11907,7 +11907,7 @@
       "team": null
     },
     "7674": {
-      "name": "Patrick Jones",
+      "name": "Patrick Jones II",
       "position": "DE",
       "team": "CAR"
     },
@@ -12342,7 +12342,7 @@
       "team": "ARI"
     },
     "7836": {
-      "name": "Tony Fields",
+      "name": "Tony Fields II",
       "position": "LB",
       "team": "CHI"
     },
@@ -12397,7 +12397,7 @@
       "team": null
     },
     "12559": {
-      "name": "Shavon Revel",
+      "name": "Shavon Revel Jr.",
       "position": "DB",
       "team": "DAL"
     },
@@ -12452,7 +12452,7 @@
       "team": null
     },
     "13555": {
-      "name": "Harold Perkins",
+      "name": "Harold Perkins Jr.",
       "position": "LB",
       "team": "ATL"
     },
@@ -12727,7 +12727,7 @@
       "team": null
     },
     "12519": {
-      "name": "Luther Burden",
+      "name": "Luther Burden III",
       "position": "WR",
       "team": "CHI"
     },
@@ -12862,7 +12862,7 @@
       "team": "PHI"
     },
     "7122": {
-      "name": "Broderick Washington",
+      "name": "Broderick Washington Jr.",
       "position": "DT",
       "team": "BAL"
     },
@@ -12952,7 +12952,7 @@
       "team": null
     },
     "13199": {
-      "name": "Montorie Foster",
+      "name": "Montorie Foster Jr.",
       "position": "WR",
       "team": "SEA"
     },
@@ -13347,7 +13347,7 @@
       "team": null
     },
     "5872": {
-      "name": "Deebo Samuel",
+      "name": "Deebo Samuel Sr.",
       "position": "WR",
       "team": "SF"
     },
@@ -13884,7 +13884,7 @@
     "13816": {
       "name": "Mark Gronowski",
       "position": "QB",
-      "team": "HOU"
+      "team": null
     },
     "5104": {
       "name": "Scott Quessenberry",
@@ -14237,7 +14237,7 @@
       "team": null
     },
     "8517": {
-      "name": "Rodney Thomas",
+      "name": "Rodney Thomas II",
       "position": "LB",
       "team": "SEA"
     },
@@ -14302,7 +14302,7 @@
       "team": null
     },
     "6836": {
-      "name": "A.J. Terrell",
+      "name": "A.J. Terrell Jr.",
       "position": "CB",
       "team": "ATL"
     },
@@ -14812,7 +14812,7 @@
       "team": null
     },
     "14020": {
-      "name": "Dean Patterson",
+      "name": "Dean Patterson IV",
       "position": "WR",
       "team": "TB"
     },
@@ -15037,7 +15037,7 @@
       "team": null
     },
     "13807": {
-      "name": "Gary Smith",
+      "name": "Gary Smith III",
       "position": "DT",
       "team": "SEA"
     },
@@ -15307,7 +15307,7 @@
       "team": "NYJ"
     },
     "10896": {
-      "name": "John Michael Schmitz",
+      "name": "John Michael Schmitz Jr.",
       "position": "OL",
       "team": "NYG"
     },
@@ -15894,7 +15894,7 @@
     "12041": {
       "name": "Carl Jones",
       "position": "DL",
-      "team": "BAL"
+      "team": null
     },
     "11367": {
       "name": "Daewood Davis",
@@ -15907,7 +15907,7 @@
       "team": null
     },
     "11688": {
-      "name": "Kris Jenkins",
+      "name": "Kris Jenkins Jr.",
       "position": "DL",
       "team": "CIN"
     },
@@ -15937,7 +15937,7 @@
       "team": "MIN"
     },
     "12884": {
-      "name": "Quincy Skinner",
+      "name": "Quincy Skinner Jr.",
       "position": "WR",
       "team": "GB"
     },
@@ -16067,7 +16067,7 @@
       "team": null
     },
     "7714": {
-      "name": "Dan Moore",
+      "name": "Dan Moore Jr.",
       "position": "OT",
       "team": "TEN"
     },
@@ -16717,7 +16717,7 @@
       "team": null
     },
     "12647": {
-      "name": "Billy Bowman",
+      "name": "Billy Bowman Jr.",
       "position": "DB",
       "team": "ATL"
     },
@@ -17257,7 +17257,7 @@
       "team": null
     },
     "4948": {
-      "name": "Orlando Brown",
+      "name": "Orlando Brown Jr.",
       "position": "T",
       "team": "CIN"
     },
@@ -17467,7 +17467,7 @@
       "team": "GB"
     },
     "12585": {
-      "name": "James Pearce",
+      "name": "James Pearce Jr.",
       "position": "DL",
       "team": "ATL"
     },
@@ -17632,7 +17632,7 @@
       "team": null
     },
     "8380": {
-      "name": "Thomas Booker",
+      "name": "Thomas Booker IV",
       "position": "DL",
       "team": "LV"
     },
@@ -18149,7 +18149,7 @@
     "13640": {
       "name": "Alan Herron",
       "position": "OT",
-      "team": null
+      "team": "NO"
     },
     "4087": {
       "name": "Teez Tabor",
@@ -18167,7 +18167,7 @@
       "team": null
     },
     "10946": {
-      "name": "Jon Gaines",
+      "name": "Jon Gaines II",
       "position": "OL",
       "team": "ARI"
     },
@@ -18182,7 +18182,7 @@
       "team": null
     },
     "11847": {
-      "name": "James Williams",
+      "name": "James Williams Sr.",
       "position": "DB",
       "team": "TEN"
     },
@@ -18317,7 +18317,7 @@
       "team": null
     },
     "12523": {
-      "name": "Jimmy Horn",
+      "name": "Jimmy Horn Jr.",
       "position": "WR",
       "team": "CLE"
     },
@@ -18612,7 +18612,7 @@
       "team": null
     },
     "11343": {
-      "name": "Starling Thomas",
+      "name": "Starling Thomas V",
       "position": "CB",
       "team": "ARI"
     },
@@ -18657,7 +18657,7 @@
       "team": null
     },
     "12552": {
-      "name": "Walter Nolen",
+      "name": "Walter Nolen III",
       "position": "DL",
       "team": "ARI"
     },
@@ -18677,7 +18677,7 @@
       "team": null
     },
     "8223": {
-      "name": "Velus Jones",
+      "name": "Velus Jones Jr.",
       "position": "WR",
       "team": "SEA"
     },
@@ -18687,7 +18687,7 @@
       "team": null
     },
     "8666": {
-      "name": "Darrell Baker",
+      "name": "Darrell Baker Jr.",
       "position": "CB",
       "team": "MIA"
     },
@@ -19577,7 +19577,7 @@
       "team": "GB"
     },
     "12569": {
-      "name": "Kelvin Banks",
+      "name": "Kelvin Banks Jr.",
       "position": "OL",
       "team": "NO"
     },
@@ -19789,7 +19789,7 @@
     "12909": {
       "name": "Eli Pancol",
       "position": "WR",
-      "team": "IND"
+      "team": null
     },
     "7169": {
       "name": "Jace Whittaker",
@@ -19812,7 +19812,7 @@
       "team": null
     },
     "12675": {
-      "name": "Jason Marshall",
+      "name": "Jason Marshall Jr.",
       "position": "CB",
       "team": "MIA"
     },
@@ -19952,7 +19952,7 @@
       "team": null
     },
     "8390": {
-      "name": "Martin Emerson",
+      "name": "Martin Emerson Jr.",
       "position": "DB",
       "team": "NO"
     },
@@ -20864,7 +20864,7 @@
     "14051": {
       "name": "Chase Wilson",
       "position": "LB",
-      "team": "TEN"
+      "team": null
     },
     "7932": {
       "name": "Darius Harper",
@@ -21267,7 +21267,7 @@
       "team": null
     },
     "5914": {
-      "name": "David Long",
+      "name": "David Long Jr.",
       "position": "CB",
       "team": "NO"
     },
@@ -21627,12 +21627,12 @@
       "team": null
     },
     "10890": {
-      "name": "Paris Johnson",
+      "name": "Paris Johnson Jr.",
       "position": "OL",
       "team": "ARI"
     },
     "7023": {
-      "name": "Willie Gay",
+      "name": "Willie Gay Jr.",
       "position": "LB",
       "team": "MIA"
     },
@@ -22474,7 +22474,7 @@
     "12036": {
       "name": "Ian Wheeler",
       "position": "RB",
-      "team": "PHI"
+      "team": null
     },
     "5999": {
       "name": "D'Cota Dixon",
@@ -22777,7 +22777,7 @@
       "team": "NYG"
     },
     "10966": {
-      "name": "Rob Beal",
+      "name": "Rob Beal Jr.",
       "position": "LB",
       "team": "MIA"
     },
@@ -22822,7 +22822,7 @@
       "team": "LAR"
     },
     "13353": {
-      "name": "Chris Brazzell",
+      "name": "Chris Brazzell II",
       "position": "WR",
       "team": "CAR"
     },
@@ -22932,7 +22932,7 @@
       "team": null
     },
     "12558": {
-      "name": "Josh Conerly",
+      "name": "Josh Conerly Jr.",
       "position": "OL",
       "team": "WAS"
     },
@@ -23082,7 +23082,7 @@
       "team": "HOU"
     },
     "11809": {
-      "name": "Marcellas Dial",
+      "name": "Marcellas Dial Jr.",
       "position": "DB",
       "team": "MIA"
     },
@@ -23227,7 +23227,7 @@
       "team": null
     },
     "5027": {
-      "name": "Geron Christian",
+      "name": "Geron Christian Sr.",
       "position": "OL",
       "team": "JAX"
     },
@@ -24017,12 +24017,12 @@
       "team": null
     },
     "13529": {
-      "name": "Fernando Carmona",
+      "name": "Fernando Carmona Jr.",
       "position": "G",
       "team": "TEN"
     },
     "11193": {
-      "name": "Brenton Cox",
+      "name": "Brenton Cox Jr.",
       "position": "LB",
       "team": "GB"
     },
@@ -24097,7 +24097,7 @@
       "team": null
     },
     "13670": {
-      "name": "Harrison Wallace",
+      "name": "Harrison Wallace III",
       "position": "WR",
       "team": "ARI"
     },
@@ -24287,7 +24287,7 @@
       "team": null
     },
     "13485": {
-      "name": "Will Lee",
+      "name": "Will Lee III",
       "position": "CB",
       "team": "CAR"
     },
@@ -25112,7 +25112,7 @@
       "team": null
     },
     "13829": {
-      "name": "David Blay",
+      "name": "David Blay Jr.",
       "position": "DT",
       "team": "GB"
     },
@@ -25402,7 +25402,7 @@
       "team": null
     },
     "10219": {
-      "name": "Chris Rodriguez",
+      "name": "Chris Rodriguez Jr.",
       "position": "RB",
       "team": "JAX"
     },
@@ -25457,7 +25457,7 @@
       "team": null
     },
     "5917": {
-      "name": "Mecole Hardman",
+      "name": "Mecole Hardman Jr.",
       "position": "WR",
       "team": "IND"
     },
@@ -25592,7 +25592,7 @@
       "team": "BUF"
     },
     "12460": {
-      "name": "Antwane Wells",
+      "name": "Antwane Wells Jr.",
       "position": "WR",
       "team": "ATL"
     },
@@ -25812,7 +25812,7 @@
       "team": null
     },
     "14030": {
-      "name": "Wayne Matthews",
+      "name": "Wayne Matthews III",
       "position": "LB",
       "team": "CHI"
     },
@@ -25879,7 +25879,7 @@
     "12125": {
       "name": "Mark Perry",
       "position": "DB",
-      "team": "ARI"
+      "team": null
     },
     "1696": {
       "name": "Brandon Williams",
@@ -26297,7 +26297,7 @@
       "team": null
     },
     "10882": {
-      "name": "Emmanuel Forbes",
+      "name": "Emmanuel Forbes Jr.",
       "position": "CB",
       "team": "LAR"
     },
@@ -26472,7 +26472,7 @@
       "team": null
     },
     "12495": {
-      "name": "Ollie Gordon",
+      "name": "Ollie Gordon II",
       "position": "RB",
       "team": "MIA"
     },
@@ -26782,7 +26782,7 @@
       "team": null
     },
     "4174": {
-      "name": "Deatrich Wise",
+      "name": "Deatrich Wise Jr.",
       "position": "DE",
       "team": "WAS"
     },
@@ -26847,7 +26847,7 @@
       "team": null
     },
     "10997": {
-      "name": "Jerrick Reed",
+      "name": "Jerrick Reed II",
       "position": "DB",
       "team": "ARI"
     },
@@ -27112,7 +27112,7 @@
       "team": null
     },
     "11655": {
-      "name": "Tyrone Tracy",
+      "name": "Tyrone Tracy Jr.",
       "position": "RB",
       "team": "NYG"
     },
@@ -27232,7 +27232,7 @@
       "team": null
     },
     "14059": {
-      "name": "Sean Fresch",
+      "name": "Sean Fresch Jr.",
       "position": "CB",
       "team": "DEN"
     },
@@ -27537,7 +27537,7 @@
       "team": null
     },
     "9494": {
-      "name": "Marvin Mims",
+      "name": "Marvin Mims Jr.",
       "position": "WR",
       "team": "DEN"
     },
@@ -27662,7 +27662,7 @@
       "team": "CAR"
     },
     "11559": {
-      "name": "Michael Penix",
+      "name": "Michael Penix Jr.",
       "position": "QB",
       "team": "ATL"
     },
@@ -28267,7 +28267,7 @@
       "team": null
     },
     "10942": {
-      "name": "Viliami Fehoko",
+      "name": "Viliami Fehoko Jr.",
       "position": "DL",
       "team": "SF"
     },
@@ -29032,7 +29032,7 @@
       "team": null
     },
     "7835": {
-      "name": "Michael Carter",
+      "name": "Michael Carter II",
       "position": "CB",
       "team": "PHI"
     },
@@ -29104,7 +29104,7 @@
     "12457": {
       "name": "Jaydon Blue",
       "position": "RB",
-      "team": "PHI"
+      "team": null
     },
     "7659": {
       "name": "Tre'von Moehrig",
@@ -29517,7 +29517,7 @@
       "team": "LAC"
     },
     "13546": {
-      "name": "Brian Parker",
+      "name": "Brian Parker II",
       "position": "OT",
       "team": "CIN"
     },
@@ -29629,7 +29629,7 @@
     "11805": {
       "name": "Jamal Hill",
       "position": "LB",
-      "team": "HOU"
+      "team": "JAX"
     },
     "12983": {
       "name": "Brock Lampe",
@@ -29852,7 +29852,7 @@
       "team": null
     },
     "12715": {
-      "name": "Thomas Fidone",
+      "name": "Thomas Fidone II",
       "position": "TE",
       "team": "NYG"
     },
@@ -29927,7 +29927,7 @@
       "team": null
     },
     "10857": {
-      "name": "Stetson Bennett",
+      "name": "Stetson Bennett IV",
       "position": "QB",
       "team": "LAR"
     },
@@ -29942,7 +29942,7 @@
       "team": null
     },
     "9229": {
-      "name": "Anthony Richardson",
+      "name": "Anthony Richardson Sr.",
       "position": "QB",
       "team": "IND"
     },
@@ -30347,7 +30347,7 @@
       "team": null
     },
     "7818": {
-      "name": "T.J. Slaton",
+      "name": "T.J. Slaton Jr.",
       "position": "DT",
       "team": "CIN"
     },
@@ -30937,7 +30937,7 @@
       "team": null
     },
     "5025": {
-      "name": "Ronnie Harrison",
+      "name": "Ronnie Harrison Jr.",
       "position": "DB",
       "team": "MIA"
     },
@@ -31277,7 +31277,7 @@
       "team": "ARI"
     },
     "11084": {
-      "name": "Andre Carter",
+      "name": "Andre Carter II",
       "position": "LB",
       "team": "LAC"
     },
@@ -31292,7 +31292,7 @@
       "team": null
     },
     "13313": {
-      "name": "Emmanuel Henderson",
+      "name": "Emmanuel Henderson Jr.",
       "position": "WR",
       "team": "SEA"
     },
@@ -31842,7 +31842,7 @@
       "team": null
     },
     "7655": {
-      "name": "Asante Samuel",
+      "name": "Asante Samuel Jr.",
       "position": "CB",
       "team": "PIT"
     },
@@ -32012,7 +32012,7 @@
       "team": null
     },
     "8914": {
-      "name": "Jeremiah Pharms",
+      "name": "Jeremiah Pharms Jr.",
       "position": "DT",
       "team": "NE"
     },
@@ -32427,7 +32427,7 @@
       "team": null
     },
     "11628": {
-      "name": "Marvin Harrison",
+      "name": "Marvin Harrison Jr.",
       "position": "WR",
       "team": "HOU"
     },
@@ -32527,7 +32527,7 @@
       "team": "KC"
     },
     "11730": {
-      "name": "T.J. Tampa",
+      "name": "T.J. Tampa Jr.",
       "position": "DB",
       "team": "BAL"
     },
@@ -32859,7 +32859,7 @@
     "7283": {
       "name": "Chris Williams",
       "position": "DT",
-      "team": "CLE"
+      "team": null
     },
     "7491": {
       "name": "Cedrick Lattimore",
@@ -33237,9 +33237,9 @@
       "team": null
     },
     "6811": {
-      "name": "Kenneth Murray",
+      "name": "Kenneth Murray Jr.",
       "position": "LB",
-      "team": null
+      "team": "HOU"
     },
     "6554": {
       "name": "Shawn Poindexter",
@@ -33297,7 +33297,7 @@
       "team": null
     },
     "13767": {
-      "name": "James Neal",
+      "name": "James Neal III",
       "position": "OT",
       "team": "HOU"
     },
@@ -33622,7 +33622,7 @@
       "team": null
     },
     "10897": {
-      "name": "Tyrique Stevenson",
+      "name": "Tyrique Stevenson Sr.",
       "position": "CB",
       "team": "CHI"
     },
@@ -33892,12 +33892,12 @@
       "team": "LAC"
     },
     "11036": {
-      "name": "Anthony Johnson",
+      "name": "Anthony Johnson Jr.",
       "position": "DB",
       "team": "CHI"
     },
     "13812": {
-      "name": "Eddie Walls",
+      "name": "Eddie Walls III",
       "position": "DL",
       "team": "LAR"
     },
@@ -34137,7 +34137,7 @@
       "team": null
     },
     "5864": {
-      "name": "Byron Murphy",
+      "name": "Byron Murphy Jr.",
       "position": "CB",
       "team": "MIN"
     },
@@ -34177,7 +34177,7 @@
       "team": null
     },
     "12541": {
-      "name": "Dont'e Thornton",
+      "name": "Dont'e Thornton Jr.",
       "position": "WR",
       "team": "LV"
     },
@@ -34569,7 +34569,7 @@
     "13124": {
       "name": "Jeremiah Webb",
       "position": "WR",
-      "team": "NE"
+      "team": null
     },
     "1062": {
       "name": "DeAngelo Tyson",
@@ -35052,7 +35052,7 @@
       "team": null
     },
     "8151": {
-      "name": "Kenneth Walker",
+      "name": "Kenneth Walker III",
       "position": "RB",
       "team": "KC"
     },
@@ -35102,7 +35102,7 @@
       "team": null
     },
     "2078": {
-      "name": "Odell Beckham",
+      "name": "Odell Beckham Jr.",
       "position": "WR",
       "team": "MIN"
     },
@@ -35137,7 +35137,7 @@
       "team": "PIT"
     },
     "2308": {
-      "name": "Dante Fowler",
+      "name": "Dante Fowler Jr.",
       "position": "LB",
       "team": "SEA"
     },
@@ -35317,7 +35317,7 @@
       "team": null
     },
     "13118": {
-      "name": "Melvin Smith",
+      "name": "Melvin Smith Jr.",
       "position": "DB",
       "team": "KC"
     },
@@ -35359,7 +35359,7 @@
     "11041": {
       "name": "Andre Jones",
       "position": "DE",
-      "team": "MIA"
+      "team": null
     },
     "13720": {
       "name": "Ceyair Wright",
@@ -35657,7 +35657,7 @@
       "team": "DEN"
     },
     "5017": {
-      "name": "Jessie Bates",
+      "name": "Jessie Bates III",
       "position": "DB",
       "team": "ATL"
     },
@@ -36057,7 +36057,7 @@
       "team": null
     },
     "12939": {
-      "name": "Anthony Tyus",
+      "name": "Anthony Tyus III",
       "position": "RB",
       "team": "CAR"
     },
@@ -36087,7 +36087,7 @@
       "team": null
     },
     "12872": {
-      "name": "John Saunders",
+      "name": "John Saunders Jr.",
       "position": "DB",
       "team": "CLE"
     },
@@ -36317,7 +36317,7 @@
       "team": null
     },
     "3233": {
-      "name": "Kevin Byard",
+      "name": "Kevin Byard III",
       "position": "DB",
       "team": "NE"
     },
@@ -36362,7 +36362,7 @@
       "team": null
     },
     "10892": {
-      "name": "Will Anderson",
+      "name": "Will Anderson Jr.",
       "position": "DL",
       "team": "HOU"
     },
@@ -36807,7 +36807,7 @@
       "team": "MIA"
     },
     "12702": {
-      "name": "Rayuan Lane",
+      "name": "Rayuan Lane III",
       "position": "DB",
       "team": "JAX"
     },
@@ -37524,7 +37524,7 @@
     "11935": {
       "name": "A.J. Woods",
       "position": "CB",
-      "team": "BUF"
+      "team": null
     },
     "10931": {
       "name": "Siaki Ika",
@@ -37547,7 +37547,7 @@
       "team": null
     },
     "13276": {
-      "name": "Omar Cooper",
+      "name": "Omar Cooper Jr.",
       "position": "WR",
       "team": "NYJ"
     },
@@ -37604,7 +37604,7 @@
     "12948": {
       "name": "Austin Keys",
       "position": "LB",
-      "team": null
+      "team": "WAS"
     },
     "1553": {
       "name": "John Jenkins",
@@ -37787,7 +37787,7 @@
       "team": null
     },
     "10954": {
-      "name": "Clark Phillips",
+      "name": "Clark Phillips III",
       "position": "CB",
       "team": "CHI"
     },
@@ -37812,7 +37812,7 @@
       "team": null
     },
     "6131": {
-      "name": "Mack Wilson",
+      "name": "Mack Wilson Sr.",
       "position": "LB",
       "team": "ARI"
     },
@@ -38097,7 +38097,7 @@
       "team": null
     },
     "7543": {
-      "name": "Travis Etienne",
+      "name": "Travis Etienne Jr.",
       "position": "RB",
       "team": "NO"
     },
@@ -38412,7 +38412,7 @@
       "team": null
     },
     "13343": {
-      "name": "Vinny Anthony",
+      "name": "Vinny Anthony II",
       "position": "WR",
       "team": "ATL"
     },
@@ -38552,7 +38552,7 @@
       "team": null
     },
     "6980": {
-      "name": "Jon Runyan",
+      "name": "Jon Runyan Jr.",
       "position": "G",
       "team": "NYG"
     },
@@ -38792,7 +38792,7 @@
       "team": null
     },
     "13656": {
-      "name": "James Thompson",
+      "name": "James Thompson Jr.",
       "position": "DT",
       "team": "SF"
     },
@@ -39502,7 +39502,7 @@
       "team": null
     },
     "11631": {
-      "name": "Brian Thomas",
+      "name": "Brian Thomas Jr.",
       "position": "WR",
       "team": "JAX"
     },
@@ -39564,7 +39564,7 @@
     "13700": {
       "name": "James Brockermeyer",
       "position": "C",
-      "team": "PHI"
+      "team": null
     },
     "535": {
       "name": "T.J. Ward",
@@ -39922,7 +39922,7 @@
       "team": null
     },
     "10965": {
-      "name": "Warren McClendon",
+      "name": "Warren McClendon Jr.",
       "position": "OL",
       "team": "LAR"
     },
@@ -39937,7 +39937,7 @@
       "team": "PIT"
     },
     "11668": {
-      "name": "Byron Murphy",
+      "name": "Byron Murphy II",
       "position": "DL",
       "team": "SEA"
     },
@@ -39992,7 +39992,7 @@
       "team": null
     },
     "13650": {
-      "name": "Bryan Thomas",
+      "name": "Bryan Thomas Jr.",
       "position": "DE",
       "team": "JAX"
     },
@@ -40047,7 +40047,7 @@
       "team": null
     },
     "10978": {
-      "name": "Darrell Luter",
+      "name": "Darrell Luter Jr.",
       "position": "CB",
       "team": "LV"
     },
@@ -40057,7 +40057,7 @@
       "team": "NYJ"
     },
     "11186": {
-      "name": "Carlos Washington",
+      "name": "Carlos Washington Jr.",
       "position": "RB",
       "team": "MIA"
     },
@@ -40147,7 +40147,7 @@
       "team": "SEA"
     },
     "7728": {
-      "name": "James Hudson",
+      "name": "James Hudson III",
       "position": "OT",
       "team": "TEN"
     },
@@ -40197,7 +40197,7 @@
       "team": null
     },
     "6213": {
-      "name": "Trey Pipkins",
+      "name": "Trey Pipkins III",
       "position": "T",
       "team": "LAC"
     },
@@ -40447,7 +40447,7 @@
       "team": null
     },
     "13568": {
-      "name": "Tommy Doman",
+      "name": "Tommy Doman Jr.",
       "position": "P",
       "team": "BUF"
     },
@@ -40924,7 +40924,7 @@
     "7730": {
       "name": "Darren Hall",
       "position": "CB",
-      "team": "WAS"
+      "team": null
     },
     "4547": {
       "name": "Nigel Williams",
@@ -41162,7 +41162,7 @@
       "team": null
     },
     "10873": {
-      "name": "Nolan Smith",
+      "name": "Nolan Smith Jr.",
       "position": "LB",
       "team": "PHI"
     },
@@ -41212,7 +41212,7 @@
       "team": null
     },
     "5030": {
-      "name": "Harold Landry",
+      "name": "Harold Landry III",
       "position": "LB",
       "team": "NE"
     },
@@ -41352,7 +41352,7 @@
       "team": null
     },
     "4199": {
-      "name": "Aaron Jones",
+      "name": "Aaron Jones Sr.",
       "position": "RB",
       "team": "MIN"
     },
@@ -41462,7 +41462,7 @@
       "team": null
     },
     "10913": {
-      "name": "Joey Porter",
+      "name": "Joey Porter Jr.",
       "position": "DB",
       "team": "DAL"
     },
@@ -41582,7 +41582,7 @@
       "team": null
     },
     "13316": {
-      "name": "Eric Rivers",
+      "name": "Eric Rivers Jr.",
       "position": "WR",
       "team": "TB"
     },
@@ -41862,7 +41862,7 @@
       "team": null
     },
     "6154": {
-      "name": "David Sills",
+      "name": "David Sills V",
       "position": "WR",
       "team": "TB"
     },
@@ -42077,7 +42077,7 @@
       "team": "WAS"
     },
     "7641": {
-      "name": "Pat Surtain",
+      "name": "Pat Surtain II",
       "position": "CB",
       "team": "DEN"
     },
@@ -42282,7 +42282,7 @@
       "team": null
     },
     "11692": {
-      "name": "Mike Hall",
+      "name": "Mike Hall Jr.",
       "position": "DT",
       "team": "CLE"
     },
@@ -42852,7 +42852,7 @@
       "team": null
     },
     "11086": {
-      "name": "Ivan Pace",
+      "name": "Ivan Pace Jr.",
       "position": "LB",
       "team": "MIN"
     },
@@ -43422,7 +43422,7 @@
       "team": null
     },
     "12860": {
-      "name": "Theo Wease",
+      "name": "Theo Wease Jr.",
       "position": "WR",
       "team": "LAC"
     },
@@ -43542,7 +43542,7 @@
       "team": null
     },
     "8283": {
-      "name": "Brian Asamoah",
+      "name": "Brian Asamoah II",
       "position": "LB",
       "team": "ATL"
     },
@@ -43837,7 +43837,7 @@
       "team": null
     },
     "6011": {
-      "name": "Gardner Minshew",
+      "name": "Gardner Minshew II",
       "position": "QB",
       "team": "ARI"
     },
@@ -44079,7 +44079,7 @@
     "11582": {
       "name": "Carson Steele",
       "position": "RB",
-      "team": "PHI"
+      "team": null
     },
     "6839": {
       "name": "Jaylon Johnson",
@@ -44202,7 +44202,7 @@
       "team": null
     },
     "11573": {
-      "name": "Frank Gore",
+      "name": "Frank Gore Jr.",
       "position": "RB",
       "team": "BUF"
     },
@@ -44412,7 +44412,7 @@
       "team": "SEA"
     },
     "5154": {
-      "name": "Trent Sherfield",
+      "name": "Trent Sherfield Sr.",
       "position": "WR",
       "team": "BUF"
     },
@@ -44907,7 +44907,7 @@
       "team": "MIN"
     },
     "4427": {
-      "name": "Kenny Moore",
+      "name": "Kenny Moore II",
       "position": "CB",
       "team": "PHI"
     },
@@ -45989,7 +45989,7 @@
     "8713": {
       "name": "Josh Sills",
       "position": "OL",
-      "team": "IND"
+      "team": "NYG"
     },
     "11336": {
       "name": "Eku Leota",
@@ -46262,12 +46262,12 @@
       "team": null
     },
     "8398": {
-      "name": "Jermaine Johnson",
+      "name": "Jermaine Johnson II",
       "position": "LB",
       "team": "TEN"
     },
     "11752": {
-      "name": "Jeremiah Trotter",
+      "name": "Jeremiah Trotter Jr.",
       "position": "LB",
       "team": "PHI"
     },
@@ -46419,7 +46419,7 @@
     "13589": {
       "name": "Nadame Tucker",
       "position": "DE",
-      "team": "CLE"
+      "team": null
     },
     "8883": {
       "name": "Bryce Notree",
@@ -46969,10 +46969,10 @@
     "11315": {
       "name": "Cam Jones",
       "position": "LB",
-      "team": "KC"
+      "team": null
     },
     "13305": {
-      "name": "Mike Washington",
+      "name": "Mike Washington Jr.",
       "position": "RB",
       "team": "LV"
     },
@@ -47597,7 +47597,7 @@
       "team": "HOU"
     },
     "12544": {
-      "name": "LeQuint Allen",
+      "name": "LeQuint Allen Jr.",
       "position": "RB",
       "team": "JAX"
     },
@@ -47827,7 +47827,7 @@
       "team": null
     },
     "12506": {
-      "name": "Harold Fannin",
+      "name": "Harold Fannin Jr.",
       "position": "TE",
       "team": "CLE"
     },
@@ -48117,7 +48117,7 @@
       "team": "DET"
     },
     "12667": {
-      "name": "Smael Mondon",
+      "name": "Smael Mondon Jr.",
       "position": "LB",
       "team": "PHI"
     },
@@ -48427,7 +48427,7 @@
       "team": "IND"
     },
     "12629": {
-      "name": "Emery Jones",
+      "name": "Emery Jones Jr.",
       "position": "OL",
       "team": "BAL"
     },
@@ -49152,7 +49152,7 @@
       "team": null
     },
     "8306": {
-      "name": "John Ridgeway",
+      "name": "John Ridgeway III",
       "position": "DL",
       "team": "NO"
     },
@@ -49267,7 +49267,7 @@
       "team": null
     },
     "13507": {
-      "name": "Enrique Cruz",
+      "name": "Enrique Cruz Jr.",
       "position": "OL",
       "team": "SF"
     },
@@ -49502,7 +49502,7 @@
       "team": null
     },
     "13397": {
-      "name": "Keith Abney",
+      "name": "Keith Abney II",
       "position": "DB",
       "team": "DET"
     },
@@ -49687,7 +49687,7 @@
       "team": null
     },
     "13365": {
-      "name": "Anthony Hill",
+      "name": "Anthony Hill Jr.",
       "position": "LB",
       "team": "TEN"
     },
@@ -50227,14 +50227,14 @@
       "team": null
     },
     "5847": {
-      "name": "Dexter Lawrence",
+      "name": "Dexter Lawrence II",
       "position": "DT",
       "team": "CIN"
     },
     "8200": {
       "name": "Kevin Austin",
       "position": "WR",
-      "team": "NO"
+      "team": null
     },
     "886": {
       "name": "Taiwan Jones",
@@ -51189,7 +51189,7 @@
     "11769": {
       "name": "Caelen Carson",
       "position": "DB",
-      "team": "DAL"
+      "team": null
     },
     "3451": {
       "name": "Ka'imi Fairbairn",
@@ -51707,7 +51707,7 @@
       "team": null
     },
     "7224": {
-      "name": "Sam Franklin",
+      "name": "Sam Franklin Jr.",
       "position": "DB",
       "team": "BUF"
     },
@@ -51762,7 +51762,7 @@
       "team": "DEN"
     },
     "5054": {
-      "name": "Carlton Davis",
+      "name": "Carlton Davis III",
       "position": "CB",
       "team": "NE"
     },
@@ -52162,7 +52162,7 @@
       "team": "KC"
     },
     "11766": {
-      "name": "Jarvis Brownlee",
+      "name": "Jarvis Brownlee Jr.",
       "position": "DB",
       "team": "NYJ"
     },
@@ -52782,7 +52782,7 @@
       "team": null
     },
     "6796": {
-      "name": "Mekhi Becton",
+      "name": "Mekhi Becton Sr.",
       "position": "OT",
       "team": "GB"
     },
@@ -53417,7 +53417,7 @@
       "team": null
     },
     "11019": {
-      "name": "Erick Hallett",
+      "name": "Erick Hallett II",
       "position": "DB",
       "team": "TEN"
     },
@@ -53612,7 +53612,7 @@
       "team": null
     },
     "12910": {
-      "name": "B.J. Green",
+      "name": "B.J. Green II",
       "position": "DE",
       "team": "JAX"
     },
@@ -53804,7 +53804,7 @@
     "13978": {
       "name": "Albert Reese",
       "position": "OT",
-      "team": "CAR"
+      "team": "ARI"
     },
     "11985": {
       "name": "Carlton Johnson",
@@ -54672,7 +54672,7 @@
       "team": null
     },
     "7672": {
-      "name": "Ernest Jones",
+      "name": "Ernest Jones IV",
       "position": "LB",
       "team": "SEA"
     },
@@ -54902,7 +54902,7 @@
       "team": null
     },
     "4971": {
-      "name": "Derwin James",
+      "name": "Derwin James Jr.",
       "position": "DB",
       "team": "LAC"
     },
@@ -55077,7 +55077,7 @@
       "team": null
     },
     "12673": {
-      "name": "Dante Trader",
+      "name": "Dante Trader Jr.",
       "position": "DB",
       "team": "MIA"
     },
@@ -55327,7 +55327,7 @@
       "team": null
     },
     "13317": {
-      "name": "Ted Hurst",
+      "name": "Ted Hurst III",
       "position": "WR",
       "team": "TB"
     },
@@ -55572,7 +55572,7 @@
       "team": null
     },
     "6888": {
-      "name": "Antoine Winfield",
+      "name": "Antoine Winfield Jr.",
       "position": "DB",
       "team": "TB"
     },
@@ -56004,7 +56004,7 @@
     "12147": {
       "name": "Storm Duck",
       "position": "CB",
-      "team": "MIA"
+      "team": null
     },
     "2768": {
       "name": "Braylon Heard",
@@ -56402,7 +56402,7 @@
       "team": "CHI"
     },
     "13338": {
-      "name": "Kevin Coleman",
+      "name": "Kevin Coleman Jr.",
       "position": "WR",
       "team": "MIA"
     },
@@ -56412,7 +56412,7 @@
       "team": null
     },
     "8308": {
-      "name": "Derek Stingley",
+      "name": "Derek Stingley Jr.",
       "position": "DB",
       "team": "HOU"
     },
@@ -57079,7 +57079,7 @@
     "13652": {
       "name": "Jalen Hunt",
       "position": "DL",
-      "team": null
+      "team": "LAR"
     },
     "13602": {
       "name": "Jack Strand",
@@ -57222,7 +57222,7 @@
       "team": null
     },
     "10899": {
-      "name": "Gervon Dexter",
+      "name": "Gervon Dexter Sr.",
       "position": "DL",
       "team": "ATL"
     },
@@ -57247,7 +57247,7 @@
       "team": "CLE"
     },
     "12617": {
-      "name": "Demetrius Knight",
+      "name": "Demetrius Knight Jr.",
       "position": "LB",
       "team": "CIN"
     },
@@ -57357,7 +57357,7 @@
       "team": "KC"
     },
     "13856": {
-      "name": "Darryl Peterson",
+      "name": "Darryl Peterson III",
       "position": "LB",
       "team": "LAR"
     },
@@ -57592,7 +57592,7 @@
       "team": "LAC"
     },
     "13974": {
-      "name": "Malcolm DeWalt",
+      "name": "Malcolm DeWalt IV",
       "position": "CB",
       "team": "ATL"
     },
@@ -57614,7 +57614,7 @@
     "13732": {
       "name": "Aaron Graves",
       "position": "DT",
-      "team": "HOU"
+      "team": null
     },
     "4152": {
       "name": "Marlon Mack",
@@ -57762,7 +57762,7 @@
       "team": null
     },
     "13298": {
-      "name": "KC Concepcion",
+      "name": "KC Concepcion Jr.",
       "position": "WR",
       "team": "CLE"
     },
@@ -57952,7 +57952,7 @@
       "team": "BAL"
     },
     "12751": {
-      "name": "Howard Cross",
+      "name": "Howard Cross III",
       "position": "DT",
       "team": "CIN"
     },
@@ -58162,7 +58162,7 @@
       "team": null
     },
     "6819": {
-      "name": "Michael Pittman",
+      "name": "Michael Pittman Jr.",
       "position": "WR",
       "team": "PIT"
     },
@@ -58262,7 +58262,7 @@
       "team": null
     },
     "12931": {
-      "name": "Johnathan Baldwin",
+      "name": "Johnathan Baldwin II",
       "position": "DB",
       "team": "GB"
     },
@@ -58482,7 +58482,7 @@
       "team": null
     },
     "13819": {
-      "name": "Kevin Jobity",
+      "name": "Kevin Jobity Jr.",
       "position": "DL",
       "team": "PIT"
     },
@@ -58702,7 +58702,7 @@
       "team": null
     },
     "12031": {
-      "name": "Leonard Taylor",
+      "name": "Leonard Taylor III",
       "position": "DL",
       "team": "NE"
     },
@@ -59254,7 +59254,7 @@
     "13949": {
       "name": "Damon Bankston",
       "position": "RB",
-      "team": "GB"
+      "team": null
     },
     "5921": {
       "name": "Kris Boyd",
@@ -59909,7 +59909,7 @@
     "11820": {
       "name": "Devin Culp",
       "position": "TE",
-      "team": "CLE"
+      "team": null
     },
     "13247": {
       "name": "Ajani Carter",
@@ -60337,7 +60337,7 @@
       "team": null
     },
     "2334": {
-      "name": "Phillip Dorsett",
+      "name": "Phillip Dorsett II",
       "position": "WR",
       "team": "LV"
     },
@@ -60437,7 +60437,7 @@
       "team": "ATL"
     },
     "13030": {
-      "name": "Torricelli Simpkins",
+      "name": "Torricelli Simpkins III",
       "position": "OL",
       "team": "CAR"
     },
@@ -60607,7 +60607,7 @@
       "team": "NO"
     },
     "13672": {
-      "name": "Wydett Williams",
+      "name": "Wydett Williams Jr.",
       "position": "DB",
       "team": "ARI"
     },
@@ -60787,7 +60787,7 @@
       "team": null
     },
     "13489": {
-      "name": "Malik Muhammad",
+      "name": "Malik Muhammad II",
       "position": "CB",
       "team": "CHI"
     },
