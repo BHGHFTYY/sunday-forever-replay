@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-21T22:27:53.140105+00:00",
+  "fetched_at": "2026-10-23T00:50:49.805640+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -2687,7 +2687,7 @@
       "team": "NE"
     },
     "8473": {
-      "name": "Eric Johnson II",
+      "name": "Eric Johnson",
       "position": "DT",
       "team": "CLE"
     },
@@ -7734,7 +7734,7 @@
     "12871": {
       "name": "Eugene Asante",
       "position": "LB",
-      "team": "SF"
+      "team": null
     },
     "6018": {
       "name": "Zach Gentry",
@@ -8344,7 +8344,7 @@
     "6946": {
       "name": "Myles Bryant",
       "position": "DB",
-      "team": null
+      "team": "DET"
     },
     "PIT": {
       "name": "Pittsburgh Steelers",
@@ -14324,7 +14324,7 @@
     "12897": {
       "name": "Nate Carter",
       "position": "RB",
-      "team": "KC"
+      "team": null
     },
     "55": {
       "name": "Visanthe Shiancoe",
@@ -15892,9 +15892,9 @@
       "team": null
     },
     "12041": {
-      "name": "Carl Jones",
+      "name": "Carl Jones Jr.",
       "position": "DL",
-      "team": null
+      "team": "BAL"
     },
     "11367": {
       "name": "Daewood Davis",
@@ -19359,7 +19359,7 @@
     "8285": {
       "name": "Josh Ross",
       "position": "LB",
-      "team": null
+      "team": "SEA"
     },
     "672": {
       "name": "Donald Washington",
@@ -27914,7 +27914,7 @@
     "8443": {
       "name": "Evan Neal",
       "position": "OL",
-      "team": null
+      "team": "PHI"
     },
     "8911": {
       "name": "Drew Jordan",
@@ -29104,7 +29104,7 @@
     "12457": {
       "name": "Jaydon Blue",
       "position": "RB",
-      "team": null
+      "team": "PHI"
     },
     "7659": {
       "name": "Tre'von Moehrig",
@@ -44412,7 +44412,7 @@
       "team": "SEA"
     },
     "5154": {
-      "name": "Trent Sherfield Sr.",
+      "name": "Trent Sherfield",
       "position": "WR",
       "team": "BUF"
     },
@@ -46254,7 +46254,7 @@
     "4180": {
       "name": "Rayshawn Jenkins",
       "position": "DB",
-      "team": "PIT"
+      "team": null
     },
     "6933": {
       "name": "Raequan Williams",
@@ -49744,7 +49744,7 @@
     "11108": {
       "name": "Anfernee Orji",
       "position": "LB",
-      "team": null
+      "team": "PHI"
     },
     "3166": {
       "name": "Myles Jack",
@@ -51419,7 +51419,7 @@
     "9490": {
       "name": "Tyler Scott",
       "position": "WR",
-      "team": "LV"
+      "team": null
     },
     "7033": {
       "name": "Debione Renfro",
@@ -58642,7 +58642,7 @@
       "team": "DEN"
     },
     "13384": {
-      "name": "AJ Haulcy",
+      "name": "A.J. Haulcy",
       "position": "DB",
       "team": "IND"
     },
