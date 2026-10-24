@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-23T00:50:49.805640+00:00",
+  "fetched_at": "2026-10-24T04:22:00.733893+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -1214,7 +1214,7 @@
     "11304": {
       "name": "E.J. Jenkins",
       "position": "TE",
-      "team": "PHI"
+      "team": null
     },
     "8502": {
       "name": "Cade Mays",
@@ -14324,7 +14324,7 @@
     "12897": {
       "name": "Nate Carter",
       "position": "RB",
-      "team": null
+      "team": "KC"
     },
     "55": {
       "name": "Visanthe Shiancoe",
@@ -32459,7 +32459,7 @@
     "11750": {
       "name": "Dominique Hampton",
       "position": "CB",
-      "team": "TEN"
+      "team": null
     },
     "1798": {
       "name": "Josh Huff",
@@ -38744,7 +38744,7 @@
     "8491": {
       "name": "Austin Deculus",
       "position": "T",
-      "team": "ARI"
+      "team": null
     },
     "5706": {
       "name": "Jeremi Hall",
@@ -41059,7 +41059,7 @@
     "3217": {
       "name": "Jihad Ward",
       "position": "DE",
-      "team": null
+      "team": "MIN"
     },
     "12210": {
       "name": "Cole Burgess",
@@ -57114,7 +57114,7 @@
     "6004": {
       "name": "Andre James",
       "position": "C",
-      "team": "BAL"
+      "team": null
     },
     "12788": {
       "name": "Will Sheppard",
@@ -57594,7 +57594,7 @@
     "13974": {
       "name": "Malcolm DeWalt IV",
       "position": "CB",
-      "team": "ATL"
+      "team": null
     },
     "5669": {
       "name": "Sharif Finch",
