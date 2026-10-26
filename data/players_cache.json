@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-25T04:26:05.381816+00:00",
+  "fetched_at": "2026-10-26T04:28:28.310823+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -3204,7 +3204,7 @@
     "6005": {
       "name": "Kevin Givens",
       "position": "DT",
-      "team": "SF"
+      "team": null
     },
     "7722": {
       "name": "Bobby Brown III",
@@ -12954,7 +12954,7 @@
     "13199": {
       "name": "Montorie Foster Jr.",
       "position": "WR",
-      "team": "SEA"
+      "team": null
     },
     "12455": {
       "name": "Brashard Smith",
@@ -53994,7 +53994,7 @@
     "11481": {
       "name": "Natrone Brooks",
       "position": "CB",
-      "team": "MIN"
+      "team": null
     },
     "11364": {
       "name": "Jaquan Amos",
@@ -57514,7 +57514,7 @@
     "445": {
       "name": "Thomas Morstead",
       "position": "P",
-      "team": "IND"
+      "team": null
     },
     "6736": {
       "name": "Sean Smith",
@@ -57594,7 +57594,7 @@
     "13974": {
       "name": "Malcolm DeWalt IV",
       "position": "CB",
-      "team": null
+      "team": "CAR"
     },
     "5669": {
       "name": "Sharif Finch",
@@ -60609,7 +60609,7 @@
     "13672": {
       "name": "Wydett Williams Jr.",
       "position": "DB",
-      "team": "ARI"
+      "team": null
     },
     "7476": {
       "name": "Trevon McSwain",
