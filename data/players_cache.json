@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-26T04:28:28.310823+00:00",
+  "fetched_at": "2026-10-27T04:47:50.094864+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -1214,7 +1214,7 @@
     "11304": {
       "name": "E.J. Jenkins",
       "position": "TE",
-      "team": null
+      "team": "ATL"
     },
     "8502": {
       "name": "Cade Mays",
@@ -5419,7 +5419,7 @@
     "11007": {
       "name": "Bryce Baringer",
       "position": "P",
-      "team": "NE"
+      "team": null
     },
     "11571": {
       "name": "Isaiah Davis",
@@ -35229,7 +35229,7 @@
     "12062": {
       "name": "Cam Grandy",
       "position": "TE",
-      "team": "MIN"
+      "team": "CIN"
     },
     "11247": {
       "name": "Mac Hippenhammer",
@@ -45244,7 +45244,7 @@
     "10998": {
       "name": "Jose Ramirez",
       "position": "DL",
-      "team": null
+      "team": "NE"
     },
     "3019": {
       "name": "James Butler",
@@ -46254,7 +46254,7 @@
     "4180": {
       "name": "Rayshawn Jenkins",
       "position": "DB",
-      "team": null
+      "team": "BAL"
     },
     "6933": {
       "name": "Raequan Williams",
@@ -47064,7 +47064,7 @@
     "12922": {
       "name": "Ja'Markis Weston",
       "position": "DE",
-      "team": null
+      "team": "CAR"
     },
     "12938": {
       "name": "Jackson Meeks",
