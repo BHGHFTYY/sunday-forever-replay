@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-29T05:31:41.776616+00:00",
+  "fetched_at": "2026-10-30T05:32:07.419970+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -384,7 +384,7 @@
     "12887": {
       "name": "Joshua Gray",
       "position": "OL",
-      "team": "MIN"
+      "team": "IND"
     },
     "5592": {
       "name": "Tejan Koroma",
@@ -2529,7 +2529,7 @@
     "6125": {
       "name": "Jeffery Simmons",
       "position": "DT",
-      "team": "TEN"
+      "team": "CHI"
     },
     "HOU": {
       "name": "Houston Texans",
@@ -18274,7 +18274,7 @@
     "13855": {
       "name": "Austin Blaske",
       "position": "OL",
-      "team": "LAR"
+      "team": null
     },
     "105": {
       "name": "Brandon Carr",
@@ -29144,7 +29144,7 @@
     "13538": {
       "name": "DJ Campbell",
       "position": "G",
-      "team": "MIA"
+      "team": null
     },
     "11741": {
       "name": "Khyree Jackson",
@@ -35344,7 +35344,7 @@
     "11535": {
       "name": "Josh Butler",
       "position": "CB",
-      "team": null
+      "team": "CHI"
     },
     "131": {
       "name": "Duane Brown",
@@ -40024,7 +40024,7 @@
     "8261": {
       "name": "Jack Jones",
       "position": "DB",
-      "team": "SF"
+      "team": null
     },
     "5692": {
       "name": "Ryan Santoso",
@@ -49914,7 +49914,7 @@
     "7115": {
       "name": "Charlie Heck",
       "position": "T",
-      "team": null
+      "team": "IND"
     },
     "2244": {
       "name": "Kareem Martin",
