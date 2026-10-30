@@ -240,5 +240,247 @@
         }
       ]
     }
+  },
+  {
+    "timestamp": "2026-10-30T01:18:10+00:00",
+    "week": 8,
+    "my": {
+      "roster_id": 2,
+      "team_name": "Vision 2030 FC",
+      "points": 4.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "3294",
+          "name": "Dak Prescott",
+          "position": "QB",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8146",
+          "name": "Garrett Wilson",
+          "position": "WR",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "10232",
+          "name": "Michael Wilson",
+          "position": "WR",
+          "team": "ARI",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9488",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "5022",
+          "name": "Dallas Goedert",
+          "position": "TE",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "10213",
+          "name": "Tre Tucker",
+          "position": "WR",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "7627",
+          "name": "Greg Rousseau",
+          "position": "DE",
+          "team": "BUF",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "5843",
+          "name": "Devin Bush",
+          "position": "LB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11739",
+          "name": "Evan Williams",
+          "position": "DB",
+          "team": "GB",
+          "points": 4.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "11705",
+          "name": "Tykee Smith",
+          "position": "DB",
+          "team": "TB",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 7,
+      "team_name": "Lamar you all I got boo\ud83e\udd7a\ud83d\ude08",
+      "points": 10.7,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "4881",
+          "name": "Lamar Jackson",
+          "position": "QB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "8155",
+          "name": "Breece Hall",
+          "position": "RB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "5850",
+          "name": "Josh Jacobs",
+          "position": "RB",
+          "team": "GB",
+          "points": 10.7
+        },
+        {
+          "slot": "WR",
+          "player_id": "7564",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "6786",
+          "name": "CeeDee Lamb",
+          "position": "WR",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "1479",
+          "name": "Keenan Allen",
+          "position": "WR",
+          "team": "IND",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "10859",
+          "name": "Sam LaPorta",
+          "position": "TE",
+          "team": "DET",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "9224",
+          "name": "Chase Brown",
+          "position": "RB",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11786",
+          "name": "Cam Little",
+          "position": "K",
+          "team": "JAX",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "12573",
+          "name": "Mason Graham",
+          "position": "DL",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "4960",
+          "name": "Roquan Smith",
+          "position": "LB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "10935",
+          "name": "Trenton Simpson",
+          "position": "LB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "8330",
+          "name": "Quentin Lake",
+          "position": "DB",
+          "team": "LAR",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "13453",
+          "name": "Jacob Rodriguez",
+          "position": "LB",
+          "team": "MIA",
+          "points": 0.0
+        }
+      ]
+    }
   }
 ]

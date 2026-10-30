@@ -1,7 +1,7 @@
 {
   "league_name": "Sunday Forever",
   "my_roster_id": 2,
-  "generated_at": "2026-10-29T21:28:00+00:00",
+  "generated_at": "2026-10-30T01:18:10+00:00",
   "latest_week": 8,
   "weeks": {
     "1": {
@@ -57,7 +57,7 @@
       "my_team_name": "Vision 2030 FC",
       "opponent_team_name": "Lamar you all I got boo\ud83e\udd7a\ud83d\ude08",
       "opponent_roster_id": 7,
-      "snapshot_count": 1,
+      "snapshot_count": 2,
       "file": "data/snapshots_week8.json"
     }
   }
