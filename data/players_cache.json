@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-30T05:32:07.419970+00:00",
+  "fetched_at": "2026-10-31T11:00:12.673078+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -3204,7 +3204,7 @@
     "6005": {
       "name": "Kevin Givens",
       "position": "DT",
-      "team": "SF"
+      "team": "IND"
     },
     "7722": {
       "name": "Bobby Brown III",
@@ -21269,7 +21269,7 @@
     "5914": {
       "name": "David Long Jr.",
       "position": "CB",
-      "team": "NO"
+      "team": null
     },
     "11663": {
       "name": "Chop Robinson",
@@ -28459,7 +28459,7 @@
     "5894": {
       "name": "Germaine Pratt",
       "position": "LB",
-      "team": "IND"
+      "team": null
     },
     "13427": {
       "name": "Diego Pavia",
@@ -29144,7 +29144,7 @@
     "13538": {
       "name": "DJ Campbell",
       "position": "G",
-      "team": null
+      "team": "MIA"
     },
     "11741": {
       "name": "Khyree Jackson",
@@ -32459,7 +32459,7 @@
     "11750": {
       "name": "Dominique Hampton",
       "position": "CB",
-      "team": null
+      "team": "TEN"
     },
     "1798": {
       "name": "Josh Huff",
@@ -48009,7 +48009,7 @@
     "11350": {
       "name": "Mohamoud Diabate",
       "position": "LB",
-      "team": "TEN"
+      "team": null
     },
     "7715": {
       "name": "Cam Bynum",
@@ -51189,7 +51189,7 @@
     "11769": {
       "name": "Caelen Carson",
       "position": "DB",
-      "team": null
+      "team": "CAR"
     },
     "3451": {
       "name": "Ka'imi Fairbairn",
@@ -52489,7 +52489,7 @@
     "12035": {
       "name": "Jamree Kromah",
       "position": "DL",
-      "team": "CHI"
+      "team": "MIA"
     },
     "3570": {
       "name": "Brandon Ross",
@@ -55389,7 +55389,7 @@
     "12069": {
       "name": "Gottlieb Ayedze",
       "position": "T",
-      "team": "MIA"
+      "team": null
     },
     "1728": {
       "name": "Ben Garland",
