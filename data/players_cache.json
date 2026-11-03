@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-02T13:53:57.722922+00:00",
+  "fetched_at": "2026-11-03T17:39:15.679021+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -2474,7 +2474,7 @@
     "11579": {
       "name": "Audric Estime",
       "position": "RB",
-      "team": "CLE"
+      "team": null
     },
     "12584": {
       "name": "Darien Porter",
@@ -3719,7 +3719,7 @@
     "13418": {
       "name": "Robert Henry Jr.",
       "position": "RB",
-      "team": "SEA"
+      "team": null
     },
     "5550": {
       "name": "John David Moore",
@@ -5494,7 +5494,7 @@
     "7853": {
       "name": "Naquan Jones",
       "position": "DT",
-      "team": "SF"
+      "team": "HOU"
     },
     "12842": {
       "name": "Timothy McKay",
@@ -5914,7 +5914,7 @@
     "11931": {
       "name": "Austin Reed",
       "position": "QB",
-      "team": null
+      "team": "BAL"
     },
     "7713": {
       "name": "Jaelon Darden",
@@ -7024,7 +7024,7 @@
     "11795": {
       "name": "Jaden Crumedy",
       "position": "DT",
-      "team": "HOU"
+      "team": null
     },
     "2087": {
       "name": "Jordan Stanton",
@@ -8799,7 +8799,7 @@
     "5773": {
       "name": "KhaDarel Hodge",
       "position": "WR",
-      "team": null
+      "team": "SF"
     },
     "3638": {
       "name": "John Tidwell",
@@ -15079,7 +15079,7 @@
     "7815": {
       "name": "K.J. Britt",
       "position": "LB",
-      "team": "NE"
+      "team": "DET"
     },
     "12700": {
       "name": "Gavin Bartholomew",
@@ -16909,7 +16909,7 @@
     "13028": {
       "name": "Elliott Davison",
       "position": "DB",
-      "team": "NE"
+      "team": null
     },
     "867": {
       "name": "Orlando Franklin",
@@ -17194,7 +17194,7 @@
     "13213": {
       "name": "Lucas Scott",
       "position": "FB",
-      "team": "BAL"
+      "team": null
     },
     "8208": {
       "name": "Tyler Badie",
@@ -23459,7 +23459,7 @@
     "11648": {
       "name": "Kedon Slovis",
       "position": "QB",
-      "team": "GB"
+      "team": "BAL"
     },
     "7754": {
       "name": "Marquiss Spencer",
@@ -28584,7 +28584,7 @@
     "13923": {
       "name": "Joshua Pitsenberger",
       "position": "RB",
-      "team": null
+      "team": "HOU"
     },
     "510": {
       "name": "Koa Misi",
@@ -28754,7 +28754,7 @@
     "4371": {
       "name": "Josh Tupou",
       "position": "DT",
-      "team": "NYG"
+      "team": null
     },
     "5743": {
       "name": "Michael Cirino",
@@ -29049,7 +29049,7 @@
     "8351": {
       "name": "Drake Jackson",
       "position": "DL",
-      "team": "ATL"
+      "team": null
     },
     "13111": {
       "name": "Leif Fautanu",
@@ -35159,7 +35159,7 @@
     "7077": {
       "name": "Jacob Bobenmoyer",
       "position": "LS",
-      "team": "JAX"
+      "team": null
     },
     "2977": {
       "name": "Collin Rahrig",
@@ -37164,12 +37164,12 @@
     "8857": {
       "name": "Kader Kohou",
       "position": "CB",
-      "team": "KC"
+      "team": null
     },
     "10223": {
       "name": "Eric Gray",
       "position": "RB",
-      "team": null
+      "team": "NYG"
     },
     "7597": {
       "name": "Kenny Yeboah",
@@ -38014,7 +38014,7 @@
     "13048": {
       "name": "Jared Ivey",
       "position": "DE",
-      "team": "ATL"
+      "team": null
     },
     "4466": {
       "name": "Noble Nwachukwu",
@@ -38244,7 +38244,7 @@
     "3560": {
       "name": "Austin Johnson",
       "position": "DT",
-      "team": null
+      "team": "JAX"
     },
     "719": {
       "name": "Victor Cruz",
@@ -42409,7 +42409,7 @@
     "12057": {
       "name": "Maema Njongmeta",
       "position": "LB",
-      "team": "CAR"
+      "team": null
     },
     "12190": {
       "name": "Jason Bean",
@@ -43509,7 +43509,7 @@
     "12688": {
       "name": "Cam Miller",
       "position": "QB",
-      "team": null
+      "team": "GB"
     },
     "898": {
       "name": "David Arkin",
@@ -48009,7 +48009,7 @@
     "11350": {
       "name": "Mohamoud Diabate",
       "position": "LB",
-      "team": null
+      "team": "CAR"
     },
     "7715": {
       "name": "Cam Bynum",
@@ -50219,7 +50219,7 @@
     "12412": {
       "name": "Terrell Jennings",
       "position": "RB",
-      "team": null
+      "team": "NE"
     },
     "10948": {
       "name": "Carter Warren",
@@ -56119,7 +56119,7 @@
     "9505": {
       "name": "Deuce Vaughn",
       "position": "RB",
-      "team": "HOU"
+      "team": null
     },
     "862": {
       "name": "Blaine Gabbert",
@@ -56564,7 +56564,7 @@
     "8276": {
       "name": "Jalyn Armour-Davis",
       "position": "DB",
-      "team": null
+      "team": "LAC"
     },
     "1772": {
       "name": "J Talley",
