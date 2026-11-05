@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-04T17:53:00.280217+00:00",
+  "fetched_at": "2026-11-05T17:55:35.858299+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -3484,7 +3484,7 @@
     "8194": {
       "name": "Jashaun Corbin",
       "position": "RB",
-      "team": null
+      "team": "DAL"
     },
     "3223": {
       "name": "Su'a Cravens",
@@ -5077,9 +5077,9 @@
       "team": "CIN"
     },
     "7817": {
-      "name": "Earnest Brown",
+      "name": "Earnest Brown IV",
       "position": "DE",
-      "team": null
+      "team": "CHI"
     },
     "2282": {
       "name": "Fitzgerald Toussaint",
@@ -11644,7 +11644,7 @@
     "12436": {
       "name": "Jamie Sheriff",
       "position": "LB",
-      "team": null
+      "team": "SEA"
     },
     "13950": {
       "name": "Xavier Hill",
@@ -12114,7 +12114,7 @@
     "6386": {
       "name": "Alex Bachman",
       "position": "WR",
-      "team": null
+      "team": "LAR"
     },
     "12259": {
       "name": "Taulia Tagovailoa",
@@ -14289,7 +14289,7 @@
     "7599": {
       "name": "Jermar Jefferson",
       "position": "RB",
-      "team": null
+      "team": "ARI"
     },
     "2346": {
       "name": "Devin Funchess",
@@ -16909,7 +16909,7 @@
     "13028": {
       "name": "Elliott Davison",
       "position": "DB",
-      "team": null
+      "team": "NE"
     },
     "867": {
       "name": "Orlando Franklin",
@@ -22777,7 +22777,7 @@
       "team": "NYG"
     },
     "10966": {
-      "name": "Rob Beal Jr.",
+      "name": "Robert Beal Jr.",
       "position": "LB",
       "team": "SF"
     },
@@ -25514,7 +25514,7 @@
     "12054": {
       "name": "Jimmy Ciarlo",
       "position": "LB",
-      "team": "SEA"
+      "team": null
     },
     "7925": {
       "name": "Jerome Johnson",
@@ -27197,9 +27197,9 @@
       "team": "WAS"
     },
     "6957": {
-      "name": "James Proche",
+      "name": "James Proche II",
       "position": "WR",
-      "team": null
+      "team": "ARI"
     },
     "7410": {
       "name": "David Bada",
@@ -29269,7 +29269,7 @@
     "7039": {
       "name": "Cody White",
       "position": "WR",
-      "team": "LV"
+      "team": null
     },
     "2238": {
       "name": "John Brown",
@@ -31579,7 +31579,7 @@
     "13904": {
       "name": "Jacob De Jesus",
       "position": "WR",
-      "team": null
+      "team": "KC"
     },
     "5162": {
       "name": "Reggie Bonnafon",
@@ -31599,7 +31599,7 @@
     "13697": {
       "name": "Da'Metrius Weatherspoon",
       "position": "OL",
-      "team": null
+      "team": "CAR"
     },
     "13919": {
       "name": "DJ Wingfield",
@@ -33494,7 +33494,7 @@
     "11018": {
       "name": "Christian Braswell",
       "position": "DB",
-      "team": null
+      "team": "PHI"
     },
     "1252": {
       "name": "Jeris Pendleton",
@@ -35829,7 +35829,7 @@
     "11774": {
       "name": "Trevor Keegan",
       "position": "OL",
-      "team": null
+      "team": "TB"
     },
     "2301": {
       "name": "Al Louis-Jean",
@@ -36724,7 +36724,7 @@
     "14058": {
       "name": "Malick Meiga",
       "position": "WR",
-      "team": "SEA"
+      "team": null
     },
     "8458": {
       "name": "Dylan Parham",
@@ -37164,7 +37164,7 @@
     "8857": {
       "name": "Kader Kohou",
       "position": "CB",
-      "team": null
+      "team": "BUF"
     },
     "10223": {
       "name": "Eric Gray",
@@ -38014,7 +38014,7 @@
     "13048": {
       "name": "Jared Ivey",
       "position": "DE",
-      "team": null
+      "team": "ATL"
     },
     "4466": {
       "name": "Noble Nwachukwu",
@@ -41749,7 +41749,7 @@
     "5532": {
       "name": "Daniel Ekuale",
       "position": "DT",
-      "team": null
+      "team": "WAS"
     },
     "5029": {
       "name": "Josh Jackson",
@@ -54149,7 +54149,7 @@
     "11420": {
       "name": "Luke Haggard",
       "position": "OT",
-      "team": "TB"
+      "team": null
     },
     "11519": {
       "name": "LaTrell Bumphus",
@@ -55874,7 +55874,7 @@
     "11065": {
       "name": "Adrian Martinez",
       "position": "QB",
-      "team": null
+      "team": "SEA"
     },
     "13787": {
       "name": "Tahj Chambers",
@@ -60032,9 +60032,9 @@
       "team": "CHI"
     },
     "13719": {
-      "name": "Corey Robinson",
+      "name": "Corey Robinson II",
       "position": "OL",
-      "team": null
+      "team": "MIN"
     },
     "11704": {
       "name": "Christian Haynes",
