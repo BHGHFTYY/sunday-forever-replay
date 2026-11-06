@@ -1,7 +1,7 @@
 {
   "league_name": "Sunday Forever",
   "my_roster_id": 2,
-  "generated_at": "2026-11-05T23:30:18+00:00",
+  "generated_at": "2026-11-06T03:39:22+00:00",
   "latest_week": 9,
   "weeks": {
     "1": {
@@ -64,7 +64,7 @@
       "my_team_name": "Vision 2030 FC",
       "opponent_team_name": "Mahomes and Maauto",
       "opponent_roster_id": 10,
-      "snapshot_count": 1,
+      "snapshot_count": 2,
       "file": "data/snapshots_week9.json"
     }
   }
