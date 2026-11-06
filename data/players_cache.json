@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-05T17:55:35.858299+00:00",
+  "fetched_at": "2026-11-06T22:11:42.373606+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -12149,7 +12149,7 @@
     "11823": {
       "name": "C.J. Hanson",
       "position": "OG",
-      "team": null
+      "team": "MIN"
     },
     "8268": {
       "name": "Lewis Cine",
@@ -15674,7 +15674,7 @@
     "10963": {
       "name": "Jakorian Bennett",
       "position": "DB",
-      "team": null
+      "team": "CAR"
     },
     "5344": {
       "name": "Cornell Armstrong",
@@ -16649,7 +16649,7 @@
     "10215": {
       "name": "Jake Haener",
       "position": "QB",
-      "team": "NYG"
+      "team": null
     },
     "2574": {
       "name": "Duplicate Player",
@@ -21269,7 +21269,7 @@
     "5914": {
       "name": "David Long Jr.",
       "position": "CB",
-      "team": null
+      "team": "LAR"
     },
     "11663": {
       "name": "Chop Robinson",
@@ -29269,7 +29269,7 @@
     "7039": {
       "name": "Cody White",
       "position": "WR",
-      "team": null
+      "team": "LV"
     },
     "2238": {
       "name": "John Brown",
@@ -37522,7 +37522,7 @@
       "team": null
     },
     "11935": {
-      "name": "A.J. Woods",
+      "name": "AJ Woods",
       "position": "CB",
       "team": "BUF"
     },
@@ -40744,7 +40744,7 @@
     "6928": {
       "name": "Kindle Vildor",
       "position": "DB",
-      "team": null
+      "team": "NE"
     },
     "3": {
       "name": "David Harris",
@@ -48779,7 +48779,7 @@
     "13122": {
       "name": "Carter Runyon",
       "position": "TE",
-      "team": "LV"
+      "team": null
     },
     "8512": {
       "name": "Andre Anthony",
@@ -50209,7 +50209,7 @@
     "11748": {
       "name": "Bub Means",
       "position": "WR",
-      "team": null
+      "team": "KC"
     },
     "5744": {
       "name": "Eldridge Massington",
@@ -52929,7 +52929,7 @@
     "3257": {
       "name": "Jacoby Brissett",
       "position": "QB",
-      "team": "ARI"
+      "team": "BAL"
     },
     "6518": {
       "name": "Greg Roberts",
@@ -55604,7 +55604,7 @@
     "13580": {
       "name": "Carsen Ryan",
       "position": "TE",
-      "team": "CLE"
+      "team": null
     },
     "8804": {
       "name": "Duplicate Player",
@@ -59947,7 +59947,7 @@
       "team": null
     },
     "13743": {
-      "name": "Joseph Manjack",
+      "name": "Joseph Manjack IV",
       "position": "WR",
       "team": "NYJ"
     },
