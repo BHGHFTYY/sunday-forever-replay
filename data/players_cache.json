@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-06T22:11:42.373606+00:00",
+  "fetched_at": "2026-11-07T23:43:00.639027+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -5914,7 +5914,7 @@
     "11931": {
       "name": "Austin Reed",
       "position": "QB",
-      "team": "BAL"
+      "team": null
     },
     "7713": {
       "name": "Jaelon Darden",
@@ -16649,7 +16649,7 @@
     "10215": {
       "name": "Jake Haener",
       "position": "QB",
-      "team": null
+      "team": "NYG"
     },
     "2574": {
       "name": "Duplicate Player",
@@ -18679,7 +18679,7 @@
     "8223": {
       "name": "Velus Jones Jr.",
       "position": "WR",
-      "team": "SEA"
+      "team": null
     },
     "11075": {
       "name": "Jacky Chen",
@@ -36234,7 +36234,7 @@
     "8129": {
       "name": "Dameon Pierce",
       "position": "RB",
-      "team": "PHI"
+      "team": null
     },
     "8434": {
       "name": "Player Invalid",
@@ -48779,7 +48779,7 @@
     "13122": {
       "name": "Carter Runyon",
       "position": "TE",
-      "team": null
+      "team": "LV"
     },
     "8512": {
       "name": "Andre Anthony",
@@ -51364,7 +51364,7 @@
     "12856": {
       "name": "Zion Childress",
       "position": "DB",
-      "team": "CAR"
+      "team": null
     },
     "7962": {
       "name": "Sadarius Hutcherson",
@@ -55604,7 +55604,7 @@
     "13580": {
       "name": "Carsen Ryan",
       "position": "TE",
-      "team": null
+      "team": "CLE"
     },
     "8804": {
       "name": "Duplicate Player",
@@ -60339,7 +60339,7 @@
     "2334": {
       "name": "Phillip Dorsett II",
       "position": "WR",
-      "team": "LV"
+      "team": null
     },
     "7679": {
       "name": "Alim McNeill",
