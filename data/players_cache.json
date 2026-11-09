@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-07T23:43:00.639027+00:00",
+  "fetched_at": "2026-11-09T00:08:10.996141+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -17484,7 +17484,7 @@
     "12079": {
       "name": "Treyton Welch",
       "position": "TE",
-      "team": "NO"
+      "team": null
     },
     "3661": {
       "name": "Cory Johnson",
@@ -18679,7 +18679,7 @@
     "8223": {
       "name": "Velus Jones Jr.",
       "position": "WR",
-      "team": null
+      "team": "SEA"
     },
     "11075": {
       "name": "Jacky Chen",
@@ -42569,7 +42569,7 @@
     "9757": {
       "name": "Kendre Miller",
       "position": "RB",
-      "team": "NO"
+      "team": null
     },
     "7670": {
       "name": "Joshua Palmer",
