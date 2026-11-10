@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-09T00:08:10.996141+00:00",
+  "fetched_at": "2026-11-10T02:54:58.913018+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -9549,7 +9549,7 @@
     "260": {
       "name": "Josh Johnson",
       "position": "QB",
-      "team": "CIN"
+      "team": "ARI"
     },
     "8113": {
       "name": "Player Invalid",
@@ -25514,7 +25514,7 @@
     "12054": {
       "name": "Jimmy Ciarlo",
       "position": "LB",
-      "team": null
+      "team": "TEN"
     },
     "7925": {
       "name": "Jerome Johnson",
@@ -26724,7 +26724,7 @@
     "8269": {
       "name": "Jordan Davis",
       "position": "DL",
-      "team": "PHI"
+      "team": "JAX"
     },
     "4497": {
       "name": "Tony Stevens",
@@ -30434,7 +30434,7 @@
     "7698": {
       "name": "Andre Cisco",
       "position": "DB",
-      "team": "NYJ"
+      "team": "DET"
     },
     "13532": {
       "name": "Bobby Jamison-Travis",
@@ -30504,7 +30504,7 @@
     "4207": {
       "name": "Davon Godchaux",
       "position": "DT",
-      "team": "NO"
+      "team": "JAX"
     },
     "13478": {
       "name": "Ephesians Prysock",
@@ -35659,7 +35659,7 @@
     "5017": {
       "name": "Jessie Bates III",
       "position": "DB",
-      "team": "ATL"
+      "team": "JAX"
     },
     "2972": {
       "name": "Darrian Miller",
