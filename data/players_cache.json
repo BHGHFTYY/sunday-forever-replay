@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-10T02:54:58.913018+00:00",
+  "fetched_at": "2026-11-11T05:53:46.626635+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -4727,9 +4727,9 @@
       "team": null
     },
     "13957": {
-      "name": "Kenny Fletcher",
+      "name": "Kenny Fletcher Jr.",
       "position": "TE",
-      "team": null
+      "team": "GB"
     },
     "3269": {
       "name": "Chris Moore",
@@ -8274,7 +8274,7 @@
     "7012": {
       "name": "Mykal Walker",
       "position": "LB",
-      "team": null
+      "team": "NYJ"
     },
     "12597": {
       "name": "Nick Emmanwori",
@@ -8819,7 +8819,7 @@
     "11305": {
       "name": "Claudin Cherelus",
       "position": "LB",
-      "team": null
+      "team": "CAR"
     },
     "4848": {
       "name": "Christian Kuntz",
@@ -9939,7 +9939,7 @@
     "1166": {
       "name": "Kirk Cousins",
       "position": "QB",
-      "team": "LV"
+      "team": "MIN"
     },
     "152": {
       "name": "Anthony Spencer",
@@ -11259,7 +11259,7 @@
     "11045": {
       "name": "Andrew Vorhees",
       "position": "OL",
-      "team": "BAL"
+      "team": "ATL"
     },
     "2198": {
       "name": "Brian Dixon",
@@ -12969,7 +12969,7 @@
     "10937": {
       "name": "Jake Moody",
       "position": "K",
-      "team": "BAL"
+      "team": "ATL"
     },
     "12112": {
       "name": "Camden Lewis",
@@ -13004,7 +13004,7 @@
     "13428": {
       "name": "Joey Aguilar",
       "position": "QB",
-      "team": "JAX"
+      "team": "ARI"
     },
     "7029": {
       "name": "David Woodward",
@@ -16824,7 +16824,7 @@
     "8799": {
       "name": "Zaire Mitchell-Paden",
       "position": "TE",
-      "team": null
+      "team": "CLE"
     },
     "8146": {
       "name": "Garrett Wilson",
@@ -17194,7 +17194,7 @@
     "13213": {
       "name": "Lucas Scott",
       "position": "FB",
-      "team": null
+      "team": "BAL"
     },
     "8208": {
       "name": "Tyler Badie",
@@ -17484,7 +17484,7 @@
     "12079": {
       "name": "Treyton Welch",
       "position": "TE",
-      "team": null
+      "team": "NO"
     },
     "3661": {
       "name": "Cory Johnson",
@@ -17494,7 +17494,7 @@
     "7979": {
       "name": "Ryan Neuzil",
       "position": "OL",
-      "team": "ATL"
+      "team": "BAL"
     },
     "11925": {
       "name": "Terique Owens",
@@ -20674,7 +20674,7 @@
     "13147": {
       "name": "Gus Hartwig",
       "position": "C",
-      "team": null
+      "team": "ATL"
     },
     "2030": {
       "name": "Jonathan Dowling",
@@ -32564,7 +32564,7 @@
     "1479": {
       "name": "Keenan Allen",
       "position": "WR",
-      "team": "IND"
+      "team": "SF"
     },
     "5699": {
       "name": "Matt Fleming",
@@ -32859,7 +32859,7 @@
     "7283": {
       "name": "Chris Williams",
       "position": "DT",
-      "team": null
+      "team": "LV"
     },
     "7491": {
       "name": "Cedrick Lattimore",
@@ -35159,7 +35159,7 @@
     "7077": {
       "name": "Jacob Bobenmoyer",
       "position": "LS",
-      "team": null
+      "team": "IND"
     },
     "2977": {
       "name": "Collin Rahrig",
@@ -35474,7 +35474,7 @@
     "13216": {
       "name": "Derrick Canteen",
       "position": "CB",
-      "team": "TEN"
+      "team": null
     },
     "1111": {
       "name": "Andrew Luck",
@@ -36674,7 +36674,7 @@
     "13900": {
       "name": "Cole Brevard",
       "position": "DT",
-      "team": "KC"
+      "team": "SEA"
     },
     "13463": {
       "name": "Caleb Tiernan",
@@ -40089,7 +40089,7 @@
     "10914": {
       "name": "Daiyan Henley",
       "position": "LB",
-      "team": "LAC"
+      "team": "DEN"
     },
     "13198": {
       "name": "D'Eryk Jackson",
@@ -42569,7 +42569,7 @@
     "9757": {
       "name": "Kendre Miller",
       "position": "RB",
-      "team": null
+      "team": "DAL"
     },
     "7670": {
       "name": "Joshua Palmer",
@@ -45244,7 +45244,7 @@
     "10998": {
       "name": "Jose Ramirez",
       "position": "DL",
-      "team": "NE"
+      "team": null
     },
     "3019": {
       "name": "James Butler",
@@ -46814,7 +46814,7 @@
     "5908": {
       "name": "Amani Hooker",
       "position": "DB",
-      "team": "TEN"
+      "team": "BUF"
     },
     "250": {
       "name": "Matt Spaeth",
@@ -47069,7 +47069,7 @@
     "12938": {
       "name": "Jackson Meeks",
       "position": "TE",
-      "team": "DET"
+      "team": null
     },
     "4743": {
       "name": "Daniel Gray",
@@ -47209,7 +47209,7 @@
     "650": {
       "name": "Nick Folk",
       "position": "K",
-      "team": "ATL"
+      "team": null
     },
     "7294": {
       "name": "Amari Henderson",
@@ -47309,7 +47309,7 @@
     "9500": {
       "name": "Josh Downs",
       "position": "WR",
-      "team": "IND"
+      "team": "KC"
     },
     "11762": {
       "name": "Anthony Gould",
@@ -48259,7 +48259,7 @@
     "11168": {
       "name": "Xavier Smith",
       "position": "WR",
-      "team": "SF"
+      "team": "LAR"
     },
     "5972": {
       "name": "B.J. Autry",
@@ -54149,7 +54149,7 @@
     "11420": {
       "name": "Luke Haggard",
       "position": "OT",
-      "team": null
+      "team": "TB"
     },
     "11519": {
       "name": "LaTrell Bumphus",
@@ -55009,7 +55009,7 @@
     "13748": {
       "name": "Wes Pahl",
       "position": "P",
-      "team": null
+      "team": "CLE"
     },
     "12182": {
       "name": "Miles Battle",
@@ -56044,7 +56044,7 @@
     "13806": {
       "name": "Matt Lauter",
       "position": "TE",
-      "team": null
+      "team": "NO"
     },
     "11411": {
       "name": "Robert Cooper",
@@ -57009,7 +57009,7 @@
     "13827": {
       "name": "Tanner Arkin",
       "position": "TE",
-      "team": "NE"
+      "team": null
     },
     "1680": {
       "name": "Justin Tuggle",
@@ -58399,7 +58399,7 @@
     "8282": {
       "name": "Delarrin Turner-Yell",
       "position": "DB",
-      "team": null
+      "team": "ATL"
     },
     "13097": {
       "name": "TaMuarion Wilson",
@@ -60339,7 +60339,7 @@
     "2334": {
       "name": "Phillip Dorsett II",
       "position": "WR",
-      "team": null
+      "team": "ARI"
     },
     "7679": {
       "name": "Alim McNeill",
