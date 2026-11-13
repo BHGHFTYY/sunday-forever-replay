@@ -1,7 +1,7 @@
 {
   "league_name": "Sunday Forever",
   "my_roster_id": 2,
-  "generated_at": "2026-11-12T23:33:33+00:00",
+  "generated_at": "2026-11-13T03:34:58+00:00",
   "latest_week": 10,
   "weeks": {
     "1": {
@@ -71,7 +71,7 @@
       "my_team_name": "Vision 2030 FC",
       "opponent_team_name": "The Busy Boys ",
       "opponent_roster_id": 1,
-      "snapshot_count": 1,
+      "snapshot_count": 2,
       "file": "data/snapshots_week10.json"
     }
   }
