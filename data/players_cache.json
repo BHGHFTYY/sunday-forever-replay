@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-12T06:57:41.692217+00:00",
+  "fetched_at": "2026-11-13T17:35:51.801065+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -4994,7 +4994,7 @@
     "6045": {
       "name": "Gary Jennings",
       "position": "WR",
-      "team": "LAC"
+      "team": null
     },
     "13133": {
       "name": "Mason Narcisse",
@@ -9499,7 +9499,7 @@
     "13049": {
       "name": "Alijah Huzzie",
       "position": "DB",
-      "team": null
+      "team": "JAX"
     },
     "2372": {
       "name": "A.J. Cann",
@@ -16904,7 +16904,7 @@
     "13678": {
       "name": "Jack Pyburn",
       "position": "DE",
-      "team": null
+      "team": "KC"
     },
     "13028": {
       "name": "Elliott Davison",
@@ -16944,7 +16944,7 @@
     "11121": {
       "name": "AJ Finley",
       "position": "DB",
-      "team": "SEA"
+      "team": null
     },
     "943": {
       "name": "Kyle Rudolph",
@@ -29699,7 +29699,7 @@
     "5848": {
       "name": "Marquise Brown",
       "position": "WR",
-      "team": "PHI"
+      "team": null
     },
     "3832": {
       "name": "C.J. Ham",
@@ -40089,7 +40089,7 @@
     "10914": {
       "name": "Daiyan Henley",
       "position": "LB",
-      "team": "DEN"
+      "team": "LAC"
     },
     "13198": {
       "name": "D'Eryk Jackson",
@@ -51284,7 +51284,7 @@
     "11891": {
       "name": "Kyle Hergel",
       "position": "OL",
-      "team": null
+      "team": "BAL"
     },
     "7478": {
       "name": "Luther Kirk",
@@ -51419,7 +51419,7 @@
     "9490": {
       "name": "Tyler Scott",
       "position": "WR",
-      "team": null
+      "team": "LAR"
     },
     "7033": {
       "name": "Debione Renfro",
@@ -52159,7 +52159,7 @@
     "11320": {
       "name": "Nikko Remigio",
       "position": "WR",
-      "team": null
+      "team": "HOU"
     },
     "11766": {
       "name": "Jarvis Brownlee Jr.",
@@ -54659,7 +54659,7 @@
     "8464": {
       "name": "Cordell Volson",
       "position": "T",
-      "team": null
+      "team": "SEA"
     },
     "3971": {
       "name": "Chan Gailey",
@@ -56529,7 +56529,7 @@
     "12015": {
       "name": "Harrison Mevis",
       "position": "K",
-      "team": null
+      "team": "BAL"
     },
     "6777": {
       "name": "Troy Polamalu",
@@ -60337,7 +60337,7 @@
       "team": null
     },
     "2334": {
-      "name": "Phillip Dorsett II",
+      "name": "Phillip Dorsett",
       "position": "WR",
       "team": "ARI"
     },
@@ -60724,7 +60724,7 @@
     "7922": {
       "name": "Riley Patterson",
       "position": "K",
-      "team": null
+      "team": "BAL"
     },
     "4093": {
       "name": "Marcus Maye",
