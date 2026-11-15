@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-14T20:53:34.484984+00:00",
+  "fetched_at": "2026-11-15T21:35:04.346078+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -999,7 +999,7 @@
     "11512": {
       "name": "Tyrus Wheat",
       "position": "DE",
-      "team": "DAL"
+      "team": null
     },
     "12699": {
       "name": "LaJohntay Wester",
@@ -14194,7 +14194,7 @@
     "7607": {
       "name": "Michael Carter",
       "position": "RB",
-      "team": "TEN"
+      "team": null
     },
     "5642": {
       "name": "Trayvon Henderson",
@@ -20689,7 +20689,7 @@
     "13860": {
       "name": "Sabastian Harsh",
       "position": "DE",
-      "team": "HOU"
+      "team": null
     },
     "2486": {
       "name": "Tyrus Thompson",
@@ -23704,7 +23704,7 @@
     "10972": {
       "name": "Terell Smith",
       "position": "DB",
-      "team": "PIT"
+      "team": null
     },
     "1752": {
       "name": "Malcolm Bronson",
@@ -35639,7 +35639,7 @@
     "12829": {
       "name": "Coleman Owen",
       "position": "WR",
-      "team": "GB"
+      "team": null
     },
     "11062": {
       "name": "Ali Gaye",
@@ -40229,7 +40229,7 @@
     "12429": {
       "name": "Kohl Levao",
       "position": "OL",
-      "team": "NYJ"
+      "team": null
     },
     "2299": {
       "name": "Kevin Fogg",
@@ -50274,7 +50274,7 @@
     "12380": {
       "name": "Te'Cory Couch",
       "position": "CB",
-      "team": "BUF"
+      "team": null
     },
     "13071": {
       "name": "Marques Cox",
@@ -57819,7 +57819,7 @@
     "13861": {
       "name": "Daniel Sobkowicz",
       "position": "WR",
-      "team": "HOU"
+      "team": null
     },
     "691": {
       "name": "Derek Anderson",
@@ -59038,7 +59038,7 @@
     },
     "13200": {
       "name": "Max Hurleman",
-      "position": "CB",
+      "position": "WR",
       "team": "PIT"
     },
     "7783": {
