@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-15T21:35:04.346078+00:00",
+  "fetched_at": "2026-11-17T02:59:05.376093+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -999,7 +999,7 @@
     "11512": {
       "name": "Tyrus Wheat",
       "position": "DE",
-      "team": null
+      "team": "DET"
     },
     "12699": {
       "name": "LaJohntay Wester",
@@ -4369,7 +4369,7 @@
     "11311": {
       "name": "Jason Brownlee",
       "position": "WR",
-      "team": null
+      "team": "TEN"
     },
     "194": {
       "name": "Reggie Wayne",
@@ -8909,7 +8909,7 @@
     "4574": {
       "name": "Cooper Rush",
       "position": "QB",
-      "team": null
+      "team": "TB"
     },
     "626": {
       "name": "Jim Dray",
@@ -10674,7 +10674,7 @@
     "5519": {
       "name": "Tavierre Thomas",
       "position": "DB",
-      "team": "MIN"
+      "team": "NYG"
     },
     "11280": {
       "name": "Brady Russell",
@@ -18884,7 +18884,7 @@
     "13680": {
       "name": "Bishop Fitzgerald",
       "position": "DB",
-      "team": null
+      "team": "TEN"
     },
     "12843": {
       "name": "Trey Rucker",
@@ -23737,7 +23737,7 @@
       "team": "JAX"
     },
     "13356": {
-      "name": "Trebor Pena",
+      "name": "Trebor Pe\u00f1a",
       "position": "WR",
       "team": "JAX"
     },
@@ -30309,7 +30309,7 @@
     "6037": {
       "name": "Brett Rypien",
       "position": "QB",
-      "team": null
+      "team": "LV"
     },
     "5357": {
       "name": "Kent Shelby",
@@ -41224,7 +41224,7 @@
     "11306": {
       "name": "Xavier Gipson",
       "position": "WR",
-      "team": "PHI"
+      "team": "NYG"
     },
     "1600": {
       "name": "Jared Smith",
@@ -41864,7 +41864,7 @@
     "6154": {
       "name": "David Sills V",
       "position": "WR",
-      "team": null
+      "team": "TB"
     },
     "3425": {
       "name": "D.J. Pettway",
@@ -48774,7 +48774,7 @@
     "8235": {
       "name": "Samori Toure",
       "position": "WR",
-      "team": null
+      "team": "IND"
     },
     "13122": {
       "name": "Carter Runyon",
@@ -49714,7 +49714,7 @@
     "6850": {
       "name": "Harrison Bryant",
       "position": "TE",
-      "team": null
+      "team": "IND"
     },
     "6483": {
       "name": "Markus Jones",
