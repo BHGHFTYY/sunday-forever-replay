@@ -1,0 +1,244 @@
+[
+  {
+    "timestamp": "2026-11-17T07:42:10+00:00",
+    "week": 11,
+    "my": {
+      "roster_id": 2,
+      "team_name": "Vision 2030 FC",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "8183",
+          "name": "Brock Purdy",
+          "position": "QB",
+          "team": "SF",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "3198",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "4866",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "8146",
+          "name": "Garrett Wilson",
+          "position": "WR",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "11632",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "5846",
+          "name": "DK Metcalf",
+          "position": "WR",
+          "team": "PIT",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "5022",
+          "name": "Dallas Goedert",
+          "position": "TE",
+          "team": "PHI",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "6790",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "11533",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "7627",
+          "name": "Greg Rousseau",
+          "position": "DE",
+          "team": "BUF",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "7841",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "team": "NYJ",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "8311",
+          "name": "Terrel Bernard",
+          "position": "LB",
+          "team": "BUF",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "11739",
+          "name": "Evan Williams",
+          "position": "DB",
+          "team": "GB",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "13377",
+          "name": "Arvell Reese",
+          "position": "LB",
+          "team": "NYG",
+          "points": 0.0
+        }
+      ]
+    },
+    "opp": {
+      "roster_id": 9,
+      "team_name": "Jacob1234D",
+      "points": 0.0,
+      "lineup": [
+        {
+          "slot": "QB",
+          "player_id": "6770",
+          "name": "Joe Burrow",
+          "position": "QB",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "12490",
+          "name": "Bhayshul Tuten",
+          "position": "RB",
+          "team": "JAX",
+          "points": 0.0
+        },
+        {
+          "slot": "RB",
+          "player_id": "9509",
+          "name": "Bijan Robinson",
+          "position": "RB",
+          "team": "ATL",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "13298",
+          "name": "KC Concepcion Jr.",
+          "position": "WR",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "10229",
+          "name": "Rashee Rice",
+          "position": "WR",
+          "team": "KC",
+          "points": 0.0
+        },
+        {
+          "slot": "WR",
+          "player_id": "9997",
+          "name": "Zay Flowers",
+          "position": "WR",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "TE",
+          "player_id": "11604",
+          "name": "Brock Bowers",
+          "position": "TE",
+          "team": "LV",
+          "points": 0.0
+        },
+        {
+          "slot": "FLEX",
+          "player_id": "13281",
+          "name": "Jordyn Tyson",
+          "position": "WR",
+          "team": "NO",
+          "points": 0.0
+        },
+        {
+          "slot": "K",
+          "player_id": "2747",
+          "name": "Jason Myers",
+          "position": "K",
+          "team": "SEA",
+          "points": 0.0
+        },
+        {
+          "slot": "DL",
+          "player_id": "8343",
+          "name": "Boye Mafe",
+          "position": "DL",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "12646",
+          "name": "Barrett Carter",
+          "position": "LB",
+          "team": "CIN",
+          "points": 0.0
+        },
+        {
+          "slot": "LB",
+          "player_id": "12578",
+          "name": "Carson Schwesinger",
+          "position": "LB",
+          "team": "CLE",
+          "points": 0.0
+        },
+        {
+          "slot": "DB",
+          "player_id": "8339",
+          "name": "Kyle Hamilton",
+          "position": "DB",
+          "team": "BAL",
+          "points": 0.0
+        },
+        {
+          "slot": "IDP_FLEX",
+          "player_id": "8266",
+          "name": "Quay Walker",
+          "position": "LB",
+          "team": "LV",
+          "points": 0.0
+        }
+      ]
+    }
+  }
+]
