@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-17T02:59:05.376093+00:00",
+  "fetched_at": "2026-11-18T07:06:19.313275+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -3454,7 +3454,7 @@
     "11345": {
       "name": "Chris Smith",
       "position": "DL",
-      "team": null
+      "team": "MIA"
     },
     "12937": {
       "name": "Keith Cooper Jr.",
@@ -3474,7 +3474,7 @@
     "12877": {
       "name": "Brandon Johnson",
       "position": "DB",
-      "team": "TB"
+      "team": null
     },
     "8119": {
       "name": "Jahan Dotson",
@@ -4124,7 +4124,7 @@
     "10228": {
       "name": "Charlie Jones",
       "position": "WR",
-      "team": "NYG"
+      "team": null
     },
     "4026": {
       "name": "DeShone Kizer",
@@ -4664,7 +4664,7 @@
     "6948": {
       "name": "Leki Fotu",
       "position": "DT",
-      "team": null
+      "team": "PHI"
     },
     "13246": {
       "name": "Jaden Smith",
@@ -4934,7 +4934,7 @@
     "11721": {
       "name": "Bralen Trice",
       "position": "DE",
-      "team": "LV"
+      "team": null
     },
     "5808": {
       "name": "Connor Jessop",
@@ -5834,7 +5834,7 @@
     "8369": {
       "name": "Chance Campbell",
       "position": "LB",
-      "team": null
+      "team": "PHI"
     },
     "3919": {
       "name": "Mike Zimmer",
@@ -8959,7 +8959,7 @@
     "8500": {
       "name": "John FitzPatrick",
       "position": "TE",
-      "team": null
+      "team": "KC"
     },
     "1538": {
       "name": "Ryan Schraeder",
@@ -10074,7 +10074,7 @@
     "10981": {
       "name": "Colby Sorsdal",
       "position": "OL",
-      "team": null
+      "team": "NO"
     },
     "6410": {
       "name": "Brian Wallace",
@@ -11079,7 +11079,7 @@
     "13658": {
       "name": "Brady Boyd",
       "position": "WR",
-      "team": null
+      "team": "MIA"
     },
     "7026": {
       "name": "Steven Gonzalez",
@@ -11879,7 +11879,7 @@
     "11633": {
       "name": "Jamari Thrash",
       "position": "WR",
-      "team": null
+      "team": "TEN"
     },
     "12137": {
       "name": "Charles Woods",
@@ -14194,7 +14194,7 @@
     "7607": {
       "name": "Michael Carter",
       "position": "RB",
-      "team": null
+      "team": "TEN"
     },
     "5642": {
       "name": "Trayvon Henderson",
@@ -15804,7 +15804,7 @@
     "10221": {
       "name": "Ronnie Bell",
       "position": "WR",
-      "team": null
+      "team": "ARI"
     },
     "5087": {
       "name": "JK Scott",
@@ -16944,7 +16944,7 @@
     "11121": {
       "name": "AJ Finley",
       "position": "DB",
-      "team": null
+      "team": "PIT"
     },
     "943": {
       "name": "Kyle Rudolph",
@@ -17179,7 +17179,7 @@
     "4233": {
       "name": "Zane Gonzalez",
       "position": "K",
-      "team": "MIA"
+      "team": null
     },
     "6104": {
       "name": "Alijah Holder",
@@ -20689,7 +20689,7 @@
     "13860": {
       "name": "Sabastian Harsh",
       "position": "DE",
-      "team": null
+      "team": "HOU"
     },
     "2486": {
       "name": "Tyrus Thompson",
@@ -25114,7 +25114,7 @@
     "13829": {
       "name": "David Blay Jr.",
       "position": "DT",
-      "team": "GB"
+      "team": null
     },
     "11792": {
       "name": "Will Reichard",
@@ -25974,7 +25974,7 @@
     "12838": {
       "name": "Nikko Reed",
       "position": "DB",
-      "team": "NYG"
+      "team": null
     },
     "8524": {
       "name": "Ja'Tyre Carter",
@@ -26849,7 +26849,7 @@
     "10997": {
       "name": "Jerrick Reed II",
       "position": "DB",
-      "team": null
+      "team": "ARI"
     },
     "12164": {
       "name": "Curtis Jacobs",
@@ -29104,7 +29104,7 @@
     "12457": {
       "name": "Jaydon Blue",
       "position": "RB",
-      "team": null
+      "team": "PHI"
     },
     "7659": {
       "name": "Tre'von Moehrig",
@@ -32159,7 +32159,7 @@
     "7830": {
       "name": "Shaun Wade",
       "position": "CB",
-      "team": "PHI"
+      "team": null
     },
     "13085": {
       "name": "Kole Taylor",
@@ -35639,7 +35639,7 @@
     "12829": {
       "name": "Coleman Owen",
       "position": "WR",
-      "team": null
+      "team": "GB"
     },
     "11062": {
       "name": "Ali Gaye",
@@ -40229,7 +40229,7 @@
     "12429": {
       "name": "Kohl Levao",
       "position": "OL",
-      "team": null
+      "team": "NYJ"
     },
     "2299": {
       "name": "Kevin Fogg",
@@ -42329,7 +42329,7 @@
     "8332": {
       "name": "Matthew Butler",
       "position": "DL",
-      "team": null
+      "team": "MIA"
     },
     "7433": {
       "name": "Gavin Heslop",
@@ -46339,7 +46339,7 @@
     "12389": {
       "name": "Hayden Rucci",
       "position": "TE",
-      "team": null
+      "team": "PHI"
     },
     "318": {
       "name": "Chris Long",
@@ -48114,7 +48114,7 @@
     "11160": {
       "name": "Nick Whiteside",
       "position": "CB",
-      "team": "DET"
+      "team": null
     },
     "12667": {
       "name": "Smael Mondon Jr.",
@@ -49879,7 +49879,7 @@
     "12883": {
       "name": "Joshua Simon",
       "position": "TE",
-      "team": null
+      "team": "CAR"
     },
     "7965": {
       "name": "Cameron Kinley",
@@ -50274,7 +50274,7 @@
     "12380": {
       "name": "Te'Cory Couch",
       "position": "CB",
-      "team": null
+      "team": "BUF"
     },
     "13071": {
       "name": "Marques Cox",
@@ -50979,7 +50979,7 @@
     "10973": {
       "name": "Nick Hampton",
       "position": "LB",
-      "team": "CAR"
+      "team": null
     },
     "5200": {
       "name": "Dee Liner",
@@ -51844,7 +51844,7 @@
     "8415": {
       "name": "Haggai Ndubuisi",
       "position": "T",
-      "team": null
+      "team": "GB"
     },
     "6036": {
       "name": "Ryan Davis",
@@ -52489,7 +52489,7 @@
     "12035": {
       "name": "Jamree Kromah",
       "position": "DL",
-      "team": "MIA"
+      "team": "CLE"
     },
     "3570": {
       "name": "Brandon Ross",
@@ -54464,7 +54464,7 @@
     "5095": {
       "name": "Daniel Carlson",
       "position": "K",
-      "team": null
+      "team": "MIA"
     },
     "1849": {
       "name": "Jace Amaro",
@@ -54564,7 +54564,7 @@
     "13778": {
       "name": "EJ Smith",
       "position": "RB",
-      "team": null
+      "team": "KC"
     },
     "12510": {
       "name": "Jalen Milroe",
@@ -57079,7 +57079,7 @@
     "13652": {
       "name": "Jalen Hunt",
       "position": "DL",
-      "team": "LAR"
+      "team": null
     },
     "13602": {
       "name": "Jack Strand",
@@ -58219,7 +58219,7 @@
     "8795": {
       "name": "D'Anthony Bell",
       "position": "DB",
-      "team": null
+      "team": "MIN"
     },
     "11575": {
       "name": "Ray Davis",
