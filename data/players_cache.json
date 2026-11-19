@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-18T07:06:19.313275+00:00",
+  "fetched_at": "2026-11-19T07:06:33.696844+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -1014,7 +1014,7 @@
     "11044": {
       "name": "Nick Broeker",
       "position": "OL",
-      "team": "BUF"
+      "team": null
     },
     "630": {
       "name": "Phillip Adams",
@@ -4124,7 +4124,7 @@
     "10228": {
       "name": "Charlie Jones",
       "position": "WR",
-      "team": null
+      "team": "NYG"
     },
     "4026": {
       "name": "DeShone Kizer",
@@ -17594,7 +17594,7 @@
     "5869": {
       "name": "Michael Jordan",
       "position": "G",
-      "team": null
+      "team": "BAL"
     },
     "4572": {
       "name": "Joe Jones",
@@ -25974,7 +25974,7 @@
     "12838": {
       "name": "Nikko Reed",
       "position": "DB",
-      "team": null
+      "team": "NYG"
     },
     "8524": {
       "name": "Ja'Tyre Carter",
@@ -27199,7 +27199,7 @@
     "6957": {
       "name": "James Proche II",
       "position": "WR",
-      "team": "ARI"
+      "team": null
     },
     "7410": {
       "name": "David Bada",
@@ -29179,7 +29179,7 @@
     "12548": {
       "name": "Lenny Krieg",
       "position": "K",
-      "team": "GB"
+      "team": null
     },
     "3028": {
       "name": "Chuck Pagano",
@@ -31579,7 +31579,7 @@
     "13904": {
       "name": "Jacob De Jesus",
       "position": "WR",
-      "team": "KC"
+      "team": null
     },
     "5162": {
       "name": "Reggie Bonnafon",
@@ -32259,7 +32259,7 @@
     "7612": {
       "name": "Dee Eskridge",
       "position": "WR",
-      "team": null
+      "team": "MIN"
     },
     "11265": {
       "name": "Robert Haskins",
@@ -37169,7 +37169,7 @@
     "10223": {
       "name": "Eric Gray",
       "position": "RB",
-      "team": "NYG"
+      "team": null
     },
     "7597": {
       "name": "Kenny Yeboah",
@@ -38909,7 +38909,7 @@
     "13054": {
       "name": "Junior Tafuna",
       "position": "DT",
-      "team": "HOU"
+      "team": null
     },
     "4218": {
       "name": "Trent Taylor",
@@ -40054,7 +40054,7 @@
     "13951": {
       "name": "Nathan Voorhis",
       "position": "DE",
-      "team": "NYJ"
+      "team": null
     },
     "11186": {
       "name": "Carlos Washington Jr.",
@@ -47204,7 +47204,7 @@
     "12907": {
       "name": "Quentin Skinner",
       "position": "WR",
-      "team": null
+      "team": "PHI"
     },
     "650": {
       "name": "Nick Folk",
@@ -48114,7 +48114,7 @@
     "11160": {
       "name": "Nick Whiteside",
       "position": "CB",
-      "team": null
+      "team": "DET"
     },
     "12667": {
       "name": "Smael Mondon Jr.",
@@ -50209,7 +50209,7 @@
     "11748": {
       "name": "Bub Means",
       "position": "WR",
-      "team": "KC"
+      "team": "ARI"
     },
     "5744": {
       "name": "Eldridge Massington",
@@ -50979,7 +50979,7 @@
     "10973": {
       "name": "Nick Hampton",
       "position": "LB",
-      "team": null
+      "team": "CAR"
     },
     "5200": {
       "name": "Dee Liner",
@@ -51714,7 +51714,7 @@
     "8850": {
       "name": "Ben Stille",
       "position": "DT",
-      "team": "DET"
+      "team": null
     },
     "5526": {
       "name": "Darious Williams",
@@ -51939,7 +51939,7 @@
     "12005": {
       "name": "Jack Browning",
       "position": "K/P",
-      "team": null
+      "team": "MIA"
     },
     "13609": {
       "name": "Tristan Leigh",
@@ -52129,7 +52129,7 @@
     "12698": {
       "name": "Ajani Cornelius",
       "position": "OL",
-      "team": "DAL"
+      "team": "PHI"
     },
     "13087": {
       "name": "Dante Barnett",
@@ -53804,7 +53804,7 @@
     "13978": {
       "name": "Albert Reese",
       "position": "OT",
-      "team": "ARI"
+      "team": null
     },
     "11985": {
       "name": "Carlton Johnson",
@@ -54299,7 +54299,7 @@
     "6024": {
       "name": "Fred Johnson",
       "position": "T",
-      "team": null
+      "team": "KC"
     },
     "4149": {
       "name": "Jamaal Williams",
@@ -55604,7 +55604,7 @@
     "13580": {
       "name": "Carsen Ryan",
       "position": "TE",
-      "team": "CLE"
+      "team": null
     },
     "8804": {
       "name": "Duplicate Player",
@@ -55874,7 +55874,7 @@
     "11065": {
       "name": "Adrian Martinez",
       "position": "QB",
-      "team": "SEA"
+      "team": null
     },
     "13787": {
       "name": "Tahj Chambers",
@@ -56529,7 +56529,7 @@
     "12015": {
       "name": "Harrison Mevis",
       "position": "K",
-      "team": "BAL"
+      "team": null
     },
     "6777": {
       "name": "Troy Polamalu",
