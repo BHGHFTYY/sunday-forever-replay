@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-19T07:06:33.696844+00:00",
+  "fetched_at": "2026-11-20T18:26:29.978745+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -2114,7 +2114,7 @@
     "8116": {
       "name": "Pierre Strong Jr.",
       "position": "RB",
-      "team": "GB"
+      "team": null
     },
     "2518": {
       "name": "Hayes Pullard",
@@ -4934,7 +4934,7 @@
     "11721": {
       "name": "Bralen Trice",
       "position": "DE",
-      "team": null
+      "team": "DAL"
     },
     "5808": {
       "name": "Connor Jessop",
@@ -16007,7 +16007,7 @@
       "team": null
     },
     "13603": {
-      "name": "Gregory Desrosiers",
+      "name": "Gregory Desrosiers Jr.",
       "position": "RB",
       "team": "NYG"
     },
@@ -17959,7 +17959,7 @@
     "12382": {
       "name": "Jake Kubas",
       "position": "OG",
-      "team": null
+      "team": "DAL"
     },
     "636": {
       "name": "Chris Maragos",
@@ -24034,7 +24034,7 @@
     "13928": {
       "name": "Geno VanDeMark",
       "position": "OL",
-      "team": "NYG"
+      "team": null
     },
     "8700": {
       "name": "Savon Scarver",
@@ -25179,7 +25179,7 @@
     "6920": {
       "name": "Isaiah Hodgins",
       "position": "WR",
-      "team": "PIT"
+      "team": null
     },
     "2187": {
       "name": "Kony Ealy",
@@ -25324,7 +25324,7 @@
     "7329": {
       "name": "Cole Christiansen",
       "position": "LB",
-      "team": "KC"
+      "team": null
     },
     "3930": {
       "name": "Kevin White",
@@ -31599,7 +31599,7 @@
     "13697": {
       "name": "Da'Metrius Weatherspoon",
       "position": "OL",
-      "team": "CAR"
+      "team": null
     },
     "13919": {
       "name": "DJ Wingfield",
@@ -37654,7 +37654,7 @@
     "11210": {
       "name": "Malik Heath",
       "position": "WR",
-      "team": "ATL"
+      "team": "WAS"
     },
     "13808": {
       "name": "Wesley Bailey",
@@ -47974,7 +47974,7 @@
     "7050": {
       "name": "Josiah Deguara",
       "position": "TE",
-      "team": null
+      "team": "LAC"
     },
     "6135": {
       "name": "D'Andre Walker",
@@ -49649,7 +49649,7 @@
     "5036": {
       "name": "Justin Reid",
       "position": "DB",
-      "team": "NO"
+      "team": null
     },
     "13326": {
       "name": "DT Sheffield",
@@ -53804,7 +53804,7 @@
     "13978": {
       "name": "Albert Reese",
       "position": "OT",
-      "team": null
+      "team": "CAR"
     },
     "11985": {
       "name": "Carlton Johnson",
@@ -55449,7 +55449,7 @@
     "7865": {
       "name": "Brandon Smith",
       "position": "WR",
-      "team": "PIT"
+      "team": null
     },
     "261": {
       "name": "A.J. Hawk",
@@ -55604,7 +55604,7 @@
     "13580": {
       "name": "Carsen Ryan",
       "position": "TE",
-      "team": null
+      "team": "CLE"
     },
     "8804": {
       "name": "Duplicate Player",
@@ -58074,7 +58074,7 @@
     "4293": {
       "name": "Daniel Brunskill",
       "position": "OL",
-      "team": "LAC"
+      "team": null
     },
     "4380": {
       "name": "Cody Heiman",
