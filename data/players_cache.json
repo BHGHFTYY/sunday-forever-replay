@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-20T18:26:29.978745+00:00",
+  "fetched_at": "2026-11-21T22:13:34.637623+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -2114,7 +2114,7 @@
     "8116": {
       "name": "Pierre Strong Jr.",
       "position": "RB",
-      "team": null
+      "team": "GB"
     },
     "2518": {
       "name": "Hayes Pullard",
@@ -6054,7 +6054,7 @@
     "5870": {
       "name": "Daniel Jones",
       "position": "QB",
-      "team": "IND"
+      "team": null
     },
     "457": {
       "name": "Colin Cole",
@@ -35159,7 +35159,7 @@
     "7077": {
       "name": "Jacob Bobenmoyer",
       "position": "LS",
-      "team": "IND"
+      "team": null
     },
     "2977": {
       "name": "Collin Rahrig",
@@ -50114,7 +50114,7 @@
     "7559": {
       "name": "Ihmir Smith-Marsette",
       "position": "WR",
-      "team": "CAR"
+      "team": null
     },
     "11536": {
       "name": "Milton Wright",
