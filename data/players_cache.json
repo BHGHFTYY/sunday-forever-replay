@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-21T22:13:34.637623+00:00",
+  "fetched_at": "2026-11-22T22:51:14.732351+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -334,7 +334,7 @@
     "10938": {
       "name": "D.J. Johnson",
       "position": "LB",
-      "team": "GB"
+      "team": null
     },
     "4433": {
       "name": "Xavier Coleman",
@@ -5999,7 +5999,7 @@
     "2197": {
       "name": "Brandin Cooks",
       "position": "WR",
-      "team": "SF"
+      "team": null
     },
     "645": {
       "name": "Dwan Edwards",
@@ -17269,7 +17269,7 @@
     "8750": {
       "name": "Michael Niese",
       "position": "G",
-      "team": null
+      "team": "LAR"
     },
     "6283": {
       "name": "Corey Ballentine",
@@ -44184,7 +44184,7 @@
     "965": {
       "name": "Jake McQuaide",
       "position": "LS",
-      "team": "LAR"
+      "team": null
     },
     "8695": {
       "name": "Allie Green",
