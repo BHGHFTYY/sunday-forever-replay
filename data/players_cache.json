@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-22T22:51:14.732351+00:00",
+  "fetched_at": "2026-11-24T05:53:23.310977+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -4944,7 +4944,7 @@
     "8278": {
       "name": "Christian Harris",
       "position": "LB",
-      "team": "ATL"
+      "team": null
     },
     "7216": {
       "name": "Giovanni Ricci",
@@ -23704,7 +23704,7 @@
     "10972": {
       "name": "Terell Smith",
       "position": "DB",
-      "team": null
+      "team": "ATL"
     },
     "1752": {
       "name": "Malcolm Bronson",
@@ -25324,7 +25324,7 @@
     "7329": {
       "name": "Cole Christiansen",
       "position": "LB",
-      "team": null
+      "team": "KC"
     },
     "3930": {
       "name": "Kevin White",
@@ -27234,7 +27234,7 @@
     "14059": {
       "name": "Sean Fresch Jr.",
       "position": "CB",
-      "team": null
+      "team": "DEN"
     },
     "7220": {
       "name": "Frederick Mauigoa",
@@ -37169,7 +37169,7 @@
     "10223": {
       "name": "Eric Gray",
       "position": "RB",
-      "team": null
+      "team": "IND"
     },
     "7597": {
       "name": "Kenny Yeboah",
@@ -51944,7 +51944,7 @@
     "13609": {
       "name": "Tristan Leigh",
       "position": "OL",
-      "team": null
+      "team": "MIN"
     },
     "1040": {
       "name": "Nigel Bradham",
@@ -58114,7 +58114,7 @@
     "13917": {
       "name": "Marlen Sewell",
       "position": "DB",
-      "team": null
+      "team": "CHI"
     },
     "368": {
       "name": "Jason McCourty",
