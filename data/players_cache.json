@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-25T08:12:32.953584+00:00",
+  "fetched_at": "2026-11-26T19:27:58.194879+00:00",
   "players": {
     "6462": {
       "name": "Ellis Richardson",
@@ -1004,7 +1004,7 @@
     "12699": {
       "name": "LaJohntay Wester",
       "position": "WR",
-      "team": "BAL"
+      "team": null
     },
     "3488": {
       "name": "D.J. Foster",
@@ -2354,7 +2354,7 @@
     "13566": {
       "name": "Max Llewellyn",
       "position": "DE",
-      "team": null
+      "team": "MIA"
     },
     "5021": {
       "name": "Lorenzo Carter",
@@ -3474,7 +3474,7 @@
     "12877": {
       "name": "Brandon Johnson",
       "position": "DB",
-      "team": null
+      "team": "TB"
     },
     "8119": {
       "name": "Jahan Dotson",
@@ -5999,7 +5999,7 @@
     "2197": {
       "name": "Brandin Cooks",
       "position": "WR",
-      "team": null
+      "team": "SF"
     },
     "645": {
       "name": "Dwan Edwards",
@@ -8909,7 +8909,7 @@
     "4574": {
       "name": "Cooper Rush",
       "position": "QB",
-      "team": "TB"
+      "team": null
     },
     "626": {
       "name": "Jim Dray",
@@ -9904,7 +9904,7 @@
     "13058": {
       "name": "Cam Horsley",
       "position": "DT",
-      "team": "CAR"
+      "team": null
     },
     "399": {
       "name": "Larry English",
@@ -11749,7 +11749,7 @@
     "13872": {
       "name": "Jaxson Moi",
       "position": "DT",
-      "team": null
+      "team": "LAR"
     },
     "8699": {
       "name": "Cyrus Holder",
@@ -13334,7 +13334,7 @@
     "96": {
       "name": "Aaron Rodgers",
       "position": "QB",
-      "team": "PIT"
+      "team": null
     },
     "13578": {
       "name": "Miles Scott",
@@ -15594,7 +15594,7 @@
     "7833": {
       "name": "Isaiahh Loudermilk",
       "position": "DE",
-      "team": "NYJ"
+      "team": null
     },
     "5364": {
       "name": "Joshua Frazier",
@@ -15639,7 +15639,7 @@
     "6659": {
       "name": "Craig Reynolds",
       "position": "RB",
-      "team": "WAS"
+      "team": null
     },
     "5573": {
       "name": "Greer Martini",
@@ -18999,7 +18999,7 @@
     "13019": {
       "name": "Greedy Vance",
       "position": "CB",
-      "team": "LV"
+      "team": null
     },
     "2741": {
       "name": "Richard Ash",
@@ -19359,7 +19359,7 @@
     "8285": {
       "name": "Josh Ross",
       "position": "LB",
-      "team": "MIN"
+      "team": null
     },
     "672": {
       "name": "Donald Washington",
@@ -21444,7 +21444,7 @@
     "13635": {
       "name": "Avery Smith",
       "position": "CB",
-      "team": "SEA"
+      "team": "LAC"
     },
     "11965": {
       "name": "Marcus Banks",
@@ -21744,7 +21744,7 @@
     "6177": {
       "name": "Khalen Saunders",
       "position": "DT",
-      "team": null
+      "team": "DEN"
     },
     "8338": {
       "name": "Myron Tagovailoa-Amosa",
@@ -22779,7 +22779,7 @@
     "10966": {
       "name": "Robert Beal Jr.",
       "position": "LB",
-      "team": "SF"
+      "team": null
     },
     "11790": {
       "name": "Nathaniel Watson",
@@ -23459,7 +23459,7 @@
     "11648": {
       "name": "Kedon Slovis",
       "position": "QB",
-      "team": null
+      "team": "ARI"
     },
     "7754": {
       "name": "Marquiss Spencer",
@@ -32459,7 +32459,7 @@
     "11750": {
       "name": "Dominique Hampton",
       "position": "CB",
-      "team": "TEN"
+      "team": null
     },
     "1798": {
       "name": "Josh Huff",
@@ -37614,7 +37614,7 @@
     "12795": {
       "name": "Jake Majors",
       "position": "OL",
-      "team": "PHI"
+      "team": null
     },
     "69": {
       "name": "Santana Moss",
@@ -38909,7 +38909,7 @@
     "13054": {
       "name": "Junior Tafuna",
       "position": "DT",
-      "team": null
+      "team": "HOU"
     },
     "4218": {
       "name": "Trent Taylor",
@@ -40039,7 +40039,7 @@
     "7878": {
       "name": "Milo Eifler",
       "position": "LB",
-      "team": "TEN"
+      "team": null
     },
     "8780": {
       "name": "Clarence Hicks",
@@ -40137,7 +40137,7 @@
       "team": null
     },
     "12391": {
-      "name": "Kenny Dyson",
+      "name": "Kenny Dyson Jr.",
       "position": "LB",
       "team": "MIN"
     },
@@ -40924,7 +40924,7 @@
     "7730": {
       "name": "Darren Hall",
       "position": "CB",
-      "team": null
+      "team": "WAS"
     },
     "4547": {
       "name": "Nigel Williams",
@@ -42979,7 +42979,7 @@
     "7686": {
       "name": "Ambry Thomas",
       "position": "CB",
-      "team": null
+      "team": "WAS"
     },
     "4766": {
       "name": "Reggie Porter",
@@ -47539,7 +47539,7 @@
     "6803": {
       "name": "Brandon Aiyuk",
       "position": "WR",
-      "team": null
+      "team": "WAS"
     },
     "11551": {
       "name": "Tre Tarpley",
@@ -47974,7 +47974,7 @@
     "7050": {
       "name": "Josiah Deguara",
       "position": "TE",
-      "team": "LAC"
+      "team": null
     },
     "6135": {
       "name": "D'Andre Walker",
@@ -49914,7 +49914,7 @@
     "7115": {
       "name": "Charlie Heck",
       "position": "T",
-      "team": "IND"
+      "team": null
     },
     "2244": {
       "name": "Kareem Martin",
@@ -50054,7 +50054,7 @@
     "4718": {
       "name": "Dare Ogunbowale",
       "position": "RB",
-      "team": "HOU"
+      "team": null
     },
     "13182": {
       "name": "Tre'vonn Rybka",
@@ -50232,9 +50232,9 @@
       "team": "CIN"
     },
     "8200": {
-      "name": "Kevin Austin",
+      "name": "Kevin Austin Jr.",
       "position": "WR",
-      "team": null
+      "team": "NO"
     },
     "886": {
       "name": "Taiwan Jones",
@@ -57819,7 +57819,7 @@
     "13861": {
       "name": "Daniel Sobkowicz",
       "position": "WR",
-      "team": null
+      "team": "HOU"
     },
     "691": {
       "name": "Derek Anderson",
@@ -59659,7 +59659,7 @@
     "4114": {
       "name": "Tanoh Kpassagnon",
       "position": "DE",
-      "team": "TEN"
+      "team": null
     },
     "797": {
       "name": "Justin Rogers",
@@ -60419,7 +60419,7 @@
     "13035": {
       "name": "Amari Kight",
       "position": "OT",
-      "team": "LV"
+      "team": null
     },
     "6143": {
       "name": "Marvell Tell",
